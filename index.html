@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Program tábora – Narnia 2026</title>
+  <meta name="description" content="Program tábora Narnia 2026 pre animátorov. Filtrovanie podľa dňa a animátora.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="header-eyebrow">Tábor Narnia 2026</p>
+      <h1>Program pre animátorov</h1>
+    </div>
+  </header>
+
+  <div class="filters-bar" id="filtersBar">
+    <div class="filters-inner">
+      <div class="filter-item filter-search">
+        <input
+          type="search"
+          id="searchInput"
+          class="filter-control"
+          placeholder="Hľadaj program alebo meno…"
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Hľadaj program"
+        >
+      </div>
+      <div class="filter-item">
+        <select id="denFilter" class="filter-control" aria-label="Filtrovať podľa dňa">
+          <option value="">Všetky dni</option>
+          <option value="Pondelok">Pondelok</option>
+          <option value="Utorok">Utorok</option>
+          <option value="Streda">Streda</option>
+          <option value="Štvrtok">Štvrtok</option>
+          <option value="Piatok">Piatok</option>
+        </select>
+      </div>
+      <div class="filter-item">
+        <select id="animatorFilter" class="filter-control" aria-label="Filtrovať podľa animátora">
+          <option value="">Všetci animátori</option>
+        </select>
+      </div>
+      <button id="clearBtn" class="btn-clear">Vyčistiť</button>
+    </div>
+    <p id="resultInfo" class="result-info" aria-live="polite"></p>
+  </div>
+
+  <main class="main-content">
+
+    <div id="myScheduleBanner" class="my-schedule-banner" hidden>
+      <span class="my-schedule-icon" aria-hidden="true">📋</span>
+      <span class="my-schedule-text">
+        Môj program:
+        <strong class="my-schedule-name" id="myScheduleName"></strong>
+        <span class="my-schedule-count" id="myScheduleCount"></span>
+      </span>
+    </div>
+
+    <div id="cardsGrid" class="cards-grid" role="list" aria-label="Aktivity tábora"></div>
+
+    <div id="emptyState" class="empty-state" hidden role="status">
+      <p>Žiadne aktivity nevyhovujú filtru.</p>
+      <button class="btn-clear-inline" id="clearBtn2">Vyčistiť filtre</button>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Tábor Narnia 2026 · Program pre animátorov</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
