@@ -23,11 +23,13 @@ const campData = { meta: campMeta, announcements, contacts, appendices, animator
 let currentSection    = 'uvod';
 let currentActivityId = null;
 let validSectionIds   = [];
+let previousSection   = null;
 
 function navigateTo(sectionId, actParam) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('section--active'));
 
   if (sectionId === 'aktivity' && actParam) {
+    previousSection = currentSection;
     currentActivityId = actParam;
     const sec = document.getElementById('section-aktivity');
     if (sec) {
@@ -38,7 +40,12 @@ function navigateTo(sectionId, actParam) {
         detailView.innerHTML = buildActivityDetail(actParam, campData);
         listView.hidden   = true;
         detailView.hidden = false;
-        document.getElementById('detailBackBtn').addEventListener('click', handleBackFromDetail);
+        const backBtn = document.getElementById('detailBackBtn');
+        if (backBtn) {
+          const prevNavItem = navItems.find(n => n && n.id === previousSection);
+          backBtn.innerHTML = ICONS.arrowLeft + (prevNavItem ? prevNavItem.label : 'Späť');
+          backBtn.addEventListener('click', handleBackFromDetail);
+        }
       }
     }
     updateTopbarTitle('Aktivity');
@@ -73,11 +80,10 @@ function navigateTo(sectionId, actParam) {
 }
 
 function handleBackFromDetail() {
-  showActivityList();
-  buildAktivityCards(campData);
-  updateNavActive('aktivity');
-  updateTopbarTitle('Aktivity');
   currentActivityId = null;
+  const back = previousSection || 'aktivity';
+  previousSection = null;
+  navigateTo(back);
 }
 
 function updateNavActive(sectionId) {
