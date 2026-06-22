@@ -1,0 +1,200 @@
+/* ─── ACTIVITY DETAIL ────────────────────────────────────────────────────── */
+
+.aktivity-detail-view {
+  animation: cardIn 0.2s ease both;
+}
+
+.detail-topbar {
+  padding: 0.75rem 1.5rem;
+  background: var(--ground-mid);
+  border-bottom: 1px solid var(--ground-border);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.detail-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  border: none;
+  color: var(--ground-muted);
+  font-size: 0.82rem;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.25rem 0;
+  transition: color 0.15s;
+}
+
+.detail-back-btn:hover { color: var(--ground-text); }
+
+.detail-content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.detail-header {
+  border-left: 4px solid var(--gold);
+  padding-left: 1rem;
+}
+
+.detail-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 700;
+  font-style: italic;
+  color: var(--ground-text);
+  line-height: 1.2;
+  margin-top: 0.5rem;
+}
+
+.detail-note {
+  font-size: 0.84rem;
+  color: var(--ground-muted);
+  margin-top: 0.4rem;
+  font-style: italic;
+}
+
+.detail-section {
+  background: var(--card);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-card);
+  padding: 1.25rem;
+}
+
+.detail-section-title {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ground-muted);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.detail-mat-hint {
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 0.7rem;
+}
+
+/* ─── MATERIALS — plain read-only list ───────────────────────────────────── */
+
+.materials-plain-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0;
+}
+
+.materials-plain-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+  color: var(--card-text);
+  padding: 0.3rem 0;
+  border-bottom: 1px solid var(--card-border);
+  line-height: 1.4;
+}
+
+.materials-plain-list li:last-child {
+  border-bottom: none;
+}
+
+.materials-plain-list li::before {
+  content: '•';
+  color: var(--gold);
+  font-weight: 700;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+}
+
+/* ─── DETAIL META GRID ───────────────────────────────────────────────────── */
+
+.detail-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.75rem;
+  background: var(--card);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-card);
+  padding: 1rem 1.25rem;
+}
+
+.detail-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.detail-meta-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ground-muted);
+}
+
+.detail-meta-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--card-text);
+}
+
+/* ─── DETAIL ANIMATORS NOTE ──────────────────────────────────────────────── */
+
+.detail-animators-note {
+  font-size: 0.82rem;
+  color: var(--ground-muted);
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+
+.detail-count {
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 0.72rem;
+}
+
+/* ─── DETAIL DESCRIPTION ─────────────────────────────────────────────────── */
+
+.detail-description {
+  font-size: 0.9rem;
+  color: var(--card-text);
+  line-height: 1.7;
+}
+
+/* ─── DETAIL SCORING ─────────────────────────────────────────────────────── */
+
+.detail-scoring {
+  font-size: 0.875rem;
+  color: var(--card-text);
+  line-height: 1.6;
+}
+
+/* ─── DETAIL MTZ ─────────────────────────────────────────────────────────── */
+
+.detail-section--mtz {
+  border-left: 3px solid var(--col-utorok);
+}
+
+.detail-mtz {
+  font-size: 0.875rem;
+  color: var(--card-text);
+  line-height: 1.6;
+}

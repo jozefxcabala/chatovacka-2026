@@ -20,7 +20,16 @@
       "Bash(node --check script.js)",
       "Bash(node -e ' *)",
       "Bash(node --check /Users/caby/chatovacka-2026/script.js)",
-      "Bash(lsof -iTCP -sTCP:LISTEN -P)"
+      "Bash(lsof -iTCP -sTCP:LISTEN -P)",
+      "Bash(curl -s http://localhost:8765/)",
+      "Bash(curl -s http://localhost:8765/js/app.js)",
+      "Bash(curl -s http://localhost:8765/data/activities.js)",
+      "Bash(node --input-type=module)",
+      "Bash(node --experimental-vm-modules --input-type=module)",
+      "Bash(node --check js/utils.js)",
+      "Bash(node --check js/filters.js)",
+      "Bash(node --check js/render.js)",
+      "Bash(node --check js/app.js)"
     ]
   }
 }

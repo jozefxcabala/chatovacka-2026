@@ -1,0 +1,370 @@
+/* ─── FILTERS BAR ────────────────────────────────────────────────────────── */
+
+.filters-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--ground-mid);
+  border-bottom: 1px solid var(--ground-border);
+  padding: 0.75rem 1.25rem 0.5rem;
+}
+
+.filters-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.filter-item {
+  flex: 1 1 160px;
+  min-width: 0;
+}
+
+.filter-search {
+  flex: 2 1 200px;
+}
+
+.filter-control {
+  width: 100%;
+  height: 2.4rem;
+  background: var(--ground);
+  border: 1px solid var(--ground-border);
+  color: var(--ground-text);
+  padding: 0 0.75rem;
+  border-radius: var(--r-md);
+  font-size: 0.875rem;
+  font-family: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.filter-control:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-dim);
+}
+
+.filter-control::placeholder {
+  color: var(--ground-muted);
+}
+
+.filter-item:not(.filter-search) .filter-control {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23999999' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.25rem;
+  cursor: pointer;
+}
+
+.filter-control option {
+  background: var(--ground-mid);
+  color: var(--ground-text);
+}
+
+.btn-clear {
+  flex: 0 0 auto;
+  height: 2.4rem;
+  background: transparent;
+  border: 1px solid rgba(200,149,42,0.4);
+  color: var(--gold);
+  padding: 0 1rem;
+  border-radius: var(--r-md);
+  font-size: 0.8rem;
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn-clear:hover,
+.btn-clear:focus-visible {
+  background: var(--gold-dim);
+  border-color: var(--gold);
+  outline: none;
+}
+
+.result-info {
+  max-width: 1100px;
+  margin: 0.4rem auto 0;
+  font-size: 0.7rem;
+  color: var(--ground-muted);
+  letter-spacing: 0.03em;
+}
+
+/* ─── MY SCHEDULE BANNER ─────────────────────────────────────────────────── */
+
+.my-schedule-banner {
+  max-width: 1100px;
+  margin: 1rem auto 0;
+  background: var(--gold-dim);
+  border: 1px solid rgba(200,149,42,0.25);
+  border-radius: var(--r-lg);
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.my-schedule-banner[hidden] { display: none; }
+
+.my-schedule-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+.my-schedule-text {
+  font-size: 0.875rem;
+  color: var(--ground-text);
+}
+
+.my-schedule-name  { font-weight: 700; color: var(--gold); }
+.my-schedule-count { color: var(--ground-muted); font-size: 0.8rem; }
+
+/* ─── MAIN CONTENT ───────────────────────────────────────────────────────── */
+
+.main-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+/* ─── CARDS GRID ─────────────────────────────────────────────────────────── */
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* ─── CARD ───────────────────────────────────────────────────────────────── */
+
+.card {
+  background: var(--card);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-card);
+  animation: cardIn 0.22s ease both;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card-stripe {
+  height: 5px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.card--pondelok .card-stripe { background: var(--col-pondelok); }
+.card--utorok   .card-stripe { background: var(--col-utorok);   }
+.card--streda   .card-stripe { background: var(--col-streda);   }
+.card--stvrtok  .card-stripe { background: var(--col-stvrtok);  }
+.card--piatok   .card-stripe { background: var(--col-piatok);   }
+.card--sobota   .card-stripe { background: var(--col-sobota);   }
+
+.card-body {
+  padding: 0.875rem 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Badges */
+.card-badges {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2em 0.55em;
+  border-radius: var(--r-pill);
+  line-height: 1.5;
+}
+
+.badge-pondelok { background: var(--col-pondelok); color: #fff; }
+.badge-utorok   { background: var(--col-utorok);   color: #fff; }
+.badge-streda   { background: var(--col-streda);   color: #fff; }
+.badge-stvrtok  { background: var(--col-stvrtok);  color: #fff; }
+.badge-piatok   { background: var(--col-piatok);   color: #fff; }
+.badge-sobota   { background: var(--col-sobota);   color: #fff; }
+
+.badge-cas { font-weight: 600; }
+
+.badge-doobedu  { background: #dbeaff; color: #1a3a7a; }
+.badge-poobedie { background: #fff3d4; color: #7a4a00; }
+.badge-vecer    { background: #2a1e4a; color: #c4b4f0; }
+.badge-nocna    { background: #0f1526; color: #8aabdc; }
+.badge-skuska   { background: #3a0e0e; color: #f0a0a0; }
+
+.badge-scenka {
+  background: rgba(139,109,196,0.2);
+  color: var(--col-utorok);
+  border: 1px solid rgba(139,109,196,0.3);
+}
+
+/* Title */
+.card-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--card-text);
+  line-height: 1.25;
+}
+
+/* Note */
+.card-note {
+  font-size: 0.72rem;
+  color: var(--card-muted);
+  font-style: italic;
+}
+
+/* Animatori */
+.card-animatori {
+  margin-top: auto;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--card-border);
+}
+
+.animatori-label {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--card-muted);
+  margin-bottom: 0.4rem;
+}
+
+.animatori-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35em;
+  background: var(--ground);
+  border: 1px solid var(--ground-border);
+  border-radius: var(--r-pill);
+  padding: 0.2em 0.6em;
+  font-size: 0.775rem;
+  color: var(--card-text);
+  line-height: 1.5;
+  transition: background 0.1s;
+}
+
+.chip-rola {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--card-muted);
+}
+
+.chip--highlight {
+  background: var(--gold);
+  border-color: #a87520;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 1px 6px rgba(200,149,42,0.4);
+}
+
+.chip--highlight .chip-rola {
+  color: rgba(255,255,255,0.72);
+}
+
+.card-animatori-all {
+  margin-top: auto;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--card-border);
+  font-size: 0.78rem;
+  color: var(--card-muted);
+  font-style: italic;
+}
+
+/* Card extras */
+.card-detail-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  align-self: flex-end;
+  margin-top: auto;
+  padding: 0.3rem 0.7rem;
+  background: var(--gold-dim);
+  border: 1px solid rgba(200,149,42,0.3);
+  border-radius: var(--r-md);
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.card-detail-btn:hover { background: rgba(200,149,42,0.2); }
+
+.card-mat-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  color: var(--card-muted);
+  padding-top: 0.4rem;
+}
+
+.mat-bar-icon { font-size: 0.85rem; }
+
+.chip--more {
+  background: var(--ground);
+  color: var(--ground-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* ─── EMPTY STATE ────────────────────────────────────────────────────────── */
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--ground-muted);
+}
+
+.empty-state[hidden] { display: none; }
+
+.empty-state p {
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.btn-clear-inline {
+  background: transparent;
+  border: 1px solid rgba(200,149,42,0.4);
+  color: var(--gold);
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--r-md);
+  font-size: 0.875rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-clear-inline:hover {
+  background: var(--gold-dim);
+}

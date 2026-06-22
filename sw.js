@@ -1,11 +1,23 @@
 'use strict';
 
-const CACHE = 'tabor-narnia-v2';
+const CACHE = 'tabor-v3';
 const ASSETS = [
   './',
   './index.html',
-  './styles.css',
-  './script.js',
+  './css/base.css',
+  './css/sidebar.css',
+  './css/activities.css',
+  './css/detail.css',
+  './css/responsive.css',
+  './js/app.js',
+  './js/render.js',
+  './js/filters.js',
+  './js/utils.js',
+  './data/config.js',
+  './data/days.js',
+  './data/activities.js',
+  './data/scenes.js',
+  './data/prayers.js',
   './manifest.json',
   './icon.svg'
 ];
