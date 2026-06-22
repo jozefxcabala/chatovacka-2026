@@ -3,7 +3,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { escapeHtml, el, ICONS, DAY_COLOR_MAP, dayCalendarIcon, formatTextToHtml,
-         getDayConfig, getActivity, getTodayDayId } from './utils.js';
+         getDayConfig, getActivity, getTodayDayId, getScheduleStatus } from './utils.js';
 import { getFilteredActivities, getFiltersState } from './filters.js';
 
 // ─── SIDEBAR NAV ──────────────────────────────────────────────────────────────
@@ -21,7 +21,7 @@ export function buildNavItems(days) {
   return items;
 }
 
-export function renderSidebar(campMeta, navItems, onNavigate) {
+export function renderSidebar(campMeta, navItems, onNavigate, nameDay) {
   const nav = document.getElementById('sidebarNav');
   nav.innerHTML = '';
 
@@ -47,70 +47,116 @@ export function renderSidebar(campMeta, navItems, onNavigate) {
 
   const footer = document.getElementById('sidebarFooter');
   if (footer) {
-    footer.innerHTML = '<span class="sidebar-version-text">' +
-      escapeHtml(campMeta.version) + ' · ' + campMeta.year + '</span>';
+    const now = new Date();
+    const initTime = now.toLocaleTimeString('sk-SK', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    footer.innerHTML =
+      '<div class="sidebar-clock-row">' +
+      '<span class="sidebar-clock-icon">🕐</span>' +
+      '<span id="sidebar-live-time" class="sidebar-clock-time">' + escapeHtml(initTime) + '</span>' +
+      (nameDay ? '<span class="sidebar-nameday">🎂 ' + escapeHtml(nameDay) + '</span>' : '') +
+      '</div>' +
+      '<span class="sidebar-version-text">' + escapeHtml(campMeta.version) + ' · ' + campMeta.year + '</span>';
   }
 }
 
 // ─── SEKCIA: ÚVOD ─────────────────────────────────────────────────────────────
 
+function minsToTime(m) {
+  const h = Math.floor(m / 60) % 24;
+  const min = m % 60;
+  return String(h).padStart(2, '0') + ':' + String(min).padStart(2, '0');
+}
+
 export function buildUvod(campData, navItems) {
-  const { meta, announcements, days } = campData;
-  const todayId   = getTodayDayId(days);
-  const todayDay  = todayId ? getDayConfig(days, todayId) : null;
+  const { meta, announcements, days, activities, animatorRules } = campData;
+  const todayId    = getTodayDayId(days);
+  const todayDay   = todayId ? getDayConfig(days, todayId) : null;
   const displayDay = todayDay || days[0];
+
   let html = '';
 
+  // Hero
   html += '<div class="uvod-hero">';
   html += '<p class="uvod-eyebrow">Tábor ' + meta.year + '</p>';
   html += '<h1 class="uvod-hero-title">' + escapeHtml(meta.campName) + '</h1>';
   html += '<p class="uvod-hero-theme">' + escapeHtml(meta.theme) + '</p>';
   html += '</div>';
 
-  html += '<div class="uvod-info-strip">';
-  html += '<div class="uvod-info-item"><span class="uvod-info-icon">📍</span><div class="uvod-info-text"><strong>' + escapeHtml(meta.location) + '</strong><span>Miesto</span></div></div>';
-  if (todayDay) {
-    html += '<div class="uvod-info-item"><span class="uvod-info-icon">📅</span><div class="uvod-info-text"><strong>Dnes: ' + escapeHtml(todayDay.label) + '</strong><span>Tábor práve prebieha</span></div></div>';
-  } else {
-    html += '<div class="uvod-info-item"><span class="uvod-info-icon">📅</span><div class="uvod-info-text"><strong>' + escapeHtml(meta.campDates.start) + ' – ' + escapeHtml(meta.campDates.end) + '</strong><span>Termín tábora</span></div></div>';
-  }
-  html += '</div>';
-
-  html += '<div class="uvod-grid">';
-
+  // Announcements strip (above dashboard)
   if (announcements.length) {
-    html += '<div class="uvod-card">';
-    html += '<h2 class="uvod-card-heading">Oznamy</h2>';
-    html += '<ul class="announcement-list">';
+    html += '<div class="uvod-announcements">';
     announcements.forEach(a => {
-      html += '<li class="announcement-item announcement-item--' + escapeHtml(a.type) + '">';
+      html += '<div class="announcement-item announcement-item--' + escapeHtml(a.type) + '">';
       html += '<span class="ann-icon">' + (a.type === 'warning' ? '⚠️' : 'ℹ️') + '</span>';
       html += '<span>' + escapeHtml(a.text) + '</span>';
+      html += '</div>';
+    });
+    html += '</div>';
+  }
+
+  // Dashboard: two-column layout
+  html += '<div class="uvod-dashboard">';
+
+  // ── Left column ──────────────────────────────────────────────────────────
+  html += '<div class="uvod-dashboard-left">';
+
+  // Card: Harmonogram dňa
+  html += '<div class="uvod-card">';
+  html += '<h2 class="uvod-card-heading">Harmonogram dňa <span class="uvod-day-badge">' + escapeHtml(displayDay.label) + '</span></h2>';
+
+  const schedItems = getScheduleStatus(displayDay.schedule);
+  if (schedItems.length) {
+    html += '<div class="uvod-schedule-list">';
+    schedItems.forEach(item => {
+      const endStr = minsToTime(item.endM);
+      const act    = item.activityRef ? getActivity(activities, item.activityRef) : null;
+      const loc    = act && act.location ? act.location : null;
+      html += '<div class="uvod-schedule-item uvod-schedule-item--' + item.status + '">';
+      html += '<span class="uvod-sched-time">' + escapeHtml(item.time) + '<span class="uvod-sched-sep">–</span>' + escapeHtml(endStr) + '</span>';
+      html += '<div class="uvod-sched-body">';
+      if (act) {
+        html += '<button class="uvod-sched-label uvod-sched-label--link" data-act="' + escapeHtml(item.activityRef) + '">' + escapeHtml(item.label) + '</button>';
+      } else {
+        html += '<span class="uvod-sched-label">' + escapeHtml(item.label) + '</span>';
+      }
+      if (loc)               html += '<span class="uvod-sched-loc">' + escapeHtml(loc) + '</span>';
+      if (item.note)         html += '<span class="uvod-sched-note">' + escapeHtml(item.note) + '</span>';
+      html += '</div>';
+      if (item.status === 'current') html += '<span class="uvod-sched-badge uvod-sched-badge--current">Prebieha</span>';
+      if (item.status === 'next')    html += '<span class="uvod-sched-badge uvod-sched-badge--next">Ďalšie</span>';
+      html += '</div>';
+    });
+    html += '</div>';
+  } else {
+    html += '<p class="uvod-empty-note">Program dňa nebol zadaný.</p>';
+  }
+
+  html += '<button class="uvod-goto-btn" data-nav="' + escapeHtml(displayDay.id) + '">Zobraziť celý program dňa →</button>';
+  html += '</div>';
+
+  html += '</div>'; // end left column
+
+  // ── Right column ─────────────────────────────────────────────────────────
+  html += '<div class="uvod-dashboard-right">';
+
+  // Card: 10 animátora
+  html += '<div class="uvod-card uvod-card--manifest">';
+  html += '<h2 class="uvod-card-heading">10 animátora</h2>';
+  if (animatorRules && animatorRules.length) {
+    html += '<ol class="manifest-list">';
+    animatorRules.forEach(rule => {
+      html += '<li class="manifest-item">';
+      html += '<span class="manifest-num">' + rule.id + '</span>';
+      html += '<span class="manifest-text">' + escapeHtml(rule.text) + '</span>';
       html += '</li>';
     });
-    html += '</ul></div>';
+    html += '</ol>';
   }
-
-  html += '<div class="uvod-card">';
-  html += '<h2 class="uvod-card-heading">Myšlienka dňa <span class="uvod-day-badge">' + escapeHtml(displayDay.label) + '</span></h2>';
-  if (displayDay.thought) {
-    html += '<blockquote class="uvod-thought">' + escapeHtml(displayDay.thought) + '</blockquote>';
-  }
-  html += '<button class="uvod-goto-btn" data-nav="' + escapeHtml(displayDay.id) + '">Program dňa →</button>';
   html += '</div>';
 
-  html += '<div class="uvod-card uvod-card--full">';
-  html += '<h2 class="uvod-card-heading">Sekcie</h2>';
-  html += '<div class="quick-links-grid">';
-  navItems.filter(n => n && !n.divider && n.id !== 'uvod').forEach(n => {
-    html += '<button class="quick-link-item" data-nav="' + escapeHtml(n.id) + '">';
-    html += '<span class="quick-link-icon">' + (ICONS[n.icon] || '') + '</span>';
-    html += '<span class="quick-link-label">' + escapeHtml(n.label) + '</span>';
-    html += '</button>';
-  });
-  html += '</div></div>';
+  html += '</div>'; // end right column
+  html += '</div>'; // end dashboard
 
-  html += '</div>';
   return html;
 }
 

@@ -1,6 +1,6 @@
 /* ─── RESPONZÍVNE PRAVIDLÁ ───────────────────────────────────────────────── */
 
-/* Uvod grid */
+/* Uvod grid (legacy) */
 @media (min-width: 640px) {
   .uvod-grid {
     grid-template-columns: 1fr 1fr;
@@ -10,6 +10,13 @@
 @media (min-width: 1000px) {
   .uvod-grid {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Uvod dashboard */
+@media (max-width: 699px) {
+  .uvod-dashboard {
+    grid-template-columns: 1fr;
   }
 }
 

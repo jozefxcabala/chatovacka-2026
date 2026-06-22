@@ -17,11 +17,7 @@ export const campMeta = {
 // type: 'warning' | 'info'
 // ─────────────────────────────────────────────────────────────────────────────
 
-export const announcements = [
-  { text: 'Dnes večer je nočná hra – pripravte sa!', type: 'warning' },
-  { text: 'Ráno budenie o 7:30, raňajky o 8:00',    type: 'info'    },
-  { text: 'Každý animátor dostane rolu – skontrolujte Aktivity', type: 'info' }
-];
+export const announcements = [];
 
 // ─────────────────────────────────────────────────────────────────────────────
 // KONTAKTY
@@ -41,3 +37,21 @@ export const appendices = {
   groups: [],
   other:  []
 };
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 10 PRAVIDIEL ANIMÁTORA
+// Upravuj tu — zobrazí sa na úvodnej stránke v karte „10 animátora".
+// ─────────────────────────────────────────────────────────────────────────────
+
+export const animatorRules = [
+  { id: 1,  text: 'TRÁVIM MAXIMUM ČASU SO SVOJOU SKUPINKOU' },
+  { id: 2,  text: 'NA ANIMÁTORSKEJ CHATKE TRÁVIM MINIMUM ČASU' },
+  { id: 3,  text: 'K DEŤOM SA SNAŽÍM PRISTUPOVAŤ S LÁSKOU' },
+  { id: 4,  text: 'NAHROMADENÉ NEGATÍVNE POCITY ZDIEĽAM S NIEKÝM STARŠÍM' },
+  { id: 5,  text: 'IDEM JA' },
+  { id: 6,  text: 'POZNÁM SVOJE LIMITY' },
+  { id: 7,  text: 'SOM V OBRAZE (poznám program)' },
+  { id: 8,  text: 'KONFLIKT RIEŠIM S CHLADNOU HLAVOU' },
+  { id: 9,  text: 'STRÁŽIM SI SVOJ PODIEL NA PROGRAME' },
+  { id: 10, text: 'VŠETKO MÁ SVOJE MIESTO' }
+];

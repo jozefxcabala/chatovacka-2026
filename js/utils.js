@@ -63,6 +63,49 @@ export function getTodayDayId(days) {
   return found ? found.id : null;
 }
 
+export function getScheduleStatus(schedule) {
+  if (!schedule || !schedule.length) return [];
+
+  const now = new Date();
+  const nowMins = now.getHours() * 60 + now.getMinutes();
+
+  function parseM(t) {
+    const p = t.split(':');
+    return parseInt(p[0], 10) * 60 + parseInt(p[1], 10);
+  }
+
+  const withEnd = schedule.map((item, i) => {
+    const startM = parseM(item.time);
+    const endM = i + 1 < schedule.length ? parseM(schedule[i + 1].time) : startM + 90;
+    return { ...item, startM, endM };
+  });
+
+  let currentIdx = -1;
+  for (let i = 0; i < withEnd.length; i++) {
+    if (nowMins >= withEnd[i].startM && nowMins < withEnd[i].endM) {
+      currentIdx = i;
+      break;
+    }
+  }
+
+  let nextIdx = -1;
+  for (let i = 0; i < withEnd.length; i++) {
+    if (nowMins < withEnd[i].startM) {
+      nextIdx = i;
+      break;
+    }
+  }
+
+  return withEnd.map((item, i) => {
+    let status;
+    if (i === currentIdx)       status = 'current';
+    else if (i === nextIdx)     status = 'next';
+    else if (nowMins >= item.endM) status = 'past';
+    else                        status = 'future';
+    return { ...item, status };
+  });
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // formatTextToHtml — prevádza jednoduchý formátovaný text na bezpečné HTML
 //

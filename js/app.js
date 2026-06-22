@@ -2,7 +2,8 @@
 // APP — vstupný bod, navigácia, sidebar, inicializácia
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { campMeta, announcements, contacts, appendices } from '../data/config.js';
+import { campMeta, announcements, contacts, appendices, animatorRules } from '../data/config.js';
+import { nameDays } from '../data/nameDays.js';
 import { days }       from '../data/days.js';
 import { activities } from '../data/activities.js';
 import { scenes }     from '../data/scenes.js';
@@ -15,7 +16,7 @@ import { clearFilters, showActivityList } from './filters.js';
 
 // ─── DÁTA ────────────────────────────────────────────────────────────────────
 
-const campData = { meta: campMeta, announcements, contacts, appendices, days, activities, scenes, prayers };
+const campData = { meta: campMeta, announcements, contacts, appendices, animatorRules, nameDays, days, activities, scenes, prayers };
 
 // ─── NAVIGÁCIA ────────────────────────────────────────────────────────────────
 
@@ -191,10 +192,14 @@ function initDelegation() {
 const navItems = buildNavItems(days);
 
 document.addEventListener('DOMContentLoaded', () => {
+  const today = new Date();
+  const mmdd  = String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0');
+  const nameDay = nameDays[mmdd] || null;
+
   renderSidebar(campMeta, navItems, sectionId => {
     navigateTo(sectionId);
     if (isMobile()) closeMobileSidebar();
-  });
+  }, nameDay);
 
   validSectionIds = renderAllSections(campData, navItems);
 
@@ -204,4 +209,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const last = localStorage.getItem('lastSection') || 'uvod';
   navigateTo(validSectionIds.includes(last) ? last : 'uvod');
+
+  setInterval(() => {
+    const el = document.getElementById('sidebar-live-time');
+    if (el) {
+      const now = new Date();
+      el.textContent = now.toLocaleTimeString('sk-SK', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    }
+  }, 1000);
 });

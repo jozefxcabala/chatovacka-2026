@@ -207,6 +207,44 @@
   border-top: 1px solid var(--sidebar-border);
   flex-shrink: 0;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.sidebar-clock-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-bottom: 0.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 0.15s;
+}
+
+.sidebar-clock-icon {
+  font-size: 0.72rem;
+  flex-shrink: 0;
+}
+
+.sidebar-clock-time {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--sidebar-text);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.03em;
+}
+
+.sidebar-nameday {
+  font-size: 0.68rem;
+  color: var(--sidebar-muted);
+  white-space: nowrap;
+}
+
+.sidebar--collapsed .sidebar-clock-row {
+  opacity: 0;
 }
 
 .sidebar-version-text {
@@ -215,6 +253,7 @@
   letter-spacing: 0.06em;
   white-space: nowrap;
   transition: opacity 0.15s;
+  display: block;
 }
 
 .sidebar--collapsed .sidebar-version-text {
