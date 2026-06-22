@@ -48,6 +48,33 @@
   }
 }
 
+/* ─── Day page layout — mobile (max-width: 799px) ───────────────────────── */
+
+@media (max-width: 799px) {
+  .day-page-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .day-col--schedule {
+    border-right: none;
+    border-bottom: 1px solid var(--ground-border);
+    padding-bottom: 1.5rem;
+  }
+
+  .day-col--activities {
+    padding-top: 1.25rem;
+  }
+
+  /* Väčší hit-area pre accordion header na mobile */
+  .day-accordion-header {
+    padding: 0.875rem 1rem;
+  }
+
+  .day-accordion-name {
+    font-size: 0.95rem;
+  }
+}
+
 /* ─── MOBILE (max-width: 899px) ──────────────────────────────────────────── */
 
 @media (max-width: 899px) {

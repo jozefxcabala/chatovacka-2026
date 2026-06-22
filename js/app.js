@@ -65,6 +65,9 @@ function navigateTo(sectionId, actParam) {
       showActivityList();
       buildAktivityCards(campData);
     }
+    if (campData.days.some(d => d.id === sectionId)) {
+      resetDayAccordion(target);
+    }
   }
 
   updateNavActive(sectionId);
@@ -181,6 +184,37 @@ function initAktivityFilters() {
   if (c2) c2.addEventListener('click', handleClear);
 }
 
+// ─── ACCORDION ───────────────────────────────────────────────────────────────
+
+function openAccordionItem(accordion, targetItem) {
+  accordion.querySelectorAll('.day-accordion-item').forEach(item => {
+    item.classList.remove('day-accordion-item--open');
+    const body   = item.querySelector('.day-accordion-body');
+    const header = item.querySelector('.day-accordion-header');
+    if (body)   body.hidden = true;
+    if (header) header.setAttribute('aria-expanded', 'false');
+  });
+  targetItem.classList.add('day-accordion-item--open');
+  const body   = targetItem.querySelector('.day-accordion-body');
+  const header = targetItem.querySelector('.day-accordion-header');
+  if (body)   body.hidden = false;
+  if (header) header.setAttribute('aria-expanded', 'true');
+}
+
+function resetDayAccordion(sectionEl) {
+  const accordion = sectionEl.querySelector('.day-accordion');
+  if (!accordion) return;
+  const items = accordion.querySelectorAll('.day-accordion-item');
+  items.forEach((item, index) => {
+    const body   = item.querySelector('.day-accordion-body');
+    const header = item.querySelector('.day-accordion-header');
+    const isFirst = index === 0;
+    item.classList.toggle('day-accordion-item--open', isFirst);
+    if (body)   body.hidden = !isFirst;
+    if (header) header.setAttribute('aria-expanded', isFirst ? 'true' : 'false');
+  });
+}
+
 // ─── EVENT DELEGATION ────────────────────────────────────────────────────────
 
 function initDelegation() {
@@ -188,6 +222,38 @@ function initDelegation() {
     const navBtn = e.target.closest('[data-nav]');
     if (navBtn) { navigateTo(navBtn.getAttribute('data-nav')); return; }
 
+    // Accordion toggle (harmonogram → otvoriť accordion napravo)
+    const accordionBtn = e.target.closest('[data-accordion-toggle]');
+    if (accordionBtn) {
+      const actId   = accordionBtn.getAttribute('data-accordion-toggle');
+      const accordion = accordionBtn.closest('.day-accordion');
+      if (accordion) {
+        const item = accordion.querySelector('[data-accordion-id="' + actId + '"]');
+        if (item) openAccordionItem(accordion, item);
+      }
+      return;
+    }
+
+    // Klik na timeline link (ľavý stĺpec) → otvoriť accordion v pravom stĺpci
+    const dayActBtn = e.target.closest('[data-day-act]');
+    if (dayActBtn) {
+      const actId     = dayActBtn.getAttribute('data-day-act');
+      const daySection = dayActBtn.closest('.section');
+      const accordion  = daySection && daySection.querySelector('.day-accordion');
+      if (accordion) {
+        const item = accordion.querySelector('[data-accordion-id="' + actId + '"]');
+        if (item) {
+          openAccordionItem(accordion, item);
+          item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          return;
+        }
+      }
+      // fallback: navigácia na detail aktivity
+      navigateTo('aktivity', actId);
+      return;
+    }
+
+    // Klik na [data-act] → plný detail aktivity v sekcii Aktivity
     const actBtn = e.target.closest('[data-act]');
     if (actBtn) { navigateTo('aktivity', actBtn.getAttribute('data-act')); }
   });

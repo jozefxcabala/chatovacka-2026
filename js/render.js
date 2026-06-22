@@ -162,13 +162,114 @@ export function buildUvod(campData, navItems) {
 
 // ─── SEKCIA: DEŇ ──────────────────────────────────────────────────────────────
 
+function renderDayScheduleHtml(day, activities) {
+  let html = '<h2 class="day-section-heading">Harmonogram</h2>';
+  html += '<div class="day-timeline">';
+  day.schedule.forEach(item => {
+    const hasActivity = !!(item.activityRef && getActivity(activities, item.activityRef));
+    html += '<div class="timeline-item timeline-item--' + item.type + '">';
+    html += '<div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div>';
+    html += '<div class="timeline-body">';
+    html += '<span class="timeline-time">' + escapeHtml(item.time) + '</span>';
+    if (hasActivity) {
+      html += '<button class="timeline-label timeline-label--link" data-day-act="' + escapeHtml(item.activityRef) + '">' + escapeHtml(item.label) + '</button>';
+    } else {
+      html += '<span class="timeline-label">' + escapeHtml(item.label) + '</span>';
+    }
+    if (item.note) html += '<span class="timeline-note">' + escapeHtml(item.note) + '</span>';
+    html += '</div></div>';
+  });
+  html += '</div>';
+  return html;
+}
+
+function renderActivityPreviewAccordionHtml(dayActivities) {
+  if (!dayActivities.length) return '';
+  let html = '<h2 class="day-section-heading">Aktivity dňa</h2>';
+  html += '<div class="day-accordion">';
+  dayActivities.forEach((act, index) => {
+    const isOpen = index === 0;
+    html += '<div class="day-accordion-item' + (isOpen ? ' day-accordion-item--open' : '') + '" data-accordion-id="' + escapeHtml(act.id) + '">';
+
+    // Header
+    html += '<button class="day-accordion-header" data-accordion-toggle="' + escapeHtml(act.id) + '" aria-expanded="' + (isOpen ? 'true' : 'false') + '">';
+    html += '<div class="day-accordion-header-info">';
+    html += '<span class="day-accordion-name">' + escapeHtml(act.name) + '</span>';
+    html += '<span class="day-accordion-meta">' + escapeHtml(act.timeLabel) + (act.time ? ' · ' + escapeHtml(act.time) : '') + '</span>';
+    html += '</div>';
+    html += '<span class="day-accordion-chevron">' + ICONS.chevronRight + '</span>';
+    html += '</button>';
+
+    // Body (krátky náhľad)
+    html += '<div class="day-accordion-body"' + (isOpen ? '' : ' hidden') + '>';
+    html += '<div class="day-accordion-preview">';
+
+    // Meta: čas, miesto, vedúci
+    const metaItems = [];
+    if (act.time) metaItems.push({ label: 'Čas', value: act.time + (act.endTime ? ' – ' + act.endTime : '') });
+    if (act.location) metaItems.push({ label: 'Miesto', value: act.location });
+    if (act.vedúciProgramu) metaItems.push({ label: 'Vedúci programu', value: act.vedúciProgramu });
+    else if (act.vedúciDna) metaItems.push({ label: 'Vedúci dňa', value: act.vedúciDna });
+
+    if (metaItems.length) {
+      html += '<div class="day-preview-meta">';
+      metaItems.forEach(m => {
+        html += '<div class="day-preview-meta-item">';
+        html += '<span class="day-preview-meta-label">' + escapeHtml(m.label) + '</span>';
+        html += '<span class="day-preview-meta-value">' + escapeHtml(m.value) + '</span>';
+        html += '</div>';
+      });
+      html += '</div>';
+    }
+
+    // Animátori
+    if (act.animatorsNote) {
+      html += '<div class="day-preview-row">';
+      html += '<span class="day-preview-row-label">Animátori</span>';
+      html += '<span class="day-preview-row-value">' + escapeHtml(act.animatorsNote) + '</span>';
+      html += '</div>';
+    }
+
+    // Pomôcky (max 3)
+    if (act.materials && act.materials.length) {
+      html += '<div class="day-preview-row">';
+      html += '<span class="day-preview-row-label">Pomôcky</span>';
+      html += '<span class="day-preview-row-value">' + act.materials.slice(0, 3).map(m => escapeHtml(m)).join(', ');
+      if (act.materials.length > 3) html += ' <span class="day-preview-more">+' + (act.materials.length - 3) + ' ďalšie</span>';
+      html += '</span>';
+      html += '</div>';
+    }
+
+    // Úryvok popisu (prvá normálna veta)
+    if (act.description && act.description.trim()) {
+      const excerpt = act.description.trim().split('\n')
+        .map(l => l.trim())
+        .find(l => l && !l.startsWith('#') && !l.startsWith('-'));
+      if (excerpt) {
+        html += '<p class="day-preview-excerpt">' + escapeHtml(excerpt) + '</p>';
+      }
+    }
+
+    // Tlačidlo na plný detail
+    html += '<button class="day-preview-detail-btn" data-act="' + escapeHtml(act.id) + '">Otvoriť detail aktivity ' + ICONS.chevronRight + '</button>';
+
+    html += '</div>'; // .day-accordion-preview
+    html += '</div>'; // .day-accordion-body
+    html += '</div>'; // .day-accordion-item
+  });
+  html += '</div>'; // .day-accordion
+  return html;
+}
+
 export function buildDay(dayId, campData) {
   const { days, activities } = campData;
   const day = getDayConfig(days, dayId);
   if (!day) return '<p>Deň nenájdený.</p>';
   const color = DAY_COLOR_MAP[dayId] || 'var(--gold)';
+  const dayActivities = activities.filter(a => a.dayRef === dayId);
   let html = '';
 
+  // Hero (plná šírka)
   html += '<div class="day-hero" style="border-color:' + color + '">';
   html += '<div class="day-hero-label" style="color:' + color + '">Deň ' + day.dayIndex + '</div>';
   html += '<h1 class="day-hero-title">' + escapeHtml(day.label) + '</h1>';
@@ -177,42 +278,24 @@ export function buildDay(dayId, campData) {
   if (day.vedúciDna) html += '<p class="day-vedúci">Vedúci dňa: <strong>' + escapeHtml(day.vedúciDna) + '</strong></p>';
   html += '</div>';
 
-  html += '<div class="day-timeline-wrap">';
-  html += '<h2 class="day-section-heading">Program dňa</h2>';
-  html += '<div class="day-timeline">';
-  day.schedule.forEach(item => {
-    const isLink = !!(item.activityRef && getActivity(activities, item.activityRef));
-    html += '<div class="timeline-item timeline-item--' + item.type + '">';
-    html += '<div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div>';
-    html += '<div class="timeline-body">';
-    html += '<span class="timeline-time">' + escapeHtml(item.time) + '</span>';
-    if (isLink) {
-      html += '<button class="timeline-label timeline-label--link" data-act="' + escapeHtml(item.activityRef) + '">' + escapeHtml(item.label) + '</button>';
-    } else {
-      html += '<span class="timeline-label">' + escapeHtml(item.label) + '</span>';
-    }
-    if (item.note) html += '<span class="timeline-note">' + escapeHtml(item.note) + '</span>';
-    html += '</div></div>';
-  });
-  html += '</div></div>';
+  // Dvojstĺpcový layout
+  html += '<div class="day-page-layout">';
 
-  const dayActivities = activities.filter(a => a.dayRef === dayId);
+  // Ľavý stĺpec: harmonogram
+  html += '<div class="day-col day-col--schedule">';
+  html += renderDayScheduleHtml(day, activities);
+  html += '</div>';
+
+  // Pravý stĺpec: accordion aktivít
+  html += '<div class="day-col day-col--activities">';
   if (dayActivities.length) {
-    html += '<div class="day-activities-wrap">';
-    html += '<h2 class="day-section-heading">Aktivity dňa</h2>';
-    html += '<div class="day-act-list">';
-    dayActivities.forEach(act => {
-      html += '<button class="day-act-item" data-act="' + escapeHtml(act.id) + '">';
-      html += '<div class="day-act-info">';
-      html += '<span class="day-act-name">' + escapeHtml(act.name) + '</span>';
-      html += '<span class="day-act-time">' + escapeHtml(act.timeLabel) + '</span>';
-      html += '</div>';
-      html += '<span class="day-act-arrow">' + ICONS.chevronRight + '</span>';
-      html += '</button>';
-    });
-    html += '</div></div>';
+    html += renderActivityPreviewAccordionHtml(dayActivities);
+  } else {
+    html += '<p class="day-empty-note">Pre tento deň nie sú zadané aktivity.</p>';
   }
+  html += '</div>';
 
+  html += '</div>'; // .day-page-layout
   return html;
 }
 
