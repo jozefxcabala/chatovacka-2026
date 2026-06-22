@@ -3,84 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Program tábora – Narnia 2026</title>
-  <meta name="description" content="Program tábora Narnia 2026 pre animátorov. Filtrovanie podľa dňa a animátora.">
+  <title>Narnia 2026 – Animátori</title>
+  <meta name="description" content="Program tábora Narnia 2026 pre animátorov">
   <link rel="stylesheet" href="styles.css">
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#c8952a">
+  <meta name="theme-color" content="#1b1535">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <p class="header-eyebrow">Tábor Narnia 2026</p>
-      <h1>Program pre animátorov</h1>
-    </div>
-  </header>
+<div class="app-layout">
 
-  <div class="filters-bar" id="filtersBar">
-    <div class="filters-inner">
-      <div class="filter-item filter-search">
-        <input
-          type="search"
-          id="searchInput"
-          class="filter-control"
-          placeholder="Hľadaj program alebo meno…"
-          autocomplete="off"
-          spellcheck="false"
-          aria-label="Hľadaj program"
-        >
-      </div>
-      <div class="filter-item">
-        <select id="denFilter" class="filter-control" aria-label="Filtrovať podľa dňa">
-          <option value="">Všetky dni</option>
-          <option value="Pondelok">Pondelok</option>
-          <option value="Utorok">Utorok</option>
-          <option value="Streda">Streda</option>
-          <option value="Štvrtok">Štvrtok</option>
-          <option value="Piatok">Piatok</option>
-        </select>
-      </div>
-      <div class="filter-item">
-        <select id="animatorFilter" class="filter-control" aria-label="Filtrovať podľa animátora">
-          <option value="">Všetci animátori</option>
-        </select>
-      </div>
-      <button id="clearBtn" class="btn-clear">Vyčistiť</button>
+  <aside class="sidebar" id="sidebar" aria-label="Navigácia">
+    <div class="sidebar-header">
+      <button class="sidebar-toggle-btn" id="sidebarToggle" aria-label="Zbaliť navigáciu" title="Zbaliť / rozbaliť">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M10 2L4 8l6 6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </div>
-    <p id="resultInfo" class="result-info" aria-live="polite"></p>
+
+    <nav class="sidebar-nav" id="sidebarNav" aria-label="Sekcie tábora">
+      <!-- rendered by JS -->
+    </nav>
+
+    <div class="sidebar-footer" id="sidebarFooter">
+    </div>
+  </aside>
+
+  <div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+
+  <div class="app-body" id="appBody">
+    <header class="app-topbar" id="appTopbar">
+      <button class="topbar-menu-btn" id="topbarMenuBtn" aria-label="Otvoriť navigáciu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <span class="topbar-section-name" id="topbarTitle">Úvod</span>
+      <span></span>
+    </header>
+
+    <main class="app-main" id="appMain" role="main">
+      <!-- Sections rendered by JS -->
+    </main>
   </div>
 
-  <main class="main-content">
+</div>
 
-    <div id="myScheduleBanner" class="my-schedule-banner" hidden>
-      <span class="my-schedule-icon" aria-hidden="true">📋</span>
-      <span class="my-schedule-text">
-        Môj program:
-        <strong class="my-schedule-name" id="myScheduleName"></strong>
-        <span class="my-schedule-count" id="myScheduleCount"></span>
-      </span>
-    </div>
-
-    <div id="cardsGrid" class="cards-grid" role="list" aria-label="Aktivity tábora"></div>
-
-    <div id="emptyState" class="empty-state" hidden role="status">
-      <p>Žiadne aktivity nevyhovujú filtru.</p>
-      <button class="btn-clear-inline" id="clearBtn2">Vyčistiť filtre</button>
-    </div>
-
-  </main>
-
-  <footer class="site-footer">
-    <p>Tábor Narnia 2026 · Program pre animátorov</p>
-  </footer>
-
-  <script src="script.js"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./sw.js');
-    }
-  </script>
+<script src="script.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js');
+  }
+</script>
 </body>
 </html>

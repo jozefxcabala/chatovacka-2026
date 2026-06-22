@@ -1,7 +1,7 @@
 {
-  "name": "Program tábora – Narnia 2026",
-  "short_name": "Tábor Narnia",
-  "description": "Program pre animátorov tábora Narnia 2026",
+  "name": "Narnia 2026 – Animátori",
+  "short_name": "Narnia 2026",
+  "description": "Program tábora Narnia 2026 pre animátorov",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

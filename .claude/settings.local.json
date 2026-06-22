@@ -2,7 +2,25 @@
   "permissions": {
     "allow": [
       "Skill(artifact-design)",
-      "Skill(artifact-design:*)"
+      "Skill(artifact-design:*)",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(chromium-cli --session camp)",
+      "Bash(npm list *)",
+      "Read(//Users/caby/node_modules/**)",
+      "Read(//Users/caby/.npm/**)",
+      "Bash(find /Users/caby -name \"playwright\" -type f 2>/dev/null | head -5; find ~/.npm/_npx -name \"*.js\" 2>/dev/null | grep play | head -3)",
+      "Read(//Users/caby/**)",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(python3 -c ' *)",
+      "Bash(open /Users/caby/chatovacka-2026/index.html)",
+      "Bash(python3 -m http.server 8765)",
+      "Bash(open http://localhost:8765)",
+      "Bash(node --check script.js)",
+      "Bash(node -e ' *)",
+      "Bash(node --check /Users/caby/chatovacka-2026/script.js)",
+      "Bash(lsof -iTCP -sTCP:LISTEN -P)"
     ]
   }
 }

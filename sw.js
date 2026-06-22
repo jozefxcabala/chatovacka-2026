@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE = 'tabor-narnia-v1';
+const CACHE = 'tabor-narnia-v2';
 const ASSETS = [
   './',
   './index.html',
