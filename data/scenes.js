@@ -13,12 +13,12 @@ export const scenes = [
     id: 'sc-tumnus',
     dayRef: 'pondelok',
     title: 'Scénky skupiniek s Tumnusom',
-    note: 'Každá skupinka predvedie krátku scénku s Tumnusom.'
+    text: 'Každá skupinka predvedie krátku scénku s Tumnusom.'
   },
   {
     id: 'sc-aslan',
     dayRef: 'stvrtok',
     title: 'Stretnutie Aslan & Biela čarodejnica',
-    note: 'Hlavná scénka tábora – vyvrcholenie príbehu pred záverečným bojom.'
+    text: 'Hlavná scénka tábora – vyvrcholenie príbehu pred záverečným bojom.'
   }
 ];

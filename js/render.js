@@ -7,6 +7,7 @@ import { escapeHtml, el, ICONS, DAY_COLOR_MAP, dayCalendarIcon, formatTextToHtml
          getAnimatorColorMap } from './utils.js';
 import { getFilteredActivities, getFiltersState } from './filters.js';
 
+
 // ─── SIDEBAR NAV ──────────────────────────────────────────────────────────────
 
 export function buildNavItems(days) {
@@ -14,10 +15,11 @@ export function buildNavItems(days) {
   days.forEach(d => items.push({ id: d.id, label: d.label, icon: 'calendar', isDayItem: true, dayIndex: d.dayIndex }));
   items.push({ divider: true });
   items.push(
-    { id: 'aktivity', label: 'Aktivity',           icon: 'activity' },
-    { id: 'scenky',   label: 'Scénky',              icon: 'theater'  },
-    { id: 'stretka',  label: 'Stretká a modlitby', icon: 'prayer'   },
-    { id: 'prilohy',  label: 'Prílohy',             icon: 'list'     }
+    { id: 'aktivity', label: 'Aktivity',  icon: 'activity' },
+    { id: 'scenky',   label: 'Scénky',    icon: 'theater'  },
+    { id: 'stretka',  label: 'Stretká',   icon: 'people'   },
+    { id: 'modlitby', label: 'Modlitby',  icon: 'prayer'   },
+    { id: 'prilohy',  label: 'Prílohy',   icon: 'list'     }
   );
   return items;
 }
@@ -597,51 +599,102 @@ export function buildActivityDetail(actId, campData) {
   return html;
 }
 
-// ─── SEKCIA: SCÉNKY ───────────────────────────────────────────────────────────
+// ─── SEKCIA: SCÉNKY / STRETKÁ / MODLITBY (spoločný builder + exporty) ────────
 
-export function buildScenky(campData) {
-  const { days, scenes } = campData;
+function buildDayAccordionSection(title, subtitle, items, days, textClass, placeholder) {
   let html = '<div class="section-inner">';
-  html += '<div class="section-header"><h1 class="section-title">Scénky</h1>';
-  html += '<p class="section-subtitle">Scénky zoradené podľa dní tábora.</p></div>';
+  html += '<div class="section-header"><h1 class="section-title">' + escapeHtml(title) + '</h1>';
+  html += '<p class="section-subtitle">' + escapeHtml(subtitle) + '</p></div>';
 
+  let hasAny = false;
+  let firstOpened = false;
   days.forEach(day => {
-    const dayScenes = scenes.filter(s => s.dayRef === day.id);
-    if (!dayScenes.length) return;
+    const dayItems = items.filter(i => i.dayRef === day.id);
+    if (!dayItems.length) return;
+    hasAny = true;
     const color = DAY_COLOR_MAP[day.id] || 'var(--gold)';
+
     html += '<div class="scenky-day-group">';
     html += '<h2 class="scenky-day-heading" style="color:' + color + '">' + escapeHtml(day.label) + '</h2>';
-    dayScenes.forEach(scene => {
-      html += '<div class="scene-card">';
-      html += '<h3 class="scene-title">' + escapeHtml(scene.title) + '</h3>';
-      if (scene.note) html += '<p class="scene-note">' + escapeHtml(scene.note) + '</p>';
-      html += '</div>';
+    html += '<div class="day-accordion">';
+
+    dayItems.forEach(item => {
+      const isOpen = !firstOpened;
+      if (isOpen) firstOpened = true;
+      html += '<div class="day-accordion-item' + (isOpen ? ' day-accordion-item--open' : '') + '" data-accordion-id="' + escapeHtml(item.id) + '">';
+      html += '<button class="day-accordion-header" data-accordion-toggle="' + escapeHtml(item.id) + '" aria-expanded="' + (isOpen ? 'true' : 'false') + '">';
+      html += '<div class="day-accordion-header-info"><span class="day-accordion-name">' + escapeHtml(item.title) + '</span></div>';
+      html += '<span class="day-accordion-chevron">' + ICONS.chevronRight + '</span>';
+      html += '</button>';
+      html += '<div class="day-accordion-body"' + (isOpen ? '' : ' hidden') + '>';
+      html += '<div class="day-accordion-preview">';
+      html += '<div class="' + textClass + '">' + formatTextToHtml(item.text) + '</div>';
+      html += '</div></div></div>';
     });
-    html += '</div>';
+
+    html += '</div></div>';
   });
 
-  if (!scenes.length) html += '<p class="placeholder-text">Scénky budú doplnené.</p>';
+  if (!hasAny) html += '<p class="placeholder-text">' + escapeHtml(placeholder) + '</p>';
+  html += '</div>';
+  return html;
+}
+
+export function buildStretka(campData) {
+  const { days, stretka } = campData;
+  let html = '<div class="section-inner">';
+  html += '<div class="section-header"><h1 class="section-title">Stretká</h1>';
+  html += '<p class="section-subtitle">Stretká na každý deň tábora.</p></div>';
+
+  const ordered = days.map(d => ({
+    day: d,
+    stretko: stretka.find(s => s.dayRef === d.id) || null
+  })).filter(x => x.stretko);
+
+  if (!ordered.length) {
+    html += '<p class="placeholder-text">Stretká budú doplnené.</p>';
+    html += '</div>';
+    return html;
+  }
+
+  html += '<div class="day-accordion">';
+  ordered.forEach(({ day, stretko }, index) => {
+    const isOpen  = index === 0;
+    const color   = DAY_COLOR_MAP[day.id] || 'var(--gold)';
+    html += '<div class="day-accordion-item' + (isOpen ? ' day-accordion-item--open' : '') + '" data-accordion-id="' + escapeHtml(stretko.id) + '" style="border-left: 3px solid ' + color + '">';
+    html += '<button class="day-accordion-header" data-accordion-toggle="' + escapeHtml(stretko.id) + '" aria-expanded="' + (isOpen ? 'true' : 'false') + '">';
+    html += '<div class="day-accordion-header-info">';
+    html += '<span class="stretko-day-label" style="color:' + color + '">' + escapeHtml(day.label) + '</span>';
+    html += '<span class="day-accordion-name">' + escapeHtml(stretko.title) + '</span>';
+    html += '</div>';
+    html += '<span class="day-accordion-chevron">' + ICONS.chevronRight + '</span>';
+    html += '</button>';
+    html += '<div class="day-accordion-body"' + (isOpen ? '' : ' hidden') + '>';
+    html += '<div class="day-accordion-preview">';
+    html += '<div class="prayer-text">' + formatTextToHtml(stretko.text) + '</div>';
+    html += '</div></div>';
+    html += '</div>';
+  });
+  html += '</div>';
 
   html += '</div>';
   return html;
 }
 
-// ─── SEKCIA: STRETKÁ A MODLITBY ───────────────────────────────────────────────
+export function buildModlitby(campData) {
+  return buildDayAccordionSection(
+    'Modlitby', 'Modlitby na každý deň tábora.',
+    campData.prayers, campData.days,
+    'prayer-text', 'Modlitby budú doplnené.'
+  );
+}
 
-export function buildStretka(campData) {
-  const { prayers } = campData;
-  let html = '<div class="section-inner">';
-  html += '<div class="section-header"><h1 class="section-title">Stretká a modlitby</h1>';
-  html += '<p class="section-subtitle">Modlitby a stretká na každý deň tábora.</p></div>';
-  html += '<div class="prayers-list">';
-  prayers.forEach(p => {
-    html += '<div class="prayer-card">';
-    html += '<h2 class="prayer-title">' + escapeHtml(p.title) + '</h2>';
-    html += '<div class="prayer-text">' + formatTextToHtml(p.text) + '</div>';
-    html += '</div>';
-  });
-  html += '</div></div>';
-  return html;
+export function buildScenky(campData) {
+  return buildDayAccordionSection(
+    'Scénky', 'Scénky zoradené podľa dní tábora.',
+    campData.scenes, campData.days,
+    'prayer-text', 'Scénky budú doplnené.'
+  );
 }
 
 // ─── SEKCIA: PRÍLOHY ──────────────────────────────────────────────────────────
@@ -651,9 +704,32 @@ export function buildPrilohy(campData) {
   let html = '<div class="section-inner">';
   html += '<div class="section-header"><h1 class="section-title">Prílohy</h1>';
   html += '<p class="section-subtitle">Rozdelenie skupín a ďalšie prílohy tábora.</p></div>';
-  html += '<div class="info-block info-block--full">';
-  html += '<div class="info-block-body"><p class="placeholder-text">' + escapeHtml(appendices.note) + '</p></div>';
-  html += '</div></div>';
+
+  if (!appendices.length) {
+    html += '<p class="placeholder-text">Prílohy budú doplnené.</p>';
+    html += '</div>';
+    return html;
+  }
+
+  html += '<div class="day-accordion">';
+  appendices.forEach((item, index) => {
+    const isOpen = index === 0;
+    html += '<div class="day-accordion-item' + (isOpen ? ' day-accordion-item--open' : '') + '" data-accordion-id="' + escapeHtml(item.id) + '">';
+    html += '<button class="day-accordion-header" data-accordion-toggle="' + escapeHtml(item.id) + '" aria-expanded="' + (isOpen ? 'true' : 'false') + '">';
+    html += '<div class="day-accordion-header-info">';
+    html += '<span class="day-accordion-name">' + escapeHtml(item.title) + '</span>';
+    html += '</div>';
+    html += '<span class="day-accordion-chevron">' + ICONS.chevronRight + '</span>';
+    html += '</button>';
+    html += '<div class="day-accordion-body"' + (isOpen ? '' : ' hidden') + '>';
+    html += '<div class="day-accordion-preview">';
+    html += '<div class="prayer-text">' + formatTextToHtml(item.text) + '</div>';
+    html += '</div></div>';
+    html += '</div>';
+  });
+  html += '</div>';
+
+  html += '</div>';
   return html;
 }
 
@@ -673,6 +749,7 @@ export function renderAllSections(campData, navItems) {
     { id: 'aktivity', html: buildAktivitySection(campData) },
     { id: 'scenky',   html: buildScenky(campData)          },
     { id: 'stretka',  html: buildStretka(campData)         },
+    { id: 'modlitby', html: buildModlitby(campData)        },
     { id: 'prilohy',  html: buildPrilohy(campData)         }
   );
 

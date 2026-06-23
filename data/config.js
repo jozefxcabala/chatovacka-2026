@@ -32,11 +32,28 @@ export const contacts = [
 // PRÍLOHY
 // ─────────────────────────────────────────────────────────────────────────────
 
-export const appendices = {
-  note:   'Prílohy (rozdelenie skupiniek, distribúcia aktivít) budú doplnené vedúcim tábora.',
-  groups: [],
-  other:  []
-};
+export const appendices = [
+  {
+    id: 'pril-skupinky',
+    title: 'Rozdelenie do skupiniek',
+    text: `Text doplníš neskôr.`
+  },
+  {
+    id: 'pril-body',
+    title: 'Bodovanie skupiniek',
+    text: `Text doplníš neskôr.`
+  },
+  {
+    id: 'pril-rozpis',
+    title: 'Rozpis služieb',
+    text: `Text doplníš neskôr.`
+  },
+  {
+    id: 'pril-kontakty',
+    title: 'Dôležité kontakty',
+    text: `Text doplníš neskôr.`
+  }
+];
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 10 PRAVIDIEL ANIMÁTORA

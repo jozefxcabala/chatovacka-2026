@@ -8,6 +8,7 @@ import { days }       from '../data/days.js';
 import { activities } from '../data/activities.js';
 import { scenes }     from '../data/scenes.js';
 import { prayers }    from '../data/prayers.js';
+import { stretka }    from '../data/stretka.js';
 
 import { ICONS, escapeHtml } from './utils.js';
 import { buildNavItems, renderSidebar, renderAllSections,
@@ -16,7 +17,7 @@ import { clearFilters, showActivityList } from './filters.js';
 
 // ─── DÁTA ────────────────────────────────────────────────────────────────────
 
-const campData = { meta: campMeta, announcements, contacts, appendices, animatorRules, nameDays, days, activities, scenes, prayers };
+const campData = { meta: campMeta, announcements, contacts, appendices, animatorRules, nameDays, days, activities, scenes, prayers, stretka };
 
 // ─── NAVIGÁCIA ────────────────────────────────────────────────────────────────
 
@@ -291,7 +292,7 @@ function initAktivityFilters() {
 
 // ─── ACCORDION ───────────────────────────────────────────────────────────────
 
-function openAccordionItem(accordion, targetItem) {
+function closeAccordion(accordion) {
   accordion.querySelectorAll('.day-accordion-item').forEach(item => {
     item.classList.remove('day-accordion-item--open');
     const body   = item.querySelector('.day-accordion-body');
@@ -299,25 +300,37 @@ function openAccordionItem(accordion, targetItem) {
     if (body)   body.hidden = true;
     if (header) header.setAttribute('aria-expanded', 'false');
   });
-  targetItem.classList.add('day-accordion-item--open');
-  const body   = targetItem.querySelector('.day-accordion-body');
-  const header = targetItem.querySelector('.day-accordion-header');
-  if (body)   body.hidden = false;
-  if (header) header.setAttribute('aria-expanded', 'true');
+}
+
+function openAccordionItem(accordion, targetItem, section) {
+  const isAlreadyOpen = targetItem.classList.contains('day-accordion-item--open');
+  // Zatvoriť všetky accordion skupiny v sekcii (pre stretka: iba jedna naraz)
+  if (section) {
+    section.querySelectorAll('.day-accordion').forEach(a => closeAccordion(a));
+  } else {
+    closeAccordion(accordion);
+  }
+  if (!isAlreadyOpen) {
+    targetItem.classList.add('day-accordion-item--open');
+    const body   = targetItem.querySelector('.day-accordion-body');
+    const header = targetItem.querySelector('.day-accordion-header');
+    if (body)   body.hidden = false;
+    if (header) header.setAttribute('aria-expanded', 'true');
+  }
 }
 
 function resetDayAccordion(sectionEl) {
   const accordion = sectionEl.querySelector('.day-accordion');
   if (!accordion) return;
-  const items = accordion.querySelectorAll('.day-accordion-item');
-  items.forEach((item, index) => {
-    const body   = item.querySelector('.day-accordion-body');
-    const header = item.querySelector('.day-accordion-header');
-    const isFirst = index === 0;
-    item.classList.toggle('day-accordion-item--open', isFirst);
-    if (body)   body.hidden = !isFirst;
-    if (header) header.setAttribute('aria-expanded', isFirst ? 'true' : 'false');
-  });
+  closeAccordion(accordion);
+  const firstItem = accordion.querySelector('.day-accordion-item');
+  if (firstItem) {
+    firstItem.classList.add('day-accordion-item--open');
+    const body   = firstItem.querySelector('.day-accordion-body');
+    const header = firstItem.querySelector('.day-accordion-header');
+    if (body)   body.hidden = false;
+    if (header) header.setAttribute('aria-expanded', 'true');
+  }
 }
 
 // ─── EVENT DELEGATION ────────────────────────────────────────────────────────
@@ -327,14 +340,15 @@ function initDelegation() {
     const navBtn = e.target.closest('[data-nav]');
     if (navBtn) { navigateTo(navBtn.getAttribute('data-nav')); return; }
 
-    // Accordion toggle (harmonogram → otvoriť accordion napravo)
+    // Accordion toggle
     const accordionBtn = e.target.closest('[data-accordion-toggle]');
     if (accordionBtn) {
-      const actId   = accordionBtn.getAttribute('data-accordion-toggle');
+      const actId    = accordionBtn.getAttribute('data-accordion-toggle');
       const accordion = accordionBtn.closest('.day-accordion');
       if (accordion) {
-        const item = accordion.querySelector('[data-accordion-id="' + actId + '"]');
-        if (item) openAccordionItem(accordion, item);
+        const item    = accordion.querySelector('[data-accordion-id="' + actId + '"]');
+        const section = accordionBtn.closest('.section') || null;
+        if (item) openAccordionItem(accordion, item, section);
       }
       return;
     }
