@@ -3,7 +3,8 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { escapeHtml, el, ICONS, DAY_COLOR_MAP, dayCalendarIcon, formatTextToHtml,
-         getDayConfig, getActivity, getTodayDayId, getScheduleStatus } from './utils.js';
+         getDayConfig, getActivity, getTodayDayId, getScheduleStatus,
+         getAnimatorColorMap } from './utils.js';
 import { getFilteredActivities, getFiltersState } from './filters.js';
 
 // ─── SIDEBAR NAV ──────────────────────────────────────────────────────────────
@@ -53,7 +54,7 @@ export function renderSidebar(campMeta, navItems, onNavigate, nameDay) {
       '<div class="sidebar-clock-row">' +
       '<span class="sidebar-clock-icon">🕐</span>' +
       '<span id="sidebar-live-time" class="sidebar-clock-time">' + escapeHtml(initTime) + '</span>' +
-      (nameDay ? '<span class="sidebar-nameday">🎂 ' + escapeHtml(nameDay) + '</span>' : '') +
+      '<span id="sidebar-nameday" class="sidebar-nameday">' + (nameDay ? '🎂 ' + escapeHtml(nameDay) : '') + '</span>' +
       '</div>' +
       '<span class="sidebar-version-text">' + escapeHtml(campMeta.version) + ' · ' + campMeta.year + '</span>';
   }
@@ -311,25 +312,59 @@ export function buildAktivitySection(campData) {
   html += '<input type="search" id="actSearch" class="filter-control" placeholder="Hľadaj aktivitu, animátora…" autocomplete="off" aria-label="Hľadaj">';
   html += '</div>';
 
-  html += '<div class="filter-item"><select id="actDayFilter" class="filter-control" aria-label="Deň">';
-  html += '<option value="">Všetky dni</option>';
+  const CHEV = '<svg class="filter-custom-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  html += '<div class="filter-item filter-custom-wrap">';
+  html += '<button type="button" id="actDayFilter" class="filter-control filter-custom-btn" data-value="" aria-haspopup="true" aria-expanded="false">';
+  html += '<span class="filter-custom-label">Všetky dni</span>' + CHEV;
+  html += '</button><div class="custom-select-panel" hidden>';
+  html += '<div class="custom-select-option custom-select-option--active" data-value="">Všetky dni</div>';
   campData.days.forEach(d => {
-    html += '<option value="' + escapeHtml(d.id) + '">' + escapeHtml(d.label) + '</option>';
+    html += '<div class="custom-select-option" data-value="' + escapeHtml(d.id) + '">' + escapeHtml(d.label) + '</div>';
   });
-  html += '</select></div>';
+  html += '</div></div>';
 
-  html += '<div class="filter-item"><select id="actTimeFilter" class="filter-control" aria-label="Čas dňa">';
-  html += '<option value="">Každý čas</option>';
-  [['morning','Doobedu'],['afternoon','Poobedie'],['evening','Večer'],['night','Nočná hra']].forEach(t => {
-    html += '<option value="' + t[0] + '">' + t[1] + '</option>';
+  html += '<div class="filter-item filter-custom-wrap">';
+  html += '<button type="button" id="actTimeFilter" class="filter-control filter-custom-btn" data-value="" aria-haspopup="true" aria-expanded="false">';
+  html += '<span class="filter-custom-label">Každý čas</span>' + CHEV;
+  html += '</button><div class="custom-select-panel" hidden>';
+  html += '<div class="custom-select-option custom-select-option--active" data-value="">Každý čas</div>';
+  [['morning','Doobedu'],['afternoon','Poobedie'],['evening','Večer'],['night','Nočná hra']].forEach(([v, l]) => {
+    html += '<div class="custom-select-option" data-value="' + v + '">' + l + '</div>';
   });
-  html += '</select></div>';
+  html += '</div></div>';
 
-  html += '<div class="filter-item"><select id="actTypeFilter" class="filter-control" aria-label="Typ">';
-  html += '<option value="">Všetky typy</option>';
-  html += '<option value="activity">Aktivita</option>';
-  html += '<option value="scenka">Scénka</option>';
-  html += '</select></div>';
+  html += '<div class="filter-item filter-custom-wrap">';
+  html += '<button type="button" id="actTypeFilter" class="filter-control filter-custom-btn" data-value="" aria-haspopup="true" aria-expanded="false">';
+  html += '<span class="filter-custom-label">Všetky typy</span>' + CHEV;
+  html += '</button><div class="custom-select-panel" hidden>';
+  html += '<div class="custom-select-option custom-select-option--active" data-value="">Všetky typy</div>';
+  html += '<div class="custom-select-option" data-value="activity">Aktivita</div>';
+  html += '<div class="custom-select-option" data-value="scenka">Scénka</div>';
+  html += '</div></div>';
+
+  const animColorMap = getAnimatorColorMap(campData.activities);
+  const allAnimators = [...animColorMap.keys()];
+  if (allAnimators.length) {
+    const chevronSvg = '<svg class="filter-animator-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    html += '<div class="filter-item filter-animator-wrap">';
+    html += '<button type="button" id="actAnimatorBtn" class="filter-control filter-animator-btn" aria-haspopup="true" aria-expanded="false">';
+    html += '<span class="filter-animator-label" id="actAnimatorLabel">Všetci animátori</span>';
+    html += chevronSvg;
+    html += '</button>';
+    html += '<div id="actAnimatorPanel" class="animator-panel" hidden>';
+    html += '<div class="animator-search-wrap"><input type="text" id="actAnimatorSearch" class="animator-search" placeholder="Hľadaj animátora…" autocomplete="off"></div>';
+    allAnimators.forEach(name => {
+      const color = animColorMap.get(name);
+      html += '<label class="animator-option">';
+      html += '<input type="checkbox" class="animator-check" value="' + escapeHtml(name) + '">';
+      html += '<span class="animator-dot" style="background:' + color + '"></span>';
+      html += '<span class="animator-name-label" style="color:' + color + '">' + escapeHtml(name) + '</span>';
+      html += '</label>';
+    });
+    html += '</div>';
+    html += '</div>';
+  }
 
   html += '<button id="actClearBtn" class="btn-clear">Vyčistiť</button>';
   html += '</div>';
@@ -354,7 +389,9 @@ export function buildAktivityCards(campData) {
   const info  = document.getElementById('actResultInfo');
   if (!grid) return;
 
-  const filtered = getFilteredActivities(campData.activities, getFiltersState());
+  const filtersState = getFiltersState();
+  const filtered = getFilteredActivities(campData.activities, filtersState);
+  const animColorMap = getAnimatorColorMap(campData.activities);
   grid.innerHTML = '';
 
   if (!filtered.length) {
@@ -414,14 +451,34 @@ export function buildAktivityCards(campData) {
 
       if (act.animators.length) {
         const chips = el('div', 'animatori-chips');
-        act.animators.slice(0, 4).forEach(a => {
+        const selectedAnim = new Set(filtersState.animF || []);
+        const makeChip = a => {
           const chip = el('span', 'chip');
           chip.textContent = a.name;
-          chips.appendChild(chip);
-        });
-        if (act.animators.length > 4) {
-          const more = el('span', 'chip chip--more');
-          more.textContent = '+' + (act.animators.length - 4);
+          if (selectedAnim.size && selectedAnim.has(a.name)) {
+            const c = animColorMap.get(a.name);
+            if (c) {
+              const r = parseInt(c.slice(1,3), 16), g = parseInt(c.slice(3,5), 16), b = parseInt(c.slice(5,7), 16);
+              chip.style.background  = 'rgba(' + r + ',' + g + ',' + b + ',0.13)';
+              chip.style.borderColor = 'rgba(' + r + ',' + g + ',' + b + ',0.5)';
+              chip.style.color       = c;
+            }
+          }
+          return chip;
+        };
+        const sortedAnimators = selectedAnim.size
+          ? [...act.animators].sort((a, b) => (selectedAnim.has(a.name) ? 0 : 1) - (selectedAnim.has(b.name) ? 0 : 1))
+          : act.animators;
+        sortedAnimators.slice(0, 4).forEach(a => chips.appendChild(makeChip(a)));
+        if (sortedAnimators.length > 4) {
+          const more = el('span', 'chip chip--more chip--expandable');
+          more.textContent = '+' + (sortedAnimators.length - 4);
+          more.title = 'Zobraziť všetkých';
+          more.addEventListener('click', e => {
+            e.stopPropagation();
+            more.remove();
+            sortedAnimators.slice(4).forEach(a => chips.appendChild(makeChip(a)));
+          });
           chips.appendChild(more);
         }
         animDiv.appendChild(chips);
@@ -494,9 +551,17 @@ export function buildActivityDetail(actId, campData) {
     html += '</h2>';
     if (act.animatorsNote) html += '<p class="detail-animators-note">' + escapeHtml(act.animatorsNote) + '</p>';
     if (act.animators.length) {
+      const detailColorMap = getAnimatorColorMap(campData.activities);
       html += '<div class="animatori-chips">';
       act.animators.forEach(a => {
-        html += '<span class="chip"><span class="chip-name">' + escapeHtml(a.name) + '</span>';
+        const c = detailColorMap.get(a.name);
+        let chipStyle = '', nameStyle = '';
+        if (c) {
+          const r = parseInt(c.slice(1,3), 16), g = parseInt(c.slice(3,5), 16), b = parseInt(c.slice(5,7), 16);
+          chipStyle = ' style="background:rgba(' + r + ',' + g + ',' + b + ',0.13);border-color:rgba(' + r + ',' + g + ',' + b + ',0.5)"';
+          nameStyle = ' style="color:' + c + '"';
+        }
+        html += '<span class="chip"' + chipStyle + '><span class="chip-name"' + nameStyle + '>' + escapeHtml(a.name) + '</span>';
         if (a.role) html += '<span class="chip-rola">' + escapeHtml(a.role) + '</span>';
         html += '</span>';
       });

@@ -44,7 +44,10 @@
       "Bash(node -e \"const m = require.resolve\\('playwright-core'\\); console.log\\(m\\)\")",
       "Bash(NODE_PATH=/Users/caby/node_modules node /private/tmp/claude-501/-Users-caby-chatovacka-2026/29e5c606-2e82-451d-9eee-5ed5f1ee7d5c/scratchpad/screenshot.js)",
       "Bash(NODE_PATH=/Users/caby/node_modules node /private/tmp/claude-501/-Users-caby-chatovacka-2026/29e5c606-2e82-451d-9eee-5ed5f1ee7d5c/scratchpad/screenshot2.js)",
-      "Bash(NODE_PATH=/Users/caby/node_modules node /private/tmp/claude-501/-Users-caby-chatovacka-2026/29e5c606-2e82-451d-9eee-5ed5f1ee7d5c/scratchpad/screenshot3.js)"
+      "Bash(NODE_PATH=/Users/caby/node_modules node /private/tmp/claude-501/-Users-caby-chatovacka-2026/29e5c606-2e82-451d-9eee-5ed5f1ee7d5c/scratchpad/screenshot3.js)",
+      "Bash(python3 -m http.server 7823 --bind 127.0.0.1)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:7823/)"
     ]
   }
 }

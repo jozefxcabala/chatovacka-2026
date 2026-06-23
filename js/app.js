@@ -168,13 +168,118 @@ function initSidebar() {
 function initAktivityFilters() {
   buildAktivityCards(campData);
 
-  ['actSearch', 'actDayFilter', 'actTimeFilter', 'actTypeFilter'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.addEventListener(id === 'actSearch' ? 'input' : 'change', () => buildAktivityCards(campData));
+  const searchEl = document.getElementById('actSearch');
+  if (searchEl) searchEl.addEventListener('input', () => buildAktivityCards(campData));
+
+  // Zatvorí všetky otvorené panely okrem exceptWrap
+  function closeAllPanels(exceptWrap) {
+    document.querySelectorAll('.custom-select-panel, #actAnimatorPanel').forEach(p => {
+      if (p.hidden) return;
+      const wrap = p.closest('.filter-custom-wrap, .filter-animator-wrap');
+      if (wrap && wrap !== exceptWrap) {
+        p.hidden = true;
+        const btn = wrap.querySelector('[aria-expanded]');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // Generický single-select dropdown
+  function initCustomSelect(btnId) {
+    const btn = document.getElementById(btnId);
+    if (!btn) return;
+    const wrap  = btn.closest('.filter-custom-wrap');
+    const panel = wrap && wrap.querySelector('.custom-select-panel');
+    if (!panel) return;
+
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      closeAllPanels(wrap);
+      const isOpen = !panel.hidden;
+      panel.hidden = isOpen;
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    panel.addEventListener('click', e => {
+      const opt = e.target.closest('.custom-select-option');
+      if (!opt) return;
+      panel.querySelectorAll('.custom-select-option').forEach(o => o.classList.remove('custom-select-option--active'));
+      opt.classList.add('custom-select-option--active');
+      btn.dataset.value = opt.dataset.value;
+      const labelEl = btn.querySelector('.filter-custom-label');
+      if (labelEl) labelEl.textContent = opt.textContent;
+      panel.hidden = true;
+      btn.setAttribute('aria-expanded', 'false');
+      buildAktivityCards(campData);
+    });
+  }
+
+  initCustomSelect('actDayFilter');
+  initCustomSelect('actTimeFilter');
+  initCustomSelect('actTypeFilter');
+
+  // Animator dropdown
+  const animBtn    = document.getElementById('actAnimatorBtn');
+  const animPanel  = document.getElementById('actAnimatorPanel');
+  const animSearch = document.getElementById('actAnimatorSearch');
+  const animWrap   = animBtn?.closest('.filter-animator-wrap');
+
+  if (animBtn && animPanel) {
+    animBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      closeAllPanels(animWrap);
+      const isOpen = !animPanel.hidden;
+      animPanel.hidden = isOpen;
+      animBtn.setAttribute('aria-expanded', String(!isOpen));
+      if (!isOpen && animSearch) {
+        animSearch.value = '';
+        animPanel.querySelectorAll('.animator-option').forEach(o => o.style.display = '');
+        setTimeout(() => animSearch.focus(), 30);
+      }
+    });
+
+    animPanel.addEventListener('change', e => {
+      if (e.target.classList.contains('animator-check')) {
+        const checked = animPanel.querySelectorAll('.animator-check:checked');
+        const labelEl = document.getElementById('actAnimatorLabel');
+        if (labelEl) {
+          labelEl.textContent = !checked.length ? 'Všetci animátori'
+            : checked.length === 1 ? checked[0].value
+            : checked.length + ' animátori';
+        }
+        buildAktivityCards(campData);
+      }
+    });
+
+    if (animSearch) {
+      animSearch.addEventListener('input', () => {
+        const q = animSearch.value.toLowerCase();
+        animPanel.querySelectorAll('.animator-option').forEach(opt => {
+          const name = (opt.querySelector('.animator-name-label')?.textContent || '').toLowerCase();
+          opt.style.display = name.includes(q) ? '' : 'none';
+        });
+      });
+      animSearch.addEventListener('click', e => e.stopPropagation());
+    }
+  }
+
+  // Zatvor panel pri kliku mimo
+  document.addEventListener('click', e => {
+    document.querySelectorAll('.custom-select-panel, #actAnimatorPanel').forEach(p => {
+      if (p.hidden) return;
+      const wrap = p.closest('.filter-custom-wrap, .filter-animator-wrap');
+      if (wrap && !wrap.contains(e.target)) {
+        p.hidden = true;
+        const btn = wrap.querySelector('[aria-expanded]');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    });
   });
 
   function handleClear() {
     clearFilters();
+    document.querySelectorAll('.custom-select-panel, #actAnimatorPanel').forEach(p => { p.hidden = true; });
+    document.querySelectorAll('[aria-expanded]').forEach(b => b.setAttribute('aria-expanded', 'false'));
     buildAktivityCards(campData);
   }
 
@@ -283,10 +388,16 @@ document.addEventListener('DOMContentLoaded', () => {
   navigateTo(validSectionIds.includes(last) ? last : 'uvod');
 
   setInterval(() => {
-    const el = document.getElementById('sidebar-live-time');
-    if (el) {
-      const now = new Date();
-      el.textContent = now.toLocaleTimeString('sk-SK', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    const now = new Date();
+    const timeEl = document.getElementById('sidebar-live-time');
+    if (timeEl) {
+      timeEl.textContent = now.toLocaleTimeString('sk-SK', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    }
+    const ndEl = document.getElementById('sidebar-nameday');
+    if (ndEl) {
+      const key = String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+      const nd  = nameDays[key] || null;
+      ndEl.textContent = nd ? '🎂 ' + nd : '';
     }
   }, 1000);
 });

@@ -118,6 +118,22 @@ export function getScheduleStatus(schedule) {
 // NIKDY nevkladaj surové HTML do pola description — vždy použi tento formát.
 // ─────────────────────────────────────────────────────────────────────────────
 
+export const ANIMATOR_PALETTE = [
+  '#e74c3c', '#3498db', '#27ae60', '#f39c12', '#9b59b6',
+  '#1abc9c', '#e67e22', '#2980b9', '#d35400', '#8e44ad',
+  '#16a085', '#c0392b', '#607d8b', '#e91e63', '#00bcd4',
+  '#795548', '#ff5722', '#4caf50', '#673ab7', '#f06292'
+];
+
+export function getAnimatorColorMap(activities) {
+  const names = [...new Set(
+    activities.flatMap(a => a.animators.map(x => x.name))
+  )].sort();
+  const map = new Map();
+  names.forEach((name, i) => map.set(name, ANIMATOR_PALETTE[i % ANIMATOR_PALETTE.length]));
+  return map;
+}
+
 export function formatTextToHtml(text) {
   if (!text || !text.trim()) return '';
 
