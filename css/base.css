@@ -115,11 +115,12 @@ body {
 /* ─── SEKCIE (generické) ─────────────────────────────────────────────────── */
 
 .section {
-  display: none;
+  display: block;
+  border-top: 1px solid var(--ground-border);
 }
 
-.section--active {
-  display: block;
+.section:first-child {
+  border-top: none;
 }
 
 .section-inner {
@@ -1408,3 +1409,4 @@ body {
   background: rgba(200, 149, 42, 0.2);
   border-color: var(--gold);
 }
+

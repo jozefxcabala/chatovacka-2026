@@ -26,34 +26,28 @@ let currentActivityId = null;
 let validSectionIds   = [];
 let previousSection   = null;
 
-function navigateTo(sectionId, actParam) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('section--active'));
-
+function navigateTo(sectionId, actParam, instant = false) {
   if (sectionId === 'aktivity' && actParam) {
     previousSection = currentSection;
     currentActivityId = actParam;
-    const sec = document.getElementById('section-aktivity');
-    if (sec) {
-      sec.classList.add('section--active');
-      const detailView = document.getElementById('aktivity-detail-view');
-      const listView   = document.getElementById('aktivity-list-view');
-      if (detailView && listView) {
-        detailView.innerHTML = buildActivityDetail(actParam, campData);
-        listView.hidden   = true;
-        detailView.hidden = false;
-        const backBtn = document.getElementById('detailBackBtn');
-        if (backBtn) {
-          const prevNavItem = navItems.find(n => n && n.id === previousSection);
-          backBtn.innerHTML = ICONS.arrowLeft + (prevNavItem ? prevNavItem.label : 'Späť');
-          backBtn.addEventListener('click', handleBackFromDetail);
-        }
+    const detailView = document.getElementById('aktivity-detail-view');
+    const listView   = document.getElementById('aktivity-list-view');
+    if (detailView && listView) {
+      detailView.innerHTML = buildActivityDetail(actParam, campData);
+      listView.hidden   = true;
+      detailView.hidden = false;
+      const backBtn = document.getElementById('detailBackBtn');
+      if (backBtn) {
+        const prevNavItem = navItems.find(n => n && n.id === previousSection);
+        backBtn.innerHTML = ICONS.arrowLeft + (prevNavItem ? prevNavItem.label : 'Späť');
+        backBtn.addEventListener('click', handleBackFromDetail);
       }
     }
     updateTopbarTitle('Aktivity');
     updateNavActive('aktivity');
     currentSection = 'aktivity';
     localStorage.setItem('lastSection', 'aktivity');
-    scrollTop();
+    scrollToSection('aktivity', instant);
     return;
   }
 
@@ -61,7 +55,6 @@ function navigateTo(sectionId, actParam) {
 
   const target = document.getElementById('section-' + sectionId);
   if (target) {
-    target.classList.add('section--active');
     if (sectionId === 'aktivity') {
       showActivityList();
       buildAktivityCards(campData);
@@ -80,7 +73,15 @@ function navigateTo(sectionId, actParam) {
   if (validSectionIds.includes(sectionId)) {
     localStorage.setItem('lastSection', sectionId);
   }
-  scrollTop();
+  scrollToSection(sectionId, instant);
+}
+
+function scrollToSection(sectionId, instant = false) {
+  const target = document.getElementById('section-' + sectionId);
+  const body   = document.getElementById('appBody');
+  if (!target || !body) return;
+  const top = target.getBoundingClientRect().top - body.getBoundingClientRect().top + body.scrollTop;
+  body.scrollTo({ top, behavior: instant ? 'instant' : 'smooth' });
 }
 
 function handleBackFromDetail() {
@@ -99,11 +100,6 @@ function updateNavActive(sectionId) {
 function updateTopbarTitle(title) {
   const titleEl = document.getElementById('topbarTitle');
   if (titleEl) titleEl.textContent = title;
-}
-
-function scrollTop() {
-  const body = document.getElementById('appBody');
-  if (body) body.scrollTop = 0;
 }
 
 // ─── SIDEBAR ─────────────────────────────────────────────────────────────────
@@ -333,6 +329,50 @@ function resetDayAccordion(sectionEl) {
   }
 }
 
+// ─── SCROLL OBSERVER (sidebar / topbar sleduje scroll) ───────────────────────
+
+function initSectionObserver() {
+  const body = document.getElementById('appBody');
+  if (!body) return;
+
+  let saveTimer = null;
+
+  body.addEventListener('scroll', () => {
+    if (currentActivityId) return;
+
+    const bodyRect = body.getBoundingClientRect();
+    const checkY   = bodyRect.top + body.clientHeight * 0.25;
+
+    let found = null;
+    document.querySelectorAll('.section').forEach(sec => {
+      const r = sec.getBoundingClientRect();
+      if (r.top <= checkY && r.bottom > checkY) found = sec;
+    });
+
+    if (!found) {
+      // keď sme pod poslednou sekciou, vyberieme poslednú viditeľnú
+      document.querySelectorAll('.section').forEach(sec => {
+        const r = sec.getBoundingClientRect();
+        if (r.top <= bodyRect.bottom) found = sec;
+      });
+    }
+
+    if (!found) return;
+    const sectionId = found.id.replace('section-', '');
+    if (sectionId === currentSection) return;
+
+    currentSection = sectionId;
+    updateNavActive(sectionId);
+    const navItem = navItems.find(n => n && n.id === sectionId);
+    updateTopbarTitle(navItem ? navItem.label : 'Tábor');
+
+    if (validSectionIds.includes(sectionId)) {
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(() => localStorage.setItem('lastSection', sectionId), 400);
+    }
+  }, { passive: true });
+}
+
 // ─── EVENT DELEGATION ────────────────────────────────────────────────────────
 
 function initDelegation() {
@@ -397,9 +437,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initSidebar();
   initDelegation();
   initAktivityFilters();
+  initSectionObserver();
 
   const last = localStorage.getItem('lastSection') || 'uvod';
-  navigateTo(validSectionIds.includes(last) ? last : 'uvod');
+  navigateTo(validSectionIds.includes(last) ? last : 'uvod', null, true);
 
   setInterval(() => {
     const now = new Date();
