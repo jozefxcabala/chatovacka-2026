@@ -34,24 +34,14 @@ export const contacts = [
 
 export const appendices = [
   {
-    id: 'pril-skupinky',
-    title: 'Rozdelenie do skupiniek',
-    text: `Text doplníš neskôr.`
+    id: 'pril-chlapci',
+    title: 'Rozdelenie chlapčenských skupiniek',
+    text: `TODO: Možno nahradiť celú sekciu "Prílohy" novým položkou v sidebari s názvom "Skupinky" — rozhodnúť neskôr.`
   },
   {
-    id: 'pril-body',
-    title: 'Bodovanie skupiniek',
-    text: `Text doplníš neskôr.`
-  },
-  {
-    id: 'pril-rozpis',
-    title: 'Rozpis služieb',
-    text: `Text doplníš neskôr.`
-  },
-  {
-    id: 'pril-kontakty',
-    title: 'Dôležité kontakty',
-    text: `Text doplníš neskôr.`
+    id: 'pril-dievcata',
+    title: 'Rozdelenie dievčenských skupiniek',
+    text: `TODO: Možno nahradiť celú sekciu "Prílohy" novým položkou v sidebari s názvom "Skupinky" — rozhodnúť neskôr.`
   }
 ];
 
