@@ -66,7 +66,17 @@
       "Bash(node --check /Users/caby/chatovacka-2026/js/render.js)",
       "Bash(node --check /Users/caby/chatovacka-2026/js/app.js)",
       "Bash(node --input-type=module --eval ' *)",
-      "Bash(screencapture -x /private/tmp/claude-501/-Users-caby-chatovacka-2026/78613884-2129-4311-81e5-f894a648028a/scratchpad/day-animators.png)"
+      "Bash(screencapture -x /private/tmp/claude-501/-Users-caby-chatovacka-2026/78613884-2129-4311-81e5-f894a648028a/scratchpad/day-animators.png)",
+      "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/6-OK-utorok -program s kráľovnou \\( utorok doobedie \\) .docx\")",
+      "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/7-OK-utorok-Program Poobedie chatovačka-2.docx\")",
+      "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/8-OK-Utorok-Utorok večer - Tumnus zmizol.docx\")",
+      "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/9-OK-Streda-Výlet .docx\")",
+      "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/11-OK-Streda-Hľadanie Edmunda.docx\")",
+      "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/12-OK-Stvrtok-Priprava na vojnu .docx\")",
+      "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/15-OK-Stvrtok-Skuska odvahy .docx\")",
+      "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/16-TODO-Piatok-Priprava na vojnu.docx\")",
+      "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/17-TODO-Piatok poobedie - Bitka.docx\")",
+      "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/18-TODO-piatok-vecer-zaverecny-bal.docx\")"
     ],
     "additionalDirectories": [
       "/Users/caby/chatovacka-2026/.claude"

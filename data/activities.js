@@ -440,18 +440,31 @@ Escape room na chatkách
     type: 'activity',
     time: '09:30',
     endTime: '12:00',
-    location: 'Lúka + ihrisko',
+    location: 'Pred jedálňou, za hornými chatkami, za chlapčenskými chatkami, tráva pri altánku, altánok, lúka, ihrisko',
+    detail: 'Deti si voľne vyberajú spomedzi stanovíšť – šerm, streľba, náramky, vyšívanie, méta, stolové hry a ďalšie.',
     description: `
-Skupinky súťažia na rôznych stanovištiach. Kráľovná (čarodejnica) hodnotí skupinky a rozhoduje o víťazoch.
+Program prebieha formou voľných stanovíšť. Každé stanovište funguje samostatne a deti sa doň zapájajú dobrovoľne. Mimo stanovíšť budú animátori, ktorí vytvoria atmosféru a budú deti povzbudzovať.
 
-## Stanovištia
-- futbal
-- vzduchovka
-- cornhole
-- meta
+Animátori na stanovištiach vysvetlia aktivitu a dohliadajú na jej priebeh. Program je oddychový, kreatívny aj športový – deti si vyberajú podľa záujmu. Deti môžu medzi stanovišťami ľubovoľne prechádzať počas celého programu. Stanoviská budú označené plagátmi a šípkami.
+
+## Stanoviská
+- Šermiarstvo
+- Streľba (zo vzduchovky)
+- Kohútie zápasy
+- Cornhall
+- Kvetinky (prechádzka na lúku)
+- Pletenie vrkočov
+- Náramky (korálkové aj pletené)
+- Méta
+- Vyšívanie (na šatky)
+- Stolové hry
+- Iné športy (futbal, ringo alebo volejbal – podľa záujmu)
+
+## Mokrý program
+Pár stanovíšť ostane: šermiarstvo, cornhall, pletenie vrkočov, náramky – altánok, jedáleň
     `,
-    vedúciDna: null,
-    vedúciProgramu: 'Čaby',
+    vedúciDna: 'Miška',
+    vedúciProgramu: 'Sofka D, Emka T',
     animators: [
       { name: 'Tomáš Blaha',         role: 'Lúka'       },
       { name: 'Josky',               role: 'Vzduchovka' },
@@ -472,16 +485,34 @@ Skupinky súťažia na rôznych stanovištiach. Kráľovná (čarodejnica) hodno
       { name: 'Mathias'                                 },
       { name: 'Filip G.'                                }
     ],
-    animatorsNote: 'Cca 17 animátorov',
+    animatorsNote: 'cca 17 (1 – streľba/kohútie/cornhall/stolové/šport, 2 – šerm/vyšívanie/kvety/vrkoče/náramky/méta, z toho 2 dospelí)',
     materials: [
-      'Lopty (futbal) – 2 ks',
-      'Cornhole sada – 1 sada',
-      'Kužele (Meta) – 20 ks'
+      'Dva penové meče',
+      'Dve penové rúrky (rezance)',
+      'Vzduchovka',
+      'Terč / plechovka',
+      'Karimatka',
+      'Šesť šatiek',
+      'Lano na označenie x2',
+      'Cornhall',
+      'Špagát',
+      'Maličký nožík (iba pre animátora)',
+      'Repelent',
+      'Gumičky',
+      'Kefa',
+      'Všetko na náramky (korálky, šnúrky, nožnice, ...)',
+      'Denko',
+      'Krepák',
+      'Tenisové loptičky',
+      'Vyšívanie (nitky, 20 šatiek, nožnice, krúžky, ihly)',
+      'Lopty na športy',
+      'Ligretto, karty, Bang, Človeče',
+      'Plagáty a šípky ku stanovištiam'
     ],
-    hasScoring: true,
-    scoring: 'Bodujú jednotlivé stanovištia – vedúci stanovišťa zaznamenáva výsledky.',
-    hasMtzNote: false,
-    mtzNote: null
+    hasScoring: false,
+    scoring: null,
+    hasMtzNote: true,
+    mtzNote: 'Vedľa každého stanovišťa viditeľné číslo na kartóne. V areáli rozpis stanovíšť (ideálne pri vode pri jedálni).'
   },
 
   {
@@ -493,12 +524,81 @@ Skupinky súťažia na rôznych stanovištiach. Kráľovná (čarodejnica) hodno
     type: 'activity',
     time: '14:30',
     endTime: '17:00',
-    location: 'Areál chatovačky',
+    location: 'Les za táborom + areál tábora',
+    detail: 'Zástupcovia skupiniek bojujú v lese o prežitie, zvyšok skupinky plní úlohy na stanovištiach a zbiera peniaze na žolíkov – extra životy pre bojovníkov.',
     description: `
-Skupinky sú rozdelené na tím Lucy a tím Edmunda. Plnia úlohy u majstrov, nakupujú u obchodníka a súťažia o najlepšie výsledky.
+Celotáborová hra. Z každej skupinky je vybraný jeden zástupca (splátca), ktorý bojuje v lese. Ostatní chodia po stanovištiach v areáli a zbierajú peniaze na žolíkov pre svojho splátcu.
+
+Zástupcovia sú rozdelení na dva tímy: **Edmund vs Lucy** (mix chlapcov a dievčat, aby to bolo rovnomerné). V lese však každý bojuje sám za seba.
+
+## Skupinky v areáli – TRI OBLASTI
+
+Skupinky prechádzajú oblasťami v poradí LOGIKA → POHYB → KREATIVITA (cyklicky, začínajú rôzne). Na každom stanovišti je animátor, ktorý zadá úlohu ešte nevyriešenú danou skupinkou.
+
+### LOGIKA
+- **Tip tip tip** – uhádnuť gesto animátora (2 body za osobu, limit 5 min)
+- **Vybíjaná naslepo** – najvyšší má zaviazané oči, najnižší naviguje; 3 min na vybíjanie (3 body za osobu)
+- **Mandela efekt** – 10 párov obrázkov, uhádnuť správny za 3 min (2 body za správnu odpoveď)
+- **Sluch** – oslepená osoba hádne kto ju pozdravil (1 bod za prvý pokus)
+- **Uzol** – rozviazať uzly za 5 min bez pustenia rúk (3 body za uzol)
+- **Pantomíma** – koľko viet stihnú za 4 min (3 body za vetu)
+
+### POHYB
+- **Labyrint** – prejsť zakľukatené lano so zaviazanými očami (2 body za osobu)
+- **Lezenie po lane** – každý člen skupinky (2 body hore, 1 bod za pokus)
+- **Pohyb po deke** – pretočiť deku bez dotyku zeme (začínajú s 20b, prešľapy rátajú mínus)
+- **Kto donesie najďalej** – doniesť predmet čo najďalej a vrátiť sa do 10 sek (2 opakowania)
+- **Zviazané nohy** – štafeta dvojíc; čas určuje počet bodov (20b → mínus 2 každých 15 sek)
+- **100 drepov** – celá skupinka dokopy (4 body)
+
+### KREATIVITA
+- **Zvalenie pohárov** – šiškou zvaliť poháre, 2 pokusy (2 body za osobu)
+- **Zápalkové príklady** – presunúť zápalku aby sedel výsledok
+- **Prešmyčky** – vyriešiť za 2 min (1 bod za prešmyčku)
+- **Kreslenie na chrbát** – v rade prekresľovať obrázok prstom, posledný kreslí na papier (5/3/0 b)
+- **Architekti** – postaviť vežu zo špajlí za 7 min (10 bodov za tím ak vydrží 10 s)
+- **Elektrina** – posielať stisk rukou v rade, posledný chytí cukrík; 5 kôl (10 bodov za absolvovanie)
+
+## Žolíci (extra životy pre splátcu v lese)
+- Malý žolík (30 €) = +15 životov
+- Veľký žolík (50 €) = +25 životov
+- MEGA žolík (80 €) = návrat do hry (netreba oznamovať na začiatku)
+
+Skupinka kúpi žolíka v obchode, zástupca ho odnesie na hranicu (bránu do lesa), splátca si ho vyzdvihne. Žolíci sú farebne označení. Obchodník si zapisuje čo komu predal.
+
+## Zástupcovia v lese
+
+Každý splátca má kartičku a začína so 100 bodmi života. Súboj nastane keď sa dvaja stretnú – zavolajú majstra, každý si vyberie 2 aktivity (spolu 4), hrajú ich.
+
+**Aktivity pri súboji (v lese):**
+- Strihaná (kameň-papier-nožnice, na 3 výhry)
+- Čingčong
+- Staring contest (kto sa skôr klipne/usmieje)
+- Za koľko sekúnd spravíš 20 drepov (nejdú naraz)
+- Odhoď-dones tenisák (súper musí doniesť tvoj tenisák)
+- Kto ďalej doskočí (3 skoky každý)
+- Odhad (odhadnúť číslo/dátum – kto bližšie)
+- Preteky k bodu a späť
+- Limbo (podliezanie pod palicu)
+- Fľaša-fest (kto vydrží dlhšie s vystretou rukou)
+
+**Výsledky súboja:**
+- 4:0 → porazený stráca 30 bodov
+- 3:1 → porazený stráca 15 bodov
+- 2:2 → remíza, nikto nestráca, bez imunity
+
+Po súboji má porazený 5-minútovú imunitu. Bojisko sa každú polhodinu zmenšuje (krepový papier). Po "smrti" splátca zapíše čas a pripojí sa k skupinke.
+
+## Hodnotenie
+- 100–10 bodov za splátcu podľa poradia v súbojoch
+- Bonusové body za žolíkov zakúpených po "smrti" splátcu (každý žolík = 3 body)
+
+## Mokrý program
+- Pri poprchávení: hrajú v pršiplášťoch
+- Pri silnom daždi: zápasy zástupcov v areáli s pršiplášťami; animátori chodia po chatkách so stanovišťami každých 15 min (6 animátorov – 3 dievčatá pre dievčenské chatky, 3 chlapci pre chlapčenské)
     `,
-    vedúciDna: null,
-    vedúciProgramu: 'Ondrej Mocák',
+    vedúciDna: 'Miška',
+    vedúciProgramu: 'Ondrej M., Patrik P.',
     animators: [
       { name: 'Ondrej Mocák',     role: 'Kontrolor'  },
       { name: 'Kika Ondisková',   role: 'Majster'    },
@@ -511,14 +611,31 @@ Skupinky sú rozdelené na tím Lucy a tím Edmunda. Plnia úlohy u majstrov, na
       { name: 'Nina',             role: 'Stanovište' },
       { name: 'Patrik Bača',      role: 'Stanovište' }
     ],
-    animatorsNote: '5 majstrov, 1 obchodník, 3 stanovištia, 1 kontrolor',
+    animatorsNote: '5 majstrov, 1 obchodník, min. 10 skupinkových, 3 na stanovištiach, 1 kontrolór (Ondrej)',
     materials: [
-      'Žetóny / body – 200 ks',
-      'Stôl pre obchodníka – 1 ks',
-      'Tovar (rekvizity) – 1 sada'
+      'Gumičky 2x, šatky 4x',
+      'Mandela efekt fotky (vytlačené)',
+      'Pantomíma vety (vytlačené)',
+      'Lano 2x',
+      'Deky 2x',
+      'Šnúrky (na zviazanie nôh)',
+      '10 ks plastových pohárov',
+      '2 balenia zápaliek',
+      '90 ks papiera, 15 ks fixov',
+      'Obrázky na prekreslenie (vytlačené)',
+      'Dostatok špajlí, lepiaca páska, nožnice',
+      'Vytlačené tabuľky na bodovanie',
+      'Extra životy (žolíci)',
+      '10x karta na zapisovanie (pre splátcov)',
+      '5 červených + 5 modrých tenisových loptičiek',
+      'Otázky na odhad s odpoveďami (vytlačené)',
+      '5 ks palica/metla (limbo)',
+      '10 ks malých fliaš s vodou',
+      'Krepový papier (na označenie bojiska)',
+      'Cukríky cca 50 ks (elektrina)'
     ],
     hasScoring: true,
-    scoring: 'Tím s najviac bodmi od obchodníka na konci vyhráva.',
+    scoring: '100–10 b za splátcu podľa poradia; +3 b za každého žolíka zakúpeného po "smrti" splátcu. Súboj: 4:0 = -30 b, 3:1 = -15 b, 2:2 = remíza.',
     hasMtzNote: false,
     mtzNote: null
   },
@@ -532,12 +649,46 @@ Skupinky sú rozdelené na tím Lucy a tím Edmunda. Plnia úlohy u majstrov, na
     type: 'activity',
     time: '20:00',
     endTime: '21:30',
-    location: 'Stanivská + altánok',
+    location: 'Areál tábora + lesík pri bráničke',
+    detail: 'Skupinky zbierajú snehové vločky na 6 stanovištiach a vymenia ich za mapu – podľa nej pátraju po dôkazoch o únose Tumnusa Bielou Čarodejnicou.',
     description: `
-Dramatická večerná aktivita – deti zistia, že Tumnus zmizol. Hľadajú stopy a riešia záhadu jeho zmiznutia.
+Pán Tumnus zmizol a my hľadáme dôkazy o tom, kde je. Skupinky (CH+D spolu) prechádzajú 6 stanoviskami a na každom získajú snehové vločky. Chodia random, nemajú rozpis – 1 stanovisko je vždy voľné, na ostatných 5 je vždy len 1 skupinka.
+
+Za nazbierané vločky dostanú v altánku mapu areálu (nie úplne dokreslená). Podľa mapy nájdu 1 konkrétny dôkaz o zmiznutí Tumnusa. Keď skupinky dajú dôkazy dohromady, zistia, že ho uniesla Biela Čarodejnica.
+
+**Dôkazy:** zatykač, ľadová koruna, odznak vlčej polície, Tumnusov šál, Tumnusova píšťalka
+
+## Stanoviská
+
+**1. Les má oči** – cukor káva čaj rum bum
+Animátor je otočený chrbtom, hovorí "cukor káva čaj rum bum", potom sa otočí – kto sa pohne, vracia sa na začiatok. Animátor to deťom sťažuje – prechádza sa pomedzi nich, rozosmieva ich.
+
+**2. Lúštenie mračikovského písma**
+Skupinka dostane text v runovom písme s vysvetlivkami a musí ho rozlúštiť.
+
+**3. Veci z Tumnusovho domu**
+V lese za malou bráničkou sú poschovávané veci (topánka zavesená na strome, hrnček...). Začínajú pred bráničkou, majú jednu čelovku. Po jednom vybiehajú do lesa – keď nájde novú vec, vráti sa, nahlási ju, podá čelovku a ide ďalší. Hrá sa, pokým nenájdu všetky veci.
+_Pozor: na začiatku nebude taká tma – treba veci poschovávať viac, neskôr stačí menej._
+
+**4. Stopy**
+Jeden z tímu si vytiahne meno zvieraťa a zahrá ho pantomímou. Zvyšok tímu musí uhádnuť zviera a priradiť stopu.
+Zvieratá: slon, vlk, jeleň, srna, ježko, kamzík, kurka, kačka, diviak, medveď, vydra, had, zajac, jaščurka, potkan, líška, kôň, krava, ťava, pavian, pavúk, hroch, lama, lev, korytnačka, krokodíl
+
+**5. Ľadové kryhy**
+Dostať sa z bodu A do bodu B pomocou krýh (papier A4). Môžu stáť len na kryhách, krýh dostanú o jednu menej ako je členov skupinky.
+
+**6. Bludisko**
+Jeden člen tímu má zaviazané oči. Ostatní ho navigujú cez bludisko (konáre alebo švihadlá) len pomocou vopred dohodnutých zvieracích zvukov. Nesmú použiť ľudské slová – „steny majú uši".
+
+## Mokrý program
+Stanoviská rovnakého typu, ale prispôsobené – každý tím sám (CH a D osobitne) na svojej chatke.
+- Po splnení dostanú od animátora útržok zo zatykača, na konci spoja tímy dokopy v altánku.
+- Alternatíva 1: pozbierajú vločky a za ne kúpia dôkazy od náhodného človeka
+- Alternatíva 2: za vločky podplatia svedka
+- Verzia 2.0: premiestniť stanoviská do altánku, jedálne, kaplnky, chatky s terasou alebo terasy pri zdravotníčke
     `,
-    vedúciDna: null,
-    vedúciProgramu: 'Braňo Kováč',
+    vedúciDna: 'Miška',
+    vedúciProgramu: 'Hanka P., Janko K.',
     animators: [
       { name: 'Braňo Kováč',       role: 'Stanivská' },
       { name: 'Dianka Salanciová', role: 'Stanivská' },
@@ -547,10 +698,20 @@ Dramatická večerná aktivita – deti zistia, že Tumnus zmizol. Hľadajú sto
       { name: 'Patrik Pekarovič',  role: 'Stanivská' },
       { name: 'Nina',              role: 'Altánok'   }
     ],
-    animatorsNote: '7 animátorov',
+    animatorsNote: '6 na stanovištiach + 1 v altánku (rozdávanie máp)',
     materials: [
-      'Sviečky – 20 ks',
-      'Reproduktor – 1 ks'
+      'Dôkazy: zatykač, ľadová koruna, odznak vlčej polície, Tumnusov šál, Tumnusova píšťalka',
+      'Mapy areálu (nie úplne dokreslené)',
+      'Snehové vločky (pre skupinky)',
+      'Veci z Tumnusovej chyže (topánka, hrnček, ...)',
+      'Zatykač – verzia dážď',
+      'Stopy zvierat (vytlačené/vystrihané)',
+      'Papieriky s názvami zvierat',
+      'Laná / konáre / švihadlá (bludisko)',
+      'Papiere A4 (ľadové kryhy)',
+      '1 čelovka (veci z Tumnusovho domu)',
+      'Runové písmo s vysvetlivkami (vytlačené)',
+      'Papiere, perá'
     ],
     hasScoring: false,
     scoring: null,
@@ -562,19 +723,50 @@ Dramatická večerná aktivita – deti zistia, že Tumnus zmizol. Hľadajú sto
 
   {
     id: 'str-vylet',
-    name: 'Výlet – stanoviská',
+    name: 'Výlet',
     dayRef: 'streda',
     timeLabel: 'Doobedu',
     timeOfDay: 'morning',
     type: 'activity',
     time: '09:00',
     endTime: '12:00',
-    location: 'Trasa okolo chatovačky',
+    location: 'Cesta okolo kameňolomu',
+    detail: 'Skupinky prechádzajú trasu okolo kameňolomu so 6 stanoviskami – stretávajú postavy z Narnie a plnia výzvy.',
     description: `
-Skupinky prechádzajú trasu s 8 stanoviskami. Na každom stanovisku na nich čakajú postavy z Narnie a úlohy.
+Vydávame sa na cestu Narniou. Cestou sa stretávame s dobrými aj zlými postavami. Trasa je rozdelená pre mladších (5.–7. ročník) a starších (8.–9. ročník). Chodia chlapci aj dievčatá spolu.
+
+Skupinky vyrážajú z tábora v 10-minútových rozostupoch. Trasa vedie okolo kameňolomu a je na nej 6 stanovíšť, každé trvá 10 minút.
+
+## Stanoviská
+
+**1. Bobor**
+- Mikádo – vytiahnuť čo najviac
+- Jenga – vytiahnuť čo najviac za čas; penalizácia keď im to spadne – strhnúť polovicu bodov z tých čo vytiahli
+
+**2. Maugrim (vlk)**
+- 2 skupinky po 5 chlapcov a 5 dievčat budú proti sebe vo výzvach
+- Preťahovanie lanom, člnkový beh (aj proti animátorom)
+
+**3. Čarodejnica**
+- Skupinky sa postavia do radu čelom oproti sebe
+- Tri deti dostanú od animátora do úst citrón a ostatní budú hádať kto má citrón v ústach
+
+**4. Líška**
+- Hádanky, osemsmerovky, sudoku, príklady
+- Cieľom je vyriešiť čo najviac úloh za 10 minút
+
+**5. Kentaur**
+- Streľba – každý musí vystreliť, počítajú sa body dokopy
+- Luk, kuša, granát, prak (hobbyhorsing)
+
+**6. Mikuláš**
+- Spytko, meč, štít, skákanie vo vreci s mikulášskou čiapkou
+
+## Mokrý program
+Aktivity v tábore
     `,
-    vedúciDna: null,
-    vedúciProgramu: null,
+    vedúciDna: 'Tomáš Blaha',
+    vedúciProgramu: 'Adam Paško, Filip Goffa',
     animators: [
       { name: 'Kika Ondisková', role: 'Líška'    },
       { name: 'Ľuboš',         role: 'Mikuláš'  },
@@ -582,16 +774,27 @@ Skupinky prechádzajú trasu s 8 stanoviskami. Na každom stanovisku na nich ča
       { name: 'Pali P.',        role: 'Bobor'    },
       { name: 'Števo SDB',      role: 'Kentaur'  }
     ],
-    animatorsNote: '8 stanovísk (MTZ doplní zoznam)',
+    animatorsNote: '8 animátorov na 6 stanovištiach',
     materials: [
-      'Mapy trasy – 10 ks',
-      'Karty stanovísk – 8 sád',
-      'Pečiatky / razidlá – 8 ks'
+      'Mikádo',
+      'Jenga',
+      'Lano (preťahovanie)',
+      'Kužele (člnkový beh)',
+      'Citróny',
+      'Granát',
+      'Prak',
+      'Luk + kuša',
+      'Meč, štít',
+      'Spytko',
+      'Vrece (skákanie)',
+      'Mikulášska čiapka',
+      'Hobbyhorsing',
+      'Hádanky, osemsmerovky, sudoku, príklady (vytlačené)'
     ],
     hasScoring: true,
-    scoring: 'Skupinky zbierajú pečiatky – čím viac, tým lepšie.',
-    hasMtzNote: true,
-    mtzNote: 'MTZ doplní zoznam animátorov na jednotlivé stanoviská.'
+    scoring: 'Niektoré stanoviská sú bodované (Bobor – mikádo/jenga, Kentaur – streľba, Líška – úlohy).',
+    hasMtzNote: false,
+    mtzNote: null
   },
 
   {
@@ -627,71 +830,126 @@ Deň duchovného stíšenia. Program vedie kňaz alebo duchovný sprevádzateľ.
     type: 'activity',
     time: '20:00',
     endTime: '22:00',
-    location: 'Areál chatovačky',
+    location: 'Areál + les / prípadne cesta',
+    detail: 'Deti pátraju po uväznenom Edmundovi – v 1. fáze sa vyhýbajú vlkom a zbierajú indície, v 2. fáze naopak chytajú vlkov pre kúsky mapy.',
     description: `
-Edmund je nezvestný a skupinky ho musia nájsť.
+Edmund je uväznený v tábore bielej čarodejnice. Do nášho tábora prenikli vlci ako sprisahanci. Úlohou je vyhnať vlkov a nájsť Edmunda.
 
-## Rozdelenie animátorov
-- jedna skupina animátorov chytá deti
-- druhá skupinka utečencov pomáha deťom dostať sa k cieľu
+Hra sa hrá v 2 fázach. Deti behajú ako individuá, ale hrajú po skupinkách (dievčatá a chlapci spolu). Z každej skupinky sa vyberú 2–4 deti (2 ch. + 2 d.), ktoré môžu oživovať padnuté deti, ale nesmú zbierať dôkazy.
+
+## 1. fáza – vlci naháňajú nás
+
+V areáli je 5 okruhov, ktoré strážia 2–3 vlci. V okruhoch sú indície, ktoré môžu napomôcť nájsť Edmunda. Keď vlk chytí dieťa v okruhu, dieťa zostáva na mieste (čupne si). Mimo okruhov vlci deťom iba uložia úlohu (napr. zabehni okruh...).
+
+Po istom čase, alebo po nazbieraní všetkých dôkazov, začína:
+
+## 2. fáza – my chytáme vlkov
+
+Roly sa obrátia – teraz deti naberú silu a odvahu a vyháňajú vlkov z tábora. Všetci vlci utekajú pred deťmi.
+
+Keď deti chytia vlka, získajú:
+- kúsok mapy, ktorý ich zavedie za Edmundom, alebo
+- privedú ho do altánku a „vytĺčú" z neho informácie (štýl bizónov)
+
+Akonáhle ubehne čas / chytia sa všetci vlci / získa sa mapa – celý tábor sa vydáva za Edmundom, ktorý bude priviazaný k stromu. Spoločne ho vyslobodíme.
+
+## Mokrý program
+Hry v altánku proti vlkom
     `,
-    vedúciDna: null,
-    vedúciProgramu: 'Kika Ondisková',
+    vedúciDna: 'Tomáš Blaha',
+    vedúciProgramu: 'Tomáš Blaha',
     animators: [
-      { name: 'Kika Ondisková',        role: 'Chytanie' },
-      { name: 'Peťo Hanzal',           role: 'Chytanie' },
-      { name: 'Nika',                  role: 'Chytanie' },
-      { name: 'Maroš',                 role: 'Chytanie' },
-      { name: 'Filip',                 role: 'Chytanie' },
-      { name: 'Barborka Bobaľová',     role: 'Chytanie' },
-      { name: 'Patrik Bača',           role: 'Chytanie' },
-      { name: 'Janko Falát',           role: 'Chytanie' },
-      { name: 'Filip Sukeľ',           role: 'Chytanie' },
-      { name: 'Paulínka Katkovčinová', role: 'Chytanie' },
-      { name: 'Hanka',                 role: 'Beh'      },
-      { name: 'Paulínka Harajdová',    role: 'Beh'      },
-      { name: 'Boris Surničin',        role: 'Beh'      },
-      { name: 'Dano Chripák',          role: 'Beh'      },
-      { name: 'Janko Katkovčin',       role: 'Beh'      }
+      { name: 'Kika Ondisková',        role: 'Vlk' },
+      { name: 'Peťo Hanzal',           role: 'Vlk' },
+      { name: 'Nika',                  role: 'Vlk' },
+      { name: 'Maroš',                 role: 'Vlk' },
+      { name: 'Filip',                 role: 'Vlk' },
+      { name: 'Barborka Bobaľová',     role: 'Vlk' },
+      { name: 'Patrik Bača',           role: 'Vlk' },
+      { name: 'Janko Falát',           role: 'Vlk' },
+      { name: 'Filip Sukeľ',           role: 'Vlk' },
+      { name: 'Paulínka Katkovčinová', role: 'Vlk' },
+      { name: 'Hanka',                 role: 'Utečenec' },
+      { name: 'Paulínka Harajdová',    role: 'Utečenec' },
+      { name: 'Boris Surničin',        role: 'Utečenec' },
+      { name: 'Dano Chripák',          role: 'Utečenec' },
+      { name: 'Janko Katkovčin',       role: 'Utečenec' }
     ],
-    animatorsNote: '10 chytajúcich + 5 utečencov',
+    animatorsNote: '10 vlkov + 5 utečencov (oživujú padnuté deti)',
     materials: [
-      'Baterky – 15 ks',
-      'Pásky – 80 ks'
+      '5x5 dôkazov (indície)',
+      'Krabice na indície',
+      'Laná',
+      'Kúsky mapy (pre fázu 2)'
     ],
     hasScoring: false,
     scoring: null,
-    hasMtzNote: false,
-    mtzNote: null
+    hasMtzNote: true,
+    mtzNote: 'Pripraviť normálne rovné miesta pre indície.'
   },
 
   // ── ŠTVRTOK ───────────────────────────────────────────────────────────────
 
   {
     id: 'stv-trening',
-    name: 'Tréning',
+    name: 'Príprava na vojnu',
     dayRef: 'stvrtok',
     timeLabel: 'Doobedu',
     timeOfDay: 'morning',
     type: 'activity',
     time: '09:30',
-    endTime: '12:00',
-    location: 'Ihrisko',
+    endTime: '11:30',
+    location: 'Okolie areálu',
+    detail: 'Skupinky absolvujú SPARTAN RACE dráhu okolo areálu a preukážu, že sú hodní stať sa členmi Aslanovej armády.',
     description: `
-Skupinky sa pripravujú na záverečnú bitku. Tréning bojových zručností a tímovej spolupráce.
+Cieľom programu je aby deti preukázali, že sú hodní stať sa členmi Aslanovej armády. Deti musia prejsť stanovenú dráhu v určitom čase – majú len 2 pokusy a musia zvládnuť všetky stanoviská.
+
+Dráha začína pri východe z tábora a končí na rovnakom mieste. Na trase sú pripravené stanoviská, ktoré treba splniť. Animátor na každom stanovisku si zapisuje, či dieťa zvládlo. Ak nezvládne, ide trestný okruh. Bude sa stopovať čas.
+
+Na začiatok dráhy sa vždy dostavia 2 skupinky (dievčenská a chlapčenská). Vybehne prvý, spustí sa čas; keď dobehne do nejakého stanoviska, pustí sa ďalší.
+
+## Stanoviská SPARTAN RACE
+- S Joskym na lane
+- Gúľanie pneumatiky
+- Podliezanie
+- Vyliezť niekde
+- Udržanie fliaš s vodou
+- Švihadlo
+- Rebrík
+- Hod niečím ťažším
+- Tlačenie naplneného fúrika
+- Kliky / drepy
+- Skákanie
+- Nosenie vedier s vodou
+- …
+
+## Paralelne v tábore – vyzývačky
+Pomedzi to prebiehajú vyzývačky (kto vydrží najdlhšie v planku, pretláčanie, stolička, …). Keď niekto skončí skôr ako animátor, dostane pohár vody.
+
+## Mokrý program
+Toto isté – vojaci musia byť tuff
     `,
-    vedúciDna: null,
-    vedúciProgramu: null,
+    vedúciDna: 'Čaby',
+    vedúciProgramu: 'Paťo, Dávid',
     animators: [],
-    animatorsNote: '15+ animátorov (zoznam doplniť)',
+    animatorsNote: '15+ animátorov',
     materials: [
-      'Rekvizity na boj – 1 sada',
-      'Lopty – 4 ks'
+      'Lano (Josky)',
+      'Švihadlo',
+      'Pneumatika',
+      'Veľa špagátu',
+      'Lano na strom',
+      'Fľaše s vodou',
+      'Rebrík',
+      'Niečo ťažšie na hádzanie',
+      'Fúrik + niečo na jeho naplnenie',
+      'Vedrá + voda',
+      'Rozpis poradia skupiniek na SPARTAN RACE'
     ],
-    hasScoring: false,
-    scoring: null,
+    hasScoring: true,
+    scoring: 'Bodovanie – animátor na každom stanovisku zapisuje splnenie. Cieľom je prejsť celú dráhu v stanovenom čase.',
     hasMtzNote: true,
-    mtzNote: 'MTZ doplní rozdelenie animátorov.'
+    mtzNote: 'Pomôžete nám pripraviť SPARTAN RACE dráhu.'
   },
 
   {
@@ -778,26 +1036,31 @@ Dramatická nočná aktivita – deti sú stratené v Narnii a musia nájsť ces
     id: 'stv-skuska',
     name: 'Skúška odvahy',
     dayRef: 'stvrtok',
-    timeLabel: 'Nočná',
+    timeLabel: 'Nočná hra',
     timeOfDay: 'night',
     type: 'activity',
     time: '23:00',
-    endTime: '00:30',
-    location: 'Les + areál',
+    endTime: '02:00',
+    location: 'Kameňolom',
+    detail: 'Skupinky chodia v dvojiciach po vyznačenej trase v tme, prenikajú k budovám a stiahnu sa bez odhalenia.',
     description: `
-Skúška odvahy pre skupinky – každá skupinka prechádza trasou v tme.
+Deti chodia po dvojiciach. Jedna skupina potrebuje približne 10–15 minút. Rozdelia sa do dvojíc a pohybujú sa medzi budovami po dobre vyznačenej trase, aby sa nestratili.
+
+Následne prídu do budovy, kde sa pripravuje útok. Potom sa musia stiahnuť bez toho, aby ich niekto odhalil alebo chytil.
+
+## Mokrý program
+Žiadny
     `,
-    vedúciDna: null,
-    vedúciProgramu: 'David',
+    vedúciDna: 'Čaby',
+    vedúciProgramu: 'Filip a David',
     animators: [
       { name: 'David' }, { name: 'Filip' }, { name: 'Dano Chripák' },
       { name: 'Boris Surničin' }, { name: 'Braňo Kováč' },
       { name: 'Dianka Salanciová' }, { name: 'Kika Ondisková' }
     ],
-    animatorsNote: '7 animátorov',
+    animatorsNote: '5 animátorov + 2 vedúci = 7',
     materials: [
-      'Baterky – 8 ks',
-      'Rekvizity (strach) – 1 sada'
+      'Reflektujúca farba'
     ],
     hasScoring: false,
     scoring: null,
@@ -809,19 +1072,23 @@ Skúška odvahy pre skupinky – každá skupinka prechádza trasou v tme.
 
   {
     id: 'pia-priprava',
-    name: 'Príprava na vojnu',
+    name: 'Príprava na vojnu TODO',
     dayRef: 'piatok',
     timeLabel: 'Doobedu',
     timeOfDay: 'morning',
     type: 'activity',
     time: '09:30',
-    endTime: '12:00',
-    location: 'Ihrisko + okolie',
+    endTime: '11:30',
+    location: 'Areál / okolie areálu',
+    detail: 'Skupinky rotujú po stanovištiach a získavajú hodnosti – trénujú skills pred záverečnou bitkou.',
     description: `
-Skupinky sa pripravujú na záverečný boj – maľujú sa, cvičia a budujú tímového ducha.
+Deti sa pripravujú na vojnu z hľadiska skillsov. Po skupinkách rotujú po stanovištiach a získavajú hodnosti.
+
+## Mokrý program
+To isté – vojaci musia byť schopní pracovať aj po daždi, musia byť tuff
     `,
-    vedúciDna: null,
-    vedúciProgramu: 'Patrik Pekarovič',
+    vedúciDna: 'Ajka',
+    vedúciProgramu: 'David, Janko',
     animators: [
       { name: 'Patrik Pekarovič',      role: 'NEGÁCIA' },
       { name: 'Janko Katkovčin',       role: 'NEGÁCIA' },
@@ -835,68 +1102,162 @@ Skupinky sa pripravujú na záverečný boj – maľujú sa, cvičia a budujú t
     ],
     animatorsNote: '15+ animátorov',
     materials: [
-      'Rekvizity na vojnu – 1 sada',
-      'Farby na tvár – 10 ks'
+      'Papier, pero',
+      'Luk a šípy',
+      'Penové tyčinky',
+      'Stôl, poháre',
+      'Doska na lane',
+      'Pingpongové loptičky',
+      'Granáty alebo niečo na vrhanie',
+      'Hulahop',
+      'Pneumatiky',
+      'Cornhole',
+      'Felícia'
     ],
-    hasScoring: false,
-    scoring: null,
-    hasMtzNote: false,
-    mtzNote: null
+    hasScoring: true,
+    scoring: 'Skupinky získavajú hodnosti podľa výsledkov na stanovištiach.',
+    hasMtzNote: true,
+    mtzNote: 'Pripraviť stanoviská.'
   },
 
   {
     id: 'pia-boj',
-    name: 'Záverečný boj',
+    name: 'Záverečný boj TODO',
     dayRef: 'piatok',
     timeLabel: 'Poobedie',
     timeOfDay: 'afternoon',
     type: 'activity',
     time: '14:30',
     endTime: '17:00',
-    location: 'Celý areál',
+    location: 'Kameňolom / les / lúka',
+    detail: 'Deti hľadajú 3 predmety (koruna, žezlo, vlajka) v nepriateľskom území, pričom ich naháňa armáda ľadovej kráľovnej.',
     description: `
-Záverečná bitka o Narniu – všetci animátori a účastníci súťažia v tímovej hre.
+Deti hľadajú predmety, ktorých získaním porazia armádu ľadovej kráľovnej. Naháňa ich pritom jej armáda.
+
+**Cieľ:** nájsť všetky 3 predmety – korunu, žezlo a vlajku.
+
+## Formát hry
+1 kolo = 6 minút behanie + 4 minúty oddych / trénovanie / osud
+
+## Herná plocha
+Rozdelená na 2 časti:
+1. **Nepriateľské územie** – deti vybiehajú hľadať predmety, naháňa ich armáda kráľovnej
+2. **Kemp** – deti trávia prestávky, zlepšujú si úroveň a čelia nástrahám osudu; každé kolo je špecifická úloha na zlepšenie úrovne
+
+## Kartičky a čísla
+Každé dieťa dostane kartičku s číslom **1** a farbou podľa schopnosti (Peter/Susan/Edmund/Lucy). Animátori majú kartičky s číslami **5–10** a po kolách si ich medzi sebou menia.
+
+**Konfrontácia:** keď animátor chytí dieťa na nepriateľskom území, ukážu si navzájom karty:
+- Dieťa má nižšie alebo rovné číslo → zostáva na mieste, odoberie sa mu kartička
+- Dieťa má vyššie číslo → animátor ho pustí, kartička zostáva
+
+## Schopnosti postáv
+- **Peter (červený)** – keď ho chytí animátor, môže si zahrať kameň-papier-nožnice; ak vyhrá, unikne
+- **Susan (modrá)** – 3× za hru si môže pri stretnutí vymeniť kartičku
+- **Edmund (zelený)** – počas každej prestávky získa 2 levely, ale ak ho chytí animátor, príde o 1 level
+- **Lucy (žltá)** – každé kolo dostane 3 kartičky, počas nasledujúceho kola môže oživovať mŕtvych
+
+## Kód vo fľaši
+Jeden z predmetov je schovaný v truhle s kódom/kľúčom. Kľúč je vo fľaši na dne nádoby – deti musia prelievať vodu z inej nádoby, kým fľaša nevypláva. V malom okruhu pri nádobe nemôžu animátori chytať deti. Za jedno kolo môžu prileliať vodu len raz (strážca studne – pri podvádzaní odleje 2 poháre späť). Za nalejenú vodu odovzdajú žetón z prestávky (vždy len jeden).
+
+## Po 7. kole
+Príde Aslan, oživí všetky deti a začne im dávať výhody.
+
+## Kráľovnine kliatby / Aslanove kúzla
+- Zjavenie mapy (v poslednom kole)
+
+## Poznámky po hre (na dopracovanie)
+- V kempe viac animátorov, viac výziev
+- Viac predmetov na hľadanie
+- Intervaly prispôsobiť a nastaviť dobre
+- Chytači nech majú by default nižšie hodnoty
+- Vlci berú kartičky, oživovací dávajú
+- Schopnosti si rozdajú v skupinke, vrámci skupinky si môžu meniť
+- V kempe mať osvieženie (je teplo)
     `,
-    vedúciDna: null,
+    vedúciDna: 'Ajka',
     vedúciProgramu: null,
     animators: [],
-    animatorsNote: 'Všetci animátori',
+    animatorsNote: null,
     materials: [
-      'Zástavky tímov – 2 ks',
-      'Farebné pásky – 80 ks'
+      'Kartičky s číslami pre deti (číslo 1, farebné – Peter/Susan/Edmund/Lucy)',
+      'Kartičky pre animátorov (čísla 5–10)',
+      '3 predmety: koruna, žezlo, vlajka',
+      'Truhla s kódom/kľúčom',
+      'Fľaša + nádoba s vodou + pohár (kód vo fľaši)',
+      'Žetóny (prestávka medzi kolami)',
+      'Pískorky (tréning v kempe)'
     ],
     hasScoring: true,
-    scoring: 'Víťazný tím získa bonusové body pre skupinky.',
-    hasMtzNote: false,
-    mtzNote: null
+    scoring: 'Deti zbierajú levely v kempe, stratia ich pri chytení. Víťazí tím, ktorý nájde všetky 3 predmety.',
+    hasMtzNote: true,
+    mtzNote: 'MTZ je súčasťou zlej armády (spolu s ľuďmi zvonku).'
   },
 
   {
     id: 'pia-bal',
-    name: 'Bál',
+    name: 'Večerný bál TODO',
     dayRef: 'piatok',
     timeLabel: 'Večer',
     timeOfDay: 'evening',
     type: 'activity',
     time: '20:00',
-    endTime: '23:00',
-    location: 'Záhrada / jedáleň',
+    endTime: '21:00',
+    location: 'Altánok',
+    detail: 'Organizovaná diskotéka s tančekmi, súťažami a kolektívnymi hrami – zakončená odpočítavaním, konfetami a svietiacimi náramkami.',
     description: `
-Záverečný bál – tanec, súťaže a oslava konca tábora.
+Organizovaná diskotéka. Všetci animátori.
+
+## Hry a program
+
+**Dance battle** – dievčatá vs chlapci
+
+**Chvíľková tancovačka** – moderátor hajpuje ľudí, nasleduje vláčik cez celý areál
+
+**Zvieratká** – počas tanca dostanú pokyn byť zvieratkom (lev – revať, mačky, sovy, primárne zvieratká z lesa)
+
+**Hľadanie predmetov** – pred diskotékou organizátori schováju po miestnosti 10–15 malých predmetov (zlatý kľúč, mini korunku, lampáš, leviu hrivu, prsteň, meč z kartónu). Počas jednej pesničky ich môžu deti hľadať. Na konci sa vyžrebujú malé odmeny alebo sladkosti.
+
+**Skupinkové choreografie**
+- Každá skupinka dostane 2 minúty na prípravu, potom 30–45 sekúnd na vlastnú choreografiu
+- Môžu použiť: bojovnícke pózy, leví tanec, čarodejnícke kúzla, smiešne pohyby
+- Porota hodnotí: originalitu, spoluprácu, energiu
+- Odmena: titul _Najveselšie kráľovstvo Narnie_
+
+**Záver diskotéky** – posledné pesničky bez prerušovania; môžeme zaradiť: spoločný vláčik, limbo, kruhové tance, skákanie podľa rytmu, obľúbené detské hity
+
+**Záverečné odpočítavanie:** 10… 9… 8… → pri nule vyletia konfety alebo sa rozdajú svietiace náramky ako symbol ukončenia dobrodružstva
+
+## Po diskotéke – organizované voľno (pre tých čo chcú)
+- Spoločenské hry
+- Korálky
+- Športy
+- Kecačky
+- Tancovačky (Just Dance)
+
+## Mokrý program
+To isté, len v kuchyni
     `,
-    vedúciDna: null,
-    vedúciProgramu: null,
+    vedúciDna: 'Ajka',
+    vedúciProgramu: 'Ajka',
     animators: [],
-    animatorsNote: 'Všetci',
+    animatorsNote: 'Všetci animátori',
     materials: [
-      'Dekorácie – 1 sada',
-      'Reproduktor – 1 ks',
-      'Sviečky / svetlá – 1 sada'
+      'Konfety',
+      'Svietiace náramky',
+      'Zlatý kľúč (rekvizita)',
+      'Mini koruna (rekvizita)',
+      'Lampáš (rekvizita)',
+      'Lvia hriva (rekvizita)',
+      'Prsteň (rekvizita)',
+      'Meč z kartónu (rekvizita)',
+      'Reproduktor / ozvučenie',
+      'Dobrá nálada'
     ],
     hasScoring: false,
     scoring: null,
-    hasMtzNote: false,
-    mtzNote: null
+    hasMtzNote: true,
+    mtzNote: 'DJ: Dávid, Patrik'
   },
 
   // ── SOBOTA ────────────────────────────────────────────────────────────────
