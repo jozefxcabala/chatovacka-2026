@@ -14,11 +14,11 @@
   --gold:          #c8952a;
   --gold-dim:      rgba(200, 149, 42, 0.1);
 
-  --col-pondelok:  #5b8fcc;
-  --col-utorok:    #8b6dc4;
-  --col-streda:    #3aaa72;
-  --col-stvrtok:   #d4881a;
-  --col-piatok:    #c8404e;
+  --col-pondelok:  #4fa8b8;
+  --col-utorok:    #8e9e96;
+  --col-streda:    #9b5c38;
+  --col-stvrtok:   #c43030;
+  --col-piatok:    #c8a025;
   --col-sobota:    #2a8a8a;
 
   --r-sm:   4px;
