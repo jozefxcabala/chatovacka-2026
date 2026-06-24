@@ -226,25 +226,49 @@ function renderActivityPreviewAccordionHtml(dayActivities) {
     }
 
     // Animátori
-    if (act.animatorsNote) {
+    if (act.animators && act.animators.length) {
+      const SHOW = 3;
+      html += '<div class="day-preview-row day-preview-row--animators">';
+      html += '<span class="day-preview-row-label">Animátori</span>';
+      html += '<div class="animatori-chips">';
+      act.animators.forEach((a, i) => {
+        html += '<span class="chip' + (i >= SHOW ? ' chip--hidden' : '') + '">';
+        html += escapeHtml(a.name);
+        if (a.role) html += ' <span class="chip-rola">' + escapeHtml(a.role) + '</span>';
+        html += '</span>';
+      });
+      if (act.animators.length > SHOW) {
+        html += '<button class="chip chip--more chip--expandable" data-expand-chips>+' + (act.animators.length - SHOW) + '</button>';
+      }
+      html += '</div>';
+      html += '</div>';
+    } else if (act.animatorsNote) {
       html += '<div class="day-preview-row">';
       html += '<span class="day-preview-row-label">Animátori</span>';
       html += '<span class="day-preview-row-value">' + escapeHtml(act.animatorsNote) + '</span>';
       html += '</div>';
     }
 
-    // Pomôcky (max 3)
+    // Pomôcky (max 3, zvyšok rozbaľovací)
     if (act.materials && act.materials.length) {
+      const MAT_SHOW = 3;
       html += '<div class="day-preview-row">';
       html += '<span class="day-preview-row-label">Pomôcky</span>';
-      html += '<span class="day-preview-row-value">' + act.materials.slice(0, 3).map(m => escapeHtml(m)).join(', ');
-      if (act.materials.length > 3) html += ' <span class="day-preview-more">+' + (act.materials.length - 3) + ' ďalšie</span>';
+      html += '<span class="day-preview-row-value">';
+      html += act.materials.slice(0, MAT_SHOW).map(m => escapeHtml(m)).join(', ');
+      if (act.materials.length > MAT_SHOW) {
+        const hidden = act.materials.slice(MAT_SHOW);
+        html += '<span class="mat-hidden-group" hidden>, ' + hidden.map(m => escapeHtml(m)).join(', ') + '</span>';
+        html += ' <button class="day-preview-more chip--expandable" data-expand-materials>+' + hidden.length + ' ďalšie</button>';
+      }
       html += '</span>';
       html += '</div>';
     }
 
-    // Úryvok popisu (prvá normálna veta)
-    if (act.description && act.description.trim()) {
+    // Krátky súhrn
+    if (act.detail) {
+      html += '<p class="day-preview-excerpt">' + escapeHtml(act.detail) + '</p>';
+    } else if (act.description && act.description.trim()) {
       const excerpt = act.description.trim().split('\n')
         .map(l => l.trim())
         .find(l => l && !l.startsWith('#') && !l.startsWith('-'));

@@ -64,30 +64,35 @@ export const activities = [
 
   {
     id: 'pon-pokladovka',
-    name: 'Pokladovka',
+    name: '"Pokladovka" + vyroba erbov, pokriku',
     dayRef: 'pondelok',
     timeLabel: 'Doobedu',
     timeOfDay: 'morning',
     type: 'activity',
-    time: '09:00',
-    endTime: '10:30',
-    location: 'Areál chatovačky',
+    time: '10:30',
+    endTime: '11:30',
+    location: 'Vonku, chatky',
+    detail: 'Skupinky hľadajú podľa mapy skryté meno a názov skupinky v chatách, potom vyrábajú erb a vymýšľajú pokrik skupinky.',
     description: `
-Skupinky hľadajú poklad podľa mapy a plnia úlohy na stanovištiach.
+Deti prídu do tabora, mozu si nechat veci pred chatkami nech im nezavadzaju pri hladani. Skupinky sa presunú do chatiek kde zacnu hladat mapu, následne podla mapy budu hladat miesto kde sa bude nachadzat ich meno s ich nazvom skupinky. Ked to najdu, pojdu za core timom, ktory si zapise ich poradie kvoli hodnoteni a odovzdá im pomocky na vyrobu erbu ktory si následne idu robit na chatky (resp. si vyrobia svoj "znak", ktorý budú nosiť počas tábora). Teraz bude aj cas a priestor pre tvorbu pokrikov.
+
+- nazvy skupiniek si animátori dohodnú na chatovej dielni spolocne
     `,
-    vedúciDna: 'Čaby',
-    vedúciProgramu: null,
+    vedúciDna: 'Marta',
+    vedúciProgramu: 'Bašky',
     animators: [],
     animatorsNote: 'Animátori pri skupinkách',
     materials: [
-      'Mapa pokladu – 1 ks / skupinka',
-      'Predmety na stanovištiach (podľa plánu)',
-      'Tašky na poklad – 10 ks'
+      'Mapy',
+      'Kartony na erby',
+      'Farebne písacie potreby'
     ],
-    hasScoring: false,
-    scoring: null,
-    hasMtzNote: false,
-    mtzNote: null
+    hasScoring: true,
+    scoring: 'Kto prvy najde meno, pride ku Marte – ona zapise poradie. Vyhodnotenie bude plusové body.',
+    hasMtzNote: true,
+    mtzNote: `Core tim nech rozmiestni mapy, indície a mena skupiniek {dohodneme osobne} po chatkách rano pred prichodom deti, staci na viditeľné miesto, najlepsie na každej chatke podobne.
+
+Mokrý program: schova sa vsetko na chatke najdu, erb budu robit na chatke.`
   },
 
   {
@@ -97,74 +102,249 @@ Skupinky hľadajú poklad podľa mapy a plnia úlohy na stanovištiach.
     timeLabel: 'Doobedu',
     timeOfDay: 'morning',
     type: 'activity',
-    time: '10:30',
+    time: '11:15',
     endTime: '12:00',
-    location: 'Areál chatovačky',
+    location: 'Vonku po areály, chatky',
+    detail: 'Animátori hrajú so skupinkami vybrané spoznávacie hry – lentilková, 2 pravdy 1 lož, deka/plachta, pištolníci a ďalšie.',
     description: `
-Hry na zoznámenie – skupinky sa spoznávajú navzájom aj s animátormi.
+Na výber sú zoznamovačky a je na každom animátorovi, ktorú si pre svoje deti vyberie a bude s nimi hrať. Odporúčame skupinky chlapci + dievčatá dokopy, a určite spraviť aj viac týchto hier, nie len jednu.
+
+## Lentilková
+Celá skupinka má misku a v nej určité množstvo lentiliek. Misku necháme kolovať, nech si každý naberie koľko chce – zatiaľ nejesť!!!! A si poberú málo, môžeme dať kolovať ešte raz. Keď si už všetci pobrali, začne jeden o sebe rozprávať informácie, na každú farbu povie iný typ informácií, napr.
+červená = Kmeňová príslušnosť (rodina)
+zelená = Putovanie (najlepší výlet)
+žltá = Zázraky (niečo, čo sa ti podarilo)
+modrá = Suchou nohou (najväčší trapas)
+oranžová = Mojžišov moment (hrdinstvo, keď niekomu pomohol)
+ružová = obľúbené jedlo
+hnedá = tvoje hobby
+fialová = domáce zvieratko
+Ak mám 2 žlté lentilky, musím povedať 2 rôzne záľuby.)
+pomôcky: lentilky, miska, vysvetlivky (čo ktorá farba)
+
+## 2 pravdy, 1 lož – verzia 1
+Deťom sa rozdá po jeden lepiaci papierik a pero. Každé z nich musí o sebe napísať 1 lož a 2 pravdy (ak sú menšie deti, čo nebudú vedieť, animátori kľudne im pomôžte niečo vymyslieť ;)) → nech nehovoria iným čo píšu!!! Papieriky sa poskladajú a odovzdajú do krabičky. Deti si vylosujú cudzí papierik a podľa informácií na ňom hádajú, o koho zo skupiny ide. Každé dieťa si venuje len svojmu papieriku, a ak si myslí o danom človeku, že sa to týka jeho, nalepí mu papierik na chrbát. Hra končí, keď bude mať každý nejaký papierik na chrbte. Potom si ich čítame a opravuje zlé tipy, deti môžu zdieľať, ktorá z 3 informácií o nich je tá nepravdivá.
+pomôcky: lepiace papieriky (farba pre skupinku, 6 ks farieb), písacie potreby (každému do skupinky), krabička (6 ks, ak budú čiapky tak stačí aj to)
+
+## 2 pravdy, 1 lož – verzia 2
+Deťom sa rozdá po jeden lepiaci papierik a pero. Každé z nich musí o sebe napísať 1 lož a 2 pravdy (ak sú menšie deti, čo nebudú vedieť, animátori kľudne im pomôžte niečo vymyslieť ;)) Deti sedia v kruhu, nezdieľajú medzi sebou čo píšu!!! Ak sú všetky hotové, po jednom čítajú čo napísali. Prvé dieťa prečíta 3 informácie, a ostatní sa radia, ktorá z nich je lož. Ak sa dohodnú, dieťa zakrúžkuje na svojom papieriku, ktorú informáciu ostatní zvolili ako klamstvo. Takto sa ide ďalej, pokým všetci nemajú zakrúžkovanú 1 informáciu. Potom sa znova ide od prvého a odhaľuje sa, či si ostatní tipli správne. Kľudne sa o tom môže rozbehnúť diskusia ak je čas, je to fajn na také rozprávanie, možno aj zasmijete a tak :D
+pomôcky: lepiace papieriky (farba pre skupinku, 6 ks farieb), písacie potreby (každému do skupinky), krabička (6 ks, ak budú čiapky tak stačí aj to)
+
+## Stena/Deka
+Deti sedia na kope, pred nimi animátori držia deku/plachtu. Všetky deti zatvoria oči a animátori si zoberú 2/3 detí za deku a jedno z nich musí spoza deky vystrčiť ruku/nohu/kúsok hlavy/ukázať čiapku/topánku… Ostatné decká majú potom za úlohu rýchlo uhádnuť, ktoré z tých 2-3 detí za plachtou bolo (môžu sa poradiť, no majú na to max. 30 sekúnd – nech to má dynamiku)
+pomôcky: deka/plachta (6 ks)
+
+## Loptová
+Jeden povie svoje meno a hodí loptu niekomu inému so slovami: „Lopta pre Lea!" Lea sa musí rýchlo ozvať a hodiť ďalšiemu: „Lopta pre Šimona!" Ak niekto zabudne meno – je to „hlad na púšti" a animátor mu dá výzvu (napr. zaspieva meno toho, koho zabudol).
+pomôcky: mäkká loptička
+
+## Pištolníci
+Typickí pištolníci. Deti stoja v kruhu (na striedačku, chlapec-dievča), animátor je v strede kruhu. Animátor zakričí meno jedného dieťaťa (napr. „Peter!") a Peter si čupne. Tí, ktorí stoja vedľa Petra naľavo a napravo sa musia navzájom „zastreliť" prstami. Ten, kto strelí do toho druhého ako prvý je víťaz a porazený vypadáva z hry.
+pomôcky: deti s prstami.
+
+## Rovnaké vlastnosti
+Animator povie tvrdenie:
+Napr.: kto má rád fantasy, kto vie lyžovať, kto bol pri mori, kto vie variť, kto je ranné vtáča… Tí ľudia vstúpia do stredu kruhu, ktori to vedia. Vieme o sebe, kto ma podobne zaluby.
+
+## Hľadám sám seba
+Deti pomedzi seba chodia v dave a stretávajú sa. Filip sa stretne s Evou, Filip sa predstaví a potom sa predstaví Eva. Predstavujú sa svojim menom a vlastnosťou, zážitkom, tajomstvom. "som Filip a viem žonglovať" - "som Eva a mám rada vôňu benzínu". Filip a Eva teraz na seba berú vlastnosť toho druhého, čiže Filip sa bude predstavovať ako Eva a naopak. Filip sa stretne s Ruženou, a od tohto momentu sa predstavuje ako Ružena. . . takto to ide celý čas. Kto sa s kým stretne, s tým si vymení osobnosť. Individuál končí, keď sa stretne sám so sebou → nájde sa (ak sa originál Filipovi niekto predstaví ako Filip, ktorý vie žonglovať, Filip odíde z davu a sadne si vedľa na zem). Deti v dave teda majú za úlohu vymieňať si osobnosti, dokým nenájdu sami seba. - skor pre starsich
+
+## Skupinkový "speed dating"
+Sú dva rady oproti sebe [chlapci a dievčatá] prví ľudia v rade budu stat oproti sebe, animator bude citat otázky:
+……. [moze si aj vymyslieť]
+Ked obaja zodpovedaju, tak idu na koniec radu. Tak sa vystriedaju vsetci z oboch skupiniek.
+
+## Pohyblivé meno
+Deti stoja v kruhu. Prvé dieťa povie svoje meno a predvedie jednoduchý pohyb (napríklad potlesk, skok, chytí sa za ucho, brnkne si po nose, zatočí sa..). Ostatné deti zopakujú jeho meno aj pohyb. Potom je na rade ďalšie dieťa, ktoré pridá svoj vlastný pohyb. Hra pokračuje, až sa zapoja všetky deti.
+pomocky: ziadne.
     `,
-    vedúciDna: 'Čaby',
-    vedúciProgramu: null,
+    vedúciDna: 'Marta',
+    vedúciProgramu: 'Bašky',
     animators: [],
     animatorsNote: 'Animátori pri skupinkách',
     materials: [
-      'Nálepky so menami – 80 ks',
-      'Kartičky na hry – 1 sada'
+      'Veľké balíky lentiliek {20ks}',
+      'Misky',
+      'Deky',
+      'Lepiace papieriky',
+      'Písacie potreby',
+      'Lopty'
     ],
     hasScoring: false,
     scoring: null,
-    hasMtzNote: false,
-    mtzNote: null
+    hasMtzNote: true,
+    mtzNote: 'Mokrý program: na chatkach, v altánku, hlavná chata'
   },
 
   {
     id: 'pon-skrinia',
-    name: 'Objavenie skrine',
+    name: 'Celotáborová hra – objavenie skrine',
     dayRef: 'pondelok',
     timeLabel: 'Poobedie',
     timeOfDay: 'afternoon',
     type: 'activity',
     time: '14:30',
-    endTime: '17:00',
-    location: 'Lúka pri chatovačke',
+    endTime: null,
+    location: 'Areál tábora, altánok',
+    detail: 'Skupinky zbierajú 100 papierikov po areáli, vyhýbajú sa sluhom a plnia úlohy pri 5 predmetoch, aby otvorili skriňu do Narnie.',
     description: `
-Hlavná aktivita prvého dňa. Skupinky plnia hádanky a úlohy, ktoré ich vedú k objaveniu šatníka do Narnie.
+## Popis hry
 
-## Rozdelenie rolí
-- každá skupinka má priradený behač a hádankára
-- behač nosí riešenia medzi stanoviskami
-- hádankár číta a rieši úlohy so skupinkou
+Krátky úvod - vžitie do deja: Profesor má skriňu, ale nevie na čo slúži. Už pár rokov ju má v dome ale nikdy na ňu neupútaval pozornosť. Zistil, že potrebuje 5 predmetov na to, aby sa skriňa otvorila a aby sa dozvedel čo je v nej.
 
-## Záver
-Po nájdení šatníka skupinky prejdú symbolickým vstupom do Narnie – spoločnou scénkou alebo gestom.
+Priebeh hry: Hra začína vysvetlením pravidiel.
+Po vysvetlení sa vyberie z každej skupinky jeden človek, ktorý príde vylosovať predmet, ktorý skupinka hľadá (chlapci a dievčatá hrajú spolu v skupinkách).
+Skupinka bude musieť dokopy nájsť 100 papierikov s obrázkami ich predmetu.
+Papieriky sú schované po celom areáli (nie vnútri budov, len vonku).
+Ak má skupinka hľadať šál, tak nech hľadá len obrázok šálu - nič iné.
+Úlohou detí je doniesť papieriky na ich kôpku do altánku (2 animátori v altánku tzv. sluhovia - kontrolujú len altánok a poriadok v ňom).
+
+Deti vybehnú do areálu a hľadajú svoje obrázky. Je tu ale chyták - namrzení sluhovia a slúžky chcú, aby bolo v tábore ticho a kľud, nech má profesor pokoj. Budú behať po areáli a chytať deti. Ak chytia dieťa s papierikom v ruke, dieťa musí odovzdať papierik a slúžka/sluha pôjde papierik znova skryť niekde po areáli.
+Ak dieťa nebude mať pri sebe papierik, slúžka/sluha mu dá krátky trest (napr. 5 klikov, drepy, zatočiť sa 6x na mieste…). Až po splnení trestu môže dieťa hľadať ďalej.
+
+Dieťa môže vziať vždy len jeden papierik. Ak do altánku donesie viac ako jeden, alebo bude prichytené s viac ako jedným papierikom, sluhovia zoberú všetky papieriky celej skupinke a znova ich schovajú v areáli.
+
+Celý priebeh hry kontroluje profesor. Buď je v altánku alebo sa prechádza po areáli a pozerá, či sú deti poslušné a hrajú čestne. Raz za čas môže dieťa zachrániť od sluhov/slúžiek, ak uvidí, že dieťa chytili a že ho idú potrestať. Ak bude vtedy nablízku, môže služobníka zastaviť a dieťa nechať odísť bez trestu alebo s papierikom v ruke - záleží ale kde sa vtedy profesor nachádza, nie každý môže mať to šťastie.
+
+Po polhodine (alebo iný čas) sa v areáli začnú objavovať zvláštne postavy - ľudia, ktorí reprezentujú 5 predmetov každej skupinky. Niekto s červeným šálom okolo krku, niekto s kúskom papiera, niekto s vreckovými hodinkami…
+Úlohou celej skupinky je osloviť tohto človeka a dať sa s ním do reči. Tento človek je ich kľúčom k otvoreniu skrine - musia získať predmet, ktorý vlastní, inak sa do skrine nedostanú.
+
+Skupinka musí danému človeku ukázať svoje papieriky, a dokázať, že ich má presne 100. Ak ich nebude mať dosť, človek ich pošle hľadať ďalej.
+Ak bude mať skupinka 100 papierikov, človek im dá úlohy, za ktoré budú môcť získať jeho predmet.
+
+## Úlohy k predmetom
+
+**Zväzok kľúčov**
+- Animátor má zväzok viacerých kľúčov/kartičiek.
+Úloha: Skupinka musí vyriešiť krátku hádanku alebo šifru a podľa nej vyberú správny kľúč. Napr. začneme hádankou kde odpoveď je kľúč, pokračujeme hádankami opisovaním kľúčov.
+
+**Červený šál**
+Úloha: Skupinka dostane šál. Všetci sa ho musia dotýkať a prejsť rýchlejším tempom určitú trasu medzi stromami bez pustenia. Ak sa pustia, idú od začiatku.
+
+**Profesorova obálka**
+- bude pripravený plagát na stene hlavnej chatky so šifrou, deti budú behať k nemu od toho betónového bazéna po jednom a odpisovať každé po 2 písmená - štafetovo
+- animátor s profesorovou obálkou má v ruke papier a pero, ktorý obsahuje zašifrovanú správu, ktorú keď vylúštia, tak získajú profesorovu obálku
+- šifra: ж ζℓѢζÅℓ Δ ζℓѢζÅℓ Δ ζℓѢζÅℓ ↘ ђѢ£‽ǾΩ ℅ℓ Φ ж ђѢÅ&ç‡ℓǺ ℓ℅Ǻℓζ Π ж ΘÅǺǾŁ Δ Θ¿℅ǺÅ Δ ÞЊĦЊѢ Φ ђѢ£‽ǾΩ ℗ÞЊ©Åℓ℗£ ℅ЩѢЊΘ¿ Δ ÞЊĦЊѢÅℓ℗£ ‡ĦÅ£ѢℓЩç ℓŁ ‽Њΐ℅&ſ ĦЊ©¿ Φ ж → niečo podobné vymyslíme, toto len pre inšpiráciu a predstavu
+
+**Vreckové hodinky**
+Úloha 1:
+- Skupinka dostane: rozstrihané papieriky s časmi/symbolmi alebo kartičky s udalosťami. Musí ich správne zoradiť.
+
+Úloha 2:
+- na zemi sú rozložené „hodiny" (kamene, papiere s číslami).
+- animátor hovorí indície: „Keď sa objavil Aslan (alebo iná postava?), čas sa pohol dopredu o tri hodiny." „Večná zima bola pred hostinou u Tumnusa."
+- skupinka musí postupne nastaviť správny čas/pohybovať ručičkami.
+- keď to vyriešia tak hodinky sa „rozbehnú" a deti dostanú predmet.
+
+**Biela rukavica**
+- aby deti získali rukavicu, musia prejsť "zamrznutým územím"
+- vytvorí sa priestor/trasa
+
+Pravidlá:
+- na zemi sú papiere
+- skupinka sa musí dostať z bodu A do B, ale nesmú sa dotknúť zeme mimo vyznačených miest, inak ich „ľad pohltí" a vracajú sa na začiatok.
+- háčik v hre: majú málo „bezpečných kusov ľadu" (papierov), musia si ich posúvať, spolupracovať, plánovať
+- ak je 20 detí v skupinke tak papierov je cca len 10-11, takže ich musia presúvať dopredu, pomáhať si…
+
+## Koniec hry
+
+Keď skupinka získa svoj predmet, uteká naspäť do altánku a čaká na ostatné skupinky.
+Ak budú všetky skupinky so svojimi predmetmi v altánku, profesor skontroluje "pravosť" vecí, ktoré deti získali.
+Spoločne s profesorom a svojimi predmetmi pôjdu skupinky ku skrini, ktorá sa vďaka daným predmetom otvorí - bude nejaký rituál k otvoreniu alebo len profesor otvorí dvere a vôjde spolu s deťmi cez skriňu do akože iného sveta?
+
+## Pravidlá
+
+- Keď ma chytí zlý, musím mu dať obrázok - inak skupinka dostane akože trest (domyslíme)
+- Beháme INDIVIDUÁLNE
+- Deti môžu brať len jeden obrázok ich predmetu, nie viac.
+- Ak budú mať všetky obrázky - môžu ísť hľadať dobrého len ako celá skupinka.
+- Ak ma chytí sluha, nesmiem mu ujsť lebo mi dá trest
     `,
-    vedúciDna: 'Čaby',
-    vedúciProgramu: 'Mathias',
+    vedúciDna: 'Marta',
+    vedúciProgramu: 'Niky, Kika Ond.',
     animators: [
-      { name: 'Mathias',           role: 'Hádanky' },
-      { name: 'Nina',              role: 'Hádanky' },
+      { name: 'Mathias',            role: 'Hádanky' },
+      { name: 'Nina',               role: 'Hádanky' },
       { name: 'Paulínka Harajdová', role: 'Hádanky' },
-      { name: 'Marína Holubová',   role: 'Hádanky' },
-      { name: 'Kika Ondisková',    role: 'Hádanky' },
-      { name: 'Adam Paško',        role: 'Behač'   },
-      { name: 'Hanka',             role: 'Behač'   },
-      { name: 'Erika',             role: 'Behač'   },
-      { name: 'Dianka Salanciová', role: 'Behač'   },
-      { name: 'Ondrej Mocák',      role: 'Behač'   },
-      { name: 'Maroš',             role: 'Behač'   },
-      { name: 'Filip',             role: 'Behač'   },
-      { name: 'Barborka Bobaľová', role: 'Behač'   },
-      { name: 'Patrik Pekarovič',  role: 'Behač'   }
+      { name: 'Marína Holubová',    role: 'Hádanky' },
+      { name: 'Kika Ondisková',     role: 'Hádanky' },
+      { name: 'Adam Paško',         role: 'Behač'   },
+      { name: 'Hanka',              role: 'Behač'   },
+      { name: 'Erika',              role: 'Behač'   },
+      { name: 'Dianka Salanciová',  role: 'Behač'   },
+      { name: 'Ondrej Mocák',       role: 'Behač'   },
+      { name: 'Maroš',              role: 'Behač'   },
+      { name: 'Filip',              role: 'Behač'   },
+      { name: 'Barborka Bobaľová',  role: 'Behač'   },
+      { name: 'Patrik Pekarovič',   role: 'Behač'   }
     ],
     animatorsNote: '5 hádankárov + 9 behačov',
     materials: [
-      'Šatník (rekvizita) – 1 ks',
-      'Krabice s hádankami – 5 ks',
-      'Balíky s bodmi – 14 ks',
-      'Píšťalky – 2 ks'
+      'Skriňa',
+      'Červený šál',
+      'Vreckové hodinky',
+      'Zväzok kľúčov',
+      'Biela rukavica',
+      'Stará obálka',
+      '100 papierikov s obrázkami každej veci (dokopy 500 ks)'
     ],
     hasScoring: true,
-    scoring: '1. miesto = 5 bodov, 2. = 3, 3. = 2, ostatní = 1 bod',
+    scoring: 'Nehodnotí sa. Ak bude potrebné: 5b pre najrýchlejšiu skupinku, 4 pre druhú atď.',
+    hasMtzNote: true,
+    mtzNote: `Bude potrebné schovať 50 papierikov po celom areáli (nie do chatiek).
+
+Mokrý program: formou hádanok a úloh pre skupinky samostatne získajú predmety potrebné na otvorenie skrine - doplniť.`
+  },
+
+  {
+    id: 'pon-schovavacka',
+    name: 'Schovávačka',
+    dayRef: 'pondelok',
+    timeLabel: 'Poobedie',
+    timeOfDay: 'afternoon',
+    type: 'activity',
+    time: null,
+    endTime: null,
+    location: 'Chatka a jej okolie (schováva sa len v chatke)',
+    detail: 'Chatková schovávačka s tromi lajna­mi – hľadajúci má 3 minúty uhádnuť správne meno aj miesto každého skrytého.',
+    description: `
+Kto hrá: celá Chatka =20 osôb cca + animátori
+Kde sa hrá: v chatke a jej okolí, schováva sa len v chatke!
+Odkiaľ sa vyráža: od lampy pred chatou
+Čas: 5 minút na schovanie (3+2), 3 minúty na hľadanie
+
+## Pravidlá
+Skupina sa rozdelí na 4 skupiny:
+1. 3 ľudia s rozliškou (ako nájdení sa rátajú za 3 body)
+2. 5 ľudia, ktorí sa neskrývajú na začiatku, ale až potom a to iba do skrýše, v ktorej už niekto aktuálne je, ten mu musí uvoľniť miesto a ísť sa skryť inam (=Druhá lajna)
+3. všetci ostatní (=Prvá lajna)
+4. 1 človek, ktorý hľadá ostatných
+
+Cieľ:
+Prvá lajna má 3 minúty na to, aby sa skryla. Za ňou ide Druhá lajna, ktorá má 2 minúty, aby sa skryla do skrýše, v ktorej je už niekto skrytý, títo odhalení majú potom zvyšný čas na to, aby sa skryli…
+Po 5 minútach (3+2) odchádza od lampy ten, čo hľadá ľudí. Na ich nájdenie má 3 minúty. Má so sebou časovač, ktorý zazvoní, keď prejdú 3 minúty.
+Človeka nájde iba vtedy, ak nahlas povie správne meno a miesto, kde sa daný človek skrýva. Ak sa pomýlil, neráta sa mu to.
+V skrýši môže byť vždy iba 1 človek!
+Bonus, ten, čo vybehne z chatky bez toho, žeby ho hľadajúci videl, keď bude pri lampe, zakričí jeho meno; síce získa iba 1 bod, ale neráta sa za nájdeného (možnosť pre tých, čo sa dobre nevedia/nemôžu skryť).
+Okná sú celý čas zavreté, uteká sa len cez dvere!!!
+
+## Body
+Každý, kto nebol nájdený, získa 5 bodov.
+Ten, čo hľadá, získa za každého nájdeného 1 bod, za nájdeného človeka s rozliškou získa 3 body a za nájdeného človeka, čo sa skrýval v druhej lajne, stráca 2 body.
+Ten, čo vybehol z chatky bez odhalenia, získa symbolický 1 bod.
+
+Problém: 2 skupinky budú spať na poschodí chatiek, kde sa nedá skrývať, čo s nimi?
+    `,
+    vedúciDna: null,
+    vedúciProgramu: null,
+    animators: [],
+    animatorsNote: '1 hľadajúci na chatku + animátori pri skupinke',
+    materials: [
+      'Časovače – toľko kusov, koľko je chatiek',
+      'Rozlišky 30 ks (stačí kus látky, reflexný pásik, hocijaké označenie)'
+    ],
+    hasScoring: true,
+    scoring: 'Nenájdený: 5 bodov. Hľadajúci: +1 bod/nájdeného, +3 body/nájdeného s rozliškou, -2 body/nájdeného z druhej lajny. Utekajúci z chatky: 1 bod (symbolický).',
     hasMtzNote: false,
     mtzNote: null
   },
@@ -178,46 +358,70 @@ Po nájdení šatníka skupinky prejdú symbolickým vstupom do Narnie – spolo
     type: 'scenka',
     time: '20:00',
     endTime: '21:30',
-    location: 'Záhrada / altánok',
+    location: 'Altánok',
+    detail: 'Každá skupinka vylosuje žáner a tému, za pol hodiny vymyslí scénku a predvedie ju ostatným – víťaza spomedzi nich vyberá Tumnus.',
     description: `
-Každá skupinka predvedie krátku scénku s Tumnusom ako ústrednou postavou.
+Každá skupinka si vytiahne žáner svojej scénky a tému. Potom budú mať pol hodinku (prípadne 45 min.) na vymyslenie scénky. Chlapci a dievčatá budú hrať scénky oddelene. Najprv sa zahrá jedna dievčenská a potom jedna chlapčenská scénka atď.
     `,
-    vedúciDna: 'Čaby',
-    vedúciProgramu: null,
+    vedúciDna: 'Marta, Josky',
+    vedúciProgramu: 'Dianka S., Kika Ol.',
     animators: [],
-    animatorsNote: 'Animátor pri každej skupinke',
-    materials: [],
-    hasScoring: false,
-    scoring: null,
-    hasMtzNote: false,
-    mtzNote: null
+    animatorsNote: 'Každý animátor pri svojej skupinke',
+    materials: [
+      'Mikrofón – 1 ks'
+    ],
+    hasScoring: true,
+    scoring: 'Neboduje sa – Tumnus vyberie jednu chlapčenskú a jednu dievčenskú skupinku, ktorá dostane bonusové body.',
+    hasMtzNote: true,
+    mtzNote: 'Mokrý program: scénky sa hrajú v altánku, takže spokojne to tam môže byť.'
   },
 
   {
     id: 'pon-utok',
-    name: 'Útek z Narnie pred čarodejnicou',
+    name: 'Nočná hra – útek z Narnie pred čarodejnicou',
     dayRef: 'pondelok',
     timeLabel: 'Nočná hra',
     timeOfDay: 'night',
     type: 'activity',
     time: '22:00',
-    endTime: '00:00',
-    location: 'Areál chatovačky + les',
+    endTime: null,
+    location: 'Areál, Lúka',
+    detail: 'Mladší riešia hádanky a záchranné misie v areáli; starší sa v skupinkách prebíjajú k skrini na lúke za prítomnosti vlkov.',
     description: `
-Nočná hra – deti utekajú pred čarodejnicou a jej sluhami. Animátori hrajú sluhov a snažia sa chytať deti.
+## 5 – 7 roční
+
+Budú v areáli, kde podľa hádaniek budú zisťovať ďalšie miesta kam majú ísť, na konci sa každá skupinka bude musieť dostať k svojej lampe a rozsvietiť ju, potom k ním príde pán Tumnus a ukáže im, kde je skriňa
+
+Počas presunov medzi miestami ich môžu chytať vlci ktorí im zadajú úlohy, ktoré keď do časového limitu nesplnia, jedného zo skupinky si odvlečú (podľa výberu animátora) a páskou mu obviažu nohy alebo ruky alebo oči alebo ústa (podľa výberu animátora)
+
+Skupinka musí prísť na miesto s lekárničkami, zobrať ju a prísť po vlkom zobratého člena tímu, ktorí už ostane tak obviazaný do konca hry až kým celá skupinka neprejde skriňou
+
+## 8 a 9 roční
+
+Budú na lúke, rozmiestnia sa do štyroch rohov a v strede lúky bude skriňa a okolo nej lampáše tak aby všetci na ňu v diaľke videli
+
+Musia sa ako celá skupinka dostať k skrini
+
+Budú ich chytať vlci a princíp bude tak ako pri 5-7 s tým, že nikam ho nevlečú ale zobraný člen ostane ležať na tom mieste a lekárničky budú mať každá skupinka na svojom štarte, takže sa po ne budú musieť za každým vraciať, obviazaný člen ostane obviazaný až do konca hry
+
+## Mokrý program
+
+Escape room na chatkách
     `,
-    vedúciDna: 'Čaby',
-    vedúciProgramu: 'Nika',
+    vedúciDna: 'Marta, Josky',
+    vedúciProgramu: 'Nina, Pašky',
     animators: [
       { name: 'Nika' }, { name: 'Janko' }, { name: 'Ema' }, { name: 'Maroš' },
       { name: 'Patrik Bača' }, { name: 'Boris Surničin' }, { name: 'Janko Katkovčin' },
       { name: 'Filip Sukeľ' }, { name: 'Dano Chripák' }, { name: 'Peter Greňo' }
     ],
-    animatorsNote: 'Cca 10 animátorov',
+    animatorsNote: 'Cca 10 vlkov + pán Tumnus',
     materials: [
-      'Baterky – 10 ks',
-      'Pásky na chytanie – 80 ks',
-      'Píšťalky – 5 ks'
+      'Skrine',
+      'Lampáše',
+      'Papieriky (ako lekárničky)',
+      'Hádanky',
+      'Lepiace pásky'
     ],
     hasScoring: false,
     scoring: null,

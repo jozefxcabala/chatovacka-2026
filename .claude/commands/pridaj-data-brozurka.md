@@ -47,6 +47,29 @@ Dostupné dayRef hodnoty: `pondelok` `utorok` `streda` `stvrtok` `piatok` `sobot
 
 ### Aktivita → `data/activities.js`
 
+#### Animátori — ako ich extrahovať a kam vložiť
+
+Pred generovaním objektu aktivity **vždy skontroluj** dokument na prítomnosť animátorov:
+
+1. **Identifikuj animátorov** — hľadaj v dokumente mená ľudí priradených k rolám (napr. „Tomáš – koordinátor", „Jana a Peter – hádankári", „Lucia bude pri vstupe", „5 animátorov na beh"). Zoznam môže byť v texte, tabuľke alebo zátvorkách.
+
+2. **Pole `animators`** — pre každého pomenovaného animátora pridaj objekt `{ name, role }`. Ak rola nie je uvedená, vynechaj pole `role` alebo použi `role: null`. Ak sú animátori len v čísle (napr. „cca 10 animátorov") bez mien, nechaj pole prázdne `[]`.
+
+3. **Pole `animatorsNote`** — vždy vyplň podľa tejto logiky:
+   - Ak sú v dokumente **pomenovaní animátori**: vygeneruj čitateľný súhrn mien, napr. `"Tomáš (koordinátor), Jana, Peter (beh)"` — tento text sa zobrazuje v dennom harmonograme (skrátený pohľad), preto musí byť ľudsky čitateľný
+   - Ak sú len **číselné informácie** (napr. „cca 10 animátorov", „5 hádankárov + 9 behačov"): použi tento text priamo
+   - Ak nie sú žiadne informácie: nastav `null`
+
+4. **Sekcia v `description`** — ak sú v dokumente pomenovaní animátori s rolami, **pridaj na koniec poľa `description`** túto sekciu (za ostatný obsah, oddelenú prázdnym riadkom):
+
+   ```
+   ## Animátori
+   - Meno – rola
+   - Meno – rola
+   ```
+
+   Ak sú animátori len v čísle (bez mien), sekciu do `description` nepridávaj.
+
 ```js
 {
   id: 'den-kratky-nazov',          // napr. 'pon-pokladovka', 'str-dielna'
@@ -58,13 +81,20 @@ Dostupné dayRef hodnoty: `pondelok` `utorok` `streda` `stvrtok` `piatok` `sobot
   time: '09:00',
   endTime: '10:30',                // alebo null
   location: 'Miesto konania',
+  detail: 'Krátky súhrn čo sa v programe konkrétne deje (1–2 vety, max 150 znakov).',
+  // detail — zobrazuje sa v akordeone aktivít vedľa harmonogramu (nie v riadku harmonogramu!)
+  // Používaj aktívny popis: „Skupinky hľadajú…", „Deti plnia úlohy…" — nie abstraktné frázy.
   description: `
 Text so zachovaným formátovaním z dokumentu.
+
+## Animátori
+- Meno – rola
+- Meno – rola
   `,
   vedúciDna: 'Meno vedúceho dňa alebo null',
   vedúciProgramu: null,
-  animators: [{ name: 'Meno', role: 'Rola' }],  // prázdne pole [] ak nie sú
-  animatorsNote: null,
+  animators: [{ name: 'Meno', role: 'Rola' }],  // prázdne pole [] ak nie sú pomenovaní
+  animatorsNote: 'Meno (rola), Meno, ...',       // čitateľný súhrn pre skrátený pohľad
   materials: ['Pomôcka 1', 'Pomôcka 2'],         // prázdne pole [] ak nie sú
   hasScoring: false,
   scoring: null,
@@ -112,17 +142,41 @@ Text scénky so zachovaným formátovaním.
 }
 ```
 
-## Krok 5 — Vlož do súboru
+## Krok 5 — Vlož do dátového súboru
 
 1. Otvor príslušný JS súbor
 2. Vlož nový objekt **pred posledný `];`** na konci súboru
 3. Zachovaj odsadenie 2 medzery, rovnaký štýl ako ostatné záznamy v súbore
-4. **Ak záznam s rovnakým `id` už existuje** → aktualizuj ho namiesto duplikovania
+4. **Ak záznam s rovnakým `id` už existuje** → aktualizuj ho namiesto duplikovania; **pole `animators` zachovaj ak dokument neobsahuje menovitý zoznam animátorov** — nikdy ho neprepíšaj na `[]`
 5. **Ak ten istý deň+typ už existuje** (napr. ranná modlitba v pondelok) → opýtaj sa používateľa či ho prepísať
+
+## Krok 5b — Aktualizuj harmonogram v `data/days.js`
+
+Ak ide o aktivitu (typ `activity` alebo `scenka`), otvor `data/days.js` a nájdi príslušný deň podľa `dayRef`.
+
+**Čo aktualizovať:**
+
+1. **`vedúciDna`** na úrovni dňa — ak dokument uvádza vedúceho dňa a líši sa od aktuálnej hodnoty, aktualizuj ho
+2. **Položka v `schedule`** s `activityRef` rovnajúcim sa `id` aktivity:
+   - `time` — zmeň na čas z dokumentu
+   - `label` — zmeň na názov aktivity z dokumentu
+3. **Ak položka v `schedule` ešte neexistuje** — pridaj ju na správne miesto (podľa času, vzostupne)
+
+Štruktúra položky v schedule:
+```js
+{ time: '10:30', label: 'Názov aktivity', type: 'activity', activityRef: 'id-aktivity' }
+// alebo pre scénku:
+{ time: '20:00', label: 'Názov scénky', type: 'scenka', activityRef: 'id-scenky' }
+// voliteľne:
+{ time: '22:00', label: 'Nočná hra', type: 'activity', activityRef: 'id', note: 'Nočná hra' }
+```
+
+Pre modlitby a stretká harmonogram **neaktualizuj**.
 
 ## Krok 6 — Zhrnutie
 
 Po dokončení povedz:
 - Čo si pridal alebo aktualizoval (názov, deň, súbor)
+- Čo si zmenil v harmonograme `days.js` (čas, label, vedúciDna)
 - Ak si niečo odhadoval (chýbajúce pole, neurčitý deň), upozorni na to
 - Ak dokument obsahoval viac záznamov, vypíš ich všetky

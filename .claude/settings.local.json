@@ -52,7 +52,21 @@
       "Bash(python3 -c \"import docx; print\\('python-docx: ok'\\)\")",
       "Bash(textutil --help)",
       "Bash(textutil -convert txt /dev/null)",
-      "Bash(mkdir -p /Users/caby/chatovacka-2026/.claude/commands)"
+      "Bash(mkdir -p /Users/caby/chatovacka-2026/.claude/commands)",
+      "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/0-OKpondelok- \\\\\"pokladovka\\\\\" + vyroba erbov, pokriku.docx\")",
+      "Bash(textutil -convert txt -stdout '/Users/caby/chatovacka-2026/brozurky/0-OKpondelok- \"pokladovka\" + vyroba erbov, pokriku.docx')",
+      "Bash(textutil -convert txt -stdout '/Users/caby/chatovacka-2026/brozurky/1-OK-pondelok-Zoznamovačky.docx')",
+      "Bash(textutil -convert txt -stdout '/Users/caby/chatovacka-2026/brozurky/2-OK-Pondelok-SCHOVÁVAČKA.docx')",
+      "Bash(textutil -convert txt -stdout '/Users/caby/chatovacka-2026/brozurky/3-OK-Pondelok-Celotáborová hra - objavenie skrine.docx')",
+      "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/4-OK-pondelok-Scénky skupiniek s Tumnusom.docx\")",
+      "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/5-OK-Pondelok-Nočná hra - útek z Narnie pred čarodejnicou.docx\")",
+      "WebFetch(domain:localhost)",
+      "Bash(curl -s http://127.0.0.1:8743/index.html)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(node --check /Users/caby/chatovacka-2026/js/render.js)",
+      "Bash(node --check /Users/caby/chatovacka-2026/js/app.js)",
+      "Bash(node --input-type=module --eval ' *)",
+      "Bash(screencapture -x /private/tmp/claude-501/-Users-caby-chatovacka-2026/78613884-2129-4311-81e5-f894a648028a/scratchpad/day-animators.png)"
     ],
     "additionalDirectories": [
       "/Users/caby/chatovacka-2026/.claude"

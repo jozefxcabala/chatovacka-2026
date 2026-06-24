@@ -12,7 +12,7 @@ import { stretka }    from '../data/stretka.js';
 
 import { ICONS, escapeHtml } from './utils.js';
 import { buildNavItems, renderSidebar, renderAllSections,
-         buildAktivityCards, buildActivityDetail } from './render.js';
+         buildUvod, buildAktivityCards, buildActivityDetail } from './render.js';
 import { clearFilters, showActivityList } from './filters.js';
 
 // ─── DÁTA ────────────────────────────────────────────────────────────────────
@@ -55,6 +55,9 @@ function navigateTo(sectionId, actParam, instant = false) {
 
   const target = document.getElementById('section-' + sectionId);
   if (target) {
+    if (sectionId === 'uvod') {
+      target.innerHTML = buildUvod(campData, navItems);
+    }
     if (sectionId === 'aktivity') {
       showActivityList();
       buildAktivityCards(campData);
@@ -380,6 +383,28 @@ function initDelegation() {
     const navBtn = e.target.closest('[data-nav]');
     if (navBtn) { navigateTo(navBtn.getAttribute('data-nav')); return; }
 
+    // Rozbalit skrytych animátorov v day preview
+    const expandChipsBtn = e.target.closest('[data-expand-chips]');
+    if (expandChipsBtn) {
+      e.stopPropagation();
+      const chips = expandChipsBtn.closest('.animatori-chips');
+      if (chips) {
+        chips.querySelectorAll('.chip--hidden').forEach(c => c.classList.remove('chip--hidden'));
+        expandChipsBtn.remove();
+      }
+      return;
+    }
+
+    // Rozbalit skryté pomôcky v day preview
+    const expandMatBtn = e.target.closest('[data-expand-materials]');
+    if (expandMatBtn) {
+      e.stopPropagation();
+      const hiddenGroup = expandMatBtn.closest('.day-preview-row-value').querySelector('.mat-hidden-group');
+      if (hiddenGroup) hiddenGroup.removeAttribute('hidden');
+      expandMatBtn.remove();
+      return;
+    }
+
     // Accordion toggle
     const accordionBtn = e.target.closest('[data-accordion-toggle]');
     if (accordionBtn) {
@@ -455,4 +480,11 @@ document.addEventListener('DOMContentLoaded', () => {
       ndEl.textContent = nd ? '🎂 ' + nd : '';
     }
   }, 1000);
+
+  setInterval(() => {
+    if (currentSection === 'uvod') {
+      const uvodEl = document.getElementById('section-uvod');
+      if (uvodEl) uvodEl.innerHTML = buildUvod(campData, navItems);
+    }
+  }, 60000);
 });

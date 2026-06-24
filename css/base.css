@@ -546,6 +546,11 @@ body {
   color: var(--card-muted);
 }
 
+.uvod-sched-detail {
+  font-size: 0.68rem;
+  color: var(--card-muted);
+}
+
 .uvod-sched-note {
   font-size: 0.68rem;
   color: var(--card-muted);
@@ -954,6 +959,11 @@ body {
 .timeline-label--link:hover {
   color: var(--gold);
   text-decoration-color: var(--gold);
+}
+
+.timeline-detail {
+  font-size: 0.7rem;
+  color: var(--ground-muted);
 }
 
 .timeline-note {
@@ -1375,6 +1385,10 @@ body {
   font-size: 0.72rem;
   color: var(--ground-muted);
   font-style: italic;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 /* Úryvok popisu */

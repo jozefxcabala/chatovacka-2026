@@ -13,7 +13,11 @@ export const scenes = [
     id: 'sc-tumnus',
     dayRef: 'pondelok',
     title: 'Scénky skupiniek s Tumnusom',
-    text: 'Každá skupinka predvedie krátku scénku s Tumnusom.'
+    text: `
+Každá skupinka si vytiahne žáner svojej scénky a tému. Potom budú mať pol hodinku (prípadne 45 min.) na vymyslenie scénky. Chlapci a dievčatá budú hrať scénky oddelene. Najprv sa zahrá jedna dievčenská a potom jedna chlapčenská scénka atď.
+
+Tumnus vyberie jednu chlapčenskú a jednu dievčenskú skupinku, ktorá dostane bonusové body.
+    `
   },
   {
     id: 'sc-aslan',
