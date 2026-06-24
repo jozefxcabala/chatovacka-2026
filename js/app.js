@@ -451,19 +451,58 @@ function initPrintBrozurka() {
   });
 
   window.addEventListener('beforeprint', () => {
+    // Rozbaliť všetky accordion položky
     document.querySelectorAll('.day-accordion-body').forEach(b => {
       if (b.hasAttribute('hidden')) {
         b.removeAttribute('hidden');
         b.dataset.printExpanded = '1';
       }
     });
+
+    // Zobraziť skryté animátor chips a materiály
+    document.querySelectorAll('.chip--hidden').forEach(c => {
+      c.classList.add('print-show');
+    });
+    document.querySelectorAll('.mat-hidden-group[hidden]').forEach(g => {
+      g.removeAttribute('hidden');
+      g.dataset.printExpanded = '1';
+    });
+
+    // Inject plný detail každej aktivity do sekcie Aktivity
+    if (!document.getElementById('print-activities-full')) {
+      const wrapper = document.createElement('div');
+      wrapper.id = 'print-activities-full';
+      campData.activities.forEach(act => {
+        const block = document.createElement('div');
+        block.className = 'print-activity-block';
+        block.id = 'print-act-full-' + act.id;
+        block.innerHTML = buildActivityDetail(act.id, campData);
+        wrapper.appendChild(block);
+      });
+      const listView = document.getElementById('aktivity-list-view');
+      if (listView) listView.after(wrapper);
+    }
   });
 
   window.addEventListener('afterprint', () => {
+    // Zbaliť späť accordion položky
     document.querySelectorAll('.day-accordion-body[data-print-expanded]').forEach(b => {
       b.setAttribute('hidden', '');
       delete b.dataset.printExpanded;
     });
+
+    // Skryť späť chips a materiály
+    document.querySelectorAll('.chip--hidden.print-show').forEach(c => {
+      c.classList.remove('print-show');
+    });
+    document.querySelectorAll('.mat-hidden-group[data-print-expanded]').forEach(g => {
+      g.setAttribute('hidden', '');
+      delete g.dataset.printExpanded;
+    });
+
+    // Odstrániť injected activity detail
+    const fullActs = document.getElementById('print-activities-full');
+    if (fullActs) fullActs.remove();
   });
 }
 

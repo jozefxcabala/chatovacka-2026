@@ -159,7 +159,7 @@ export const days = [
       { time: '09:00', label: 'Upratovanie a balenie',            type: 'system'   },
       { time: '09:30', label: 'Omša',                             type: 'system'   },
       { time: '10:15', label: 'Fotenie + vyhodnotenie',           type: 'system'   },
-      { time: '10:30', label: 'Odkazovačka',                      type: 'activity', activityRef: 'sob-stretnutie' },
+      { time: '10:30', label: 'Odkazovačka',                      type: 'activity' },
       { time: '12:00', label: 'Odchod',                           type: 'system'   }
     ]
   }

@@ -1433,10 +1433,20 @@ body {
   border-color: var(--gold);
 }
 
+/* ─── PRINT-ONLY ELEMENTY (skryté na obrazovke) ─────────────────────────── */
+
+.print-full-desc  { display: none; }
+.print-link       { display: none; }
+#print-activities-full { display: none; }
 
 /* ─── PRINT / PDF ────────────────────────────────────────────────────────── */
 
 @media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
   html, body {
     height: auto !important;
     overflow: visible !important;
@@ -1472,7 +1482,45 @@ body {
   .btn-clear,
   .btn-clear-inline,
   .day-accordion-chevron,
-  #aktivity-detail-view { display: none !important; }
+  .chip--more,
+  [data-expand-chips],
+  [data-expand-materials],
+  .uvod-sched-label--link + *,
+  #aktivity-detail-view,
+  #aktivityCardsGrid { display: none !important; }
+
+  /* Screen-only linky → skryť, print-link → zobraziť */
+  .timeline-label--link { display: none !important; }
+  .uvod-sched-label--link { pointer-events: none; text-decoration: none; color: inherit; background: none; border: none; }
+
+  .print-link {
+    display: inline !important;
+    color: var(--gold);
+    text-decoration: underline;
+    text-decoration-color: rgba(200,149,42,0.5);
+    font-weight: 600;
+  }
+
+  /* Plný popis aktivity → zobraziť */
+  .print-full-desc { display: block !important; margin-top: 0.5rem; }
+
+  /* Skryť excerpt, zobraziť plný popis */
+  .day-preview-excerpt { display: none !important; }
+
+  /* Injected full activities */
+  #print-activities-full { display: block !important; }
+  .print-activity-block {
+    border-top: 2px solid #e4e4e4;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    break-inside: avoid;
+  }
+
+  /* Zobraziť všetky skryté chips a materiály */
+  .chip--hidden,
+  .chip--hidden.print-show { display: inline-flex !important; }
+  .mat-hidden-group[hidden],
+  .mat-hidden-group[data-print-expanded] { display: inline !important; }
 
   /* Rozbaliť všetky accordion položky */
   .day-accordion-body,
@@ -1482,7 +1530,7 @@ body {
     border-top: 1px solid #e4e4e4;
   }
 
-  /* Zlomy stránok — každá sekcia na novej strane */
+  /* Zlomy stránok */
   .section {
     page-break-before: always;
     break-before: page;
@@ -1494,36 +1542,45 @@ body {
     break-before: auto;
   }
 
-  .day-accordion-item { break-inside: avoid; }
-  .card               { break-inside: avoid; }
-
-  /* Tmavé pozadia → svetlé pre tlač */
-  .uvod-hero {
-    background: #1b1535 !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+  /* Zabrániť rozlámaniu prvkov cez strany */
+  .day-accordion-item,
+  .day-accordion-header,
+  .timeline-item,
+  .manifest-item,
+  .uvod-schedule-item,
+  .day-preview-meta,
+  .day-preview-row,
+  .detail-meta-grid,
+  .detail-meta-item,
+  .detail-section,
+  .formatted-list,
+  .formatted-list li,
+  .print-activity-block,
+  .card,
+  .stretko-card,
+  .scene-card,
+  .prayer-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 
-  .uvod-card--manifest {
-    background: #f0eeff !important;
-    border: 1px solid #c8952a !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+  .day-accordion-item { break-before: auto; }
+
+  /* Nadpisy nechaj so svojím obsahom */
+  .day-section-heading,
+  .detail-section-title,
+  .scenky-day-heading,
+  .section-title {
+    break-after: avoid;
+    page-break-after: avoid;
   }
 
-  .uvod-card--manifest .manifest-text { color: #1a1a1a !important; }
+  /* Úvod: skryť harmonogram a oznamy, nechať len 10 animátora */
+  .uvod-dashboard-left,
+  .uvod-announcements { display: none !important; }
+  .uvod-dashboard     { grid-template-columns: 1fr !important; }
 
   /* Layout stĺpcov → jeden stĺpec */
-  .uvod-dashboard    { grid-template-columns: 1fr !important; }
   .day-page-layout   { grid-template-columns: 1fr !important; }
   .day-col--schedule { border-right: none !important; border-bottom: 1px solid #e4e4e4; }
-  .cards-grid        { grid-template-columns: repeat(2, 1fr) !important; }
-
-  /* Farby dní — zachovaj pre tlač */
-  .day-hero,
-  .day-accordion-item--open,
-  .card-stripe {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
 }

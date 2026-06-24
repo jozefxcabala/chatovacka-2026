@@ -48,16 +48,6 @@ export function renderSidebar(campMeta, navItems, onNavigate, nameDay) {
     nav.appendChild(btn);
   });
 
-  const dlIcon = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
-  const pdfBtn = document.createElement('button');
-  pdfBtn.className = 'sidebar-pdf-btn';
-  pdfBtn.id = 'btnPrintBrozurka';
-  pdfBtn.title = 'Stiahnuť brožúrku ako PDF';
-  pdfBtn.innerHTML =
-    '<span class="nav-item-icon">' + dlIcon + '</span>' +
-    '<span class="nav-item-label">Stiahnuť PDF</span>';
-  nav.appendChild(pdfBtn);
-
   const footer = document.getElementById('sidebarFooter');
   if (footer) {
     const now = new Date();
@@ -139,8 +129,8 @@ export function buildUvod(campData, navItems) {
       } else {
         html += '<span class="uvod-sched-label">' + escapeHtml(item.label) + '</span>';
       }
-      if (loc)               html += '<span class="uvod-sched-loc">' + escapeHtml(loc) + '</span>';
-      if (item.note)         html += '<span class="uvod-sched-note">' + escapeHtml(item.note) + '</span>';
+      if (loc)       html += '<span class="uvod-sched-loc">' + escapeHtml(loc) + '</span>';
+      if (item.note) html += '<span class="uvod-sched-note">' + escapeHtml(item.note) + '</span>';
       html += '</div>';
       if (item.status === 'current') html += '<span class="uvod-sched-badge uvod-sched-badge--current">Prebieha</span>';
       if (item.status === 'next')    html += '<span class="uvod-sched-badge uvod-sched-badge--next">Ďalšie</span>';
@@ -193,6 +183,7 @@ function renderDayScheduleHtml(day, activities) {
     html += '<span class="timeline-time">' + escapeHtml(item.time) + '</span>';
     if (hasActivity) {
       html += '<button class="timeline-label timeline-label--link" data-day-act="' + escapeHtml(item.activityRef) + '">' + escapeHtml(item.label) + '</button>';
+      html += '<a href="#print-act-' + escapeHtml(item.activityRef) + '" class="timeline-label print-link">' + escapeHtml(item.label) + '</a>';
     } else {
       html += '<span class="timeline-label">' + escapeHtml(item.label) + '</span>';
     }
@@ -209,7 +200,7 @@ function renderActivityPreviewAccordionHtml(dayActivities) {
   html += '<div class="day-accordion">';
   dayActivities.forEach((act, index) => {
     const isOpen = index === 0;
-    html += '<div class="day-accordion-item' + (isOpen ? ' day-accordion-item--open' : '') + '" data-accordion-id="' + escapeHtml(act.id) + '">';
+    html += '<div class="day-accordion-item' + (isOpen ? ' day-accordion-item--open' : '') + '" data-accordion-id="' + escapeHtml(act.id) + '" id="print-act-' + escapeHtml(act.id) + '">';
 
     // Header
     html += '<button class="day-accordion-header" data-accordion-toggle="' + escapeHtml(act.id) + '" aria-expanded="' + (isOpen ? 'true' : 'false') + '">';
@@ -282,7 +273,7 @@ function renderActivityPreviewAccordionHtml(dayActivities) {
       html += '</div>';
     }
 
-    // Krátky súhrn
+    // Krátky súhrn (screen only)
     if (act.detail) {
       html += '<p class="day-preview-excerpt">' + escapeHtml(act.detail) + '</p>';
     } else if (act.description && act.description.trim()) {
@@ -292,6 +283,11 @@ function renderActivityPreviewAccordionHtml(dayActivities) {
       if (excerpt) {
         html += '<p class="day-preview-excerpt">' + escapeHtml(excerpt) + '</p>';
       }
+    }
+
+    // Plný popis (print only)
+    if (act.description && act.description.trim()) {
+      html += '<div class="print-full-desc">' + formatTextToHtml(act.description) + '</div>';
     }
 
     // Tlačidlo na plný detail

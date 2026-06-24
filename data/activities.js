@@ -1393,30 +1393,4 @@ To isté, len v kuchyni
     mtzNote: 'DJ: Dávid, Patrik'
   },
 
-  // ── SOBOTA ────────────────────────────────────────────────────────────────
-
-  {
-    id: 'sob-stretnutie',
-    name: 'Záverečné stretnutie animátorov',
-    dayRef: 'sobota',
-    timeLabel: 'Doobedu',
-    timeOfDay: 'morning',
-    type: 'activity',
-    time: '10:30',
-    endTime: '11:30',
-    location: 'Záhrada',
-    description: `
-Záverečné stretnutie celého animátorského tímu – reflexia tábora, poďakovania.
-    `,
-    vedúciDna: null,
-    vedúciProgramu: 'Čaby',
-    animators: [],
-    animatorsNote: 'Všetci animátori',
-    materials: [],
-    hasScoring: false,
-    scoring: null,
-    hasMtzNote: false,
-    mtzNote: null
-  }
-
 ];
