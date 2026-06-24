@@ -68,17 +68,33 @@ export function getScheduleStatus(schedule) {
   if (!schedule || !schedule.length) return [];
 
   const now = new Date();
-  const nowMins = now.getHours() * 60 + now.getMinutes();
+  let nowMins = now.getHours() * 60 + now.getMinutes();
 
   function parseM(t) {
     const p = t.split(':');
     return parseInt(p[0], 10) * 60 + parseInt(p[1], 10);
   }
 
+  // Compute adjusted start times — detect midnight wrap and add 1440 for post-midnight items
+  const startMins = [];
+  let prevRaw = -1;
+  let offset = 0;
+  for (const item of schedule) {
+    const rawM = parseM(item.time);
+    if (rawM < prevRaw) offset += 1440;
+    startMins.push(rawM + offset);
+    prevRaw = rawM;
+  }
+
+  // If the schedule crosses midnight and it's currently early morning, shift nowMins forward
+  const maxStartM = startMins[startMins.length - 1];
+  if (maxStartM >= 1440 && nowMins < 120) nowMins += 1440;
+
   const withEnd = schedule.map((item, i) => {
-    const startM = parseM(item.time);
-    const endM = i + 1 < schedule.length ? parseM(schedule[i + 1].time) : startM + 90;
-    return { ...item, startM, endM };
+    const startM = startMins[i];
+    const isLast = i === schedule.length - 1;
+    const endM = isLast ? startM + 90 : startMins[i + 1];
+    return { ...item, startM, endM, endIsDefault: isLast };
   });
 
   let currentIdx = -1;
@@ -99,10 +115,10 @@ export function getScheduleStatus(schedule) {
 
   return withEnd.map((item, i) => {
     let status;
-    if (i === currentIdx)       status = 'current';
-    else if (i === nextIdx)     status = 'next';
+    if (i === currentIdx)          status = 'current';
+    else if (i === nextIdx)        status = 'next';
     else if (nowMins >= item.endM) status = 'past';
-    else                        status = 'future';
+    else                           status = 'future';
     return { ...item, status };
   });
 }

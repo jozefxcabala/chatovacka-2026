@@ -118,8 +118,11 @@ export function buildUvod(campData, navItems) {
       const endStr = minsToTime(item.endM);
       const act    = item.activityRef ? getActivity(activities, item.activityRef) : null;
       const loc    = act && act.location ? act.location : null;
+      const timeHtml = (!item.endIsDefault && endStr !== item.time)
+        ? escapeHtml(item.time) + '<span class="uvod-sched-sep">–</span>' + escapeHtml(endStr)
+        : escapeHtml(item.time);
       html += '<div class="uvod-schedule-item uvod-schedule-item--' + item.status + '">';
-      html += '<span class="uvod-sched-time">' + escapeHtml(item.time) + '<span class="uvod-sched-sep">–</span>' + escapeHtml(endStr) + '</span>';
+      html += '<span class="uvod-sched-time">' + timeHtml + '</span>';
       html += '<div class="uvod-sched-body">';
       if (act) {
         html += '<button class="uvod-sched-label uvod-sched-label--link" data-act="' + escapeHtml(item.activityRef) + '">' + escapeHtml(item.label) + '</button>';

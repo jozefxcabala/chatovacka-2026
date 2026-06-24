@@ -35,10 +35,10 @@ export const days = [
       { time: '17:00', label: 'Omša',                                       type: 'system'   },
       { time: '18:00', label: 'Večera',                                     type: 'jedlo'    },
       { time: '19:00', label: 'Voľno',                                      type: 'system'   },
-      { time: '19:30', label: 'Večer u pána Tumnusa + scénka príprava na útek', type: 'scenka', activityRef: 'pon-scenky' },
+      { time: '20:00', label: 'Večer u pána Tumnusa + scénka príprava na útek', type: 'scenka', activityRef: 'pon-scenky' },
       { time: '21:30', label: 'Nočná hra – útek z Narnie',                  type: 'activity', activityRef: 'pon-utok', note: 'Nočná hra' },
       { time: '22:30', label: 'Modlitba v skupinkách',                      type: 'system'   },
-      { time: '23:00', label: 'Večierka deti',                              type: 'system'   },
+      { time: '23:30', label: 'Večierka deti',                              type: 'system'   },
       { time: '23:00', label: 'Animátorská porada',                         type: 'system'   },
       { time: '00:00', label: 'Večierka animátori',                         type: 'system'   }
     ]
@@ -49,6 +49,7 @@ export const days = [
     thoughtAuthor: null,
     vedúciDna: 'Miška',
     schedule: [
+      { time: '07:15', label: 'Modlitby animátorov',   type: 'system'   },
       { time: '07:30', label: 'Budenie',               type: 'system'   },
       { time: '07:45', label: 'Rozcvička',             type: 'system'   },
       { time: '08:00', label: 'Raňajky',               type: 'jedlo'    },
@@ -73,6 +74,7 @@ export const days = [
     thoughtAuthor: null,
     vedúciDna: 'Tomáš Blaha',
     schedule: [
+      { time: '07:15', label: 'Modlitby animátorov',   type: 'system'   },
       { time: '07:30', label: 'Budenie',               type: 'system'   },
       { time: '07:45', label: 'Rozcvička',             type: 'system'   },
       { time: '08:00', label: 'Raňajky',               type: 'jedlo'    },
@@ -96,11 +98,13 @@ export const days = [
     thoughtAuthor: null,
     vedúciDna: 'Čaby',
     schedule: [
+      { time: '07:15', label: 'Modlitby animátorov',             type: 'system'   },
       { time: '07:30', label: 'Budenie',                         type: 'system'   },
       { time: '07:45', label: 'Rozcvička',                       type: 'system'   },
       { time: '08:00', label: 'Raňajky',                         type: 'jedlo'    },
       { time: '08:30', label: 'Modlitby',                       type: 'system'   },
       { time: '09:00', label: 'Príprava na vojnu',               type: 'activity', activityRef: 'stv-trening' },
+      { time: '11:30', label: 'Veľkolepý zápas starších členov armády vo futbale a méte (?)', type: 'activity' },
       { time: '12:30', label: 'Obed',                            type: 'jedlo'    },
       { time: '14:00', label: 'Stretnutie Aslan & čarodejnica',  type: 'activity', activityRef: 'stv-aslan'   },
       { time: '17:00', label: 'Omša',                            type: 'system'   },
@@ -122,6 +126,7 @@ export const days = [
     thoughtAuthor: null,
     vedúciDna: 'Ajka',
     schedule: [
+      { time: '07:15', label: 'Modlitby animátorov',   type: 'system'   },
       { time: '07:30', label: 'Budenie',               type: 'system'   },
       { time: '07:45', label: 'Rozcvička',             type: 'system'   },
       { time: '08:00', label: 'Raňajky',               type: 'jedlo'    },
@@ -133,7 +138,7 @@ export const days = [
       { time: '17:00', label: 'Omša',                  type: 'system'   },
       { time: '18:00', label: 'Večera',                type: 'jedlo'    },
       { time: '19:00', label: 'Voľno',                 type: 'system'   },
-      { time: '20:00', label: 'Bál',                          type: 'activity', activityRef: 'pia-bal' },
+      { time: '20:00', label: 'Bál (+ vyhodnotenie)',          type: 'activity', activityRef: 'pia-bal' },
       { time: '22:30', label: 'Fotky + modlitby',            type: 'system'   },
       { time: '23:00', label: 'Animátorská porada',          type: 'system'   },
       { time: '23:30', label: 'Večierka deti',               type: 'system'   },
@@ -146,6 +151,7 @@ export const days = [
     thoughtAuthor: null,
     vedúciDna: null,
     schedule: [
+      { time: '07:15', label: 'Modlitby animátorov',               type: 'system'   },
       { time: '07:30', label: 'Budíček',                           type: 'system'   },
       { time: '07:45', label: 'Rozcvička',                        type: 'system'   },
       { time: '08:00', label: 'Raňajky',                          type: 'jedlo'    },
