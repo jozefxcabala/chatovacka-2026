@@ -135,6 +135,12 @@ export function getAnimatorColorMap(activities) {
   return map;
 }
 
+function inlineFormat(text) {
+  return escapeHtml(text)
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/_(.+?)_/g, '<em>$1</em>');
+}
+
 export function formatTextToHtml(text) {
   if (!text || !text.trim()) return '';
 
@@ -150,13 +156,13 @@ export function formatTextToHtml(text) {
     for (const line of lines) {
       if (line.startsWith('## ')) {
         if (inList) { html += '</ul>'; inList = false; }
-        html += '<h3 class="formatted-heading">' + escapeHtml(line.slice(3)) + '</h3>';
+        html += '<h3 class="formatted-heading">' + inlineFormat(line.slice(3)) + '</h3>';
       } else if (line.startsWith('- ')) {
         if (!inList) { html += '<ul class="formatted-list">'; inList = true; }
-        html += '<li>' + escapeHtml(line.slice(2)) + '</li>';
+        html += '<li>' + inlineFormat(line.slice(2)) + '</li>';
       } else {
         if (inList) { html += '</ul>'; inList = false; }
-        html += '<p class="formatted-para">' + escapeHtml(line) + '</p>';
+        html += '<p class="formatted-para">' + inlineFormat(line) + '</p>';
       }
     }
 

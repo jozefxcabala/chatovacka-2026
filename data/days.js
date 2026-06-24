@@ -74,7 +74,7 @@ export const days = [
       { time: '08:00', label: 'Raňajky',                         type: 'jedlo'    },
       { time: '09:30', label: 'Príprava na vojnu',               type: 'activity', activityRef: 'stv-trening' },
       { time: '12:30', label: 'Obed',                            type: 'jedlo'    },
-      { time: '14:30', label: 'Stretnutie Aslan & čarodejnica',  type: 'scenka',   activityRef: 'stv-aslan'   },
+      { time: '14:00', label: 'Stretnutie Aslan & čarodejnica',  type: 'activity', activityRef: 'stv-aslan'   },
       { time: '18:00', label: 'Večera',                          type: 'jedlo'    },
       { time: '20:00', label: 'Obeta za Narniu',                 type: 'activity', activityRef: 'stv-obeta'   },
       { time: '23:00', label: 'Skúška odvahy',                   type: 'activity', activityRef: 'stv-skuska', note: 'Nočná' }

@@ -954,19 +954,54 @@ Toto isté – vojaci musia byť tuff
 
   {
     id: 'stv-aslan',
-    name: 'Stretnutie Aslan & čarodejnica',
+    name: 'Stretnutie Aslan & čarodejnica TODO',
     dayRef: 'stvrtok',
     timeLabel: 'Poobedie',
     timeOfDay: 'afternoon',
-    type: 'scenka',
-    time: '14:30',
-    endTime: '16:00',
-    location: 'Lúka',
+    type: 'activity',
+    time: '14:00',
+    endTime: '17:00',
+    location: 'Celý areál',
+    detail: 'Dve veľké hry – Človeče nehnevaj sa a Loďky. Chlapci a dievčatá hrajú každú hru hodinu, potom sa vymenia.',
     description: `
-Kľúčová scénka tábora – Aslan a Biela čarodejnica sa stretávajú a uzatvárajú zmluvu. Deti sú svedkami.
+Dve veľké hry, do ktorých je zapojený každý účastník. Chlapčenské a dievčenské skupinky hrajú každú hru hodinu, potom sa vymenia.
+
+## Hra 1: Človeče, nehnevaj sa
+
+Každá skupinka má svoj veľký domček v areáli (od jedálne po ihrisko), domčeky sú rozmiestnené po okruhu (nie pomedzi chatky). Každá skupinka dostane hraciu kocku, pri každej skupinke je animátor.
+
+**Priebeh:**
+Hráč hodí kockou a podľa čísla musí obehnúť príslušný počet okruhov. Po 30 sekundách hádže ďalší hráč z iného tímu – môže predchádzajúceho hráča chytiť. Ak je hráč chytený, vracia sa do domčeka na koniec radu.
+
+**Čarodejnice (5 animátorov):** pohybujú sa po areáli a môžu zastaviť hráčov (v rade aj pri behu) a zadajú im úlohu/trest. Príklady úloh:
+- Urob 10 kľukov / 15 drepov / 20 panákov
+- Preskáč 15 metrov po jednej nohe
+- Urob 5 žabích skokov / kráčaj 20 m ako kačka
+- Otoč sa 10× okolo vlastnej osi a pokračuj
+- Zaspievaj krátky úryvok pesničky
+- Napodobňuj zviera 15 sekúnd
+- Povedz 5 rozprávkových postáv / 5 zvierat na určené písmeno
+- Povedz mená všetkých členov skupinky
+- Dotkni sa 5 rôznych stromov a vráť sa späť
+
+⚠️ Úlohy musia byť bezpečné, primerané veku a zábavné.
+
+**Cieľ:** všetci členovia skupinky úspešne dokončia počet okruhov, ktoré im určila kocka, a vrátia sa do domčeka.
+
+**Animátori:** 5 pri skupinkách + 5 čarodejníc + 1 hlavný = **11**
+
+## Hra 2: Loďky
+
+V strede hracej plochy je veľká mapa bojiska (kartón alebo plachta) s nepriateľskými loďami. Hra je rozdelená na 5 stanovíšť, na každom je animátor-veliteľ armády Bielej čarodejnice so špeciálnou schopnosťou (napr. strieľa dve strely naraz, ohnivé strely, ľadové strely).
+
+Ak chcú deti vystreliť na loď, musia najprv splniť úlohu animátora na danom stanovišti (pohybová, vedomostná, logická alebo tímová). Ak sa nepodarí, skúsia ďalšiu úlohu. Po splnení môžu vystreliť – za zásah = body, za potopenie lode = bonusové body.
+
+Vyhráva tím s najviac bodmi a potopených loďami po prejdení všetkých stanovíšť.
+
+**Animátori: 5** (jeden na každom stanovišti)
     `,
-    vedúciDna: null,
-    vedúciProgramu: null,
+    vedúciDna: 'Čaby',
+    vedúciProgramu: 'Ján Falát, Mathias Mastiľak',
     animators: [
       { name: 'MTZ',                   role: 'Armáda čarodejníc' },
       { name: 'Adam Paško',            role: 'Ločkár'            },
@@ -975,10 +1010,22 @@ Kľúčová scénka tábora – Aslan a Biela čarodejnica sa stretávajú a uza
       { name: 'Barborka Kridlová',     role: 'Ločkár'            },
       { name: 'Paulínka Katkovčinová', role: 'Ločkár'            }
     ],
-    animatorsNote: null,
-    materials: [],
-    hasScoring: false,
-    scoring: null,
+    animatorsNote: '11 animátorov (Človeče) + 5 animátorov (Loďky)',
+    materials: [
+      '5× veľká hracia kocka',
+      '5× označenie domčeka (vlajka / tabuľka / kužeľ / šatka vo farbe tímu)',
+      'Papier a pero pre každú skupinku',
+      'Stopky / mobil s časovačom',
+      'Píšťalka',
+      'Rekvizity pre čarodejnice (klobúky, plášte, metly, šatky...)',
+      'Megafón (voliteľné)',
+      'Kužele + stužky/pásky na vyznačenie trasy',
+      'Mapa bojiska z kartónu alebo veľkej plachty (Loďky)',
+      'Kužele na vyznačenie hracej plochy (Loďky)',
+      'Fixky, lepiaca páska (Loďky)'
+    ],
+    hasScoring: true,
+    scoring: 'Loďky: body za zásah lode, bonusové body za potopenie. Človeče: cieľom je dokončiť okruhy.',
     hasMtzNote: false,
     mtzNote: null
   },
@@ -991,45 +1038,131 @@ Kľúčová scénka tábora – Aslan a Biela čarodejnica sa stretávajú a uza
     timeOfDay: 'evening',
     type: 'activity',
     time: '20:00',
-    endTime: '22:00',
-    location: 'Celý areál',
+    endTime: '22:30',
+    location: 'Areál, les, kameňolom',
+    detail: 'Slávnostný sprievod s fakľami k obeti Aslana v kameňolome, potom nočná hra – mladšie deti hľadajú uviazaných animátorov a oslobodia ich rituálom.',
     description: `
-Dramatická nočná aktivita – deti sú stratené v Narnii a musia nájsť cestu späť. Animátori ako strašiaci ich vedú na správnu cestu.
+## I. Prológ a príprava (nástup)
+
+Program začína scénkou _(Marína, Paulína – vymyslieť!)_, v ktorej sa Aslan rozhodne priniesť najvyššiu obetu za záchranu Narnie. Deti sú vyzvané, aby ho sprevádzali na poslednej ceste k Kamennému stolu.
+
+**Výroba fakieľ:** Deti si vlastnoručne vyrobia fakle – suchou palicou o šmirgľový papier, obvinutie parafínovou látkou, priviazanie špagátom. Namaľujeme sa farbami na tvár.
+
+**Oheň:** Deti (rozdelené na chlapcov a dievčatá) musia oheň získať pomocou zápaliek pod dohľadom vedúcich.
+
+**Sprievod:** Stretávame sa pri bránke namaľovaní, so zapálenými fakľami. V tichosti sa vydávame na pochod lesom, počas ktorého deti nachádzajú stopy Aslana v podobe kusov vlajky a približujú sa k lomu.
+
+_Časový rámec: scénka 10 min / príprava 30 min / cesta 30 min / do 21:30 Aslan obetovaný_
+
+## II. Obeta a modlitba pri ohni (kameňolom)
+
+⚠️ **Vopred pripraviť fakle, ktoré budú na mieste horieť + ľudia + bubny a dramatická hudba!**
+
+V kameňolome sa odohráva kľúčový moment. Deti stoja dole a pozerajú hore na tragickú scénu Aslanovej obety _(scénu obety vymyslieť)_. Animátor skupinky prevezme fakľu a po Aslanovej smrti ju uhasí.
+
+Po obete nasleduje modlitba _(začne _______ – porieši modlitebný tím)_.
+
+**Rozdelenie:** Po scénke staršie deti zostávajú v kameňolome, kde ich čaká samostatná Skúška odvahy. Mladšie deti sa presúvajú na nočnú hru do lesa.
+
+## III. Nočná hra: Oslobodenie ochrancov (mladšie deti)
+
+Po Aslanovej obete ostalo v lese uväznených 14 verných bojovníkov (animátorov), ktorých uväznila Biela čarodejnica.
+
+**Rozdelenie:** 14 zmiešaných skupín (chlapci a dievčatá zvlášť). Mená sa čítajú pred začatím – dramaticky.
+
+Každá skupinka dostane:
+- 1 lampášik (sklenička so zapálenou sviečkou) + krabičku s 3 zápalkami (3 pokusy na obnovenie)
+- Indíciu k svojmu animátorovi (kúsok látky – 7 farieb × 2: chlapci hľadajú chlapčenského animátora, dievčatá dievčenského)
+
+Animátori (Duchovia lesa) môžu do lesa vyraziť po 15 s.
+
+**⚠️ HLAVNÉ PRAVIDLO: V LESE MUSÍ BYŤ TICHO.**
+
+**Priebeh hry:**
+Cieľom je nájsť svojho animátora priviazaného k stromu (rozmiestnení podľa hrubej mapky). Skupinky idú smerom rovno od svojho štartu.
+
+**Duchovia lesa (strašiaci):** Animátori v maskách so svietiacimi náramkami sa pohybujú po lese pomaly. Strašia, ale deti NEhonia.
+- Pravidlo: ak deti stretnú Ducha, musia okamžite zastať, skamenieť a byť ticho. Nesmú utekať.
+- Postih: ak sa niekto pohne / vykríkne → Duch dieťa krátkodobo „odnesie" nabok; zhasnutá sviečka alebo hendikep (šatka cez oči / zviazané ruky) – dieťa sa hneď vracia k tímu.
+
+**Navigácia:** Skupinky vedia, že animátor nie je na druhej strane lesa (ide sa rovno). Cca 20 m od animátora nájdu pomôcku (farba/vzor ich indície) – signál, že sú blízko.
+
+**Rituál oslobodenia:**
+Po nájdení animátora pri strome je krabička s inštrukciami:
+1. Obmotajte špagát okolo najbližších stromov a okolo vás – ochrana rituálu pred Duchmi
+2. Zoberte prázdnu sklenenú nádobku, položte ju 2 kroky od animátora
+3. Nalejte fľaštičku s bezfarebnou tekutinou
+4. Najmladší člen: vrecko s bielymi krištálikmi rozmiešajte vo vode
+5. Najstarší člen: sáčok s granulkami rozmiešajte v roztoku
+6. Pridajte vrecúško s bylinkami
+7. Ako posledné pridajte šumivú tabletu
+8. Podajte elixír animátorovi – **vypije až do dna**
+9. Chytia sa za ruky, povedia po rade svoje mená (aj animátora) a prednesú zaklínadlo:
+_„Kruh je uzavretý. Tieň stráca moc a my ťa spolu zobúdzame."_
+
+**Záver:** Animátor sa „prebudí", deti ho rozviažu a on ich bezpečne odvedie späť do tábora.
+
+## Bezpečnostné pokyny
+- Oheň: výroba a zapaľovanie fakieľ pod priamym dohľadom dospelých; pri ohni hasiaci prístroj alebo voda
+- Strašenie: primerané, nie príliš intenzívne – tichý strach, NIE útek
+- Terén: trasa vopred vyznačená policajnými páskami – ísť ZA pásky je prísne zakázané
+
+## Mokrý program
+Scénka Aslanovej obety sa odohráva, potom sa ide na futbalové ihrisko. Po obete nasleduje večerná modlitba a deti idú spať. V noci sú zobudené na Skúšku odvahy v jedálni.
     `,
-    vedúciDna: null,
-    vedúciProgramu: 'Adam Paško',
+    vedúciDna: 'Čaby',
+    vedúciProgramu: 'Marína, Paulína',
     animators: [
-      { name: 'Paulínka Harajdová',    role: 'Strašiak' },
-      { name: 'Marína Holubová',       role: 'Strašiak' },
-      { name: 'Nika',                  role: 'Strašiak' },
-      { name: 'Bašká B.',              role: 'Strašiak' },
-      { name: 'Tomáš Blaha',           role: 'Strašiak' },
-      { name: 'Adam Paško',            role: 'Strašiak' },
-      { name: 'Ondrej Mocák',          role: 'Stratený' },
-      { name: 'Hanka',                 role: 'Stratený' },
-      { name: 'Ema',                   role: 'Stratený' },
-      { name: 'Patrik Pekarovič',      role: 'Stratený' },
-      { name: 'Filip',                 role: 'Stratený' },
-      { name: 'Ajka',                  role: 'Stratený' },
-      { name: 'Mathias',               role: 'Stratený' },
-      { name: 'Peter Greňo',           role: 'Stratený' },
-      { name: 'Kika Olajošová',        role: 'Stratený' },
-      { name: 'Barborka Kridlová',     role: 'Stratený' },
-      { name: 'Sofia Dolobačová',      role: 'Stratený' },
-      { name: 'Patrik Bača',           role: 'Stratený' },
-      { name: 'Janko Falát',           role: 'Stratený' },
-      { name: 'Paulínka Katkovčinová', role: 'Stratený' }
+      { name: 'Paulínka Harajdová',    role: 'Duch lesa'           },
+      { name: 'Marína Holubová',       role: 'Duch lesa'           },
+      { name: 'Nika',                  role: 'Duch lesa'           },
+      { name: 'Bašká B.',              role: 'Duch lesa'           },
+      { name: 'Tomáš Blaha',           role: 'Duch lesa'           },
+      { name: 'Adam Paško',            role: 'Duch lesa'           },
+      { name: 'Ondrej Mocák',          role: 'Priviazaný bojovník' },
+      { name: 'Hanka',                 role: 'Priviazaný bojovník' },
+      { name: 'Ema',                   role: 'Priviazaný bojovník' },
+      { name: 'Patrik Pekarovič',      role: 'Priviazaný bojovník' },
+      { name: 'Filip',                 role: 'Priviazaný bojovník' },
+      { name: 'Ajka',                  role: 'Priviazaný bojovník' },
+      { name: 'Mathias',               role: 'Priviazaný bojovník' },
+      { name: 'Peter Greňo',           role: 'Priviazaný bojovník' },
+      { name: 'Kika Olajošová',        role: 'Priviazaný bojovník' },
+      { name: 'Barborka Kridlová',     role: 'Priviazaný bojovník' },
+      { name: 'Sofia Dolobačová',      role: 'Priviazaný bojovník' },
+      { name: 'Patrik Bača',           role: 'Priviazaný bojovník' },
+      { name: 'Janko Falát',           role: 'Priviazaný bojovník' },
+      { name: 'Paulínka Katkovčinová', role: 'Priviazaný bojovník' }
     ],
-    animatorsNote: '20 animátorov',
+    animatorsNote: '6 Duchov lesa + 14 priviazaných bojovníkov',
     materials: [
-      'Baterky – 20 ks',
-      'Kostýmy strašiakov – 6 ks',
-      'Reproduktor – 1 ks'
+      'Suché palice na fakle',
+      'Šmirgľový papier',
+      'Parafínová látka',
+      'Špagát (fakle + rituál)',
+      'Farby na tvár',
+      'Zápalky (na oheň + lampášiky)',
+      'Hasiaci prístroj / vedro vody (bezpečnosť)',
+      'Fakle na mieste v kameňolome (vopred pripraviť)',
+      'Bubny / dramatická hudba',
+      '14× lampášik (sklenička + sviečka) + krabička so zápalkami (3 ks)',
+      'Indície: kúsok látky – 7 farieb × 2 (chlapci + dievčatá)',
+      '14× krabička s rituálovými inštrukciami',
+      '14× prázdna sklenená nádobka',
+      '14× fľaštička s bezfarebnou tekutinou',
+      '14× vrecúško s bielymi krištálikmi',
+      '14× sáčok s granulkami',
+      '14× vrecúško s bylinkami',
+      '14× šumivá tableta',
+      'Masky pre Duchov lesa',
+      'Svietiace náramky (pre Duchov lesa)',
+      'Policajné pásky na vyznačenie trasy',
+      'Hrubá mapka rozmiestnenia animátorov'
     ],
     hasScoring: false,
     scoring: null,
-    hasMtzNote: false,
-    mtzNote: null
+    hasMtzNote: true,
+    mtzNote: 'Vopred pripraviť fakle na mieste v kameňolome. Zabezpečiť hasiaci prístroj / vodu pri ohni. Trasu vyznačiť policajnými páskami.'
   },
 
   {

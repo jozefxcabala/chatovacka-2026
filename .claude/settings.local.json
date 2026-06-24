@@ -76,7 +76,9 @@
       "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/15-OK-Stvrtok-Skuska odvahy .docx\")",
       "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/16-TODO-Piatok-Priprava na vojnu.docx\")",
       "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/17-TODO-Piatok poobedie - Bitka.docx\")",
-      "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/18-TODO-piatok-vecer-zaverecny-bal.docx\")"
+      "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/18-TODO-piatok-vecer-zaverecny-bal.docx\")",
+      "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/13-TODO-ŠTVRTOK POOBEDIE-2.docx\")",
+      "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/14-OK-Chatovačka večerný program Marína Paulína.docx\")"
     ],
     "additionalDirectories": [
       "/Users/caby/chatovacka-2026/.claude"

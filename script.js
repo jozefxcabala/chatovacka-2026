@@ -734,6 +734,49 @@ function escapeHtml(str) {
   return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+function renderMarkdown(str) {
+  if (!str) return '';
+  var lines = String(str).split('\n');
+  var html = '';
+  var inUl = false, inOl = false;
+
+  function closeList() {
+    if (inUl) { html += '</ul>'; inUl = false; }
+    if (inOl) { html += '</ol>'; inOl = false; }
+  }
+
+  function inlineFormat(text) {
+    return escapeHtml(text)
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/_(.+?)_/g, '<em>$1</em>');
+  }
+
+  lines.forEach(function(line) {
+    var m;
+    if (/^## (.+)/.test(line)) {
+      closeList();
+      html += '<h3 class="md-h3">' + inlineFormat(line.slice(3).trim()) + '</h3>';
+    } else if (/^# (.+)/.test(line)) {
+      closeList();
+      html += '<h2 class="md-h2">' + inlineFormat(line.slice(2).trim()) + '</h2>';
+    } else if ((m = line.match(/^[-•] (.+)/))) {
+      if (!inUl) { closeList(); html += '<ul class="md-ul">'; inUl = true; }
+      html += '<li>' + inlineFormat(m[1]) + '</li>';
+    } else if ((m = line.match(/^(\d+)\. (.+)/))) {
+      if (!inOl) { closeList(); html += '<ol class="md-ol">'; inOl = true; }
+      html += '<li>' + inlineFormat(m[2]) + '</li>';
+    } else if (line.trim() === '') {
+      closeList();
+      html += '<br>';
+    } else {
+      closeList();
+      html += '<p class="md-p">' + inlineFormat(line) + '</p>';
+    }
+  });
+  closeList();
+  return html;
+}
+
 function el(tag, cls) {
   var n = document.createElement(tag);
   if (cls) n.className = cls;
@@ -1299,7 +1342,7 @@ function renderActivityDetail(actId) {
   if (act.description) {
     html += '<div class="detail-section">';
     html += '<h2 class="detail-section-title">Popis programu</h2>';
-    html += '<p class="detail-description">' + escapeHtml(act.description) + '</p>';
+    html += '<div class="detail-description">' + renderMarkdown(act.description) + '</div>';
     html += '</div>';
   }
 

@@ -1923,6 +1923,35 @@ body {
   line-height: 1.7;
 }
 
+.detail-description .md-h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 1rem 0 0.25rem;
+  color: var(--text-primary);
+}
+
+.detail-description .md-h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0.75rem 0 0.2rem;
+  color: var(--text-primary);
+}
+
+.detail-description .md-p {
+  margin: 0.2rem 0;
+}
+
+.detail-description .md-ul,
+.detail-description .md-ol {
+  margin: 0.25rem 0 0.25rem 1.2rem;
+  padding: 0;
+}
+
+.detail-description .md-ul li,
+.detail-description .md-ol li {
+  margin-bottom: 0.15rem;
+}
+
 /* ─── DETAIL SCORING ───────────────────────────────────── */
 
 .detail-scoring {
