@@ -443,6 +443,30 @@ function initDelegation() {
   });
 }
 
+// ─── PRINT / PDF ─────────────────────────────────────────────────────────────
+
+function initPrintBrozurka() {
+  document.addEventListener('click', e => {
+    if (e.target.closest('#btnPrintBrozurka')) window.print();
+  });
+
+  window.addEventListener('beforeprint', () => {
+    document.querySelectorAll('.day-accordion-body').forEach(b => {
+      if (b.hasAttribute('hidden')) {
+        b.removeAttribute('hidden');
+        b.dataset.printExpanded = '1';
+      }
+    });
+  });
+
+  window.addEventListener('afterprint', () => {
+    document.querySelectorAll('.day-accordion-body[data-print-expanded]').forEach(b => {
+      b.setAttribute('hidden', '');
+      delete b.dataset.printExpanded;
+    });
+  });
+}
+
 // ─── INIT ────────────────────────────────────────────────────────────────────
 
 const navItems = buildNavItems(days);
@@ -463,6 +487,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDelegation();
   initAktivityFilters();
   initSectionObserver();
+  initPrintBrozurka();
 
   const last = localStorage.getItem('lastSection') || 'uvod';
   navigateTo(validSectionIds.includes(last) ? last : 'uvod', null, true);

@@ -1433,3 +1433,97 @@ body {
   border-color: var(--gold);
 }
 
+
+/* ─── PRINT / PDF ────────────────────────────────────────────────────────── */
+
+@media print {
+  html, body {
+    height: auto !important;
+    overflow: visible !important;
+    color-scheme: light !important;
+    background: #fff !important;
+    color: #1a1a1a !important;
+  }
+
+  .app-layout {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .app-body {
+    height: auto !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  .app-main { overflow: visible !important; }
+
+  /* Skryť UI chrome */
+  #sidebar,
+  #sidebarOverlay,
+  .app-topbar,
+  .filters-bar,
+  .detail-topbar,
+  .day-preview-detail-btn,
+  .card-detail-btn,
+  .uvod-goto-btn,
+  .detail-back-btn,
+  .btn-clear,
+  .btn-clear-inline,
+  .day-accordion-chevron,
+  #aktivity-detail-view { display: none !important; }
+
+  /* Rozbaliť všetky accordion položky */
+  .day-accordion-body,
+  .day-accordion-body[hidden] {
+    display: block !important;
+    animation: none !important;
+    border-top: 1px solid #e4e4e4;
+  }
+
+  /* Zlomy stránok — každá sekcia na novej strane */
+  .section {
+    page-break-before: always;
+    break-before: page;
+    border-top: none !important;
+  }
+
+  .section:first-child {
+    page-break-before: auto;
+    break-before: auto;
+  }
+
+  .day-accordion-item { break-inside: avoid; }
+  .card               { break-inside: avoid; }
+
+  /* Tmavé pozadia → svetlé pre tlač */
+  .uvod-hero {
+    background: #1b1535 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .uvod-card--manifest {
+    background: #f0eeff !important;
+    border: 1px solid #c8952a !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .uvod-card--manifest .manifest-text { color: #1a1a1a !important; }
+
+  /* Layout stĺpcov → jeden stĺpec */
+  .uvod-dashboard    { grid-template-columns: 1fr !important; }
+  .day-page-layout   { grid-template-columns: 1fr !important; }
+  .day-col--schedule { border-right: none !important; border-bottom: 1px solid #e4e4e4; }
+  .cards-grid        { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Farby dní — zachovaj pre tlač */
+  .day-hero,
+  .day-accordion-item--open,
+  .card-stripe {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
