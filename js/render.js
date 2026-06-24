@@ -83,6 +83,10 @@ export function buildUvod(campData, navItems) {
   html += '<p class="uvod-eyebrow">Tábor ' + meta.year + '</p>';
   html += '<h1 class="uvod-hero-title">' + escapeHtml(meta.campName) + '</h1>';
   html += '<p class="uvod-hero-theme">' + escapeHtml(meta.theme) + '</p>';
+  if (meta.motto) {
+    html += '<blockquote class="uvod-hero-motto">' +
+      escapeHtml(meta.motto).replace(/\n/g, '<br>') + '</blockquote>';
+  }
   html += '</div>';
 
   // Announcements strip (above dashboard)

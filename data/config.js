@@ -8,6 +8,7 @@ export const campMeta = {
   version:   'v2.0',
   campName:  'Narnia 2026',
   theme:     'Lev, čarodejnica a šatník',
+  motto:     'Narnia je v každom z nás a okolo nás.\nVnútorné prežívanie boja dobra so zlom, prežívanie vzťahu s Aslanom.',
   campDates: { start: '2026-06-28', end: '2026-07-04' },
   location:  'Chatovačka, Donovaly'
 };

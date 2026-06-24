@@ -18,7 +18,7 @@
 export const days = [
   {
     id: 'pondelok', label: 'Pondelok', date: '2026-06-29', dayIndex: 1,
-    thought: 'Začíname dobrodružstvo v Narnii. Srdcia otvorené, oči nahor!',
+    thought: 'Veci sa nikdy neudejú rovnakým spôsobom dvakrát',
     thoughtAuthor: null,
     vedúciDna: 'Marta, Josky',
     schedule: [
@@ -45,7 +45,7 @@ export const days = [
   },
   {
     id: 'utorok', label: 'Utorok', date: '2026-06-30', dayIndex: 2,
-    thought: 'Edmund vstupuje do temnoty. My vstupujeme do svetla.',
+    thought: 'Nie všetko, čo sa zdá na prvý pohľad dobré, aj dobré je!',
     thoughtAuthor: null,
     vedúciDna: 'Miška',
     schedule: [
@@ -60,7 +60,7 @@ export const days = [
   },
   {
     id: 'streda', label: 'Streda', date: '2026-07-01', dayIndex: 3,
-    thought: 'Dbáme o ducha. Deň pokoja a nájdenia sa.',
+    thought: 'Obklopení dobrom môžeme bojovať proti zlu.',
     thoughtAuthor: null,
     vedúciDna: 'Tomáš Blaha',
     schedule: [
@@ -75,7 +75,7 @@ export const days = [
   },
   {
     id: 'stvrtok', label: 'Štvrtok', date: '2026-07-02', dayIndex: 4,
-    thought: 'Aslan dáva život. My sme jeho odraz.',
+    thought: 'Konfrontujem svoju vieru v dennodenných rozhodnutiach. Pre čo sa rozhodnem ja? Lucy sa už rozhodla!',
     thoughtAuthor: null,
     vedúciDna: 'Čaby',
     schedule: [
@@ -91,7 +91,7 @@ export const days = [
   },
   {
     id: 'piatok', label: 'Piatok', date: '2026-07-03', dayIndex: 5,
-    thought: 'Finálna bitka. Narnia bude slobodná!',
+    thought: 'Máš odvahu zastať sa iných? Si pripravený priniesť obetu?',
     thoughtAuthor: null,
     vedúciDna: 'Ajka',
     schedule: [
