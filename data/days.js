@@ -49,13 +49,22 @@ export const days = [
     thoughtAuthor: null,
     vedúciDna: 'Miška',
     schedule: [
-      { time: '07:30', label: 'Budenie',              type: 'system'   },
-      { time: '08:00', label: 'Raňajky',              type: 'jedlo'    },
-      { time: '09:30', label: 'Program s Kráľovnou',  type: 'activity', activityRef: 'uto-kralovnou'   },
-      { time: '12:30', label: 'Obed',                 type: 'jedlo'    },
-      { time: '14:30', label: 'Lucy vs Edmund',        type: 'activity', activityRef: 'uto-lucy-edmund' },
-      { time: '18:00', label: 'Večera',                type: 'jedlo'    },
-      { time: '20:00', label: 'Tumnus zmizol',         type: 'activity', activityRef: 'uto-tumnus'      }
+      { time: '07:30', label: 'Budenie',               type: 'system'   },
+      { time: '07:45', label: 'Rozcvička',             type: 'system'   },
+      { time: '08:00', label: 'Raňajky',               type: 'jedlo'    },
+      { time: '08:30', label: 'Modlitby',              type: 'system'   },
+      { time: '09:00', label: 'Program s Kráľovnou',   type: 'activity', activityRef: 'uto-kralovnou'   },
+      { time: '12:30', label: 'Obed',                  type: 'jedlo'    },
+      { time: '14:30', label: 'Lucy vs Edmund',         type: 'activity', activityRef: 'uto-lucy-edmund' },
+      { time: '17:00', label: 'Omša',                  type: 'system'   },
+      { time: '18:00', label: 'Večera',                 type: 'jedlo'    },
+      { time: '19:00', label: 'Voľno',                  type: 'system'   },
+      { time: '19:30', label: 'Stretko',                type: 'activity' },
+      { time: '20:00', label: 'Tumnus zmizol',          type: 'activity', activityRef: 'uto-tumnus'      },
+      { time: '21:30', label: 'Modlitba v skupinkách',  type: 'system'   },
+      { time: '22:30', label: 'Animátorská porada',     type: 'system'   },
+      { time: '23:00', label: 'Večierka deti',          type: 'system'   },
+      { time: '00:00', label: 'Večierka animátori',     type: 'system'   }
     ]
   },
   {
@@ -64,13 +73,21 @@ export const days = [
     thoughtAuthor: null,
     vedúciDna: 'Tomáš Blaha',
     schedule: [
-      { time: '07:30', label: 'Budenie',              type: 'system'   },
-      { time: '08:00', label: 'Raňajky',              type: 'jedlo'    },
-      { time: '09:00', label: 'Výlet',                type: 'activity', activityRef: 'str-vylet'   },
-      { time: '12:30', label: 'Obed',                 type: 'jedlo'    },
-      { time: '14:30', label: 'Duchovná obnova',      type: 'activity', activityRef: 'str-obnova'  },
-      { time: '18:00', label: 'Večera',               type: 'jedlo'    },
-      { time: '20:00', label: 'Hľadanie Edmunda',     type: 'activity', activityRef: 'str-hladanie' }
+      { time: '07:30', label: 'Budenie',               type: 'system'   },
+      { time: '07:45', label: 'Rozcvička',             type: 'system'   },
+      { time: '08:00', label: 'Raňajky',               type: 'jedlo'    },
+      { time: '08:30', label: 'Modlitby',              type: 'system'   },
+      { time: '09:00', label: 'Výlet',                 type: 'activity', activityRef: 'str-vylet'   },
+      { time: '12:30', label: 'Obed',                  type: 'jedlo'    },
+      { time: '14:30', label: 'Duchovná obnova',       type: 'activity', activityRef: 'str-obnova'  },
+      { time: '17:00', label: 'Omša',                  type: 'system'   },
+      { time: '18:00', label: 'Večera',                type: 'jedlo'    },
+      { time: '19:00', label: 'Voľno',                 type: 'system'   },
+      { time: '20:00', label: 'Hľadanie Edmunda',      type: 'activity', activityRef: 'str-hladanie' },
+      { time: '22:00', label: 'Modlitba v skupinkách', type: 'system'   },
+      { time: '22:30', label: 'Animátorská porada',    type: 'system'   },
+      { time: '23:00', label: 'Večierka deti',         type: 'system'   },
+      { time: '00:00', label: 'Večierka animátori',    type: 'system'   }
     ]
   },
   {
@@ -80,13 +97,23 @@ export const days = [
     vedúciDna: 'Čaby',
     schedule: [
       { time: '07:30', label: 'Budenie',                         type: 'system'   },
+      { time: '07:45', label: 'Rozcvička',                       type: 'system'   },
       { time: '08:00', label: 'Raňajky',                         type: 'jedlo'    },
-      { time: '09:30', label: 'Príprava na vojnu',               type: 'activity', activityRef: 'stv-trening' },
+      { time: '08:30', label: 'Modlitby',                       type: 'system'   },
+      { time: '09:00', label: 'Príprava na vojnu',               type: 'activity', activityRef: 'stv-trening' },
       { time: '12:30', label: 'Obed',                            type: 'jedlo'    },
       { time: '14:00', label: 'Stretnutie Aslan & čarodejnica',  type: 'activity', activityRef: 'stv-aslan'   },
+      { time: '17:00', label: 'Omša',                            type: 'system'   },
       { time: '18:00', label: 'Večera',                          type: 'jedlo'    },
-      { time: '20:00', label: 'Obeta za Narniu',                 type: 'activity', activityRef: 'stv-obeta'   },
-      { time: '23:00', label: 'Skúška odvahy',                   type: 'activity', activityRef: 'stv-skuska', note: 'Nočná' }
+      { time: '19:00', label: 'Voľno',                           type: 'system'   },
+      { time: '19:30', label: 'Stretko',                         type: 'activity' },
+      { time: '20:00', label: 'Obeta za Narniu – Vol 1',         type: 'activity', activityRef: 'stv-obeta'   },
+      { time: '21:15', label: 'Modlitba v skupinkách',           type: 'system'   },
+      { time: '21:45', label: 'Obeta za Narniu – Vol 2',         type: 'activity', activityRef: 'stv-obeta'   },
+      { time: '21:45', label: 'Skúška odvahy',                   type: 'activity', activityRef: 'stv-skuska', note: 'Nočná' },
+      { time: '23:30', label: 'Animátorská porada',              type: 'system'   },
+      { time: '00:00', label: 'Večierka deti',                   type: 'system'   },
+      { time: '00:30', label: 'Večierka animátori',              type: 'system'   }
     ]
   },
   {
@@ -95,13 +122,22 @@ export const days = [
     thoughtAuthor: null,
     vedúciDna: 'Ajka',
     schedule: [
-      { time: '07:30', label: 'Budenie',          type: 'system'   },
-      { time: '08:00', label: 'Raňajky',          type: 'jedlo'    },
-      { time: '09:30', label: 'Príprava na vojnu', type: 'activity', activityRef: 'pia-priprava' },
-      { time: '12:30', label: 'Obed',              type: 'jedlo'    },
-      { time: '14:30', label: 'Záverečný boj',     type: 'activity', activityRef: 'pia-boj'      },
-      { time: '18:00', label: 'Večera',            type: 'jedlo'    },
-      { time: '20:00', label: 'Bál',               type: 'activity', activityRef: 'pia-bal'      }
+      { time: '07:30', label: 'Budenie',               type: 'system'   },
+      { time: '07:45', label: 'Rozcvička',             type: 'system'   },
+      { time: '08:00', label: 'Raňajky',               type: 'jedlo'    },
+      { time: '08:30', label: 'Modlitby',              type: 'system'   },
+      { time: '09:00', label: 'Príprava na vojnu',     type: 'activity', activityRef: 'pia-priprava' },
+      { time: '12:30', label: 'Obed',                  type: 'jedlo'    },
+      { time: '14:00', label: 'Stretko',               type: 'activity' },
+      { time: '14:30', label: 'Záverečný boj',         type: 'activity', activityRef: 'pia-boj'      },
+      { time: '17:00', label: 'Omša',                  type: 'system'   },
+      { time: '18:00', label: 'Večera',                type: 'jedlo'    },
+      { time: '19:00', label: 'Voľno',                 type: 'system'   },
+      { time: '20:00', label: 'Bál',                          type: 'activity', activityRef: 'pia-bal' },
+      { time: '22:30', label: 'Fotky + modlitby',            type: 'system'   },
+      { time: '23:00', label: 'Animátorská porada',          type: 'system'   },
+      { time: '23:30', label: 'Večierka deti',               type: 'system'   },
+      { time: '00:00', label: 'Večierka animátori',          type: 'system'   }
     ]
   },
   {
@@ -110,11 +146,15 @@ export const days = [
     thoughtAuthor: null,
     vedúciDna: null,
     schedule: [
-      { time: '07:30', label: 'Budenie',                          type: 'system'   },
+      { time: '07:30', label: 'Budíček',                           type: 'system'   },
+      { time: '07:45', label: 'Rozcvička',                        type: 'system'   },
       { time: '08:00', label: 'Raňajky',                          type: 'jedlo'    },
-      { time: '09:00', label: 'Upratovanie',                      type: 'system'   },
-      { time: '10:30', label: 'Záverečné stretnutie animátorov',  type: 'activity', activityRef: 'sob-stretnutie' },
-      { time: '12:00', label: 'Obed a rozchod',                   type: 'jedlo'    }
+      { time: '08:30', label: 'Modlitby',                         type: 'system'   },
+      { time: '09:00', label: 'Upratovanie a balenie',            type: 'system'   },
+      { time: '09:30', label: 'Omša',                             type: 'system'   },
+      { time: '10:15', label: 'Fotenie + vyhodnotenie',           type: 'system'   },
+      { time: '10:30', label: 'Odkazovačka',                      type: 'activity', activityRef: 'sob-stretnutie' },
+      { time: '12:00', label: 'Odchod',                           type: 'system'   }
     ]
   }
 ];
