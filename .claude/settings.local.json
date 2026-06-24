@@ -47,7 +47,15 @@
       "Bash(NODE_PATH=/Users/caby/node_modules node /private/tmp/claude-501/-Users-caby-chatovacka-2026/29e5c606-2e82-451d-9eee-5ed5f1ee7d5c/scratchpad/screenshot3.js)",
       "Bash(python3 -m http.server 7823 --bind 127.0.0.1)",
       "Bash(echo \"PID: $!\")",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:7823/)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:7823/)",
+      "Bash(pandoc --version)",
+      "Bash(python3 -c \"import docx; print\\('python-docx: ok'\\)\")",
+      "Bash(textutil --help)",
+      "Bash(textutil -convert txt /dev/null)",
+      "Bash(mkdir -p /Users/caby/chatovacka-2026/.claude/commands)"
+    ],
+    "additionalDirectories": [
+      "/Users/caby/chatovacka-2026/.claude"
     ]
   }
 }

@@ -1,0 +1,3 @@
+# Zdrojové dokumenty (DOCX, PDF) — nie sú súčasťou repozitára
+brozurky/*
+!brozurky/.gitkeep
