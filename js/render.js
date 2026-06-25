@@ -15,11 +15,12 @@ export function buildNavItems(days) {
   days.forEach(d => items.push({ id: d.id, label: d.label, icon: 'calendar', isDayItem: true, dayIndex: d.dayIndex }));
   items.push({ divider: true });
   items.push(
-    { id: 'aktivity', label: 'Aktivity',  icon: 'activity' },
-    { id: 'scenky',   label: 'Scénky',    icon: 'theater'  },
-    { id: 'stretka',  label: 'Stretká',   icon: 'people'   },
-    { id: 'modlitby', label: 'Modlitby',  icon: 'prayer'   },
-    { id: 'prilohy',  label: 'Prílohy',   icon: 'list'     }
+    { id: 'aktivity',  label: 'Aktivity',  icon: 'activity' },
+    { id: 'scenky',    label: 'Scénky',    icon: 'theater'  },
+    { id: 'stretka',   label: 'Stretká',   icon: 'people'   },
+    { id: 'modlitby',  label: 'Modlitby',  icon: 'prayer'   },
+    { id: 'skupinky',  label: 'Skupinky',  icon: 'groups'   },
+    { id: 'prilohy',   label: 'Prílohy',   icon: 'list'     }
   );
   return items;
 }
@@ -734,38 +735,101 @@ export function buildScenky(campData) {
   );
 }
 
-// ─── SEKCIA: PRÍLOHY ──────────────────────────────────────────────────────────
+// ─── SEKCIA: SKUPINKY ─────────────────────────────────────────────────────────
 
-export function buildPrilohy(campData) {
-  const { appendices } = campData;
+export function buildSkupinky(campData) {
+  const { groupsOverview, groupDetails } = campData;
+  let html = '<div class="section-inner">';
+  html += '<div class="section-header"><h1 class="section-title">Skupinky</h1>';
+  html += '<p class="section-subtitle">Rozdelenie chlapcov a dievčat podľa ročníkov.</p></div>';
+
+  html += '<div class="skupiny-blocks">';
+
+  groupsOverview.forEach(row => {
+    const boysDetail = (groupDetails || []).find(g => g.name === row.boys) || null;
+    const girlsDetail = (groupDetails || []).find(g => g.name === row.girls) || null;
+    const hex = escapeHtml(row.colorHex);
+
+    html += '<div class="skupiny-block" style="border-top-color:' + hex + '">';
+
+    // ── Header: ročník + animátori ─────────────────────────────────────────
+    html += '<div class="skupiny-block-header" style="border-bottom-color:' + hex + '20">';
+    html += '<div class="skupiny-block-grade" style="color:' + hex + '">' + escapeHtml(row.grade) + '</div>';
+    html += '<div class="skupiny-block-animators">';
+
+    // chlapci animátori
+    html += '<div class="skupiny-block-anim-row">';
+    html += '<span class="skupiny-block-anim-gender">♂</span>';
+    if (row.boysAnimators.length) {
+      html += '<span>' + row.boysAnimators.map(a => escapeHtml(a)).join(', ') + '</span>';
+    } else {
+      html += '<span class="skupiny-empty-note">—</span>';
+    }
+    html += '</div>';
+
+    // dievčatá animátori
+    html += '<div class="skupiny-block-anim-row">';
+    html += '<span class="skupiny-block-anim-gender">♀</span>';
+    if (row.girlsAnimators.length) {
+      html += '<span>' + row.girlsAnimators.map(a => escapeHtml(a)).join(', ') + '</span>';
+    } else {
+      html += '<span class="skupiny-empty-note">Doplniť neskôr</span>';
+    }
+    html += '</div>';
+
+    html += '</div>'; // .skupiny-block-animators
+    html += '</div>'; // .skupiny-block-header
+
+    // ── Telo: chlapci | dievčatá ───────────────────────────────────────────
+    html += '<div class="skupiny-block-body">';
+
+    // Chlapci
+    html += '<div class="skupiny-block-col skupiny-block-col--boys">';
+    html += '<div class="skupiny-block-col-name" style="color:' + hex + '">' + escapeHtml(row.boys) + '</div>';
+    if (boysDetail && boysDetail.members.length) {
+      html += '<ol class="skupiny-member-list">';
+      boysDetail.members.forEach((m, i) => {
+        html += '<li class="skupiny-member-item"><span class="skupiny-member-num">' + (i + 1) + '.</span>' + escapeHtml(m) + '</li>';
+      });
+      html += '</ol>';
+      if (boysDetail.note) {
+        html += '<p class="skupiny-col-note">' + escapeHtml(boysDetail.note) + '</p>';
+      }
+    } else {
+      html += '<p class="skupiny-empty-note">Doplniť neskôr</p>';
+    }
+    html += '</div>';
+
+    // Dievčatá
+    html += '<div class="skupiny-block-col skupiny-block-col--girls">';
+    html += '<div class="skupiny-block-col-name" style="color:' + hex + '">' + escapeHtml(row.girls) + '</div>';
+    if (girlsDetail && girlsDetail.members.length) {
+      html += '<ol class="skupiny-member-list">';
+      girlsDetail.members.forEach((m, i) => {
+        html += '<li class="skupiny-member-item"><span class="skupiny-member-num">' + (i + 1) + '.</span>' + escapeHtml(m) + '</li>';
+      });
+      html += '</ol>';
+    } else {
+      html += '<p class="skupiny-empty-note">Doplniť neskôr</p>';
+    }
+    html += '</div>';
+
+    html += '</div>'; // .skupiny-block-body
+    html += '</div>'; // .skupiny-block
+  });
+
+  html += '</div>'; // .skupiny-blocks
+  html += '</div>';
+  return html;
+}
+
+// ─── SEKCIA: PRÍLOHY (prázdna) ────────────────────────────────────────────────
+
+export function buildPrilohy() {
   let html = '<div class="section-inner">';
   html += '<div class="section-header"><h1 class="section-title">Prílohy</h1>';
-  html += '<p class="section-subtitle">Rozdelenie skupín a ďalšie prílohy tábora.</p></div>';
-
-  if (!appendices.length) {
-    html += '<p class="placeholder-text">Prílohy budú doplnené.</p>';
-    html += '</div>';
-    return html;
-  }
-
-  html += '<div class="day-accordion">';
-  appendices.forEach((item, index) => {
-    const isOpen = index === 0;
-    html += '<div class="day-accordion-item' + (isOpen ? ' day-accordion-item--open' : '') + '" data-accordion-id="' + escapeHtml(item.id) + '">';
-    html += '<button class="day-accordion-header" data-accordion-toggle="' + escapeHtml(item.id) + '" aria-expanded="' + (isOpen ? 'true' : 'false') + '">';
-    html += '<div class="day-accordion-header-info">';
-    html += '<span class="day-accordion-name">' + escapeHtml(item.title) + '</span>';
-    html += '</div>';
-    html += '<span class="day-accordion-chevron">' + ICONS.chevronRight + '</span>';
-    html += '</button>';
-    html += '<div class="day-accordion-body"' + (isOpen ? '' : ' hidden') + '>';
-    html += '<div class="day-accordion-preview">';
-    html += '<div class="prayer-text">' + formatTextToHtml(item.text) + '</div>';
-    html += '</div></div>';
-    html += '</div>';
-  });
-  html += '</div>';
-
+  html += '<p class="section-subtitle">Prílohy tábora.</p></div>';
+  html += '<p class="placeholder-text">Prílohy budú doplnené.</p>';
   html += '</div>';
   return html;
 }
@@ -783,11 +847,12 @@ export function renderAllSections(campData, navItems) {
   });
 
   sections.push(
-    { id: 'aktivity', html: buildAktivitySection(campData) },
-    { id: 'scenky',   html: buildScenky(campData)          },
-    { id: 'stretka',  html: buildStretka(campData)         },
-    { id: 'modlitby', html: buildModlitby(campData)        },
-    { id: 'prilohy',  html: buildPrilohy(campData)         }
+    { id: 'aktivity',  html: buildAktivitySection(campData) },
+    { id: 'scenky',    html: buildScenky(campData)          },
+    { id: 'stretka',   html: buildStretka(campData)         },
+    { id: 'modlitby',  html: buildModlitby(campData)        },
+    { id: 'skupinky',  html: buildSkupinky(campData)        },
+    { id: 'prilohy',   html: buildPrilohy()                 }
   );
 
   const ids = [];

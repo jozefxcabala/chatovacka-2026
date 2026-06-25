@@ -33,18 +33,7 @@ export const contacts = [
 // PRÍLOHY
 // ─────────────────────────────────────────────────────────────────────────────
 
-export const appendices = [
-  {
-    id: 'pril-chlapci',
-    title: 'Rozdelenie chlapčenských skupiniek',
-    text: `TODO: Možno nahradiť celú sekciu "Prílohy" novým položkou v sidebari s názvom "Skupinky" — rozhodnúť neskôr.`
-  },
-  {
-    id: 'pril-dievcata',
-    title: 'Rozdelenie dievčenských skupiniek',
-    text: `TODO: Možno nahradiť celú sekciu "Prílohy" novým položkou v sidebari s názvom "Skupinky" — rozhodnúť neskôr.`
-  }
-];
+export const appendices = [];
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 10 PRAVIDIEL ANIMÁTORA

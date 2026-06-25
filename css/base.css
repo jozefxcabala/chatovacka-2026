@@ -1157,6 +1157,155 @@ body {
 .scoring-table tr:last-child td { border-bottom: none; }
 .scoring-table tbody tr:hover td { background: var(--ground); }
 
+/* ─── SEKCIA: SKUPINKY — bloky ───────────────────────────────────────────── */
+
+.skupiny-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.skupiny-block {
+  background: var(--card);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  border-top: 4px solid var(--gold);
+}
+
+.skupiny-block-header {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  padding: 0.875rem 1.25rem;
+  border-bottom: 1px solid var(--card-border);
+  background: var(--ground);
+}
+
+.skupiny-block-grade {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.skupiny-block-animators {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.skupiny-block-anim-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  color: var(--card-text);
+  line-height: 1.4;
+}
+
+.skupiny-block-anim-gender {
+  font-size: 0.75rem;
+  opacity: 0.55;
+  flex-shrink: 0;
+}
+
+.skupiny-block-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.skupiny-block-col {
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.skupiny-block-col--boys {
+  border-right: 1px solid var(--card-border);
+}
+
+.skupiny-block-col-name {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.skupiny-member-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.skupiny-member-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  font-size: 0.83rem;
+  color: var(--card-text);
+  padding: 0.22rem 0;
+  border-bottom: 1px solid var(--card-border);
+  line-height: 1.4;
+}
+
+.skupiny-member-item:last-child {
+  border-bottom: none;
+}
+
+.skupiny-member-num {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: var(--card-muted);
+  min-width: 1.3rem;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.skupiny-empty-note {
+  font-size: 0.78rem;
+  color: var(--ground-muted);
+  font-style: italic;
+}
+
+.skupiny-col-note {
+  font-size: 0.73rem;
+  color: var(--ground-muted);
+  font-style: italic;
+  margin-top: 0.6rem;
+  padding: 0.45rem 0.65rem;
+  background: var(--ground);
+  border-radius: var(--r-sm);
+  border-left: 3px solid rgba(200, 149, 42, 0.35);
+  line-height: 1.45;
+}
+
+@media (max-width: 600px) {
+  .skupiny-block-body {
+    grid-template-columns: 1fr;
+  }
+  .skupiny-block-col--boys {
+    border-right: none;
+    border-bottom: 1px solid var(--card-border);
+  }
+}
+
+@media print {
+  .skupiny-block {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .skupiny-block-body {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 /* ─── FORMÁTOVANÝ TEXT (formatTextToHtml) ────────────────────────────────── */
 
 .formatted-heading {

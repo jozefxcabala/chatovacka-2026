@@ -78,7 +78,9 @@
       "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/17-TODO-Piatok poobedie - Bitka.docx\")",
       "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/18-TODO-piatok-vecer-zaverecny-bal.docx\")",
       "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/13-TODO-ŠTVRTOK POOBEDIE-2.docx\")",
-      "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/14-OK-Chatovačka večerný program Marína Paulína.docx\")"
+      "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/14-OK-Chatovačka večerný program Marína Paulína.docx\")",
+      "Bash(xargs ls -la)",
+      "Bash(git -C /Users/caby/chatovacka-2026 status)"
     ],
     "additionalDirectories": [
       "/Users/caby/chatovacka-2026/.claude"

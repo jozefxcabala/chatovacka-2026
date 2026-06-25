@@ -3,12 +3,13 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { campMeta, announcements, contacts, appendices, animatorRules } from '../data/config.js';
-import { nameDays } from '../data/nameDays.js';
-import { days }       from '../data/days.js';
-import { activities } from '../data/activities.js';
-import { scenes }     from '../data/scenes.js';
-import { prayers }    from '../data/prayers.js';
-import { stretka }    from '../data/stretka.js';
+import { nameDays }                   from '../data/nameDays.js';
+import { days }                       from '../data/days.js';
+import { activities }                 from '../data/activities.js';
+import { scenes }                     from '../data/scenes.js';
+import { prayers }                    from '../data/prayers.js';
+import { stretka }                    from '../data/stretka.js';
+import { groupsOverview, groupDetails } from '../data/groups.js';
 
 import { ICONS, escapeHtml } from './utils.js';
 import { buildNavItems, renderSidebar, renderAllSections,
@@ -17,7 +18,7 @@ import { clearFilters, showActivityList } from './filters.js';
 
 // ─── DÁTA ────────────────────────────────────────────────────────────────────
 
-const campData = { meta: campMeta, announcements, contacts, appendices, animatorRules, nameDays, days, activities, scenes, prayers, stretka };
+const campData = { meta: campMeta, announcements, contacts, appendices, animatorRules, nameDays, days, activities, scenes, prayers, stretka, groupsOverview, groupDetails };
 
 // ─── NAVIGÁCIA ────────────────────────────────────────────────────────────────
 
