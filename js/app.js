@@ -170,6 +170,17 @@ function initSidebar() {
 function initAktivityFilters() {
   buildAktivityCards(campData);
 
+  const filtersBar    = document.getElementById('aktivityFiltersBar');
+  const filtersToggle = document.getElementById('actFiltersToggle');
+  const filtersLabel  = document.getElementById('actFiltersToggleLabel');
+  if (filtersToggle && filtersBar) {
+    filtersToggle.addEventListener('click', () => {
+      const open = filtersBar.classList.toggle('filters-bar--open');
+      filtersToggle.setAttribute('aria-expanded', String(open));
+      if (filtersLabel) filtersLabel.textContent = open ? 'Skryť filtre' : 'Zobraziť filtre';
+    });
+  }
+
   const searchEl = document.getElementById('actSearch');
   if (searchEl) searchEl.addEventListener('input', () => buildAktivityCards(campData));
 

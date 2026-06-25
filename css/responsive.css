@@ -127,6 +127,52 @@
   }
 }
 
+/* ─── MOBILE — filters toggle ────────────────────────────────────────────── */
+
+@media (max-width: 899px) {
+  .filters-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--ground-text);
+    font-size: 0.875rem;
+    font-family: inherit;
+    font-weight: 600;
+    padding: 0.15rem 0;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .filters-toggle-btn #actFiltersToggleLabel {
+    flex: 1;
+  }
+
+  .filters-toggle-chevron {
+    transition: transform 0.2s;
+    color: var(--ground-muted);
+  }
+
+  .filters-bar--open .filters-toggle-chevron {
+    transform: rotate(180deg);
+  }
+
+  .filters-inner {
+    display: none;
+    margin-top: 0.6rem;
+  }
+
+  .filters-bar--open .filters-inner {
+    display: flex;
+  }
+}
+
+@media (min-width: 900px) {
+  .filters-toggle-btn { display: none; }
+}
+
 /* ─── DESKTOP — sidebar tooltip (collapsed state) ────────────────────────── */
 
 @media (min-width: 900px) {

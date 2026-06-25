@@ -346,8 +346,13 @@ export function buildDay(dayId, campData) {
 export function buildAktivitySection(campData) {
   let html = '<div id="aktivity-list-view">';
 
-  html += '<div class="filters-bar">';
-  html += '<div class="filters-inner">';
+  html += '<div class="filters-bar" id="aktivityFiltersBar">';
+  html += '<button type="button" id="actFiltersToggle" class="filters-toggle-btn" aria-expanded="false">';
+  html += '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M4 8h8M6 12h4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>';
+  html += '<span id="actFiltersToggleLabel">Zobraziť filtre</span>';
+  html += '<svg class="filters-toggle-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  html += '</button>';
+  html += '<div class="filters-inner" id="actFiltersInner">';
 
   html += '<div class="filter-item filter-search">';
   html += '<input type="search" id="actSearch" class="filter-control" placeholder="Hľadaj aktivitu, animátora…" autocomplete="off" aria-label="Hľadaj">';
