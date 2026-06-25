@@ -9,7 +9,8 @@ import { activities }                 from '../data/activities.js';
 import { scenes }                     from '../data/scenes.js';
 import { prayers }                    from '../data/prayers.js';
 import { stretka }                    from '../data/stretka.js';
-import { groupsOverview, groupDetails } from '../data/groups.js';
+import { groupsOverview, groupDetails, girlsGroupDetails } from '../data/groups.js';
+import { animators } from '../data/animators.js';
 
 import { ICONS, escapeHtml } from './utils.js';
 import { buildNavItems, renderSidebar, renderAllSections,
@@ -18,7 +19,7 @@ import { clearFilters, showActivityList } from './filters.js';
 
 // ─── DÁTA ────────────────────────────────────────────────────────────────────
 
-const campData = { meta: campMeta, announcements, contacts, appendices, animatorRules, nameDays, days, activities, scenes, prayers, stretka, groupsOverview, groupDetails };
+const campData = { meta: campMeta, announcements, contacts, appendices, animatorRules, nameDays, days, activities, scenes, prayers, stretka, groupsOverview, groupDetails, girlsGroupDetails, animators };
 
 // ─── NAVIGÁCIA ────────────────────────────────────────────────────────────────
 

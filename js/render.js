@@ -20,6 +20,7 @@ export function buildNavItems(days) {
     { id: 'stretka',   label: 'Stretká',   icon: 'people'   },
     { id: 'modlitby',  label: 'Modlitby',  icon: 'prayer'   },
     { id: 'skupinky',  label: 'Skupinky',  icon: 'groups'   },
+    { id: 'animatori', label: 'Animátori', icon: 'people'   },
     { id: 'prilohy',   label: 'Prílohy',   icon: 'list'     }
   );
   return items;
@@ -738,7 +739,7 @@ export function buildScenky(campData) {
 // ─── SEKCIA: SKUPINKY ─────────────────────────────────────────────────────────
 
 export function buildSkupinky(campData) {
-  const { groupsOverview, groupDetails } = campData;
+  const { groupsOverview, groupDetails, girlsGroupDetails } = campData;
   let html = '<div class="section-inner">';
   html += '<div class="section-header"><h1 class="section-title">Skupinky</h1>';
   html += '<p class="section-subtitle">Rozdelenie chlapcov a dievčat podľa ročníkov.</p></div>';
@@ -746,8 +747,8 @@ export function buildSkupinky(campData) {
   html += '<div class="skupiny-blocks">';
 
   groupsOverview.forEach(row => {
-    const boysDetail = (groupDetails || []).find(g => g.name === row.boys) || null;
-    const girlsDetail = (groupDetails || []).find(g => g.name === row.girls) || null;
+    const boysDetail  = (groupDetails      || []).find(g => g.name === row.boys)  || null;
+    const girlsDetail = (girlsGroupDetails || []).find(g => g.name === row.girls) || null;
     const hex = escapeHtml(row.colorHex);
 
     html += '<div class="skupiny-block" style="border-top-color:' + hex + '">';
@@ -789,7 +790,15 @@ export function buildSkupinky(campData) {
     if (boysDetail && boysDetail.members.length) {
       html += '<ol class="skupiny-member-list">';
       boysDetail.members.forEach((m, i) => {
-        html += '<li class="skupiny-member-item"><span class="skupiny-member-num">' + (i + 1) + '.</span>' + escapeHtml(m) + '</li>';
+        const name = (typeof m === 'object') ? m.name : m;
+        const size = (typeof m === 'object' && m.shirtSize) ? m.shirtSize : null;
+        html += '<li class="skupiny-member-item"><span class="skupiny-member-num">' + (i + 1) + '.</span>';
+        html += escapeHtml(name);
+        if (size) {
+          const cls = size === 'NEOVERENÉ' ? ' skupiny-shirt-size--neoverene' : '';
+          html += '<span class="skupiny-shirt-size' + cls + '">' + escapeHtml(size) + '</span>';
+        }
+        html += '</li>';
       });
       html += '</ol>';
       if (boysDetail.note) {
@@ -806,7 +815,15 @@ export function buildSkupinky(campData) {
     if (girlsDetail && girlsDetail.members.length) {
       html += '<ol class="skupiny-member-list">';
       girlsDetail.members.forEach((m, i) => {
-        html += '<li class="skupiny-member-item"><span class="skupiny-member-num">' + (i + 1) + '.</span>' + escapeHtml(m) + '</li>';
+        const name = (typeof m === 'object') ? m.name : m;
+        const size = (typeof m === 'object' && m.shirtSize) ? m.shirtSize : null;
+        html += '<li class="skupiny-member-item"><span class="skupiny-member-num">' + (i + 1) + '.</span>';
+        html += escapeHtml(name);
+        if (size) {
+          const cls = size === 'nemá' ? ' skupiny-shirt-size--nema' : '';
+          html += '<span class="skupiny-shirt-size' + cls + '">' + escapeHtml(size) + '</span>';
+        }
+        html += '</li>';
       });
       html += '</ol>';
     } else {
@@ -823,13 +840,331 @@ export function buildSkupinky(campData) {
   return html;
 }
 
-// ─── SEKCIA: PRÍLOHY (prázdna) ────────────────────────────────────────────────
+// ─── SEKCIA: ANIMÁTORI ────────────────────────────────────────────────────────
 
-export function buildPrilohy() {
+const ANIM_CATEGORIES = [
+  { key: 'core',        label: 'CORE'        },
+  { key: 'sdb-fma',     label: 'SDB / FMA'   },
+  { key: 'skupinky',    label: 'Skupinky'    },
+  { key: 'mtz',         label: 'MTZ'         },
+  { key: 'zdravotnik',  label: 'Zdravotník'  },
+];
+
+export function buildAnimatori(campData) {
+  const { animators } = campData;
+
+  let html = '<div class="section-inner">';
+  html += '<div class="section-header"><h1 class="section-title">Animátori</h1>';
+  html += '<p class="section-subtitle">Zoznam animátorov, veľkosti tričiek a zodpovednosti.</p></div>';
+
+  html += '<div class="animatori-table-wrap">';
+  html += '<table class="animatori-zodp-table">';
+  html += '<thead><tr>';
+  html += '<th class="animatori-th animatori-th--num">#</th>';
+  html += '<th class="animatori-th">Meno</th>';
+  html += '<th class="animatori-th animatori-th--size">Veľkosť</th>';
+  html += '<th class="animatori-th animatori-th--zodp">Zodpovednosť</th>';
+  html += '</tr></thead>';
+  html += '<tbody>';
+
+  let rowNum = 0;
+  ANIM_CATEGORIES.forEach(cat => {
+    const group = (animators || []).filter(a => a.category === cat.key);
+    if (!group.length) return;
+    html += '<tr class="animatori-size-group-row"><td colspan="4">' + escapeHtml(cat.label) + '</td></tr>';
+    group.forEach(a => {
+      rowNum++;
+      html += '<tr>';
+      html += '<td class="animatori-td animatori-td--num">' + rowNum + '.</td>';
+      html += '<td class="animatori-td">' + escapeHtml(a.name) + '</td>';
+      html += '<td class="animatori-td animatori-td--size">' + escapeHtml(a.shirtSize) + '</td>';
+      html += '<td class="animatori-td animatori-td--zodp"></td>';
+      html += '</tr>';
+    });
+  });
+
+  html += '</tbody></table>';
+  html += '</div>';
+  html += '</div>';
+  return html;
+}
+
+// ─── PRÍLOHA: pomocné funkcie pre veľkosti tričiek ───────────────────────────
+
+const SHIRT_LETTER_SIZES = ['XS', 'XS/S', 'S', 'M', 'L', 'XL'];
+
+function computeSizeSummary(groups, skipSizes) {
+  const counts = {};
+  (groups || []).forEach(g => {
+    (g.members || []).forEach(m => {
+      const size = typeof m === 'object' ? m.shirtSize : null;
+      if (!size || (skipSizes || []).includes(size)) return;
+      counts[size] = (counts[size] || 0) + 1;
+    });
+  });
+  const letterSizes = SHIRT_LETTER_SIZES.filter(s => counts[s]);
+  const numericSizes = Object.keys(counts)
+    .filter(s => !SHIRT_LETTER_SIZES.includes(s))
+    .sort((a, b) => {
+      const na = parseInt(a, 10), nb = parseInt(b, 10);
+      return (!isNaN(na) && !isNaN(nb)) ? na - nb : a.localeCompare(b, 'sk');
+    });
+  return [...letterSizes, ...numericSizes].map(s => ({ size: s, count: counts[s] }));
+}
+
+function buildSummaryTable(rows, note) {
+  const total = rows.reduce((s, r) => s + r.count, 0);
+  let html = '<table class="priloha-table priloha-summary-table">';
+  html += '<thead><tr>';
+  html += '<th class="priloha-th">Veľkosť</th>';
+  html += '<th class="priloha-th priloha-th--count">Počet</th>';
+  html += '</tr></thead>';
+  html += '<tbody>';
+  rows.forEach(row => {
+    html += '<tr class="priloha-row">';
+    html += '<td class="priloha-td priloha-td--sizekey">' + escapeHtml(row.size) + '</td>';
+    html += '<td class="priloha-td priloha-td--count">' + row.count + '</td>';
+    html += '</tr>';
+  });
+  html += '</tbody>';
+  html += '<tfoot><tr>';
+  html += '<td class="priloha-td priloha-tfoot-label">Spolu</td>';
+  html += '<td class="priloha-td priloha-td--count priloha-tfoot-total">' + total + '</td>';
+  html += '</tr></tfoot>';
+  html += '</table>';
+  if (note) html += '<p class="priloha-summary-note">' + escapeHtml(note) + '</p>';
+  return html;
+}
+
+// ─── (legacy, zachované pre prípadné budúce použitie) ─────────────────────────
+
+function buildPrilohaSkupinkyChlapci(campData) {
+  const { groupDetails } = campData;
+  if (!groupDetails || !groupDetails.length) return '';
+
+  let html = '<div class="priloha-skupinky">';
+  html += '<div class="priloha-heading-block">';
+  html += '<h2 class="priloha-heading">Zoznam skupiniek – chlapci</h2>';
+  html += '<p class="priloha-heading-note">Príloha k táboru Narnia 2026</p>';
+  html += '</div>';
+
+  groupDetails.forEach(group => {
+    const hex = escapeHtml(group.colorHex || '#888');
+    html += '<div class="priloha-group">';
+
+    html += '<div class="priloha-group-header" style="border-color:' + hex + '">';
+    html += '<span class="priloha-group-name" style="color:' + hex + '">' + escapeHtml(group.name) + '</span>';
+    if (group.color) {
+      html += '<span class="priloha-group-color">' + escapeHtml(group.color) + '</span>';
+    }
+    html += '</div>';
+
+    html += '<p class="priloha-group-animators">Animátori: ';
+    html += '<strong>' + group.animators.map(a => escapeHtml(a)).join(', ') + '</strong></p>';
+
+    html += '<table class="priloha-table">';
+    html += '<thead><tr>';
+    html += '<th class="priloha-th priloha-th--num">#</th>';
+    html += '<th class="priloha-th">Meno</th>';
+    html += '<th class="priloha-th priloha-th--size">Veľkosť trička</th>';
+    html += '</tr></thead>';
+    html += '<tbody>';
+    group.members.forEach((m, i) => {
+      const name = (typeof m === 'object') ? m.name : m;
+      const size = (typeof m === 'object' && m.shirtSize) ? m.shirtSize : '—';
+      const isNeoverene = size === 'NEOVERENÉ';
+      html += '<tr class="priloha-row">';
+      html += '<td class="priloha-td priloha-td--num">' + (i + 1) + '.</td>';
+      html += '<td class="priloha-td">' + escapeHtml(name) + '</td>';
+      html += '<td class="priloha-td priloha-td--size' + (isNeoverene ? ' priloha-td--neoverene' : '') + '">' + escapeHtml(size) + '</td>';
+      html += '</tr>';
+    });
+    html += '</tbody></table>';
+    html += '</div>';
+  });
+
+  // Súhrn veľkostí tričiek
+  html += '<div class="priloha-summary">';
+  html += '<h3 class="priloha-summary-title">Súhrn veľkostí tričiek – chlapci</h3>';
+  html += '<table class="priloha-table priloha-summary-table">';
+  html += '<thead><tr>';
+  html += '<th class="priloha-th">Veľkosť</th>';
+  html += '<th class="priloha-th priloha-th--count">Počet</th>';
+  html += '</tr></thead>';
+  html += '<tbody>';
+  SHIRT_SIZE_SUMMARY.forEach(row => {
+    html += '<tr class="priloha-row">';
+    html += '<td class="priloha-td priloha-td--sizekey">' + escapeHtml(row.size) + '</td>';
+    html += '<td class="priloha-td priloha-td--count">' + row.count + '</td>';
+    html += '</tr>';
+  });
+  html += '</tbody>';
+  html += '<tfoot><tr>';
+  html += '<td class="priloha-td priloha-tfoot-label">Spolu</td>';
+  html += '<td class="priloha-td priloha-td--count priloha-tfoot-total">50</td>';
+  html += '</tr></tfoot>';
+  html += '</table>';
+  html += '<p class="priloha-summary-note">Sebastián Papcún (Orli) – veľkosť NEOVERENÁ, nezapočítaná do súčtu.</p>';
+  html += '</div>';
+
+  html += '</div>';
+  return html;
+}
+
+// ─── PRÍLOHA: Zoznam skupiniek – dievčatá ────────────────────────────────────
+
+const GIRLS_SIZE_ORDER = ['XS', 'XS/S', 'S', 'M', 'L', 'XL'];
+
+function computeGirlsSizeSummary(girlsGroups) {
+  const counts = {};
+  (girlsGroups || []).forEach(g => {
+    g.members.forEach(m => {
+      const size = typeof m === 'object' ? m.shirtSize : null;
+      if (!size || size === 'nemá') return;
+      counts[size] = (counts[size] || 0) + 1;
+    });
+  });
+  const letterSizes = GIRLS_SIZE_ORDER.filter(s => counts[s]);
+  const numericSizes = Object.keys(counts)
+    .filter(s => !GIRLS_SIZE_ORDER.includes(s))
+    .sort((a, b) => {
+      const na = parseInt(a, 10), nb = parseInt(b, 10);
+      return (!isNaN(na) && !isNaN(nb)) ? na - nb : a.localeCompare(b, 'sk');
+    });
+  return [...letterSizes, ...numericSizes].map(s => ({ size: s, count: counts[s] }));
+}
+
+function buildPrilohaSkupinkyDievcat(campData) {
+  const { girlsGroupDetails } = campData;
+  if (!girlsGroupDetails || !girlsGroupDetails.length) return '';
+
+  const sizeSummary = computeGirlsSizeSummary(girlsGroupDetails);
+  const totalWithSize = sizeSummary.reduce((s, r) => s + r.count, 0);
+  const nemaCnt = (girlsGroupDetails || []).reduce((s, g) =>
+    s + g.members.filter(m => (typeof m === 'object' ? m.shirtSize : null) === 'nemá').length, 0);
+
+  let html = '<div class="priloha-skupinky">';
+  html += '<div class="priloha-heading-block">';
+  html += '<h2 class="priloha-heading">Zoznam skupiniek – dievčatá</h2>';
+  html += '<p class="priloha-heading-note">Príloha k táboru Narnia 2026</p>';
+  html += '</div>';
+
+  girlsGroupDetails.forEach(group => {
+    const hex = escapeHtml(group.colorHex || '#888');
+    html += '<div class="priloha-group">';
+
+    html += '<div class="priloha-group-header" style="border-color:' + hex + '">';
+    html += '<span class="priloha-group-name" style="color:' + hex + '">' + escapeHtml(group.name) + '</span>';
+    if (group.color) {
+      html += '<span class="priloha-group-color">' + escapeHtml(group.color) + '</span>';
+    }
+    html += '</div>';
+
+    html += '<p class="priloha-group-animators">Animátorky: ';
+    html += '<strong>' + group.animators.map(a => escapeHtml(a)).join(', ') + '</strong></p>';
+
+    html += '<table class="priloha-table">';
+    html += '<thead><tr>';
+    html += '<th class="priloha-th priloha-th--num">#</th>';
+    html += '<th class="priloha-th">Meno</th>';
+    html += '<th class="priloha-th priloha-th--size">Veľkosť trička</th>';
+    html += '</tr></thead>';
+    html += '<tbody>';
+    group.members.forEach((m, i) => {
+      const name = (typeof m === 'object') ? m.name : m;
+      const size = (typeof m === 'object' && m.shirtSize) ? m.shirtSize : '—';
+      const isNema = size === 'nemá';
+      html += '<tr class="priloha-row">';
+      html += '<td class="priloha-td priloha-td--num">' + (i + 1) + '.</td>';
+      html += '<td class="priloha-td">' + escapeHtml(name) + '</td>';
+      html += '<td class="priloha-td priloha-td--size' + (isNema ? ' priloha-td--nema' : '') + '">' + escapeHtml(size) + '</td>';
+      html += '</tr>';
+    });
+    html += '</tbody></table>';
+    html += '</div>';
+  });
+
+  // Súhrn veľkostí tričiek
+  html += '<div class="priloha-summary">';
+  html += '<h3 class="priloha-summary-title">Súhrn veľkostí tričiek – dievčatá</h3>';
+  html += '<table class="priloha-table priloha-summary-table">';
+  html += '<thead><tr>';
+  html += '<th class="priloha-th">Veľkosť</th>';
+  html += '<th class="priloha-th priloha-th--count">Počet</th>';
+  html += '</tr></thead>';
+  html += '<tbody>';
+  sizeSummary.forEach(row => {
+    html += '<tr class="priloha-row">';
+    html += '<td class="priloha-td priloha-td--sizekey">' + escapeHtml(row.size) + '</td>';
+    html += '<td class="priloha-td priloha-td--count">' + row.count + '</td>';
+    html += '</tr>';
+  });
+  html += '</tbody>';
+  html += '<tfoot><tr>';
+  html += '<td class="priloha-td priloha-tfoot-label">Spolu</td>';
+  html += '<td class="priloha-td priloha-td--count priloha-tfoot-total">53</td>';
+  html += '</tr></tfoot>';
+  html += '</table>';
+  if (nemaCnt > 0) {
+    html += '<p class="priloha-summary-note">' + nemaCnt + ' dievčat tričko nepotrebuje (nemá) — nezapočítané do súčtu.</p>';
+  }
+  html += '</div>';
+
+  html += '</div>';
+  return html;
+}
+
+// ─── SEKCIA: PRÍLOHY ─────────────────────────────────────────────────────────
+
+export function buildPrilohy(campData) {
+  const { groupDetails, girlsGroupDetails, animators } = campData;
+
+  const boysSummary  = computeSizeSummary(groupDetails,      ['NEOVERENÉ']);
+  const girlsSummary = computeSizeSummary(girlsGroupDetails, ['nemá']);
+  const animSummary  = computeSizeSummary([{ members: animators || [] }], []);
+
+  const nemaGirls = (girlsGroupDetails || []).flatMap(g =>
+    g.members
+      .filter(m => (typeof m === 'object' ? m.shirtSize : null) === 'nemá')
+      .map(m => ({ name: m.name, group: g.name }))
+  );
+
+  const boysNote = 'Sebastián Papcún (Orli) – veľkosť NEOVERENÁ, nezapočítaná.';
+
+  const girlsExtra = nemaGirls.length
+    ? '<p class="priloha-summary-note">Bez trička: ' + nemaGirls.map(g => escapeHtml(g.name)).join(', ') + '.</p>'
+    : '';
+
+  const tablesHtml =
+    '<div class="priloha-duo">' +
+    '<div class="priloha-duo-card"><h3 class="priloha-summary-title">Chlapci</h3>' +
+    buildSummaryTable(boysSummary, boysNote) + '</div>' +
+    '<div class="priloha-duo-card"><h3 class="priloha-summary-title">Dievčatá</h3>' +
+    buildSummaryTable(girlsSummary, null) + girlsExtra + '</div>' +
+    '<div class="priloha-duo-card"><h3 class="priloha-summary-title">Animátori</h3>' +
+    buildSummaryTable(animSummary, null) + '</div>' +
+    '</div>';
+
   let html = '<div class="section-inner">';
   html += '<div class="section-header"><h1 class="section-title">Prílohy</h1>';
-  html += '<p class="section-subtitle">Prílohy tábora.</p></div>';
-  html += '<p class="placeholder-text">Prílohy budú doplnené.</p>';
+  html += '<p class="section-subtitle">Prílohy k táboru Narnia 2026.</p></div>';
+
+  html += '<div class="day-accordion">';
+
+  html += '<div class="day-accordion-item day-accordion-item--open" data-accordion-id="priloha-tricky">';
+  html += '<button class="day-accordion-header" data-accordion-toggle="priloha-tricky" aria-expanded="true">';
+  html += '<div class="day-accordion-header-info">';
+  html += '<span class="day-accordion-name">Veľkosti tričiek</span>';
+  html += '<span class="day-accordion-meta">chlapci · dievčatá · animátori</span>';
+  html += '</div>';
+  html += '<span class="day-accordion-chevron">' + ICONS.chevronRight + '</span>';
+  html += '</button>';
+  html += '<div class="day-accordion-body">';
+  html += '<div class="day-accordion-preview">' + tablesHtml + '</div>';
+  html += '</div>';
+  html += '</div>';
+
+  html += '</div>';
   html += '</div>';
   return html;
 }
@@ -852,7 +1187,8 @@ export function renderAllSections(campData, navItems) {
     { id: 'stretka',   html: buildStretka(campData)         },
     { id: 'modlitby',  html: buildModlitby(campData)        },
     { id: 'skupinky',  html: buildSkupinky(campData)        },
-    { id: 'prilohy',   html: buildPrilohy()                 }
+    { id: 'animatori', html: buildAnimatori(campData)        },
+    { id: 'prilohy',   html: buildPrilohy(campData)         }
   );
 
   const ids = [];
