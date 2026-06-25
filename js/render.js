@@ -842,6 +842,26 @@ export function buildSkupinky(campData) {
 
 // ─── SEKCIA: ANIMÁTORI ────────────────────────────────────────────────────────
 
+const ANIMATOR_ZODP_MAP = {
+  'Tomáš Blaha':        ['🎭 Scénky'],
+  'Andrea Spišáková':   ['🎤 Nástupy / moderovanie', '📖 Kronika'],
+  'SDB Josky':          ['🙏 Večerné modlitby'],
+  'Čaby':               ['🎲 Voľný čas', '🌙 Večerné porady', '📊 Excel'],
+  'Kika Ondisková':     ['📦 Pomôcky'],
+  'Dávid Bača':         ['🔊 Technika', '🛒 Bufet'],
+  'Marta Baňošová FMA': ['🍎 Desiata / Olovrant'],
+  'Miška Blahová':      ['📖 Kronika', '⛪ Omše', '🎵 Hudba / Spev', '🏠 Chatky', '⭐ Bodovanie'],
+  'Lívia FMA':          ['🛒 Bufet'],
+  'Nina Radová':        ['🛒 Bufet'],
+  'Peter Hanzal':       ['🛒 Bufet', '⛪ Omše'],
+  'Boris Surničin':     ['🎵 Hudba / Spev', '🎶 Zborík'],
+  'Patrik Pekarovič':   ['⛪ Omše', '🏃 Rozcvičky'],
+  'Kika Olajošová':     ['🏃 Rozcvičky'],
+  'Mathias Mastiľák':   ['🏃 Rozcvičky'],
+  'Dianka Salanciová':  ['🎶 Zborík'],
+  'Sofia Dolobačová':   ['🎶 Zborík'],
+};
+
 const ANIM_CATEGORIES = [
   { key: 'core',        label: 'CORE'        },
   { key: 'sdb-fma',     label: 'SDB / FMA'   },
@@ -874,17 +894,31 @@ export function buildAnimatori(campData) {
     html += '<tr class="animatori-size-group-row"><td colspan="4">' + escapeHtml(cat.label) + '</td></tr>';
     group.forEach(a => {
       rowNum++;
+      const zodp = ANIMATOR_ZODP_MAP[a.name] || [];
+      const ZODP_SHOW = 2;
       html += '<tr>';
       html += '<td class="animatori-td animatori-td--num">' + rowNum + '.</td>';
       html += '<td class="animatori-td">' + escapeHtml(a.name) + '</td>';
       html += '<td class="animatori-td animatori-td--size">' + escapeHtml(a.shirtSize) + '</td>';
-      html += '<td class="animatori-td animatori-td--zodp"></td>';
+      html += '<td class="animatori-td animatori-td--zodp">';
+      if (zodp.length) {
+        html += '<div class="animatori-chips">';
+        zodp.forEach((z, i) => {
+          html += '<span class="chip' + (i >= ZODP_SHOW ? ' chip--hidden' : '') + '">' + escapeHtml(z) + '</span>';
+        });
+        if (zodp.length > ZODP_SHOW) {
+          html += '<button class="chip chip--more chip--expandable" data-expand-chips>+' + (zodp.length - ZODP_SHOW) + '</button>';
+        }
+        html += '</div>';
+      }
+      html += '</td>';
       html += '</tr>';
     });
   });
 
   html += '</tbody></table>';
   html += '</div>';
+  html += '<p class="priloha-summary-note" style="margin-top:0.75rem">Budíček chlapcov-animátorov na ranné modlitby zabezpečuje SDB/FMA.</p>';
   html += '</div>';
   return html;
 }
@@ -1114,6 +1148,159 @@ function buildPrilohaSkupinkyDievcat(campData) {
   return html;
 }
 
+// ─── PRÍLOHA: Animátori ───────────────────────────────────────────────────────
+
+function buildPrilohaAnimatori(campData) {
+  const { animators } = campData;
+  if (!animators || !animators.length) return '';
+
+  let html = '<div class="priloha-skupinky">';
+  html += '<div class="priloha-heading-block">';
+  html += '<h2 class="priloha-heading">Animátori</h2>';
+  html += '<p class="priloha-heading-note">Príloha k táboru Narnia 2026</p>';
+  html += '</div>';
+
+  html += '<table class="priloha-table">';
+  html += '<thead><tr>';
+  html += '<th class="priloha-th priloha-th--num">#</th>';
+  html += '<th class="priloha-th">Meno</th>';
+  html += '<th class="priloha-th priloha-th--size">Veľkosť trička</th>';
+  html += '</tr></thead>';
+  html += '<tbody>';
+
+  let rowNum = 0;
+  ANIM_CATEGORIES.forEach(cat => {
+    const group = (animators || []).filter(a => a.category === cat.key);
+    if (!group.length) return;
+    html += '<tr class="animatori-size-group-row"><td colspan="3">' + escapeHtml(cat.label) + '</td></tr>';
+    group.forEach(a => {
+      rowNum++;
+      html += '<tr class="priloha-row">';
+      html += '<td class="priloha-td priloha-td--num">' + rowNum + '.</td>';
+      html += '<td class="priloha-td">' + escapeHtml(a.name) + '</td>';
+      html += '<td class="priloha-td priloha-td--size">' + escapeHtml(a.shirtSize) + '</td>';
+      html += '</tr>';
+    });
+  });
+
+  html += '</tbody></table>';
+
+  const sizeSummary = computeSizeSummary([{ members: animators }], []);
+  html += '<div class="priloha-summary">';
+  html += '<h3 class="priloha-summary-title">Súhrn veľkostí tričiek</h3>';
+  html += buildSummaryTable(sizeSummary, null);
+  html += '</div>';
+
+  html += '</div>';
+  return html;
+}
+
+// ─── SEKCIA: ANIMÁTORI ZODPOVEDNOSTI ─────────────────────────────────────────
+
+const ANIMATORI_ZODP_DATA = [
+  { oblast: '🎭 Scénky (dejová línia tábora)',        zodp: 'Tomáš',                              size: 'M',           poznamka: '' },
+  { oblast: '🎤 Nástupy / moderovanie',               zodp: 'Ajka',                               size: 'L',           poznamka: 'hlavný moderátor' },
+  { oblast: '🙏 Večerné modlitby',                    zodp: 'Josky',                              size: 'M',           poznamka: 'príprava pomôcok a organizácia' },
+  { oblast: '🎲 Voľný čas',                          zodp: 'Čaby',                               size: 'XL',          poznamka: '' },
+  { oblast: '📦 Pomôcky',                            zodp: 'Kika Ondisková',                     size: 'M',           poznamka: 'koordinuje pomôcky' },
+  { oblast: '🔊 Technika',                           zodp: 'Patrik Bača (hlavný), Dávid Bača',   size: '—, L',        poznamka: 'Dávid zaučí, Čaby dohliada' },
+  { oblast: '🍎 Desiata / Olovrant',                 zodp: 'Marta + MTZ tím',                    size: 'XL',          poznamka: 'Boris + Nika/Kika' },
+  { oblast: '📅 Program jednotlivých dní',          zodp: 'Vedúci konkrétneho dňa',             size: '',            poznamka: '' },
+  { oblast: '🌙 Večerné porady',                     zodp: 'Čaby',                               size: 'XL',          poznamka: 'koordinácia porád' },
+  { oblast: '🛒 Bufet + občerstvenie animátorov',   zodp: 'Lívia + Dávid + Nina + Hanzi',       size: 'M, L, S, L',  poznamka: 'nákup + zásobovanie + predaj' },
+  { oblast: '📖 Kronika',                           zodp: 'Miška + Ajka',                       size: 'S, L',        poznamka: '' },
+  { oblast: '🌅 Ranné modlitby animátorov',         zodp: 'SDB + FMA',                          size: '',            poznamka: '' },
+  { oblast: '⛪ Omše',                               zodp: 'Miška + Peťo H. + Patrik Pekarovič', size: 'S, L, M',     poznamka: '' },
+  { oblast: '🎵 Hudba / Spev',                      zodp: 'Miška + Boris',                      size: 'S, L',        poznamka: '' },
+  { oblast: '🏃 Rozcvičky',                         zodp: 'Kika Ol + Mathias + Paťo',           size: 'S, M, M',     poznamka: '' },
+  { oblast: '🎶 Zborík',                            zodp: 'Dianka + Sofka + Boris',             size: 'S, L, L',     poznamka: '' },
+  { oblast: '🏠 Rozdelenie detí na chatky',         zodp: 'Miška',                              size: 'S',           poznamka: '' },
+  { oblast: '⭐ Bodovanie',                          zodp: 'Miška',                              size: 'S',           poznamka: '' },
+  { oblast: '📊 Excel filtrovanie úloh',            zodp: 'Čaby',                               size: 'XL',          poznamka: '' },
+];
+
+const DJ_PIATOK_DATA = [
+  { uloha: 'Moderátor',         zodp: 'Pašky' },
+  { uloha: 'DJ',                zodp: 'Paťo'  },
+  { uloha: 'Playlist',          zodp: 'Ajka'  },
+  { uloha: 'Spotify playlist',  zodp: 'Sofka' },
+];
+
+const HYMNA_MEMBERS = ['Dianka', 'Maroš', 'Boris', 'Kika O.', 'Ajka', 'Pašky'];
+
+const POZNAMKY_TEXT =
+'## Ranné modlitby\n' +
+'- Chlapci chcú spoločný budíček.\n' +
+'- Dievčatá budíček nechcú.\n' +
+'- Overiť spôsob organizácie.\n' +
+'\n' +
+'## Omše\n' +
+'- Patrik Pekarovič má byť zaučený Peťom H.\n' +
+'- Do budúcna má vedieť organizáciu prevziať.\n' +
+'\n' +
+'## Rozcvičky\n' +
+'- Vedie Kika Ol.\n' +
+'- Pomáhajú: Mathias, Paťo.\n' +
+'\n' +
+'## Farby tričiek\n' +
+'- Kika pripraví niekoľko vhodných farebných variantov.\n' +
+'- Animátori si z nich vyberú.\n' +
+'- Zachovať odkaz na Malfini.\n' +
+'\n' +
+'## Pomôcky\n' +
+'- Hlavná zodpovednosť: Kika.\n' +
+'- Pomoc: Nika, Dávid.\n' +
+'\n' +
+'## Technika\n' +
+'- Patrik Bača je hlavný.\n' +
+'- Dávid zaučí.\n' +
+'- Čaby dohliada.\n' +
+'- Vytvoriť playlist.\n' +
+'- Konzultovať s Mišom Šefčíkom.\n' +
+'\n' +
+'## MTZ\n' +
+'Predstaviť zodpovednosti:\n' +
+'- Desiata — Marta + Boris + Nika/Kika\n' +
+'- Technika — Čaby\n' +
+'- Pomôcky — Kika\n' +
+'- Bufet — Lívia + Dávid + Nina + Hanzi\n' +
+'\n' +
+'## Excel\n' +
+'- Čaby pripraví excel na filtrovanie vlastných zodpovedností.\n' +
+'\n' +
+'## Otázky\n' +
+'Nechať priestor na pripomienky animátorov.';
+
+export function buildAnimatoriZodp(campData) {
+  let html = '<div class="section-inner">';
+  html += '<div class="section-header"><h1 class="section-title">Animátori zodpovednosti</h1>';
+  html += '<p class="section-subtitle">Prehľad zodpovedností animátorov tábora Narnia 2026.</p></div>';
+
+  // Zodpovednosti table
+  html += '<div class="animatori-table-wrap">';
+  html += '<table class="animatori-zodp-table">';
+  html += '<thead><tr>';
+  html += '<th class="animatori-th animatori-th--zodp">Oblasť</th>';
+  html += '<th class="animatori-th">Zodpovedný</th>';
+  html += '<th class="animatori-th">Poznámka</th>';
+  html += '</tr></thead>';
+  html += '<tbody>';
+  ANIMATORI_ZODP_DATA.forEach(row => {
+    html += '<tr>';
+    html += '<td class="animatori-td">' + escapeHtml(row.oblast) + '</td>';
+    html += '<td class="animatori-td">' + escapeHtml(row.zodp) + '</td>';
+    html += '<td class="animatori-td animatori-td--zodp">' + escapeHtml(row.poznamka) + '</td>';
+    html += '</tr>';
+  });
+  html += '</tbody></table>';
+  html += '</div>';
+
+  html += '<p class="priloha-summary-note" style="margin-top: 0.75rem">Poznámka: budíček chlapcov-animátorov na ranné modlitby zabezpečuje SDB/FMA.</p>';
+
+  html += '</div>';
+  return html;
+}
+
 // ─── SEKCIA: PRÍLOHY ─────────────────────────────────────────────────────────
 
 export function buildPrilohy(campData) {
@@ -1187,8 +1374,8 @@ export function renderAllSections(campData, navItems) {
     { id: 'stretka',   html: buildStretka(campData)         },
     { id: 'modlitby',  html: buildModlitby(campData)        },
     { id: 'skupinky',  html: buildSkupinky(campData)        },
-    { id: 'animatori', html: buildAnimatori(campData)        },
-    { id: 'prilohy',   html: buildPrilohy(campData)         }
+    { id: 'animatori', html: buildAnimatori(campData) },
+    { id: 'prilohy',   html: buildPrilohy(campData)  }
   );
 
   const ids = [];

@@ -214,7 +214,7 @@ export const groupDetails = [
       { name: 'Filip Matías',    shirtSize: '164' },
       { name: 'Matej Uličný',    shirtSize: 'S'   },
       { name: 'Karol Stoček',    shirtSize: 'M'   },
-      { name: 'Jakub Průša',     shirtSize: 'L'   },
+      { name: 'Jakub Průša',     shirtSize: 'XL'  },
       { name: 'Adam Ruščanský',  shirtSize: 'S'   },
       { name: 'Matúš Behún',     shirtSize: '170' },
       { name: 'Denis Max Roman', shirtSize: 'S'   },
