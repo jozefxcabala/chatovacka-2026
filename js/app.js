@@ -445,6 +445,82 @@ function initDelegation() {
   });
 }
 
+// ─── FILTER ZODPOVEDNOSTÍ (Animátori) ────────────────────────────────────────
+
+function initAnimatoriFilter() {
+  const section = document.getElementById('section-animatori');
+  if (!section) return;
+
+  const filterChips = section.querySelectorAll('.animatori-filter-chip');
+  const clearBtn    = section.querySelector('.animatori-filter-clear');
+  if (!filterChips.length) return;
+
+  const activeFilters = new Set();
+
+  function refresh() {
+    const rows      = section.querySelectorAll('[data-zodp-row]');
+    const groupRows = section.querySelectorAll('.animatori-size-group-row');
+    const filtering = activeFilters.size > 0;
+
+    rows.forEach(row => {
+      const list  = (row.dataset.zodpList || '').split('||').filter(Boolean);
+      const match = !filtering || list.some(z => activeFilters.has(z));
+      row.hidden  = !match;
+
+      row.querySelectorAll('.chip').forEach(c => c.classList.remove('chip--zodp-highlight'));
+
+      if (match && filtering) {
+        row.querySelectorAll('.chip').forEach(c => {
+          if (activeFilters.has(c.textContent.trim())) c.classList.add('chip--zodp-highlight');
+        });
+        // Reveal overflow chips so highlights are visible
+        row.querySelectorAll('[data-chip-overflow]').forEach(c => c.classList.remove('chip--hidden'));
+        const moreBtn = row.querySelector('.chip--more[data-expand-chips]');
+        if (moreBtn) moreBtn.style.display = 'none';
+      } else if (!filtering) {
+        // Restore overflow chips
+        row.querySelectorAll('[data-chip-overflow]').forEach(c => c.classList.add('chip--hidden'));
+        const moreBtn = row.querySelector('.chip--more[data-expand-chips]');
+        if (moreBtn) moreBtn.style.display = '';
+      }
+    });
+
+    groupRows.forEach(groupRow => {
+      let next = groupRow.nextElementSibling;
+      let hasVisible = false;
+      while (next && !next.classList.contains('animatori-size-group-row')) {
+        if (next.hasAttribute('data-zodp-row') && !next.hidden) hasVisible = true;
+        next = next.nextElementSibling;
+      }
+      groupRow.hidden = !hasVisible;
+    });
+
+    filterChips.forEach(c => {
+      c.classList.toggle('animatori-filter-chip--active', activeFilters.has(c.dataset.zodpFilter));
+    });
+    if (clearBtn) clearBtn.hidden = !filtering;
+  }
+
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const zodp = chip.dataset.zodpFilter;
+      if (activeFilters.has(zodp)) {
+        activeFilters.delete(zodp);
+      } else {
+        activeFilters.add(zodp);
+      }
+      refresh();
+    });
+  });
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      activeFilters.clear();
+      refresh();
+    });
+  }
+}
+
 // ─── PRINT / PDF ─────────────────────────────────────────────────────────────
 
 function initPrintBrozurka() {
@@ -453,6 +529,24 @@ function initPrintBrozurka() {
   });
 
   window.addEventListener('beforeprint', () => {
+    // Uvoľniť všetky scroll/clip kontajnery — Chrome ignoruje @media print !important na overflow divoch
+    const targets = [
+      document.documentElement,
+      document.body,
+      document.querySelector('.app-layout'),
+      document.getElementById('appBody'),
+    ].filter(Boolean);
+    targets.forEach(el => {
+      el.dataset.printOverflow = el.style.overflow || '';
+      el.dataset.printHeight   = el.style.height   || '';
+      el.style.overflow = 'visible';
+      el.style.height   = 'auto';
+    });
+
+    // Reset filter animátorov — aby sa tlačili všetky riadky
+    document.querySelectorAll('#section-animatori [data-zodp-row]').forEach(r => { r.hidden = false; });
+    document.querySelectorAll('#section-animatori .animatori-size-group-row').forEach(r => { r.hidden = false; });
+
     // Rozbaliť všetky accordion položky
     document.querySelectorAll('.day-accordion-body').forEach(b => {
       if (b.hasAttribute('hidden')) {
@@ -487,6 +581,19 @@ function initPrintBrozurka() {
   });
 
   window.addEventListener('afterprint', () => {
+    // Obnoviť všetky kontajnery
+    [
+      document.documentElement,
+      document.body,
+      document.querySelector('.app-layout'),
+      document.getElementById('appBody'),
+    ].filter(Boolean).forEach(el => {
+      el.style.overflow = el.dataset.printOverflow || '';
+      el.style.height   = el.dataset.printHeight   || '';
+      delete el.dataset.printOverflow;
+      delete el.dataset.printHeight;
+    });
+
     // Zbaliť späť accordion položky
     document.querySelectorAll('.day-accordion-body[data-print-expanded]').forEach(b => {
       b.setAttribute('hidden', '');
@@ -527,6 +634,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSidebar();
   initDelegation();
   initAktivityFilters();
+  initAnimatoriFilter();
   initSectionObserver();
   initPrintBrozurka();
 

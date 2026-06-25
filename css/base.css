@@ -1598,6 +1598,82 @@ body {
   font-style: italic;
 }
 
+/* ─── ANIMÁTORI — filter zodpovedností ──────────────────────────────────── */
+
+.animatori-zodp-filter {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.animatori-filter-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ground-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-top: 0.25rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.animatori-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.animatori-filter-chip {
+  background: var(--ground);
+  border: 1px solid var(--ground-border);
+  color: var(--ground-text);
+  font-size: 0.78rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.animatori-filter-chip:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.animatori-filter-chip.animatori-filter-chip--active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+
+.animatori-filter-clear {
+  background: transparent;
+  border: 1px solid var(--ground-border);
+  color: var(--ground-muted);
+  font-size: 0.78rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.animatori-filter-clear:hover {
+  border-color: var(--col-piatok);
+  color: var(--col-piatok);
+}
+
+.chip--zodp-highlight {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+  background: var(--gold-dim);
+  color: var(--ground-text);
+}
+
+@media print {
+  .animatori-zodp-filter { display: none; }
+}
+
 
 @media print {
   .priloha-skupinky { max-width: 100%; }
@@ -1916,7 +1992,12 @@ body {
     display: block !important;
   }
 
-  .app-main { overflow: visible !important; }
+  .app-main { overflow: visible !important; height: auto !important; }
+
+  /* Kontajnery s overflow ktoré by pri tlači orezali obsah */
+  .skupiny-block,
+  .animatori-table-wrap,
+  .day-accordion { overflow: visible !important; }
 
   /* Skryť UI chrome */
   #sidebar,

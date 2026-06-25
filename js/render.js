@@ -19,8 +19,8 @@ export function buildNavItems(days) {
     { id: 'scenky',    label: 'Scénky',    icon: 'theater'  },
     { id: 'stretka',   label: 'Stretká',   icon: 'people'   },
     { id: 'modlitby',  label: 'Modlitby',  icon: 'prayer'   },
-    { id: 'skupinky',  label: 'Skupinky',  icon: 'groups'   },
-    { id: 'animatori', label: 'Animátori', icon: 'people'   },
+    { id: 'skupinky',  label: 'Skupinky',  icon: 'groups'     },
+    { id: 'animatori', label: 'Animátori', icon: 'personStar' },
     { id: 'prilohy',   label: 'Prílohy',   icon: 'list'     }
   );
   return items;
@@ -44,7 +44,7 @@ export function renderSidebar(campMeta, navItems, onNavigate, nameDay) {
     btn.setAttribute('aria-label', item.label);
     const iconHtml = item.isDayItem ? dayCalendarIcon(item.dayIndex) : (ICONS[item.icon] || '');
     btn.innerHTML =
-      '<span class="nav-item-icon">' + iconHtml + '</span>' +
+      '<span class="nav-item-icon" title="' + escapeHtml(item.label) + '">' + iconHtml + '</span>' +
       '<span class="nav-item-label">' + escapeHtml(item.label) + '</span>';
     btn.addEventListener('click', () => onNavigate(item.id));
     nav.appendChild(btn);
@@ -848,13 +848,14 @@ const ANIMATOR_ZODP_MAP = {
   'SDB Josky':          ['🙏 Večerné modlitby'],
   'Čaby':               ['🎲 Voľný čas', '🌙 Večerné porady', '📊 Excel'],
   'Kika Ondisková':     ['📦 Pomôcky'],
-  'Dávid Bača':         ['🔊 Technika', '🛒 Bufet'],
+  'Dávid Bača':         ['🔊 Technika', '🛒 Bufet', '📦 Pomôcky'],
   'Marta Baňošová FMA': ['🍎 Desiata / Olovrant'],
   'Miška Blahová':      ['📖 Kronika', '⛪ Omše', '🎵 Hudba / Spev', '🏠 Chatky', '⭐ Bodovanie'],
   'Lívia FMA':          ['🛒 Bufet'],
-  'Nina Radová':        ['🛒 Bufet'],
+  'Nina Radová':        ['🛒 Bufet', '🍎 Desiata / Olovrant'],
   'Peter Hanzal':       ['🛒 Bufet', '⛪ Omše'],
-  'Boris Surničin':     ['🎵 Hudba / Spev', '🎶 Zborík'],
+  'Boris Surničin':     ['🎵 Hudba / Spev', '🎶 Zborík', '🍎 Desiata / Olovrant'],
+  'Nika Nováková':      ['🍎 Desiata / Olovrant'],
   'Patrik Pekarovič':   ['⛪ Omše', '🏃 Rozcvičky'],
   'Kika Olajošová':     ['🏃 Rozcvičky'],
   'Mathias Mastiľák':   ['🏃 Rozcvičky'],
@@ -872,10 +873,22 @@ const ANIM_CATEGORIES = [
 
 export function buildAnimatori(campData) {
   const { animators } = campData;
+  const allZodp = [...new Set(Object.values(ANIMATOR_ZODP_MAP).flat())];
 
   let html = '<div class="section-inner">';
   html += '<div class="section-header"><h1 class="section-title">Animátori</h1>';
   html += '<p class="section-subtitle">Zoznam animátorov, veľkosti tričiek a zodpovednosti.</p></div>';
+
+  // Filter bar
+  html += '<div class="animatori-zodp-filter">';
+  html += '<span class="animatori-filter-label">Zodpovednosť:</span>';
+  html += '<div class="animatori-filter-chips">';
+  allZodp.forEach(z => {
+    html += '<button class="chip animatori-filter-chip" data-zodp-filter="' + escapeHtml(z) + '">' + escapeHtml(z) + '</button>';
+  });
+  html += '</div>';
+  html += '<button class="chip animatori-filter-clear" hidden>× Zrušiť filter</button>';
+  html += '</div>';
 
   html += '<div class="animatori-table-wrap">';
   html += '<table class="animatori-zodp-table">';
@@ -896,7 +909,7 @@ export function buildAnimatori(campData) {
       rowNum++;
       const zodp = ANIMATOR_ZODP_MAP[a.name] || [];
       const ZODP_SHOW = 2;
-      html += '<tr>';
+      html += '<tr data-zodp-row data-zodp-list="' + escapeHtml(zodp.join('||')) + '">';
       html += '<td class="animatori-td animatori-td--num">' + rowNum + '.</td>';
       html += '<td class="animatori-td">' + escapeHtml(a.name) + '</td>';
       html += '<td class="animatori-td animatori-td--size">' + escapeHtml(a.shirtSize) + '</td>';
@@ -904,7 +917,9 @@ export function buildAnimatori(campData) {
       if (zodp.length) {
         html += '<div class="animatori-chips">';
         zodp.forEach((z, i) => {
-          html += '<span class="chip' + (i >= ZODP_SHOW ? ' chip--hidden' : '') + '">' + escapeHtml(z) + '</span>';
+          const overflow = i >= ZODP_SHOW;
+          html += '<span class="chip' + (overflow ? ' chip--hidden' : '') + '"' +
+                  (overflow ? ' data-chip-overflow' : '') + '>' + escapeHtml(z) + '</span>';
         });
         if (zodp.length > ZODP_SHOW) {
           html += '<button class="chip chip--more chip--expandable" data-expand-chips>+' + (zodp.length - ZODP_SHOW) + '</button>';
