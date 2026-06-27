@@ -1336,8 +1336,6 @@ export function buildPrilohy(campData) {
       .map(m => ({ name: m.name, group: g.name }))
   );
 
-  const boysNote = 'Sebastián Papcún (Orli) – veľkosť NEOVERENÁ, nezapočítaná.';
-
   const girlsExtra = nemaGirls.length
     ? '<p class="priloha-summary-note">Bez trička: ' + nemaGirls.map(g => escapeHtml(g.name)).join(', ') + '.</p>'
     : '';
@@ -1345,7 +1343,7 @@ export function buildPrilohy(campData) {
   const tablesHtml =
     '<div class="priloha-duo">' +
     '<div class="priloha-duo-card"><h3 class="priloha-summary-title">Chlapci</h3>' +
-    buildSummaryTable(boysSummary, boysNote) + '</div>' +
+    buildSummaryTable(boysSummary, null) + '</div>' +
     '<div class="priloha-duo-card"><h3 class="priloha-summary-title">Dievčatá</h3>' +
     buildSummaryTable(girlsSummary, null) + girlsExtra + '</div>' +
     '<div class="priloha-duo-card"><h3 class="priloha-summary-title">Animátori</h3>' +
