@@ -1205,10 +1205,20 @@ function buildPrilohaAnimatori(campData) {
 
   html += '</tbody></table>';
 
-  const sizeSummary = computeSizeSummary([{ members: animators }], []);
-  html += '<div class="priloha-summary">';
-  html += '<h3 class="priloha-summary-title">Súhrn veľkostí tričiek</h3>';
-  html += buildSummaryTable(sizeSummary, null);
+  const boys = animators.filter(a => a.gender === 'M');
+  const girls = animators.filter(a => a.gender === 'F');
+  const boysSummary  = computeSizeSummary([{ members: boys  }], []);
+  const girlsSummary = computeSizeSummary([{ members: girls }], []);
+
+  html += '<div class="priloha-summary priloha-summary--two-col">';
+  html += '<div class="priloha-summary-col">';
+  html += '<h3 class="priloha-summary-title">Veľkosti – chlapci</h3>';
+  html += buildSummaryTable(boysSummary, null);
+  html += '</div>';
+  html += '<div class="priloha-summary-col">';
+  html += '<h3 class="priloha-summary-title">Veľkosti – dievčatá</h3>';
+  html += buildSummaryTable(girlsSummary, null);
+  html += '</div>';
   html += '</div>';
 
   html += '</div>';
@@ -1326,9 +1336,12 @@ export function buildAnimatoriZodp(campData) {
 export function buildPrilohy(campData) {
   const { groupDetails, girlsGroupDetails, animators } = campData;
 
-  const boysSummary  = computeSizeSummary(groupDetails,      ['NEOVERENÉ']);
-  const girlsSummary = computeSizeSummary(girlsGroupDetails, ['nemá']);
-  const animSummary  = computeSizeSummary([{ members: animators || [] }], []);
+  const boysSummary       = computeSizeSummary(groupDetails,      ['NEOVERENÉ']);
+  const girlsSummary      = computeSizeSummary(girlsGroupDetails, ['nemá']);
+  const animBoys  = (animators || []).filter(a => a.gender === 'M');
+  const animGirls = (animators || []).filter(a => a.gender === 'F');
+  const animBoysSummary  = computeSizeSummary([{ members: animBoys  }], []);
+  const animGirlsSummary = computeSizeSummary([{ members: animGirls }], []);
 
   const nemaGirls = (girlsGroupDetails || []).flatMap(g =>
     g.members
@@ -1346,8 +1359,10 @@ export function buildPrilohy(campData) {
     buildSummaryTable(boysSummary, null) + '</div>' +
     '<div class="priloha-duo-card"><h3 class="priloha-summary-title">Dievčatá</h3>' +
     buildSummaryTable(girlsSummary, null) + girlsExtra + '</div>' +
-    '<div class="priloha-duo-card"><h3 class="priloha-summary-title">Animátori</h3>' +
-    buildSummaryTable(animSummary, null) + '</div>' +
+    '<div class="priloha-duo-card"><h3 class="priloha-summary-title">Animátori – chlapci</h3>' +
+    buildSummaryTable(animBoysSummary, null) + '</div>' +
+    '<div class="priloha-duo-card"><h3 class="priloha-summary-title">Animátori – dievčatá</h3>' +
+    buildSummaryTable(animGirlsSummary, null) + '</div>' +
     '</div>';
 
   let html = '<div class="section-inner">';

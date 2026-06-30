@@ -1505,6 +1505,18 @@ body {
   max-width: 260px;
 }
 
+.priloha-summary--two-col {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  max-width: none;
+}
+
+.priloha-summary-col {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
 .priloha-summary-title {
   font-size: 0.7rem;
   font-weight: 700;
