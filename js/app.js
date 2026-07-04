@@ -13,6 +13,7 @@ import { groupsOverview, groupDetails, girlsGroupDetails } from '../data/groups.
 import { animators } from '../data/animators.js';
 
 import { ICONS, escapeHtml } from './utils.js';
+import { initChatbot }      from './chatbot.js';
 import { buildNavItems, renderSidebar, renderAllSections,
          buildUvod, buildAktivityCards, buildActivityDetail } from './render.js';
 import { clearFilters, showActivityList } from './filters.js';
@@ -648,6 +649,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnimatoriFilter();
   initSectionObserver();
   initPrintBrozurka();
+  initChatbot({ ...campData, onNavigate: navigateTo });
 
   const last = localStorage.getItem('lastSection') || 'uvod';
   navigateTo(validSectionIds.includes(last) ? last : 'uvod', null, true);

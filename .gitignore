@@ -1,3 +1,12 @@
 # Zdrojové dokumenty (DOCX, PDF) — nie sú súčasťou repozitára
 brozurky/*
 !brozurky/.gitkeep
+
+# Node.js
+node_modules/
+
+# Vite build output
+dist/
+
+# Lokálne env
+.env.local

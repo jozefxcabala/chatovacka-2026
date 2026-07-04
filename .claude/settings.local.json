@@ -80,7 +80,11 @@
       "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/13-TODO-ŠTVRTOK POOBEDIE-2.docx\")",
       "Bash(textutil -convert txt -stdout \"/Users/caby/chatovacka-2026/brozurky/14-OK-Chatovačka večerný program Marína Paulína.docx\")",
       "Bash(xargs ls -la)",
-      "Bash(git -C /Users/caby/chatovacka-2026 status)"
+      "Bash(git -C /Users/caby/chatovacka-2026 status)",
+      "Bash(npm run *)",
+      "Bash(npx vite *)",
+      "Bash(pkill -f \"vite --port 5174\")",
+      "Bash(pkill -f \"vite\")"
     ],
     "additionalDirectories": [
       "/Users/caby/chatovacka-2026/.claude"
