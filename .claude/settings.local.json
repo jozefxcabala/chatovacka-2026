@@ -84,7 +84,11 @@
       "Bash(npm run *)",
       "Bash(npx vite *)",
       "Bash(pkill -f \"vite --port 5174\")",
-      "Bash(pkill -f \"vite\")"
+      "Bash(pkill -f \"vite\")",
+      "Bash(npm --version)",
+      "Bash(gh run *)",
+      "Bash(npm view *)",
+      "Bash(npm ci *)"
     ],
     "additionalDirectories": [
       "/Users/caby/chatovacka-2026/.claude"
