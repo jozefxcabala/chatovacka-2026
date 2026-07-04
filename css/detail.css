@@ -198,3 +198,15 @@
   color: var(--card-text);
   line-height: 1.6;
 }
+
+/* ─── DETAIL MOKRÝ PROGRAM ───────────────────────────────────────────────── */
+
+.detail-section--mokry {
+  border-left: 3px solid #3578C8;
+}
+
+.detail-mokry {
+  font-size: 0.875rem;
+  color: var(--card-text);
+  line-height: 1.6;
+}

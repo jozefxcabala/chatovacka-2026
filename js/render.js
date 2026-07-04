@@ -8,6 +8,38 @@ import { escapeHtml, el, ICONS, DAY_COLOR_MAP, dayCalendarIcon, formatTextToHtml
 import { getFilteredActivities, getFiltersState } from './filters.js';
 
 
+// ─── MOKRÝ PROGRAM HELPERS ───────────────────────────────────────────────────
+
+function getMokryProgram(act) {
+  if (act.description) {
+    const m = act.description.match(/##\s*Mokr[ý]?\s*[Pp]rogram[^\n]*\n([\s\S]*?)(?=\n##|$)/i);
+    if (m && m[1].trim()) return m[1].trim();
+  }
+  if (act.mtzNote) {
+    for (const line of act.mtzNote.split('\n')) {
+      if (/mokr/i.test(line)) {
+        return line.replace(/^Mokr[ý]?\s*[Pp]rogram[:\s]*/i, '').trim();
+      }
+    }
+  }
+  return null;
+}
+
+function stripDescriptionMokry(desc) {
+  if (!desc) return desc;
+  return desc
+    .replace(/\n##\s*Mokr[ý]?\s*[Pp]rogram[\s\S]*/i, '')
+    .replace(/^##\s*Mokr[ý]?\s*[Pp]rogram[\s\S]*/i, '')
+    .trim();
+}
+
+function stripMtzNoteMokry(note) {
+  if (!note) return note;
+  const lines = note.split('\n').filter(l => !/mokr/i.test(l));
+  while (lines.length && !lines[lines.length - 1].trim()) lines.pop();
+  return lines.join('\n').trim();
+}
+
 // ─── SIDEBAR NAV ──────────────────────────────────────────────────────────────
 
 export function buildNavItems(days) {
@@ -275,6 +307,12 @@ function renderActivityPreviewAccordionHtml(dayActivities) {
       html += '</div>';
     }
 
+    // Mokrý program
+    const mokryText = getMokryProgram(act);
+    if (mokryText) {
+      html += '<div class="day-preview-mokry">☔ ' + escapeHtml(mokryText) + '</div>';
+    }
+
     // Krátky súhrn (screen only)
     if (act.detail) {
       html += '<p class="day-preview-excerpt">' + escapeHtml(act.detail) + '</p>';
@@ -287,9 +325,10 @@ function renderActivityPreviewAccordionHtml(dayActivities) {
       }
     }
 
-    // Plný popis (print only)
-    if (act.description && act.description.trim()) {
-      html += '<div class="print-full-desc">' + formatTextToHtml(act.description) + '</div>';
+    // Plný popis (print only) — bez Mokrý program sekcie (zobrazuje sa osobitne vyššie)
+    const printDesc = stripDescriptionMokry(act.description);
+    if (printDesc && printDesc.trim()) {
+      html += '<div class="print-full-desc">' + formatTextToHtml(printDesc) + '</div>';
     }
 
     // Tlačidlo na plný detail
@@ -583,10 +622,12 @@ export function buildActivityDetail(actId, campData) {
     html += '</div>';
   }
 
-  if (act.description && act.description.trim()) {
+  const mokryText = getMokryProgram(act);
+  const cleanDesc = stripDescriptionMokry(act.description);
+  if (cleanDesc && cleanDesc.trim()) {
     html += '<div class="detail-section">';
     html += '<h2 class="detail-section-title">Popis programu</h2>';
-    html += '<div class="detail-description">' + formatTextToHtml(act.description) + '</div>';
+    html += '<div class="detail-description">' + formatTextToHtml(cleanDesc) + '</div>';
     html += '</div>';
   }
 
@@ -633,9 +674,21 @@ export function buildActivityDetail(actId, campData) {
   }
 
   if (act.hasMtzNote && act.mtzNote) {
-    html += '<div class="detail-section detail-section--mtz">';
-    html += '<h2 class="detail-section-title">MTZ poznámky</h2>';
-    html += '<p class="detail-mtz">' + escapeHtml(act.mtzNote) + '</p>';
+    const cleanMtz = (mokryText && /mokr/i.test(act.mtzNote))
+      ? stripMtzNoteMokry(act.mtzNote)
+      : act.mtzNote;
+    if (cleanMtz && cleanMtz.trim()) {
+      html += '<div class="detail-section detail-section--mtz">';
+      html += '<h2 class="detail-section-title">MTZ poznámky</h2>';
+      html += '<p class="detail-mtz">' + escapeHtml(cleanMtz) + '</p>';
+      html += '</div>';
+    }
+  }
+
+  if (mokryText) {
+    html += '<div class="detail-section detail-section--mokry">';
+    html += '<h2 class="detail-section-title">☔ Mokrý program</h2>';
+    html += '<p class="detail-mokry">' + escapeHtml(mokryText) + '</p>';
     html += '</div>';
   }
 
