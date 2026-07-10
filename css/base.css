@@ -1296,6 +1296,63 @@ body {
   }
 }
 
+/* ─── SEKCIA: HRY / VOĽNÝ ČAS ───────────────────────────────────────────── */
+
+.hry-category {
+  margin-bottom: 2rem;
+}
+
+.hry-category-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--ground-border);
+}
+
+.hry-category-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.hry-category-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ground-text);
+  margin: 0 0 0.15rem;
+}
+
+.hry-category-subtitle {
+  font-size: 0.8rem;
+  color: var(--ground-muted);
+  margin: 0;
+}
+
+.hry-chips-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.hry-chip {
+  background: var(--gold-dim);
+  border: 1px solid rgba(200,149,42,.25);
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--r-pill);
+}
+
+.hry-meta--todo {
+  font-style: italic;
+  color: var(--ground-muted);
+  font-size: 0.78rem;
+}
+
 @media print {
   .skupiny-block {
     break-inside: avoid;

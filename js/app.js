@@ -11,6 +11,7 @@ import { prayers }                    from '../data/prayers.js';
 import { stretka }                    from '../data/stretka.js';
 import { groupsOverview, groupDetails, girlsGroupDetails } from '../data/groups.js';
 import { animators } from '../data/animators.js';
+import { hryCategories } from '../data/hry.js';
 
 import { ICONS, escapeHtml } from './utils.js';
 import { initChatbot }      from './chatbot.js';
@@ -20,7 +21,7 @@ import { clearFilters, showActivityList } from './filters.js';
 
 // ─── DÁTA ────────────────────────────────────────────────────────────────────
 
-const campData = { meta: campMeta, announcements, contacts, appendices, animatorRules, nameDays, days, activities, scenes, prayers, stretka, groupsOverview, groupDetails, girlsGroupDetails, animators };
+const campData = { meta: campMeta, announcements, contacts, appendices, animatorRules, nameDays, days, activities, scenes, prayers, stretka, groupsOverview, groupDetails, girlsGroupDetails, animators, hryCategories };
 
 // ─── NAVIGÁCIA ────────────────────────────────────────────────────────────────
 

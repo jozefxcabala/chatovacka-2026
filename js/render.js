@@ -52,8 +52,9 @@ export function buildNavItems(days) {
     { id: 'stretka',   label: 'Stretká',   icon: 'people'   },
     { id: 'modlitby',  label: 'Modlitby',  icon: 'prayer'   },
     { id: 'skupinky',  label: 'Skupinky',  icon: 'groups'     },
-    { id: 'animatori', label: 'Animátori', icon: 'personStar' },
-    { id: 'prilohy',   label: 'Prílohy',   icon: 'list'     }
+    { id: 'animatori', label: 'Animátori',        icon: 'personStar' },
+    { id: 'hry',       label: 'Hry / voľný čas', icon: 'games'      },
+    { id: 'prilohy',   label: 'Prílohy',          icon: 'list'       }
   );
   return items;
 }
@@ -1442,6 +1443,72 @@ export function buildPrilohy(campData) {
   return html;
 }
 
+// ─── SEKCIA: HRY / VOĽNÝ ČAS ─────────────────────────────────────────────────
+
+export function buildHry(campData) {
+  const categories = campData.hryCategories || [];
+
+  let html = '<div class="section-inner">';
+  html += '<div class="section-header"><h1 class="section-title">Hry / voľný čas</h1>';
+  html += '<p class="section-subtitle">Energizéry, vonkajšie hry a hry na dnu.</p></div>';
+
+  categories.forEach(cat => {
+    html += '<div class="hry-category">';
+    html += '<div class="hry-category-header">';
+    html += '<span class="hry-category-icon">' + escapeHtml(cat.icon) + '</span>';
+    html += '<div>';
+    html += '<h2 class="hry-category-title">' + escapeHtml(cat.title) + '</h2>';
+    if (cat.subtitle) {
+      html += '<p class="hry-category-subtitle">' + escapeHtml(cat.subtitle) + '</p>';
+    }
+    html += '</div>';
+    html += '</div>';
+
+    const hasDescriptions = cat.games.some(g => g.description && g.description.trim());
+
+    if (!hasDescriptions) {
+      // Energizéry — jednoduché chipy bez popisu
+      html += '<div class="hry-chips-list">';
+      cat.games.forEach(g => {
+        html += '<span class="chip hry-chip">' + escapeHtml(g.name) + '</span>';
+      });
+      html += '</div>';
+    } else {
+      // Hry s opisom — accordion
+      html += '<div class="day-accordion">';
+      cat.games.forEach((g, index) => {
+        const isOpen = index === 0;
+        const hasDesc = g.description && g.description.trim();
+        html += '<div class="day-accordion-item' + (isOpen ? ' day-accordion-item--open' : '') + '" data-accordion-id="' + escapeHtml(g.id) + '">';
+        html += '<button class="day-accordion-header" data-accordion-toggle="' + escapeHtml(g.id) + '" aria-expanded="' + (isOpen ? 'true' : 'false') + '">';
+        html += '<div class="day-accordion-header-info">';
+        html += '<span class="day-accordion-name">' + escapeHtml(g.name) + '</span>';
+        if (!hasDesc) {
+          html += '<span class="day-accordion-meta hry-meta--todo">pravidlá sa dopĺňajú</span>';
+        }
+        html += '</div>';
+        html += '<span class="day-accordion-chevron">' + ICONS.chevronRight + '</span>';
+        html += '</button>';
+        html += '<div class="day-accordion-body"' + (isOpen ? '' : ' hidden') + '>';
+        html += '<div class="day-accordion-preview">';
+        if (hasDesc) {
+          html += '<div class="prayer-text">' + formatTextToHtml(g.description) + '</div>';
+        } else {
+          html += '<p class="placeholder-text">Pravidlá budú doplnené.</p>';
+        }
+        html += '</div></div>';
+        html += '</div>';
+      });
+      html += '</div>';
+    }
+
+    html += '</div>';
+  });
+
+  html += '</div>';
+  return html;
+}
+
 // ─── RENDEROVANIE VŠETKÝCH SEKCIÍ ─────────────────────────────────────────────
 
 export function renderAllSections(campData, navItems) {
@@ -1461,6 +1528,7 @@ export function renderAllSections(campData, navItems) {
     { id: 'modlitby',  html: buildModlitby(campData)        },
     { id: 'skupinky',  html: buildSkupinky(campData)        },
     { id: 'animatori', html: buildAnimatori(campData) },
+    { id: 'hry',       html: buildHry(campData)       },
     { id: 'prilohy',   html: buildPrilohy(campData)  }
   );
 
