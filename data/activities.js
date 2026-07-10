@@ -937,21 +937,27 @@ Program prebieha vo vnútorných priestoroch.
     location: 'Areál + les / prípadne cesta',
     detail: 'Deti pátraju po uväznenom Edmundovi – v 1. fáze sa vyhýbajú vlkom a zbierajú indície, v 2. fáze naopak chytajú vlkov pre kúsky mapy.',
     description: `
-Edmund je uväznený v tábore bielej čarodejnice a my ho chceme oslobodiť. Do nášho tábora prenikli vlci ako sprisahanci bielej čarodejnice. Našou úlohou bude vyhnať vlkov a nájsť Edmunda.
+Edmund je uväznený v tábore bielej čarodejnice a my ho chceme oslobodiť. Lenže do nášho tábora prenikli vlci ako sprisahatelia bielej čarodejnice. Našou úlohou bude vyhnať vlkov a nájsť Edmunda.
 
-Hra sa hrá v 2 fázach. Deti behajú ako individuá, ale hrajú po skupinkách (dievčatá a chlapci spolu). Z každej skupinky sa vyberú 2–4 deti (2 ch. + 2 d.) — oživovatelia —, ktoré môžu oživovať padnuté deti, ale nesmú zbierať dôkazy. Oživiť môžu vrchnáčikom, ktorý môžu nájsť v altánku.
+Hra sa bude hrať v 2 fázach:
 
-## 1. fáza – vlci naháňajú nás
+## 1. FÁZA – vlci naháňajú nás
 
-V areáli bude 75 okruhov, ktoré strážia 2–3 vlci. V týchto okruhoch budú indície, ktoré môžu napomôcť nájsť Edmunda. Akonáhle vlk chytí dieťa v okruhu, dieťa vyjde z kruhu a čupne si — čaká na oživenie. Mimo okruhov vlci deťom iba uložia úlohu (napr. zabehni okruh...).
+V areáli bude 7 okruhov, ktoré strážia 3 vlci. V týchto okruhoch budú indície, ktoré možno napomôžu nájsť Edmunda. V týchto okruhoch budú môcť vlci chytiť dieťa – akonáhle ho chytia, deti vyjdu z kruhu a čupnú si… a čakajú na oživenie. Mimo týchto okruhov ich však ešte chytajú ďalší vlci, ktorí im len uložia úlohu (zabehni okruh,...).
 
-Po istom čase, alebo po nazbieraní všetkých dôkazov, začína:
+Deti behajú ako individuá, ale hrajú po skupinkách dievčatá a chlapci spolu.
 
-## 2. fáza – my chytáme vlkov
+Z týchto skupiniek sa vyberú ďalšie 2–4 deti (2ch. 2d.) – oživovatelia – ktoré budú môcť oživovať padnuté deti, ale nebudú môcť zbierať dôkazy. Oživiť môžu vrchnáčikom, ktorý môžu nájsť v altánku.
 
-Roly sa obrátia — keďže sme nabrali silu a odvahu, teraz je čas vyhnať vlkov z tábora. Všetci vlci utekajú pred deťmi, ktoré ich chytajú celou skupinkou. Ak ho chytia, musia ho priniesť do altánku a „vytĺcť" z neho informácie (štýl bizónov) — čiže získajú kúsok mapy, ktorý ich zavedie za Edmundom.
+Po istom čase, alebo po nazbieraní všetkých dôkazov, sa začína:
 
-Akonáhle ubehne čas / chytia sa všetci vlci / získa sa mapa – celý tábor sa vydáva za Edmundom, ktorý bude priviazaný k stromu. Spoločne ho vyslobodíme.
+## 2. FÁZA – my chytáme vlkov
+
+Tu sa roly obrátia, a keďže sme my nabrali silu a odvahu, teraz je čas vyhnať týchto vlkov z tábora aby nám ukázali cestu k Edmundovi. Všetci vlci tým pádom utekajú pred deťmi, ktoré ich chytajú a budú:
+
+Vlky pred deťmi utekajú, a tie ich ako celá skupinka chytajú. Ak ho chytia, musia ho priniesť do altánku. Následne v úvodzovkách vytĺču z neho informácie (nebude to tak ale chápeme sa) – čiže štýl bizónov.
+
+Akonáhle ubehne čas / chytia sa všetci vlci / získa sa mapa, vydáva sa celý tábor za Edmundom, ktorý bude priviazaný o dajaky strom abo dačo a spoločne ho vyslobodíme.
 
 ## Mokrý program
 Hry v altánku proti vlkom – niečo vymyslíme ešte.
