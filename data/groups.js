@@ -60,7 +60,7 @@ export const girlsGroupDetails = [
     colorHex:  '#8b6dc4',
     animators: ['Barbora Kríd', 'Paulínka Haraj', 'Marína Holubová'],
     members:   [
-      { name: 'Karin Helmecioná',   shirtSize: '152 (158)' },
+      { name: 'Zuzka Veľasová',     shirtSize: '152 (158)' },
       { name: 'Kristína Pančurová', shirtSize: '152'       },
       { name: 'Eliška Salanciová',  shirtSize: '146'       },
       { name: 'Karolína Dunajová',  shirtSize: '134'       },
