@@ -14,7 +14,7 @@ export const animators = [
   { name: 'Tomáš Blaha',        shirtSize: 'M',  category: 'core',    gender: 'M' },
 
   // ── SDB / FMA ─────────────────────────────────────────────────────────────
-  { name: 'SDB Jožko Marko',     shirtSize: 'M',  category: 'sdb-fma', gender: 'M' },
+  { name: 'SDB Števo Timko',          shirtSize: '?',  category: 'sdb-fma', gender: 'M' },
   { name: 'SDB Pavol Pillar',    shirtSize: 'L',  category: 'sdb-fma', gender: 'M' },
   { name: 'SDB Ľuboš Stebnický', shirtSize: 'L',  category: 'sdb-fma', gender: 'M' },
   { name: 'FMA Katka Kočanová',  shirtSize: 'XL', category: 'sdb-fma', gender: 'F' },
@@ -55,8 +55,8 @@ export const animators = [
   { name: 'Brano Kováč',        shirtSize: 'L', category: 'mtz',        gender: 'M' },
   { name: 'Bianka Babinová',    shirtSize: 'M', category: 'mtz',        gender: 'F' },
   { name: 'Dávid Bača',         shirtSize: 'L', category: 'mtz',        gender: 'M' },
+  { name: 'Patrik Bača',        shirtSize: '?', category: 'mtz',        gender: 'M' },
   { name: 'Ema Gačková',        shirtSize: 'S', category: 'zdravotnik', gender: 'F' },
-  { name: 'Filip Sukel',        shirtSize: 'M', category: 'mtz',        gender: 'M' },
   { name: 'Kika Ondisková',     shirtSize: 'M', category: 'mtz',        gender: 'F' },
   { name: 'Nika Nováková',      shirtSize: 'S', category: 'mtz',        gender: 'F' },
   { name: 'Peter Hanzal',       shirtSize: 'L', category: 'mtz',        gender: 'M' },

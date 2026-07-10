@@ -933,21 +933,22 @@ const ANIMATOR_ZODP_MAP = {
   'Tomáš Blaha':        ['🎭 Scénky'],
   'Andrea Spišáková':   ['🎤 Nástupy / moderovanie', '📖 Kronika'],
   'SDB Josky':          ['🙏 Večerné modlitby'],
-  'Čaby':               ['🎲 Voľný čas', '🌙 Večerné porady', '📊 Excel'],
+  'Čaby':               ['🎲 Voľný čas', '🌙 Večerné porady', '📋 Brožúrka'],
   'Kika Ondisková':     ['📦 Pomôcky'],
   'Dávid Bača':         ['🔊 Technika', '🛒 Bufet', '📦 Pomôcky'],
   'Marta Baňošová FMA': ['🍎 Desiata / Olovrant'],
-  'Miška Blahová':      ['📖 Kronika', '⛪ Omše', '🎵 Hudba / Spev', '🏠 Chatky', '⭐ Bodovanie'],
+  'Miška Blahová':      ['📖 Kronika', '⛪ Omše', '🎵 Hudba / Spev / Zborík', '⭐ Bodovanie'],
   'Lívia FMA':          ['🛒 Bufet'],
   'Nina Radová':        ['🛒 Bufet', '🍎 Desiata / Olovrant'],
   'Peter Hanzal':       ['🛒 Bufet', '⛪ Omše'],
-  'Boris Surničin':     ['🎵 Hudba / Spev', '🎶 Zborík', '🍎 Desiata / Olovrant'],
+  'Boris Surničin':     ['🎵 Hudba / Spev / Zborík', '🍎 Desiata / Olovrant'],
   'Nika Nováková':      ['🍎 Desiata / Olovrant'],
   'Patrik Pekarovič':   ['⛪ Omše', '🏃 Rozcvičky'],
   'Kika Olajošová':     ['🏃 Rozcvičky'],
   'Mathias Mastiľák':   ['🏃 Rozcvičky'],
-  'Dianka Salanciová':  ['🎶 Zborík'],
-  'Sofia Dolobačová':   ['🎶 Zborík'],
+  'Dianka Salanciová':  ['🎵 Hudba / Spev / Zborík'],
+  'Sofia Dolobačová':   ['🎵 Hudba / Spev / Zborík'],
+  'Patrik Bača':        ['🔊 Technika'],
 };
 
 const ANIM_CATEGORIES = [
@@ -1323,12 +1324,10 @@ const ANIMATORI_ZODP_DATA = [
   { oblast: '📖 Kronika',                           zodp: 'Miška + Ajka',                       size: 'S, L',        poznamka: '' },
   { oblast: '🌅 Ranné modlitby animátorov',         zodp: 'SDB + FMA',                          size: '',            poznamka: '' },
   { oblast: '⛪ Omše',                               zodp: 'Miška + Peťo H. + Patrik Pekarovič', size: 'S, L, M',     poznamka: '' },
-  { oblast: '🎵 Hudba / Spev',                      zodp: 'Miška + Boris',                      size: 'S, L',        poznamka: '' },
+  { oblast: '🎵 Hudba / Spev / Zborík',             zodp: 'Miška + Boris + Dianka + Sofka',     size: 'S, L, S, L',  poznamka: '' },
   { oblast: '🏃 Rozcvičky',                         zodp: 'Kika Ol + Mathias + Paťo',           size: 'S, M, M',     poznamka: '' },
-  { oblast: '🎶 Zborík',                            zodp: 'Dianka + Sofka + Boris',             size: 'S, L, L',     poznamka: '' },
-  { oblast: '🏠 Rozdelenie detí na chatky',         zodp: 'Miška',                              size: 'S',           poznamka: '' },
   { oblast: '⭐ Bodovanie',                          zodp: 'Miška',                              size: 'S',           poznamka: '' },
-  { oblast: '📊 Excel filtrovanie úloh',            zodp: 'Čaby',                               size: 'XL',          poznamka: '' },
+  { oblast: '📋 Brožúrka',                           zodp: 'Čaby',                               size: 'XL',          poznamka: '' },
 ];
 
 const DJ_PIATOK_DATA = [
@@ -1377,8 +1376,8 @@ const POZNAMKY_TEXT =
 '- Pomôcky — Kika\n' +
 '- Bufet — Lívia + Dávid + Nina + Hanzi\n' +
 '\n' +
-'## Excel\n' +
-'- Čaby pripraví excel na filtrovanie vlastných zodpovedností.\n' +
+'## Brožúrka\n' +
+'- Čaby pripraví brožúrku tábora.\n' +
 '\n' +
 '## Otázky\n' +
 'Nechať priestor na pripomienky animátorov.';
