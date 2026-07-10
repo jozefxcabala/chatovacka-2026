@@ -74,9 +74,9 @@ export const activities = [
     location: 'Vonku, chatky',
     detail: 'Skupinky hľadajú podľa mapy skryté meno a názov skupinky v chatách, potom vyrábajú erb a vymýšľajú pokrik skupinky.',
     description: `
-Deti prídu do tabora, mozu si nechat veci pred chatkami nech im nezavadzaju pri hladani. Skupinky sa presunú do chatiek kde zacnu hladat mapu, následne podla mapy budu hladat miesto kde sa bude nachadzat ich meno s ich nazvom skupinky. Ked to najdu, pojdu za core timom, ktory si zapise ich poradie kvoli hodnoteni a odovzdá im pomocky na vyrobu erbu ktory si následne idu robit na chatky (resp. si vyrobia svoj "znak", ktorý budú nosiť počas tábora). Teraz bude aj cas a priestor pre tvorbu pokrikov.
+Deti prídu do tábora, nechajú si veci pred jedálňou. Skupinky dostanú indície, podľa ktorých budú musieť uhádnuť miesto kde sa nachádza ďalšia obálka. V nej bude mapa s miestom ich chaty a tam nájdu ďalšie 3 obálky, každá s iným obsahom — názov skupinky, farba tímu a pokyn ku core timu. OBÁLKY MUSIA OTVÁRAŤ PODĽA ČÍSEL! Keď to nájdu, pôjdu za core timom, ktorý si zapíše ich poradie kvôli hodnoteniu a odovzdá im pomôcky na výrobu erbu, ktorý si následne idú robiť na chatky. Teraz bude aj čas a priestor pre tvorbu pokrikov, môžu si zahrať zoznamovačky.
 
-- nazvy skupiniek si animátori dohodnú na chatovej dielni spolocne
+- Názvy skupiniek si animátori budú vyberať a vymýšľať na chatovej dielni.
     `,
     vedúciDna: 'Marta',
     vedúciProgramu: 'Bašky',
@@ -90,9 +90,7 @@ Deti prídu do tabora, mozu si nechat veci pred chatkami nech im nezavadzaju pri
     hasScoring: true,
     scoring: 'Kto prvy najde meno, pride ku Marte – ona zapise poradie. Vyhodnotenie bude plusové body.',
     hasMtzNote: true,
-    mtzNote: `Core tim nech rozmiestni mapy, indície a mena skupiniek {dohodneme osobne} po chatkách rano pred prichodom deti, staci na viditeľné miesto, najlepsie na každej chatke podobne.
-
-Mokrý program: schova sa vsetko na chatke najdu, erb budu robit na chatke.`
+    mtzNote: `Core tím nech rozmiestni mapy, indície a mená skupiniek {dohodneme osobne} po chatkách ráno pred príchodom detí. Stačí na viditeľné miesto, najlepšie na každej chatke podobne.`
   },
 
   {

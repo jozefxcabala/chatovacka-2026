@@ -393,6 +393,9 @@ export function buildAktivitySection(campData) {
   html += '<svg class="filters-toggle-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   html += '</button>';
   html += '<div class="filters-inner" id="actFiltersInner">';
+  html += '<button type="button" id="actViewToggle" class="view-toggle-btn" data-view-toggle aria-label="Zobraziť ako tabuľku" title="Zobraziť ako tabuľku">';
+  html += '<svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><rect x="0.5" y="0.5" width="14" height="4" rx="0.75" stroke="currentColor" stroke-width="1.5"/><rect x="0.5" y="6" width="14" height="3" rx="0.75" stroke="currentColor" stroke-width="1.5"/><rect x="0.5" y="10.5" width="14" height="4" rx="0.75" stroke="currentColor" stroke-width="1.5"/></svg>';
+  html += '</button>';
 
   html += '<div class="filter-item filter-search">';
   html += '<input type="search" id="actSearch" class="filter-control" placeholder="Hľadaj aktivitu, animátora…" autocomplete="off" aria-label="Hľadaj">';
@@ -478,6 +481,9 @@ export function buildAktivityCards(campData) {
   const filtersState = getFiltersState();
   const filtered = getFilteredActivities(campData.activities, filtersState);
   const animColorMap = getAnimatorColorMap(campData.activities);
+  const listView = document.getElementById('aktivity-list-view');
+  const viewMode = listView ? (listView.dataset.view || 'cards') : 'cards';
+  grid.className = viewMode === 'table' ? 'cards-grid cards-grid--table' : 'cards-grid';
   grid.innerHTML = '';
 
   if (!filtered.length) {
@@ -491,6 +497,28 @@ export function buildAktivityCards(campData) {
   if (info) info.textContent = filtered.length < total
     ? filtered.length + ' z ' + total + ' aktivít'
     : total + ' aktivít';
+
+  if (viewMode === 'table') {
+    let tHtml = '<table class="activity-table"><thead><tr><th>Aktivita</th><th>Deň</th><th>Animátori</th></tr></thead><tbody>';
+    filtered.forEach(act => {
+      const dayConf = getDayConfig(campData.days, act.dayRef);
+      const selectedAnim = new Set(filtersState.animF || []);
+      const animDisplay = act.animators.length
+        ? act.animators.map(a => {
+            const n = escapeHtml(a.name);
+            return (selectedAnim.size && selectedAnim.has(a.name)) ? '<span class="act-table-anim--active">' + n + '</span>' : n;
+          }).join(', ')
+        : (act.animatorsNote ? escapeHtml(act.animatorsNote) : '');
+      tHtml += '<tr class="activity-table-row" data-act="' + escapeHtml(act.id) + '">';
+      tHtml += '<td class="act-table-name">' + escapeHtml(act.name) + '</td>';
+      tHtml += '<td class="act-table-day"><span class="badge badge-' + escapeHtml(act.dayRef) + '">' + escapeHtml(dayConf ? dayConf.label : act.dayRef) + '</span></td>';
+      tHtml += '<td class="act-table-animators">' + (animDisplay || '—') + '</td>';
+      tHtml += '</tr>';
+    });
+    tHtml += '</tbody></table>';
+    grid.innerHTML = tHtml;
+    return;
+  }
 
   filtered.forEach(act => {
     const color   = DAY_COLOR_MAP[act.dayRef] || 'var(--gold)';

@@ -394,6 +394,9 @@ function initSectionObserver() {
 // ─── EVENT DELEGATION ────────────────────────────────────────────────────────
 
 function initDelegation() {
+  const TABLE_ICON = '<svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><rect x="0.5" y="0.5" width="14" height="4" rx="0.75" stroke="currentColor" stroke-width="1.5"/><rect x="0.5" y="6" width="14" height="3" rx="0.75" stroke="currentColor" stroke-width="1.5"/><rect x="0.5" y="10.5" width="14" height="4" rx="0.75" stroke="currentColor" stroke-width="1.5"/></svg>';
+  const GRID_ICON  = '<svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><rect x="0.5" y="0.5" width="6" height="6" rx="0.75" stroke="currentColor" stroke-width="1.5"/><rect x="8.5" y="0.5" width="6" height="6" rx="0.75" stroke="currentColor" stroke-width="1.5"/><rect x="0.5" y="8.5" width="6" height="6" rx="0.75" stroke="currentColor" stroke-width="1.5"/><rect x="8.5" y="8.5" width="6" height="6" rx="0.75" stroke="currentColor" stroke-width="1.5"/></svg>';
+
   document.getElementById('appMain').addEventListener('click', e => {
     const navBtn = e.target.closest('[data-nav]');
     if (navBtn) { navigateTo(navBtn.getAttribute('data-nav')); return; }
@@ -449,6 +452,20 @@ function initDelegation() {
       }
       // fallback: navigácia na detail aktivity
       navigateTo('aktivity', actId);
+      return;
+    }
+
+    // Toggle karty ↔ tabuľka
+    const viewToggleBtn = e.target.closest('[data-view-toggle]');
+    if (viewToggleBtn) {
+      const listView = document.getElementById('aktivity-list-view');
+      const toTable = listView.dataset.view !== 'table';
+      listView.dataset.view = toTable ? 'table' : 'cards';
+      viewToggleBtn.classList.toggle('view-toggle-btn--active', toTable);
+      viewToggleBtn.innerHTML = toTable ? GRID_ICON : TABLE_ICON;
+      viewToggleBtn.setAttribute('aria-label', toTable ? 'Zobraziť ako karty' : 'Zobraziť ako tabuľku');
+      viewToggleBtn.setAttribute('title', toTable ? 'Zobraziť ako karty' : 'Zobraziť ako tabuľku');
+      buildAktivityCards(campData);
       return;
     }
 

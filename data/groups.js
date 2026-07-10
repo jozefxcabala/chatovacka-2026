@@ -60,7 +60,6 @@ export const girlsGroupDetails = [
     colorHex:  '#8b6dc4',
     animators: ['Barbora Kríd', 'Paulínka Haraj', 'Marína Holubová'],
     members:   [
-      { name: 'Zuzka Veľasová',     shirtSize: '152 (158)' },
       { name: 'Kristína Pančurová', shirtSize: '152'       },
       { name: 'Eliška Salanciová',  shirtSize: '146'       },
       { name: 'Karolína Dunajová',  shirtSize: '134'       },
@@ -94,6 +93,7 @@ export const girlsGroupDetails = [
       { name: 'Hanka Jamborová',    shirtSize: 'S'    },
       { name: 'Veronika Karoľová',  shirtSize: 'M'    },
       { name: 'Bibiana Kičiková',   shirtSize: '164'  },
+      { name: 'Zuzka Veľasová',     shirtSize: '152 (158)' },
     ]
   },
   {
@@ -196,7 +196,8 @@ export const groupDetails = [
       { name: 'Ján Cmár',         shirtSize: '145'       },
       { name: 'Lukáš Harvan',     shirtSize: '158'       },
       { name: 'Jozef Koudelka',   shirtSize: '176'       },
-      { name: 'Alexander UA',     shirtSize: 'M'         },
+      { name: 'Oleksandr Maksimishin UA', shirtSize: 'M'  },
+      { name: 'Marko Stoček',            shirtSize: 'XS' },
     ]
   },
   {
@@ -217,7 +218,7 @@ export const groupDetails = [
       { name: 'Adam Ruščanský',  shirtSize: 'S'   },
       { name: 'Matúš Behún',     shirtSize: '170' },
       { name: 'Denis Max Roman', shirtSize: 'S'   },
-      { name: 'Mychajlo UA',     shirtSize: 'M'   },
+      { name: 'Mykhailo Holub UA', shirtSize: 'M'   },
     ]
   },
   {

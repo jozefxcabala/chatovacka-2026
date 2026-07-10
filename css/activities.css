@@ -614,3 +614,85 @@
 .btn-clear-inline:hover {
   background: var(--gold-dim);
 }
+
+/* ─── VIEW TOGGLE BUTTON ─────────────────────────────────────────────────── */
+
+.view-toggle-btn {
+  flex: 0 0 auto;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--ground-border);
+  border-radius: var(--r-md);
+  color: var(--ground-muted);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.view-toggle-btn:hover {
+  color: var(--ground-text);
+  border-color: var(--ground-text);
+}
+
+.view-toggle-btn--active {
+  color: var(--gold);
+  border-color: rgba(200,149,42,0.5);
+  background: var(--gold-dim);
+}
+
+/* ─── ACTIVITY TABLE VIEW ────────────────────────────────────────────────── */
+
+.cards-grid--table {
+  display: block;
+}
+
+.activity-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.activity-table th {
+  text-align: left;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ground-muted);
+  padding: 0.4rem 0.75rem 0.5rem;
+  border-bottom: 2px solid var(--ground-border);
+}
+
+.activity-table-row {
+  cursor: pointer;
+  border-bottom: 1px solid var(--ground-border);
+  transition: background 0.1s;
+}
+
+.activity-table-row:hover {
+  background: var(--ground-mid);
+}
+
+.act-table-name {
+  font-weight: 600;
+  color: var(--ground-text);
+  padding: 0.6rem 0.75rem;
+}
+
+.act-table-day {
+  padding: 0.6rem 0.75rem;
+  white-space: nowrap;
+}
+
+.act-table-animators {
+  color: var(--ground-muted);
+  padding: 0.6rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+.act-table-anim--active {
+  color: var(--ground-text);
+}
