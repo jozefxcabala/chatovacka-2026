@@ -76,7 +76,12 @@ export const activities = [
     description: `
 Deti prídu do tábora, nechajú si veci pred jedálňou. Skupinky dostanú indície, podľa ktorých budú musieť uhádnuť miesto kde sa nachádza ďalšia obálka. V nej bude mapa s miestom ich chaty a tam nájdu ďalšie 3 obálky, každá s iným obsahom — názov skupinky, farba tímu a pokyn ku core timu. OBÁLKY MUSIA OTVÁRAŤ PODĽA ČÍSEL! Keď to nájdu, pôjdu za core timom, ktorý si zapíše ich poradie kvôli hodnoteniu a odovzdá im pomôcky na výrobu erbu, ktorý si následne idú robiť na chatky. Teraz bude aj čas a priestor pre tvorbu pokrikov, môžu si zahrať zoznamovačky.
 
-- Názvy skupiniek si animátori budú vyberať a vymýšľať na chatovej dielni.
+## Názvy skupiniek
+- **Trpaslíci** (chlapci, 4.–5. roč.) / **Nymfy** (dievčatá, 4.–5. roč.) — fialová
+- **Orli** (chlapci, 6. roč.) / **Flóry** (dievčatá, 6. roč.) — ružová
+- **Jazvce** (chlapci, 7. roč.) / **Foresty** (dievčatá, 7. roč.) — zelená
+- **Kentauri** (chlapci, 8. roč.) / **Dryády** (dievčatá, 8. roč.) — hnedá/bordová
+- **Kyklopi** (chlapci, 8.–9. roč.) / **Najády** (dievčatá, 8.–9. roč.) — modrá
     `,
     vedúciDna: 'Marta',
     vedúciProgramu: 'Bašky',
@@ -691,12 +696,12 @@ Stanoviská rovnakého typu, ale prispôsobené – každý tím sám (CH a D os
     vedúciDna: 'Miška',
     vedúciProgramu: 'Hanka P., Janko K.',
     animators: [
-      { name: 'Braňo Kováč',       role: 'Stanivská' },
-      { name: 'Dianka Salanciová', role: 'Stanivská' },
-      { name: 'Boris Surničin',    role: 'Stanivská' },
-      { name: 'Mathias Mastiľák',           role: 'Stanivská' },
-      { name: 'Peťo Hanzal',       role: 'Stanivská' },
-      { name: 'Patrik Pekarovič',  role: 'Stanivská' },
+      { name: 'Braňo Kováč',       role: 'Stanoviská' },
+      { name: 'Dianka Salanciová', role: 'Stanoviská' },
+      { name: 'Boris Surničin',    role: 'Stanoviská' },
+      { name: 'Mathias Mastiľák',           role: 'Stanoviská' },
+      { name: 'Peťo Hanzal',       role: 'Stanoviská' },
+      { name: 'Patrik Pekarovič',  role: 'Stanoviská' },
       { name: 'Nina Radová',              role: 'Altánok'   }
     ],
     animatorsNote: '6 na stanovištiach + 1 v altánku (rozdávanie máp)',
@@ -1311,7 +1316,7 @@ Následne prídu do budovy, kde sa pripravuje útok. Potom sa musia stiahnuť be
 
   {
     id: 'pia-priprava',
-    name: 'Príprava na vojnu TODO',
+    name: 'Príprava na vojnu',
     dayRef: 'piatok',
     timeLabel: 'Doobedu',
     timeOfDay: 'morning',
@@ -1319,9 +1324,27 @@ Následne prídu do budovy, kde sa pripravuje útok. Potom sa musia stiahnuť be
     time: '09:00',
     endTime: '11:30',
     location: 'Areál / okolie areálu',
-    detail: 'Skupinky rotujú po stanovištiach a získavajú hodnosti – trénujú skills pred záverečnou bitkou.',
+    detail: 'Skupinky rotujú po 15 stanovištiach – strelba, šifry, fyzické výzvy a tímové úlohy. Za každé splnené stanovište získavajú hodnosť pred záverečnou bitkou.',
     description: `
 Deti sa pripravujú na vojnu z hľadiska skillsov. Po skupinkách rotujú po stanovištiach a získavajú hodnosti.
+
+## Stanoviská
+
+- Vylúšti šifru
+- Streľba luku
+- Penové tyčky fight
+- Prenášanie kapitána kotúľaním sa
+- Prenášať poháre na doske
+- Prechod mínovým poľom po slepiačky
+- Prefukovanie loptičiek cez poháre s vodou
+- Prehadzovanie loptičky v pohároch do cieľa
+- Hod granátom
+- Nosenie s kolesom loptičku
+- Stabilizácia pohárov
+- Kotúľanie pneumatiky
+- Prehadzovanie lukakrhu
+- Cornhole
+- Ťahanie felície
 
 ## Mokrý program
 To isté – vojaci musia byť schopní pracovať aj po daždi, musia byť tuff
@@ -1435,7 +1458,7 @@ Príde Aslan, oživí všetky deti a začne im dávať výhody.
 
   {
     id: 'pia-bal',
-    name: 'Večerný bál TODO',
+    name: 'Večerný bál',
     dayRef: 'piatok',
     timeLabel: 'Večer',
     timeOfDay: 'evening',
@@ -1466,6 +1489,8 @@ Organizovaná diskotéka. Všetci animátori.
 **Záver diskotéky** – posledné pesničky bez prerušovania; môžeme zaradiť: spoločný vláčik, limbo, kruhové tance, skákanie podľa rytmu, obľúbené detské hity
 
 **Záverečné odpočítavanie:** 10… 9… 8… → pri nule vyletia konfety alebo sa rozdajú svietiace náramky ako symbol ukončenia dobrodružstva
+
+**Príchod Santa Clausa (Ľubo)** – každé dieťa dostane darček/balíček
 
 ## Po diskotéke – organizované voľno (pre tých čo chcú)
 - Spoločenské hry

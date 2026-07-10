@@ -325,14 +325,14 @@ var campConfig = {
       type: 'activity',
       time: '20:00',
       endTime: '21:30',
-      location: 'Stanivská + altánok',
+      location: 'Stanoviská + altánok',
       description: 'Dramatická večerná aktivita – deti zistia, že Tumnus zmizol. Hľadajú stopy a riešia záhadu jeho zmiznutia.',
       vedúciDna: null,
       vedúciProgramu: 'Braňo Kováč',
       animators: [
-        { name: 'Braňo Kováč', role: 'Stanivská' }, { name: 'Dianka Salanciová', role: 'Stanivská' },
-        { name: 'Boris Surničin', role: 'Stanivská' }, { name: 'Mathias', role: 'Stanivská' },
-        { name: 'Peťo Hanzal', role: 'Stanivská' }, { name: 'Patrik Pekarovič', role: 'Stanivská' },
+        { name: 'Braňo Kováč', role: 'Stanoviská' }, { name: 'Dianka Salanciová', role: 'Stanoviská' },
+        { name: 'Boris Surničin', role: 'Stanoviská' }, { name: 'Mathias', role: 'Stanoviská' },
+        { name: 'Peťo Hanzal', role: 'Stanoviská' }, { name: 'Patrik Pekarovič', role: 'Stanoviská' },
         { name: 'Nina', role: 'Altánok' }
       ],
       animatorsNote: '7 animátorov',
