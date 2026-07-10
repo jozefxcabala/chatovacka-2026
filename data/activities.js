@@ -835,28 +835,24 @@ Deň duchovného stíšenia. Program vedie kňaz alebo duchovný sprevádzateľ.
     location: 'Areál + les / prípadne cesta',
     detail: 'Deti pátraju po uväznenom Edmundovi – v 1. fáze sa vyhýbajú vlkom a zbierajú indície, v 2. fáze naopak chytajú vlkov pre kúsky mapy.',
     description: `
-Edmund je uväznený v tábore bielej čarodejnice. Do nášho tábora prenikli vlci ako sprisahanci. Úlohou je vyhnať vlkov a nájsť Edmunda.
+Edmund je uväznený v tábore bielej čarodejnice a my ho chceme oslobodiť. Do nášho tábora prenikli vlci ako sprisahanci bielej čarodejnice. Našou úlohou bude vyhnať vlkov a nájsť Edmunda.
 
-Hra sa hrá v 2 fázach. Deti behajú ako individuá, ale hrajú po skupinkách (dievčatá a chlapci spolu). Z každej skupinky sa vyberú 2–4 deti (2 ch. + 2 d.), ktoré môžu oživovať padnuté deti, ale nesmú zbierať dôkazy.
+Hra sa hrá v 2 fázach. Deti behajú ako individuá, ale hrajú po skupinkách (dievčatá a chlapci spolu). Z každej skupinky sa vyberú 2–4 deti (2 ch. + 2 d.) — oživovatelia —, ktoré môžu oživovať padnuté deti, ale nesmú zbierať dôkazy. Oživiť môžu vrchnáčikom, ktorý môžu nájsť v altánku.
 
 ## 1. fáza – vlci naháňajú nás
 
-V areáli je 5 okruhov, ktoré strážia 2–3 vlci. V okruhoch sú indície, ktoré môžu napomôcť nájsť Edmunda. Keď vlk chytí dieťa v okruhu, dieťa zostáva na mieste (čupne si). Mimo okruhov vlci deťom iba uložia úlohu (napr. zabehni okruh...).
+V areáli bude 75 okruhov, ktoré strážia 2–3 vlci. V týchto okruhoch budú indície, ktoré môžu napomôcť nájsť Edmunda. Akonáhle vlk chytí dieťa v okruhu, dieťa vyjde z kruhu a čupne si — čaká na oživenie. Mimo okruhov vlci deťom iba uložia úlohu (napr. zabehni okruh...).
 
 Po istom čase, alebo po nazbieraní všetkých dôkazov, začína:
 
 ## 2. fáza – my chytáme vlkov
 
-Roly sa obrátia – teraz deti naberú silu a odvahu a vyháňajú vlkov z tábora. Všetci vlci utekajú pred deťmi.
-
-Keď deti chytia vlka, získajú:
-- kúsok mapy, ktorý ich zavedie za Edmundom, alebo
-- privedú ho do altánku a „vytĺčú" z neho informácie (štýl bizónov)
+Roly sa obrátia — keďže sme nabrali silu a odvahu, teraz je čas vyhnať vlkov z tábora. Všetci vlci utekajú pred deťmi, ktoré ich chytajú celou skupinkou. Ak ho chytia, musia ho priniesť do altánku a „vytĺcť" z neho informácie (štýl bizónov) — čiže získajú kúsok mapy, ktorý ich zavedie za Edmundom.
 
 Akonáhle ubehne čas / chytia sa všetci vlci / získa sa mapa – celý tábor sa vydáva za Edmundom, ktorý bude priviazaný k stromu. Spoločne ho vyslobodíme.
 
 ## Mokrý program
-Hry v altánku proti vlkom
+Hry v altánku proti vlkom – niečo vymyslíme ešte.
     `,
     vedúciDna: 'Tomáš Blaha',
     vedúciProgramu: 'Tomáš Blaha',
