@@ -174,9 +174,18 @@ export function formatTextToHtml(text) {
     let inList = false;
 
     for (const line of lines) {
-      if (line.startsWith('## ')) {
+      if (line === '---') {
+        if (inList) { html += '</ul>'; inList = false; }
+        html += '<hr class="formatted-divider">';
+      } else if (line.startsWith('### ')) {
+        if (inList) { html += '</ul>'; inList = false; }
+        html += '<h4 class="formatted-subheading">' + inlineFormat(line.slice(4)) + '</h4>';
+      } else if (line.startsWith('## ')) {
         if (inList) { html += '</ul>'; inList = false; }
         html += '<h3 class="formatted-heading">' + inlineFormat(line.slice(3)) + '</h3>';
+      } else if (line.startsWith('> ')) {
+        if (inList) { html += '</ul>'; inList = false; }
+        html += '<blockquote class="formatted-quote">' + inlineFormat(line.slice(2)) + '</blockquote>';
       } else if (line.startsWith('- ')) {
         if (!inList) { html += '<ul class="formatted-list">'; inList = true; }
         html += '<li>' + inlineFormat(line.slice(2)) + '</li>';

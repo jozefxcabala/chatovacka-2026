@@ -801,7 +801,7 @@ Aktivity v tábore
 
   {
     id: 'str-obnova',
-    name: 'Duchovná obnova',
+    name: 'Duchovná obnova – Dievčatá',
     dayRef: 'streda',
     timeLabel: 'Poobedie',
     timeOfDay: 'afternoon',
@@ -809,14 +809,116 @@ Aktivity v tábore
     time: '14:30',
     endTime: '17:00',
     location: 'Kaplnka / záhrada',
+    detail: 'Aktivita vedie dievčatá k zamysleniu nad vlastným vnútrom prostredníctvom obrazu skrine. Pomocou kresby a následnej diskusie premýšľajú nad tým, čo by chceli vo svojom živote zmeniť, čo si zachovať a na čom chcú pracovať. Záver aktivity smeruje k spytovaniu svedomia a uvedomeniu si, že dobro nám pomáha bojovať proti zlu.',
     description: `
-Deň duchovného stíšenia. Program vedie kňaz alebo duchovný sprevádzateľ.
+## Návrh pre modlitebný / core tím
+
+- otázka pre modlitebný tím / core tím
+- chceli by sme, aby sa ráno počas modlitby predstavila krabička, kde by deti počas dňa/tábora vhadzovali kamienky vždy, keď si všimnú, že im niekto druhý urobil dobrý skutok
+- aby sa o tom potom dalo porozprávať v skupinkách v rámci obnovy
+- krabička by sa potom v ten istý deň (alebo na konci tábora) mohla použiť ako obetný dar
+- otázka znie: **súhlasíte s tým a dalo by sa to? Čo si myslíte?**
+- **pozn.:** ak by sa to schválilo, tak by sa to tým pádom pridalo do obnovy ako krátka vsuvka
+
+---
+
+## Myšlienka dňa
+
+> Obklopení dobrom môžeme bojovať proti zlu.
+
+---
+
+## Aktivita v kruhu – Mám rada ľudí (icebreaker)
+
+### Priebeh
+
+- všetci stoja v kruhu
+- jeden stojí v strede kruhu medzi nimi
+- ten v strede kruhu povie napr. „mám rada ľudí, ktorí majú modré oči" alebo „mám rada ľudí, ktorí radi pomáhajú"
+- tí, ktorých sa to týka, musia zo svojho miesta v kruhu vybehnúť a vymeniť si miesto s iným, ktorý vybehol
+- človek v strede sa tiež musí dostať späť do kruhu na niekoho miesto
+- ten, ktorý sa nestihol niekam dostať, ostáva v strede kruhu a hovorí: „Mám rada ľudí, ktorí..."
+
+---
+
+## Kreslenie – Skriňa
+
+### Pomôcky
+
+- papier
+- fixky
+- farbičky
+- perá
+
+### Aktivita
+
+Táto aktivita má pomôcť so zdieľaním sa, ak niektoré dievčatá nechcú hovoriť svoje myšlienky nahlas, ale radšej si to zapíšu alebo nakreslia.
+
+Úlohou je nakresliť si skriňu takú, akú majú doma — čo majú v poličkách, či tam majú bordel alebo poriadok.
+
+### Debata
+
+- Chcem niečo upraviť na mojom šatníku?
+- Pridať poličku?
+- Vešiak?
+- Zväčšiť ho?
+
+---
+
+## Krátka vsuvka
+
+Animátorky začnú debatu alebo krátku vsuvku, v ktorej vysvetlia podobnosť medzi skriňou a naším vnútrom.
+
+---
+
+## Doplnenie skrine
+
+Keď budú mať skriňu, dopíšu alebo dokreslia odpovede na tieto otázky.
+
+### Čo by som chcela zo svojej skrine vyhodiť?
+
+Čo ma trápi, nejaká moja zlá vlastnosť alebo zlozvyk, ktorého sa chcem zbaviť.
+
+- cigarety
+- nadávky
+- ...
+
+### Čo by som chcela upratať vo svojej skrini?
+
+Čo je v mojej skrini v neporiadku? Čo by som chcela viac udržiavať? Chcem to mať v skrini, ale nie je to v poriadku. Chcem to „vyžehliť".
+
+- plnenie školských povinností
+
+### Čo by som chcela opraviť?
+
+Nedajú sa mi kvôli tomu zatvoriť dvierka, vyrušuje ma to. Keď to raz opravím, tak ma to nebude rušiť.
+
+- ospravedlniť sa
+- niekomu odpustiť
+
+Keď niekomu odpustím, opravím poličku a na tom vzťahu/poličke viem stavať nové ďalšie pekné veci.
+
+---
+
+## Spytovanie svedomia
+
+Potom by nasledovalo spytovanie svedomia.
+
+---
+
+## Ako by mala vyzerať ideálna skriňa?
+
+- skriňa s 10 prikázaniami – to dostanú
+
+## Mokrý program
+
+Program prebieha vo vnútorných priestoroch.
     `,
     vedúciDna: null,
     vedúciProgramu: null,
     animators: [],
     animatorsNote: null,
-    materials: [],
+    materials: ['Papier', 'Fixky', 'Farbičky', 'Perá', 'Krabička s kamienkami', 'Obrázok ideálnej skrine'],
     hasScoring: false,
     scoring: null,
     hasMtzNote: false,

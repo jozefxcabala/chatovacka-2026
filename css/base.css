@@ -1799,6 +1799,33 @@ body {
   flex-shrink: 0;
 }
 
+.formatted-subheading {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ground-muted);
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+  opacity: 0.75;
+}
+
+.formatted-quote {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--card-text);
+  border-left: 3px solid var(--gold);
+  padding: 0.35rem 0.75rem;
+  margin: 0.5rem 0;
+  opacity: 0.9;
+}
+
+.formatted-divider {
+  border: none;
+  border-top: 1px solid var(--border-light, #e0e0e0);
+  margin: 1rem 0;
+}
+
 /* ─── SEKCIA: DEŇ — dvojstĺpcový layout ──────────────────────────────────── */
 
 .day-page-layout {
