@@ -1,0 +1,123 @@
+/* ─── LOCKSCREEN ──────────────────────────────────────────────────────────── */
+
+#lockscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #1b1535;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease;
+}
+
+#lockscreen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lockscreen-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 2rem;
+  text-align: center;
+}
+
+.lockscreen-logo {
+  width: 110px;
+  height: 110px;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 24px rgba(200, 149, 42, 0.4));
+  animation: lockscreen-pulse 3s ease-in-out infinite;
+}
+
+@keyframes lockscreen-pulse {
+  0%, 100% { filter: drop-shadow(0 4px 24px rgba(200, 149, 42, 0.4)); }
+  50%       { filter: drop-shadow(0 6px 36px rgba(200, 149, 42, 0.7)); }
+}
+
+.lockscreen-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #e8d89a;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.4rem;
+  font-family: Georgia, serif;
+}
+
+.lockscreen-subtitle {
+  font-size: 0.9rem;
+  color: #7a6e9a;
+  margin: 0 0 2.2rem;
+  letter-spacing: 0.04em;
+}
+
+.lockscreen-form {
+  display: flex;
+  gap: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.4);
+  border: 1px solid rgba(200, 149, 42, 0.3);
+}
+
+.lockscreen-form input {
+  background: rgba(255,255,255,0.05);
+  border: none;
+  outline: none;
+  color: #e8e4dc;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  width: 200px;
+  font-family: inherit;
+  caret-color: #c8952a;
+}
+
+.lockscreen-form input::placeholder {
+  color: #5a5070;
+}
+
+.lockscreen-form button {
+  background: #c8952a;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 0.75rem 1.1rem;
+  transition: background 0.15s;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.lockscreen-form button:hover {
+  background: #d9a633;
+}
+
+.lockscreen-error {
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  color: #c8404e;
+  height: 1.2em;
+}
+
+.lockscreen-stars {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.lockscreen-star {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  animation: star-twinkle var(--dur) ease-in-out infinite var(--delay);
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0; }
+  50%       { opacity: var(--max-opacity); }
+}

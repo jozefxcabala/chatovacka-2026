@@ -11,10 +11,80 @@
   <link rel="stylesheet" href="css/detail.css">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/chatbot.css">
+  <link rel="stylesheet" href="css/lockscreen.css">
   <meta name="theme-color" content="#1b1535">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
 </head>
 <body>
+
+<div id="lockscreen">
+  <div class="lockscreen-stars" id="lockscreenStars"></div>
+  <div class="lockscreen-inner">
+    <div class="lockscreen-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="22" fill="#c8952a"/>
+        <text x="50" y="72" font-size="58" text-anchor="middle" font-family="serif">🦁</text>
+      </svg>
+    </div>
+    <h1 class="lockscreen-title">Narnia 2026</h1>
+    <p class="lockscreen-subtitle">Brožúrka pre animátorov</p>
+    <div class="lockscreen-form">
+      <input type="password" id="lockscreenInput" placeholder="Heslo" autocomplete="off" autofocus>
+      <button id="lockscreenBtn">&#x2192;</button>
+    </div>
+    <p class="lockscreen-error" id="lockscreenError">&nbsp;</p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var KEY = 'narnia26_unlocked';
+  var PWD = 'Aslan26';
+  var el = document.getElementById('lockscreen');
+
+  if (sessionStorage.getItem(KEY) === '1') {
+    el.style.display = 'none';
+    return;
+  }
+
+  // hviezdy na pozadí
+  var stars = document.getElementById('lockscreenStars');
+  for (var i = 0; i < 60; i++) {
+    var s = document.createElement('div');
+    s.className = 'lockscreen-star';
+    var size = Math.random() * 2 + 1;
+    s.style.cssText = [
+      'width:' + size + 'px',
+      'height:' + size + 'px',
+      'top:' + Math.random() * 100 + '%',
+      'left:' + Math.random() * 100 + '%',
+      '--dur:' + (Math.random() * 4 + 2) + 's',
+      '--delay:-' + (Math.random() * 6) + 's',
+      '--max-opacity:' + (Math.random() * 0.6 + 0.2)
+    ].join(';');
+    stars.appendChild(s);
+  }
+
+  function unlock() {
+    var val = document.getElementById('lockscreenInput').value;
+    if (val === PWD) {
+      sessionStorage.setItem(KEY, '1');
+      el.classList.add('fade-out');
+      setTimeout(function () { el.style.display = 'none'; }, 500);
+    } else {
+      var err = document.getElementById('lockscreenError');
+      err.textContent = 'Nesprávne heslo';
+      document.getElementById('lockscreenInput').value = '';
+      setTimeout(function () { err.innerHTML = '&nbsp;'; }, 2000);
+    }
+  }
+
+  document.getElementById('lockscreenBtn').addEventListener('click', unlock);
+  document.getElementById('lockscreenInput').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') unlock();
+  });
+})();
+</script>
 
 <div class="app-layout">
 
