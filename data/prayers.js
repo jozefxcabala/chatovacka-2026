@@ -110,14 +110,38 @@ Predniesol im aj iné podobenstvo: „Nebeské kráľovstvo sa podobá človekov
   {
     id: 'pr-vecerna-pon',
     dayRef: 'pondelok',
-    title: 'Večerná modlitba',
-    text: `Pane, ďakujeme za dnešný deň plný hier, smiechu a stretnutí. Odpusť nám, keď sme niekoho zranili, a pomôž nám zajtra byť lepšími. Daj nám pokojnú noc. Amen.`
+    title: 'Večerná modlitba – ĎOPka v skupinkách',
+    text: `ĎOP = Ďakujem, Odprosujem/Odpúšťam, Prosím.
+
+Pomôcky: skupinková krabička, papieriky, perá.
+
+Poznámka: Papieriky sa nevynášajú – sú dobrovoľné a súkromné, môžu sa použiť ako obetný dar.
+
+Deti si môžu napísať na lístok:
+• Ďakujem – za čo som vďačný počas dňa
+• Odprosujem – čo ma mrzí, čo som pokazil
+• Odpúšťam – komu chcem odpustiť
+• Prosím – za čo alebo za koho chcem prosiť
+
+Môžu povedať to, čo napísali, alebo to hodia do krabičky na ĎOPku.`
   },
 
   {
     id: 'pr-vecerna-uto',
     dayRef: 'utorok',
-    title: 'Večerná modlitba',
-    text: `Ďakujeme za každý smiech, za každý objatí, za každé dobré slovo. Keď sme zlyhali, vieš o tom. Odpusť nám a veď nás ďalej. Amen.`
+    title: 'Večerná modlitba – ĎOPka v skupinkách',
+    text: `ĎOP = Ďakujem, Odprosujem/Odpúšťam, Prosím.
+
+Pomôcky: skupinková krabička, papieriky, perá.
+
+Poznámka: Papieriky sa nevynášajú – sú dobrovoľné a súkromné, môžu sa použiť ako obetný dar.
+
+Deti si môžu napísať na lístok:
+• Ďakujem – za čo som vďačný počas dňa
+• Odprosujem – čo ma mrzí, čo som pokazil
+• Odpúšťam – komu chcem odpustiť
+• Prosím – za čo alebo za koho chcem prosiť
+
+Môžu povedať to, čo napísali, alebo to hodia do krabičky na ĎOPku.`
   }
 ];

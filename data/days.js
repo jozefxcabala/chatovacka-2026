@@ -37,7 +37,7 @@ export const days = [
       { time: '19:00', label: 'Voľno',                                      type: 'system'   },
       { time: '20:00', label: 'Večer u pána Tumnusa + scénka príprava na útek', type: 'scenka', activityRef: 'pon-scenky' },
       { time: '21:30', label: 'Nočná hra – útek z Narnie',                  type: 'activity', activityRef: 'pon-utok', note: 'Nočná hra' },
-      { time: '22:30', label: 'Modlitba v skupinkách',                      type: 'system'   },
+      { time: '22:30', label: 'Večerná modlitba – ĎOPka v skupinkách',        type: 'system',   prayerRef: 'pr-vecerna-pon' },
       { time: '23:30', label: 'Večierka deti',                              type: 'system'   },
       { time: '23:00', label: 'Animátorská porada',                         type: 'system'   },
       { time: '00:00', label: 'Večierka animátori',                         type: 'system'   }
@@ -62,7 +62,7 @@ export const days = [
       { time: '19:00', label: 'Voľno',                  type: 'system'   },
       { time: '19:30', label: 'Stretko',                type: 'activity' },
       { time: '20:00', label: 'Tumnus zmizol',          type: 'activity', activityRef: 'uto-tumnus'      },
-      { time: '21:30', label: 'Modlitba v skupinkách',  type: 'system'   },
+      { time: '21:30', label: 'Večerná modlitba – ĎOPka v skupinkách',  type: 'system',   prayerRef: 'pr-vecerna-uto' },
       { time: '22:30', label: 'Animátorská porada',     type: 'system'   },
       { time: '23:00', label: 'Večierka deti',          type: 'system'   },
       { time: '00:00', label: 'Večierka animátori',     type: 'system'   }
@@ -86,7 +86,7 @@ export const days = [
       { time: '18:00', label: 'Večera',                type: 'jedlo'    },
       { time: '19:00', label: 'Voľno',                 type: 'system'   },
       { time: '20:00', label: 'Hľadanie Edmunda',      type: 'activity', activityRef: 'str-hladanie' },
-      { time: '22:00', label: 'Modlitba v skupinkách', type: 'system'   },
+      { time: '22:00', label: 'Večerná modlitba – spoločná',  type: 'system'   },
       { time: '22:30', label: 'Animátorská porada',    type: 'system'   },
       { time: '23:00', label: 'Večierka deti',         type: 'system'   },
       { time: '00:00', label: 'Večierka animátori',    type: 'system'   }
@@ -112,7 +112,7 @@ export const days = [
       { time: '19:00', label: 'Voľno',                           type: 'system'   },
       { time: '19:30', label: 'Stretko',                         type: 'activity' },
       { time: '20:00', label: 'Obeta za Narniu – Vol 1',         type: 'activity', activityRef: 'stv-obeta'   },
-      { time: '21:15', label: 'Modlitba v skupinkách',           type: 'system'   },
+      { time: '21:15', label: 'Večerná modlitba – spoločná',      type: 'system',   note: 'Rozdelí sa na mladších a starších' },
       { time: '21:45', label: 'Obeta za Narniu – Vol 2',         type: 'activity', activityRef: 'stv-obeta'   },
       { time: '21:45', label: 'Skúška odvahy',                   type: 'activity', activityRef: 'stv-skuska', note: 'Nočná' },
       { time: '23:30', label: 'Animátorská porada',              type: 'system'   },
@@ -139,7 +139,8 @@ export const days = [
       { time: '18:00', label: 'Večera',                type: 'jedlo'    },
       { time: '19:00', label: 'Voľno',                 type: 'system'   },
       { time: '20:00', label: 'Bál (+ vyhodnotenie)',          type: 'activity', activityRef: 'pia-bal' },
-      { time: '22:30', label: 'Fotky + modlitby',            type: 'system'   },
+      { time: '21:30', label: 'Fotky + večerná modlitba – spoločná', type: 'system',   note: 'So Santom Clausom' },
+      { time: '22:00', label: 'Voľná zábava',                type: 'system'   },
       { time: '23:00', label: 'Animátorská porada',          type: 'system'   },
       { time: '23:30', label: 'Večierka deti',               type: 'system'   },
       { time: '00:00', label: 'Večierka animátori',          type: 'system'   }
