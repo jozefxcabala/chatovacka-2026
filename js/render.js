@@ -161,6 +161,8 @@ export function buildUvod(campData, navItems) {
       html += '<div class="uvod-sched-body">';
       if (act) {
         html += '<button class="uvod-sched-label uvod-sched-label--link" data-act="' + escapeHtml(item.activityRef) + '">' + escapeHtml(item.label) + '</button>';
+      } else if (item.prayerRef) {
+        html += '<button class="uvod-sched-label uvod-sched-label--link" data-prayer="' + escapeHtml(item.prayerRef) + '">' + escapeHtml(item.label) + '</button>';
       } else {
         html += '<span class="uvod-sched-label">' + escapeHtml(item.label) + '</span>';
       }
@@ -212,6 +214,7 @@ function renderDayScheduleHtml(day, activities) {
   html += '<div class="day-timeline">';
   day.schedule.forEach(item => {
     const hasActivity = !!(item.activityRef && getActivity(activities, item.activityRef));
+    const hasPrayer   = !!(item.prayerRef);
     html += '<div class="timeline-item timeline-item--' + item.type + '">';
     html += '<div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div>';
     html += '<div class="timeline-body">';
@@ -219,6 +222,8 @@ function renderDayScheduleHtml(day, activities) {
     if (hasActivity) {
       html += '<button class="timeline-label timeline-label--link" data-day-act="' + escapeHtml(item.activityRef) + '">' + escapeHtml(item.label) + '</button>';
       html += '<a href="#print-act-' + escapeHtml(item.activityRef) + '" class="timeline-label print-link">' + escapeHtml(item.label) + '</a>';
+    } else if (hasPrayer) {
+      html += '<button class="timeline-label timeline-label--link" data-prayer="' + escapeHtml(item.prayerRef) + '">' + escapeHtml(item.label) + '</button>';
     } else {
       html += '<span class="timeline-label">' + escapeHtml(item.label) + '</span>';
     }

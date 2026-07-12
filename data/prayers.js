@@ -54,7 +54,19 @@ PS: Inak viete, že celá Narnia vyrástla z jedného malého semienka?!`
     title: 'Ranná modlitba — Edmund',
     character: 'Edmund',
     quote: 'Nie všetko, čo sa zdá na prvý pohľad dobré, aj dobré je.',
-    text: `Podobenstvo o — (doplní sa)`
+    text: `Animátor si pripraví niekoľko podobných kariet a jednu rozdielnu (ktorá vyzerá zo zadu úplne rovnako ako ostatné). Všetky karty otočí lícom nadol a rozloží. Každé dieťa si potom potiahne jednu z kariet a vráti ju naspäť.
+
+Podobenstvo o pšenici a burine:
+Predniesol im aj iné podobenstvo: „Nebeské kráľovstvo sa podobá človekovi, ktorý zasial na svojej roli dobré semeno. Ale kým ľudia spali, prišiel jeho nepriateľ, prisial medzi pšenicu kúkoľ a odišiel. Keď vyrástlo steblo a vyháňalo do klasu, ukázal sa aj kúkoľ. K hospodárovi prišli sluhovia a povedali mu: ‚Pane, nezasial si na svojej roli dobré semeno? Kde sa teda vzal kúkoľ?' On im vravel: ‚To urobil nepriateľ.' Sluhovia mu povedali: ‚Chceš, aby sme šli a vyzbierali ho?' On odpovedal: ‚Nie, lebo pri zbieraní kúkoľa by ste mohli vytrhnúť aj pšenicu. Nechajte oboje rásť až do žatvy. V čase žatvy poviem žencom: Pozbierajte najprv kúkoľ a poviažte ho do snopov na spálenie, ale pšenicu zhromaždite do mojej stodoly.'"
+
+★ Ježiš hovorí v podobenstvách — sú do istej miery pochopiteľné, no zároveň ukrývajú niečo na prvé počutie nepostrehnuteľné
+★ Hospodár predstavuje Otca, ktorý na svet zasieva iba to, čo je dobré
+★ Dobré semeno symbolizuje Božie deti — ľudí, ktorí nasledujú pravdu a konajú dobro
+★ Nepriateľ predstavuje diabla (zlého), ktorý zámerne seje zlo
+★ Burina (kúkoľ) sú zlí ľudia, hriech a všetko to, čo rozdeľuje a ničí
+★ Pole predstavuje svet
+★ Kým kúkoľ (burina) rastie, je takmer na nerozoznanie od skutočnej pšenice — až keď začne prinášať úrodu, ukáže sa pravda
+★ Diabol (nepriateľ) málokedy ponúka zlo tak, aby hneď vyzeralo zle — ponúka ho ako niečo príjemné, lákavé, ako falošné dobro`
   },
 
   {

@@ -455,6 +455,23 @@ function initDelegation() {
       return;
     }
 
+    // Klik na [data-prayer] → navigácia na modlitby + otvorenie accordionu
+    const prayerBtn = e.target.closest('[data-prayer]');
+    if (prayerBtn) {
+      const prayerId = prayerBtn.getAttribute('data-prayer');
+      navigateTo('modlitby');
+      const modlitbySection = document.getElementById('section-modlitby');
+      if (modlitbySection) {
+        const item = modlitbySection.querySelector('[data-accordion-id="' + prayerId + '"]');
+        if (item) {
+          const accordion = item.closest('.day-accordion');
+          if (accordion) openAccordionItem(accordion, item, modlitbySection);
+          item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+      return;
+    }
+
     // Toggle karty ↔ tabuľka
     const viewToggleBtn = e.target.closest('[data-view-toggle]');
     if (viewToggleBtn) {
