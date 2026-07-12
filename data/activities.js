@@ -388,24 +388,22 @@ Každá skupinka si vytiahne žáner svojej scénky a tému. Potom budú mať po
     type: 'activity',
     time: '21:30',
     endTime: null,
-    location: 'Areál, Lúka',
-    detail: 'Mladší riešia hádanky a záchranné misie v areáli; starší sa v skupinkách prebíjajú k skrini na lúke za prítomnosti vlkov.',
+    location: 'Areál (5–7 r.), Lúka (8–9 r.)',
+    detail: 'Mladší riešia hádanky v areáli a hľadajú svoju lampu; starší sa prebíjajú k skrini na lúke. Obom skupinám hrozia vlci s výzvami a zaväzovaním.',
     description: `
 ## 5 – 7 roční
 
-Budú v areáli, kde podľa hádaniek budú zisťovať ďalšie miesta kam majú ísť, na konci sa každá skupinka bude musieť dostať k svojej lampe a rozsvietiť ju, potom k ním príde pán Tumnus a ukáže im, kde je skriňa
+4 vlci, jeden z animátorov pri skupinke, v areáli.
 
-Počas presunov medzi miestami ich môžu chytať vlci ktorí im zadajú úlohy, ktoré keď do časového limitu nesplnia, jedného zo skupinky si odvlečú (podľa výberu animátora) a páskou mu obviažu nohy alebo ruky alebo oči alebo ústa (podľa výberu animátora)
+Každá skupinka na začiatku dostane hádanku, pomocou nej sa dostanú k ďalšej a ďalšej atď. Pri poslednej (animátor bude vedieť) dostanú hádanku, ktorá vedie k lampe (každá skupinka má svoju lampu). Rozsvietia ju, a potom príde pán Tumnus ukázať im, kde je skriňa. Počas toho ich budú chytať vlci, ktorí im budú dávať výzvy, ak to nesplnia, vlk jednému (podľa výberu vlka) zaviaže šatkou ústa, oči, ruky alebo nohy a skupinka ide ďalej aj so zaviazaným členom. (na miestach s hádankami ich chytiť nemôžu)
 
-Skupinka musí prísť na miesto s lekárničkami, zobrať ju a prísť po vlkom zobratého člena tímu, ktorí už ostane tak obviazaný do konca hry až kým celá skupinka neprejde skriňou
+## 8 – 9 roční
 
-## 8 a 9 roční
+x vlkov, 2 animátory pri lekárničkách, na lúke.
 
-Budú na lúke, rozmiestnia sa do štyroch rohov a v strede lúky bude skriňa a okolo nej lampáše tak aby všetci na ňu v diaľke videli
+Skupinky budú na začiatku umiestnené na krajoch lúky, animátory s lekárničkami na kraji lúky v strede, obaja na opačnej strane.
 
-Musia sa ako celá skupinka dostať k skrini
-
-Budú ich chytať vlci a princíp bude tak ako pri 5-7 s tým, že nikam ho nevlečú ale zobraný člen ostane ležať na tom mieste a lekárničky budú mať každá skupinka na svojom štarte, takže sa po ne budú musieť za každým vraciať, obviazaný člen ostane obviazaný až do konca hry
+Skupinky sa musia dostať na stred lúky kde bude umiestnená skriňa. Chytať ich budú vlci, ktorí ak niekoho chytia, dajú im výzvu, ktorú ak nesplnia, vlk jednému (podľa výberu vlka) zaviaže oči, ústa, ruky alebo nohy, skupinky musia ísť na miesta s lekárničkami, jednu si zobrať a ísť uzdraviť toho chyteného, ktorý musí čakať tam, kde ho vlk chytil. Keď ho uzdravia tak môžu pokračovať ďalej, ale ten jeden už ostáva zaviazaný.
 
 ## Mokrý program
 
@@ -418,13 +416,13 @@ Escape room na chatkách
       { name: 'Patrik Bača' }, { name: 'Boris Surničin' }, { name: 'Ján Katkovčin' },
       { name: 'Dávid Krivjanský' }, { name: 'Dani Zuurbier' }, { name: 'Peter Greňo' }
     ],
-    animatorsNote: 'Cca 10 vlkov + pán Tumnus',
+    animatorsNote: '4 vlci (5–7 r.) + vlci na lúke (8–9 r.) + animátori pri skupinkách (5–7 r.) + 2 animátori s lekárničkami (8–9 r.) + pán Tumnus',
     materials: [
       'Skrine',
-      'Lampáše',
-      'Papieriky (ako lekárničky)',
-      'Hádanky',
-      'Lepiace pásky'
+      'Lampáše (každá skupinka svoju)',
+      'Hádanky (séria na skupinku)',
+      'Šatky na zaväzovanie',
+      'Lekárničky (papieriky pre 8–9 r.)'
     ],
     hasScoring: false,
     scoring: null,
@@ -678,7 +676,8 @@ _Pozor: na začiatku nebude taká tma – treba veci poschovávať viac, neskôr
 
 **4. Stopy**
 Jeden z tímu si vytiahne meno zvieraťa a zahrá ho pantomímou. Zvyšok tímu musí uhádnuť zviera a priradiť stopu.
-Zvieratá: slon, vlk, jeleň, srna, ježko, kamzík, kurka, kačka, diviak, medveď, vydra, had, zajac, jaščurka, potkan, líška, kôň, krava, ťava, pavian, pavúk, hroch, lama, lev, korytnačka, krokodíl
+Zvieratá (28 lístkov):
+1 – slon, 2 – vlk, 3 – jeleň, 4 – srna, 5 – ježko, 6 – kamzík, 7 – kurka, 8 – kačka, 9 – diviak, 10 – medveď, 11 – vydra, 12 – had, 13 – zajac, 14 – jaščurka, 15 – žaba, 16 – potkan, 17 – líška, 18 – kôň, 19 – krava, 20 – ťava, 21 – pavian, 22 – pavúk, 23 – hroch, 24 – lama, 25 – lev, 26 – morská korytnačka, 27 – suchozemská korytnačka, 28 – krokodíl
 
 **5. Ľadové kryhy**
 Dostať sa z bodu A do bodu B pomocou krýh (papier A4). Môžu stáť len na kryhách, krýh dostanú o jednu menej ako je členov skupinky.
