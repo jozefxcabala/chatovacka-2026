@@ -9,7 +9,13 @@ export function getFilteredActivities(activities, { q, dayF, timeF, typeF, animF
     if (dayF  && act.dayRef    !== dayF)  return false;
     if (timeF && act.timeOfDay !== timeF) return false;
     if (typeF && act.type      !== typeF) return false;
-    if (animF && animF.length && !act.animators.some(a => animF.includes(a.name))) return false;
+    if (animF && animF.length) {
+      const vp = act.vedúciProgramu || '';
+      const vd = act.vedúciDna || '';
+      const inAnimators = act.animators.some(a => animF.includes(a.name));
+      const inVedúci    = animF.some(n => vp.includes(n) || vd.includes(n));
+      if (!inAnimators && !inVedúci) return false;
+    }
     if (q) {
       const haystack = [
         act.name,

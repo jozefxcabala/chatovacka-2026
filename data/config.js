@@ -5,7 +5,7 @@
 
 export const campMeta = {
   year:      2026,
-  version:   'v2.0',
+  version:   'v2.1',
   campName:  'Narnia 2026',
   theme:     'Lev, čarodejnica a šatník',
   motto:     'Narnia je v každom z nás a okolo nás.\nVnútorné prežívanie boja dobra so zlom, prežívanie vzťahu s Aslanom.',
