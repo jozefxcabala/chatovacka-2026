@@ -85,7 +85,7 @@ function navigateTo(sectionId, actParam, instant = false) {
 
 function scrollToSection(sectionId, instant = false) {
   const target = document.getElementById('section-' + sectionId);
-  const body   = document.getElementById('appBody');
+  const body   = document.getElementById('appMain');
   if (!target || !body) return;
   const top = target.getBoundingClientRect().top - body.getBoundingClientRect().top + body.scrollTop;
   body.scrollTo({ top, behavior: instant ? 'instant' : 'smooth' });
@@ -350,7 +350,7 @@ function resetDayAccordion(sectionEl) {
 // ─── SCROLL OBSERVER (sidebar / topbar sleduje scroll) ───────────────────────
 
 function initSectionObserver() {
-  const body = document.getElementById('appBody');
+  const body = document.getElementById('appMain');
   if (!body) return;
 
   let saveTimer = null;
@@ -599,6 +599,7 @@ function initPrintBrozurka() {
       document.body,
       document.querySelector('.app-layout'),
       document.getElementById('appBody'),
+      document.getElementById('appMain'),
     ].filter(Boolean);
     targets.forEach(el => {
       el.dataset.printOverflow = el.style.overflow || '';
@@ -651,6 +652,7 @@ function initPrintBrozurka() {
       document.body,
       document.querySelector('.app-layout'),
       document.getElementById('appBody'),
+      document.getElementById('appMain'),
     ].filter(Boolean).forEach(el => {
       el.style.overflow = el.dataset.printOverflow || '';
       el.style.height   = el.dataset.printHeight   || '';
