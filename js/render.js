@@ -1475,6 +1475,29 @@ export function buildPrilohy(campData) {
   html += '</div>';
   html += '</div>';
 
+  html += '<div class="day-accordion-item" data-accordion-id="priloha-heslo">';
+  html += '<button class="day-accordion-header" data-accordion-toggle="priloha-heslo" aria-expanded="false">';
+  html += '<div class="day-accordion-header-info">';
+  html += '<span class="day-accordion-name">Heslo</span>';
+  html += '<span class="day-accordion-meta">WiFi · zariadenia</span>';
+  html += '</div>';
+  html += '<span class="day-accordion-chevron">' + ICONS.chevronRight + '</span>';
+  html += '</button>';
+  html += '<div class="day-accordion-body">';
+  html += '<div class="day-accordion-preview">';
+  html += '<div class="priloha-duo">';
+  html += '<div class="priloha-duo-card">';
+  html += '<h3 class="priloha-summary-title">Heslo</h3>';
+  html += '<p style="margin:0.25rem 0 0.1rem;color:var(--color-text-muted,#888);font-size:0.85rem">Sieť</p>';
+  html += '<p style="font-size:1.25rem;font-weight:700;letter-spacing:0.05em;margin:0 0 0.75rem">Hatfa</p>';
+  html += '<p style="margin:0.25rem 0 0.1rem;color:var(--color-text-muted,#888);font-size:0.85rem">Heslo</p>';
+  html += '<p style="font-size:1.5rem;font-weight:700;letter-spacing:0.05em;margin:0">Hatfa2007</p>';
+  html += '</div>';
+  html += '</div>';
+  html += '</div>';
+  html += '</div>';
+  html += '</div>';
+
   html += '</div>';
   html += '</div>';
   return html;
