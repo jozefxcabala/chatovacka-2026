@@ -60,4 +60,5 @@ export const animators = [
   { name: 'Kika Ondisková',     shirtSize: 'M', category: 'mtz',        gender: 'F' },
   { name: 'Nika Nováková',      shirtSize: 'S', category: 'mtz',        gender: 'F' },
   { name: 'Peter Hanzal',       shirtSize: 'L', category: 'mtz',        gender: 'M' },
+  { name: 'Dani Zuurbier',      shirtSize: '?', category: 'mtz',        gender: 'M' },
 ];

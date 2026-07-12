@@ -271,7 +271,7 @@ Spoločne s profesorom a svojimi predmetmi pôjdu skupinky ku skrini, ktorá sa 
       { name: 'Paulínka Harajdová', role: 'Hádanky' },
       { name: 'Marína Holubová',    role: 'Hádanky' },
       { name: 'Kika Ondisková',     role: 'Hádanky' },
-      { name: 'Adam Paško',         role: 'Behač'   },
+      { name: 'Dani Zuurbier',      role: 'Behač'   },
       { name: 'Hana Procházková',              role: 'Behač'   },
       { name: 'Erika Ficíková',              role: 'Behač'   },
       { name: 'Dianka Salanciová',  role: 'Behač'   },
@@ -416,7 +416,7 @@ Escape room na chatkách
     animators: [
       { name: 'Nika Nováková' }, { name: 'Ján Falát' }, { name: 'Ema Taňkošová' }, { name: 'Maroš Barňák' },
       { name: 'Patrik Bača' }, { name: 'Boris Surničin' }, { name: 'Ján Katkovčin' },
-      { name: 'Dávid Krivjanský' }, { name: 'TODO doplniť' }, { name: 'Peter Greňo' }
+      { name: 'Dávid Krivjanský' }, { name: 'Dani Zuurbier' }, { name: 'Peter Greňo' }
     ],
     animatorsNote: 'Cca 10 vlkov + pán Tumnus',
     materials: [
