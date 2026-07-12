@@ -472,6 +472,23 @@ function initDelegation() {
       return;
     }
 
+    // Klik na [data-stretko] → navigácia na stretká + otvorenie accordionu
+    const stretkoBtn = e.target.closest('[data-stretko]');
+    if (stretkoBtn) {
+      const stretkoId = stretkoBtn.getAttribute('data-stretko');
+      navigateTo('stretka');
+      const stretkaSection = document.getElementById('section-stretka');
+      if (stretkaSection) {
+        const item = stretkaSection.querySelector('[data-accordion-id="' + stretkoId + '"]');
+        if (item) {
+          const accordion = item.closest('.day-accordion');
+          if (accordion) openAccordionItem(accordion, item, stretkaSection);
+          item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+      return;
+    }
+
     // Toggle karty ↔ tabuľka
     const viewToggleBtn = e.target.closest('[data-view-toggle]');
     if (viewToggleBtn) {
