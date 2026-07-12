@@ -165,6 +165,8 @@ export function buildUvod(campData, navItems) {
         html += '<button class="uvod-sched-label uvod-sched-label--link" data-prayer="' + escapeHtml(item.prayerRef) + '">' + escapeHtml(item.label) + '</button>';
       } else if (item.stretkoRef) {
         html += '<button class="uvod-sched-label uvod-sched-label--link" data-stretko="' + escapeHtml(item.stretkoRef) + '">' + escapeHtml(item.label) + '</button>';
+      } else if (item.sceneRef) {
+        html += '<button class="uvod-sched-label uvod-sched-label--link" data-scene="' + escapeHtml(item.sceneRef) + '">' + escapeHtml(item.label) + '</button>';
       } else {
         html += '<span class="uvod-sched-label">' + escapeHtml(item.label) + '</span>';
       }
@@ -229,6 +231,8 @@ function renderDayScheduleHtml(day, activities) {
       html += '<button class="timeline-label timeline-label--link" data-prayer="' + escapeHtml(item.prayerRef) + '">' + escapeHtml(item.label) + '</button>';
     } else if (hasStretko) {
       html += '<button class="timeline-label timeline-label--link" data-stretko="' + escapeHtml(item.stretkoRef) + '">' + escapeHtml(item.label) + '</button>';
+    } else if (item.sceneRef) {
+      html += '<button class="timeline-label timeline-label--link" data-day-scene="' + escapeHtml(item.sceneRef) + '">' + escapeHtml(item.label) + '</button>';
     } else {
       html += '<span class="timeline-label">' + escapeHtml(item.label) + '</span>';
     }

@@ -455,6 +455,23 @@ function initDelegation() {
       return;
     }
 
+    // Klik na [data-scene] (uvod) alebo [data-day-scene] (timeline) → navigácia na scénky + otvorenie accordionu
+    const sceneBtn = e.target.closest('[data-scene]') || e.target.closest('[data-day-scene]');
+    if (sceneBtn) {
+      const sceneId = sceneBtn.getAttribute('data-scene') || sceneBtn.getAttribute('data-day-scene');
+      navigateTo('scenky');
+      const scenkySection = document.getElementById('section-scenky');
+      if (scenkySection) {
+        const item = scenkySection.querySelector('[data-accordion-id="' + sceneId + '"]');
+        if (item) {
+          const accordion = item.closest('.day-accordion');
+          if (accordion) openAccordionItem(accordion, item, scenkySection);
+          item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+      return;
+    }
+
     // Klik na [data-prayer] → navigácia na modlitby + otvorenie accordionu
     const prayerBtn = e.target.closest('[data-prayer]');
     if (prayerBtn) {
