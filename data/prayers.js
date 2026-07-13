@@ -66,7 +66,17 @@ Predniesol im aj iné podobenstvo: „Nebeské kráľovstvo sa podobá človekov
 ★ Burina (kúkoľ) sú zlí ľudia, hriech a všetko to, čo rozdeľuje a ničí
 ★ Pole predstavuje svet
 ★ Kým kúkoľ (burina) rastie, je takmer na nerozoznanie od skutočnej pšenice — až keď začne prinášať úrodu, ukáže sa pravda
-★ Diabol (nepriateľ) málokedy ponúka zlo tak, aby hneď vyzeralo zle — ponúka ho ako niečo príjemné, lákavé, ako falošné dobro`
+★ Diabol (nepriateľ) málokedy ponúka zlo tak, aby hneď vyzeralo zle — ponúka ho ako niečo príjemné, lákavé, ako falošné dobro
+
+Praktická časť:
+★ Animátor otočí všetky karty lícom nahor, aby sme videli pravdu
+★ Všetky podobné karty predstavujú dobro — pšenicu, jedna rozdielna karta predstavuje zlo — kúkoľ
+★ Ťahanie karty predstavuje každodenné situácie, keď si vyberáme medzi dobrom a zlom
+★ Dobrých kariet je viac — každý deň máme veľa príležitostí vybrať si dobro
+★ Všetky karty zozadu vyzerajú rovnako — ani zlo nemusí hneď vyzerať ako zlo
+★ Falošné dobro: presne tak ako Edmund v Narnii. Keď stretol Bielu čarodejnicu, neponúkla mu niečo odporné. Ponúkla mu teplý nápoj, trón a hlavne — vynikajúci jantárový turecký med. Vyzeralo to lákavo a dobre, no bol to len háčik, ktorým si ho zotročila.
+★ Čo môže byť takým falošným dobrom pre našu skupinku počas dnešného dňa? Pomenujte aspoň 3 veci
+★ Zamyslite sa nad tým, ako môžete rozlíšiť, čo je pšenica a čo kúkoľ…`
   },
 
   {
