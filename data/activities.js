@@ -653,7 +653,7 @@ Po súboji má porazený 5-minútovú imunitu. Bojisko sa každú polhodinu zmen
     timeLabel: 'Večer',
     timeOfDay: 'evening',
     type: 'activity',
-    time: '20:00',
+    time: '19:45',
     endTime: '21:30',
     location: 'Areál tábora + lesík pri bráničke',
     detail: 'Skupinky zbierajú snehové vločky na 6 stanovištiach a vymenia ich za mapu – podľa nej pátraju po dôkazoch o únose Tumnusa Bielou Čarodejnicou.',

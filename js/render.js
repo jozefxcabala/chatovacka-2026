@@ -1502,6 +1502,33 @@ export function buildPrilohy(campData) {
   html += '</div>';
   html += '</div>';
 
+  const omseSluzby = [
+    { day: 'Utorok',   groups: 'jazvece + foresty' },
+    { day: 'Streda',   groups: 'orli + flóry' },
+    { day: 'Štvrtok',  groups: 'trpaslíci + nymfy' },
+    { day: 'Piatok',   groups: 'kentauri + dryády' },
+    { day: 'Sobota',   groups: 'kyklopi + najády' }
+  ];
+
+  html += '<div class="day-accordion-item" data-accordion-id="priloha-omse">';
+  html += '<button class="day-accordion-header" data-accordion-toggle="priloha-omse" aria-expanded="false">';
+  html += '<div class="day-accordion-header-info">';
+  html += '<span class="day-accordion-name">Služby na omše</span>';
+  html += '<span class="day-accordion-meta">utorok – sobota</span>';
+  html += '</div>';
+  html += '<span class="day-accordion-chevron">' + ICONS.chevronRight + '</span>';
+  html += '</button>';
+  html += '<div class="day-accordion-body" hidden>';
+  html += '<div class="day-accordion-preview">';
+  html += '<ul class="materials-plain-list">';
+  omseSluzby.forEach(o => {
+    html += '<li>' + escapeHtml(o.day) + ' – ' + escapeHtml(o.groups) + '</li>';
+  });
+  html += '</ul>';
+  html += '</div>';
+  html += '</div>';
+  html += '</div>';
+
   html += '</div>';
   html += '</div>';
   return html;

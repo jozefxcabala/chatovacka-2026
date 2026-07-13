@@ -11,7 +11,7 @@ export const stretka = [
   {
     id: 'str-pondelok',
     dayRef: 'pondelok',
-    title: 'Ranné stretko',
+    title: 'Stretko',
     text: `## RODINA, Z KTOREJ POCHÁDZAM
 **(video: 24:30 a ďalej)**
 
@@ -92,13 +92,7 @@ Pochytať sa okolo pliec/pásu/za ruky a spoločne sa pomodliť za svoje rodiny.
   {
     id: 'str-utorok',
     dayRef: 'utorok',
-    title: 'Ranné stretko',
-    text: `Text doplníš neskôr.`
-  },
-  {
-    id: 'str-stvrtok',
-    dayRef: 'stvrtok',
-    title: 'Ranné stretko',
+    title: 'Stretko',
     text: `## MOJE SILNÉ / SLABÉ STRÁNKY ALEBO DARY A VÝZVY
 **(video: __:__)**
 
@@ -165,9 +159,15 @@ _AKO/KEDY sa to stane silnou stránkou:_
 _No silnou stránkou to vie byť vtedy, keď sa prihovorím, pripojím k inému nesmelému kamarátovi, lebo chápem ako sa cíti alebo si skúsim s niekým nacvičiť to, čoho sa bojím, predspievať si pieseň, prejsť si na mape trasu, ktorou pôjdem, opýtať sa niekoho skúseného na radu, teda urobiť niečo, čo má uistí a dá mi pokoj v mojej opatrnosti alebo strachu.]_`
   },
   {
+    id: 'str-stvrtok',
+    dayRef: 'stvrtok',
+    title: 'Stretko',
+    text: `Text doplníš neskôr.`
+  },
+  {
     id: 'str-piatok',
     dayRef: 'piatok',
-    title: 'Ranné stretko',
+    title: 'Stretko',
     text: `Text doplníš neskôr.`
   },
 ];

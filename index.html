@@ -42,7 +42,7 @@
   var PWD = 'Aslan26';
   var el = document.getElementById('lockscreen');
 
-  if (sessionStorage.getItem(KEY) === '1') {
+  if (localStorage.getItem(KEY) === '1') {
     el.style.display = 'none';
     return;
   }
@@ -68,7 +68,7 @@
   function unlock() {
     var val = document.getElementById('lockscreenInput').value;
     if (val === PWD) {
-      sessionStorage.setItem(KEY, '1');
+      localStorage.setItem(KEY, '1');
       el.classList.add('fade-out');
       setTimeout(function () { el.style.display = 'none'; }, 500);
     } else {
