@@ -62,7 +62,7 @@ export const days = [
       { time: '08:30', label: 'Modlitby',              type: 'system',   prayerRef: 'pr-ranna-uto' },
       { time: '09:00', label: 'Scénka – Edmund vchádza do Narnie',       type: 'scenka',   sceneRef: 'sc-uto-2'          },
       { time: '09:00', label: 'Program s Kráľovnou',   type: 'activity', activityRef: 'uto-kralovnou'   },
-      { time: '12:00', label: 'Scénka – Edmund vs. Lucy',                type: 'scenka',   sceneRef: 'sc-uto-3'          },
+      { time: '12:15', label: 'Scénka – Edmund vs. Lucy',                type: 'scenka',   sceneRef: 'sc-uto-3'          },
       { time: '12:30', label: 'Obed',                  type: 'jedlo'    },
       { time: '14:30', label: 'Lucy vs Edmund',         type: 'activity', activityRef: 'uto-lucy-edmund' },
       { time: '17:00', label: 'Omša',                  type: 'system'   },
