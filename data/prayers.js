@@ -85,7 +85,29 @@ Praktická časť:
     title: 'Ranná modlitba — Peter',
     character: 'Peter',
     quote: 'Obklopení dobrom môžeme bojovať proti zlu.',
-    text: `Podobenstvo o — (doplní sa)`
+    text: `Už pri večernej modlitbe môžete povedať deťom, nech si každé prinesie na rannú modlitbu jednu vec, ktorú by nechcelo stratiť, resp. by sa mu jej ťažko vzdávalo.
+
+Na začiatku modlitby môže každý jednou vetou povedať, prečo si doniesol práve túto vec a prečo by sa jej nechcel vzdať.
+
+Podobenstvo o stratenej ovci:
+Preto im povedal toto podobenstvo: „Ak má niekto z vás sto oviec a jednu z nich stratí, nenechá tých deväťdesiatdeväť na púšti a nepôjde za tou, čo sa stratila, kým ju nenájde? A keď ju nájde, vezme ju s radosťou na plecia, a len čo príde domov, zvolá priateľov a susedov a povie im: „Radujte sa so mnou, lebo som našiel ovcu, čo sa mi stratila." Hovorím vám: Tak bude aj v nebi väčšia radosť nad jedným hriešnikom, ktorý robí pokánie, ako nad deväťdesiatimi deviatimi spravodlivými, ktorí pokánie nepotrebujú.
+
+★ Ježiš hovorí v podobenstvách — sú do istej miery pochopiteľné, no zároveň ukrývajú niečo na prvé počutie nepostrehnuteľné
+★ Ježiš je dobrý pastier
+★ Ovca je zviera, ktoré potrebuje okolo seba ďalšie ovce, neustále sa držia pri sebe
+★ Ak sa jedna stratí, už sa nevráti naspäť, práve naopak, svojím bečaním ľahko priláka dravé zvieratá
+★ Preto musí krok podniknúť pastier, nechať ostatné ovce a ísť hľadať tú jednu
+★ Zvyšných 99 oviec drží spolu, sú obklopené dobrom pastiera
+★ V stratenej ovci sa ľahko nájdeme aj my, napríklad po hriechu, keď sa príliš ľutujeme alebo nevieme nájsť východisko
+★ Vtedy nás prichádza hľadať Otec, cez Ježiša, dáva nám pocítiť svoju lásku, prijatie
+
+Pastier hľadá ovcu, až kým ju nenájde — záleží mu na každom z nás osobitne
+Rovnako ako aj my sme hľadali jednu vec, Otec hľadá nás — miluje každého z nás osobitne a nechce o nikoho prísť
+Aj počas dnešného dňa budeme mať veľa príležitostí hľadať dobro
+Skúsme sa dnes nezamerať len na tú hlavnú skupinu (99 oviec), napr. našich najlepších kamarátov zo skupinky
+Nebojme sa nájsť tú ‚1 ovcu' aj v našom okolí, napr. porozprávať sa s niekým, s kým sa v skupinke až tak nebavím
+
+Pomodlite sa spoločne Ž23 — Pán je môj pastier`
   },
 
   {
