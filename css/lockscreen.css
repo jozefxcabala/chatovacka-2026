@@ -31,6 +31,7 @@
   margin-bottom: 1.5rem;
   filter: drop-shadow(0 4px 24px rgba(200, 149, 42, 0.4));
   animation: lockscreen-pulse 3s ease-in-out infinite;
+  cursor: pointer;
 }
 
 @keyframes lockscreen-pulse {

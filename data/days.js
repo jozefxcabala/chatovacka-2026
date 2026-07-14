@@ -102,9 +102,9 @@ export const days = [
       { time: '20:00', label: 'Scénka – Vlci v tábore',                  type: 'scenka',   sceneRef: 'sc-str-4'          },
       { time: '20:00', label: 'Hľadanie Edmunda',      type: 'activity', activityRef: 'str-hladanie' },
       { time: '21:00', label: 'Scénka – Peter premôže vlka',             type: 'scenka',   sceneRef: 'sc-str-5'          },
-      { time: '21:30', label: 'Scénka – Nájdenie Edmunda',               type: 'scenka',   sceneRef: 'sc-str-6'          },
-      { time: '22:00', label: 'Večerná modlitba – spoločná',  type: 'system'   },
-      { time: '22:30', label: 'Scénka – Edmund prosí o odpustenie',      type: 'scenka',   sceneRef: 'sc-str-7'          },
+      { time: '21:30', label: 'Scénka – Nájdenie Edmunda (pokračovanie hry)', type: 'scenka',   sceneRef: 'sc-str-6'          },
+      { time: '21:30', label: 'Večerná modlitba – spoločná + kronika',  type: 'system'   },
+      { time: '21:50', label: 'Scénka – Edmund prosí o odpustenie',      type: 'scenka',   sceneRef: 'sc-str-7'          },
       { time: '22:30', label: 'Animátorská porada',    type: 'system'   },
       { time: '23:00', label: 'Večierka deti',         type: 'system'   },
       { time: '00:00', label: 'Večierka animátori',    type: 'system'   }

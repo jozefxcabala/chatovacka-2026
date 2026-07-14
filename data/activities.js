@@ -778,11 +778,14 @@ Aktivity v tábore
       { name: 'Kika Ondisková', role: 'Líška'    },
       { name: 'Ľuboš SDB',         role: 'Mikuláš'  },
       { name: 'Boris Surničin', role: 'Maugrim'  },
-      { name: 'Pali SDB',        role: 'Bobor'    },
+      { name: 'Dani',           role: 'Bobor'    },
       { name: 'Števo SDB',      role: 'Kentaur'  },
-      { name: 'TODO doplniť',   role: 'Čarodejnica' }
+      { name: 'TODO doplniť',   role: 'Čarodejnica' },
+      { name: 'Pato Bača' },
+      { name: 'Nika Nováková' },
+      { name: 'Peto' }
     ],
-    animatorsNote: '8 animátorov na 6 stanovištiach',
+    animatorsNote: '9 animátorov na 6 stanovištiach',
     materials: [
       'Mikádo',
       'Jenga',
@@ -807,7 +810,7 @@ Aktivity v tábore
 
   {
     id: 'str-obnova',
-    name: 'Duchovná obnova – Dievčatá',
+    name: 'Duchovná obnova',
     dayRef: 'streda',
     timeLabel: 'Poobedie',
     timeOfDay: 'afternoon',
