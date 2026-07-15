@@ -116,7 +116,37 @@ Pomodlite sa spoločne Ž23 — Pán je môj pastier`
     title: 'Ranná modlitba — Susan',
     character: 'Susan',
     quote: 'Konfrontujme svoju vieru v dennodenných rozhodnutiach: Pre čo sa rozhodnem ja? Lucy sa už rozhodla.',
-    text: `Podobenstvo o — (doplní sa)`
+    text: `Aktivitka na úvod: This or That
+Deti si vyberajú čo by radšej… môžete pridať aj vlastné otázky napr. vtipné alebo tak.
+Deti sa môžu postaviť do zástupu čelom k animátorovi a ak si vyberú prvú možnosť, urobia krok doľava, a ak druhú, tak doprava. To sa opakuje pri každej otázke. Po každej otázke krátka diskusia prečo sa tak rozhodli.
+
+1. Chodiť všade iba cúvaním ALEBO musieť každých 5 krokov urobiť dramatický kotúľ?
+2. Plakať javorový sirup ALEBO sa potiť perlivú kolu?
+3. Edmund alebo Peter?
+4. Lucy alebo Suzan?
+5. Spať na chatke hore alebo dole?
+6. Hrať poobede volejbal alebo futbal?
+7. Ísť na raňajky prví alebo pustiť pred seba skupinku, ktorá išla stále posledná?
+8. Ísť do sprchy večer alebo ráno?
+9. Kúpiť si sladkosti v bufete alebo si ich priniesť z domu?
+10. Vstať na pesničky od animátorov alebo mať vlastný budík?
+
+Podobenstvo o dvoch staviteľoch — na skale a piesku:
+24 A tak každý, kto počúva tieto moje slová a uskutočňuje ich, podobá sa múdremu mužovi, ktorý si postavil dom na skale. 25 Spustil sa dážď, privalili sa vody, strhla sa víchrica a oborili sa na ten dom, ale dom sa nezrútil, lebo mal základy na skale.
+
+26 A každý, kto tieto moje slová počúva, ale ich neuskutočňuje, podobá sa hlúpemu mužovi, ktorý si postavil dom na piesku. 27 Spustil sa dážď, privalili sa vody, strhla sa víchrica, oborili sa na ten dom a dom sa zrútil; zostalo z neho veľké rumovisko.
+
+★ Muži, ktorí sa rozhodujú, kde postavia svoje domy, sú ako my — každý jeden z nás niekoľkokrát na deň robíme rozhodnutia, malé aj väčšie
+★ Môžeme sa rozhodnúť pre skalu, ktorá je pevná a stabilná, alebo pre piesok, ktorý zle drží a ľahko sa rozsype
+★ Základy domov budú také dobré ako naša voľba
+★ Dážď, víchrica predstavujú skúšky v živote, možno ťažké a nepríjemné situácie
+★ Na prvý pohľad by mohli oba postavené domy vyzerať pekne a v poriadku, no ich reálny stav sa ukáže až keď príde víchrica
+★ Ak sme postavili dom na dobrých základoch, na skale, prežije aj dážď či búrku
+★ Ak sme sa rozhodli stavať zle — na piesku — dom sa zrúti
+★ Rozhodujeme sa na základe viery a konáme podľa Ježiša alebo podľa hriechu?
+★ Vždy máme na výber — ani naše predošlé zlé rozhodnutia neznamenajú, že sa opäť nemôžeme rozhodnúť robiť dobro
+
+Skúsme sa počas dňa zastaviť, keď sa budeme mať rozhodnúť, a najprv sa zamyslime — chcem konať dobro alebo zlo? Vyberám si skalu alebo piesok?`
   },
 
   {
