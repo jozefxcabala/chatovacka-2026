@@ -1046,7 +1046,18 @@ Toto isté – vojaci musia byť tuff
     `,
     vedúciDna: 'Čaby',
     vedúciProgramu: 'Patrik Pekarovič, Dávid Bača',
-    animators: [],
+    animators: [
+      { name: 'Boris Surničin' },
+      { name: 'Dani Zuurbier' },
+      { name: 'Patrik Bača' },
+      { name: 'Peter Hanzal' },
+      { name: 'Nika Nováková' },
+      { name: 'Tomáš Blaha' },
+      { name: 'Kika Ondisková' },
+      { name: 'Sofia Dolobačová' },
+      { name: 'Kika Olajošová' },
+      { name: 'Peter Greňo' }
+    ],
     animatorsNote: '15+ animátorov',
     materials: [
       'Lano (Josky)',
