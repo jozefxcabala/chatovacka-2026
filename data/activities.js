@@ -1069,7 +1069,7 @@ Toto isté – vojaci musia byť tuff
 
   {
     id: 'stv-aslan',
-    name: 'Stretnutie Aslan & čarodejnica TODO',
+    name: 'Stretnutie Aslan & čarodejnica',
     dayRef: 'stvrtok',
     timeLabel: 'Poobedie',
     timeOfDay: 'afternoon',
@@ -1086,24 +1086,18 @@ Dve veľké hry, do ktorých je zapojený každý účastník. Chlapčenské a d
 Každá skupinka má svoj veľký domček v areáli (od jedálne po ihrisko), domčeky sú rozmiestnené po okruhu (nie pomedzi chatky). Každá skupinka dostane hraciu kocku, pri každej skupinke je animátor.
 
 **Priebeh:**
-Hráč hodí kockou a podľa čísla musí obehnúť príslušný počet okruhov. Po 30 sekundách hádže ďalší hráč z iného tímu – môže predchádzajúceho hráča chytiť. Ak je hráč chytený, vracia sa do domčeka na koniec radu.
+Hráči v každej skupinke hodia kockou a podľa čísla musia obehnúť príslušný počet okruhov. Ak je hráč chytený, vracia sa do domčeka na koniec radu a pokračuje ďalší hráč. Vyhráva tím, ktorému sa podarí ako prvému so všetkými hráčmi dôjsť do domčeka. Cieľom všetkých je to zvládnuť, lebo takto dokážu ako sú silný pred blížiacim sa bojom.
 
-**Čarodejnice (5 animátorov):** pohybujú sa po areáli a môžu zastaviť hráčov (v rade aj pri behu) a zadajú im úlohu/trest. Príklady úloh:
-- Urob 10 kľukov / 15 drepov / 20 panákov
-- Preskáč 15 metrov po jednej nohe
-- Urob 5 žabích skokov / kráčaj 20 m ako kačka
-- Otoč sa 10× okolo vlastnej osi a pokračuj
-- Zaspievaj krátky úryvok pesničky
-- Napodobňuj zviera 15 sekúnd
-- Povedz 5 rozprávkových postáv / 5 zvierat na určené písmeno
-- Povedz mená všetkých členov skupinky
-- Dotkni sa 5 rôznych stromov a vráť sa späť
-
-⚠️ Úlohy musia byť bezpečné, primerané veku a zábavné.
+**Pomocník čarodejnice (1 animátor):** v priebehu hry jednotlivým hráčom komplikujú hru. Príklady úloh:
+- Preskáč k najbližšiemu domčeku na hracej ploche na jednej nohe
+- kráčaj k najbližšiemu domčeku ako kačka
+- Otoč sa 5× okolo vlastnej osi a pokračuj
+- Musíš k najbližšiemu domčeku ísť cúvaním
+- k najbližšiemu domčeku nemôžeš behať, môžes ísť maximálne rýchlochôdzou
 
 **Cieľ:** všetci členovia skupinky úspešne dokončia počet okruhov, ktoré im určila kocka, a vrátia sa do domčeka.
 
-**Animátori:** 5 pri skupinkách + 5 čarodejníc + 1 hlavný = **11**
+**Animátori:** 5 pri skupinkách + 1 čarodejníc + 1 hlavný = **7**
 
 ## Hra 2: Loďky
 
@@ -1125,7 +1119,7 @@ Vyhráva tím s najviac bodmi a potopených loďami po prejdení všetkých stan
       { name: 'Barborka Kridlová',     role: 'Ločkár'            },
       { name: 'Pavlínka Katkovčinová', role: 'Ločkár'            }
     ],
-    animatorsNote: '11 animátorov (Človeče) + 5 animátorov (Loďky)',
+    animatorsNote: '7 animátorov (Človeče) + 5 animátorov (Loďky)',
     materials: [
       '5× veľká hracia kocka',
       '5× označenie domčeka (vlajka / tabuľka / kužeľ / šatka vo farbe tímu)',
