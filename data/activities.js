@@ -1393,7 +1393,7 @@ To isté – vojaci musia byť schopní pracovať aj po daždi, musia byť tuff
 
   {
     id: 'pia-boj',
-    name: 'Záverečný boj TODO',
+    name: 'Záverečný boj',
     dayRef: 'piatok',
     timeLabel: 'Poobedie',
     timeOfDay: 'afternoon',
