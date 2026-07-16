@@ -155,7 +155,49 @@ Skúsme sa počas dňa zastaviť, keď sa budeme mať rozhodnúť, a najprv sa z
     title: 'Ranná modlitba — Aslan',
     character: 'Aslan',
     quote: 'Máš odvahu zastať sa iných, si pripravený/á priniesť obetu?',
-    text: `Podobenstvo o — (doplní sa)`
+    text: `Modlitba začne spoločným prečítaním kroniky zo štvrtkového dňa.
+
+Po prečítaní kroniky nasleduje krátka aktivitka: **každé dieťa si na papierik napíše jednu vetu**:
+- čo preň znamená Aslanova obeta,
+- alebo akú obetu ono samo prinieslo pre niekoho druhého.
+
+Potom sa deti rozdelia do skupiniek. Spoločne si prečítajú podobenstvo o dobrom pastierovi a budú hľadať podobnosti medzi Ježišom – Dobrým pastierom – a Aslanom. Na záver napíšu krátky odkaz Ježišovi/Aslanovi na papierik a vložia ho do pripravenej krabičky.
+
+## Podobenstvo o dobrom pastierovi
+
+> Veru, veru, hovorím vám: Kto nevchádza do ovčinca bránou, ale prelieza inokade, je zlodej a zbojník. Kto vchádza bránou, je pastier oviec. Tomu vrátnik otvára a ovce počúvajú jeho hlas. On volá svoje ovce po mene a vyvádza ich. Keď ich všetky vyženie, kráča pred nimi a ovce idú za ním, lebo poznajú jeho hlas. Za cudzím nepôjdu, ba ujdú od neho, lebo cudzí hlas nepoznajú.
+
+> Ježiš im to povedal takto obrazne, ale oni nepochopili, čo im to chcel povedať. Preto im Ježiš znova vravel:
+
+> **„Ja som brána k ovciam... Ja som dobrý pastier. Dobrý pastier položí svoj život za ovce. Ja poznám svoje a moje poznajú mňa... Aj svoj život položím za ovce... Nik mi ho neberie, ja ho dávam sám od seba. Mám moc dať ho a mám moc zasa si ho vziať.“**
+
+_(Jn 10, 1 – 18)_
+
+## Čo nám chce Ježiš povedať?
+
+★ Ježiš používa obraz pastiera, ktorému na jeho ovciach skutočne záleží.
+★ Dobrý pastier nie je nájomník – nájomník uteká pri prvom nebezpečenstve, ale pastier zostáva.
+★ Dobrý pastier pozná svoje ovce po mene a ovce poznajú jeho hlas.
+★ Dobrý pastier dobrovoľne položí svoj život za svoje ovce.
+★ Presne tak sa aj Aslan slobodne rozhodol zomrieť namiesto Edmunda – z lásky, nie z donútenia.
+★ Smrť však nemala posledné slovo. Tak ako Ježiš vstal z mŕtvych, aj Aslan sa vracia späť k životu.
+★ Ježiš aj Aslan ukazujú, že skutočná láska je ochotná obetovať sa pre druhých.
+
+## Otázky do skupiniek
+
+### O podobenstve
+
+★ Čím sa dobrý pastier odlišuje od nájomníka?
+★ Prečo podľa vás Ježiš prirovnal ľudí práve k ovciam?
+★ Čo znamená, že ovce poznajú hlas svojho pastiera?
+★ Prečo pastier volá svoje ovce po mene? Čo nám to hovorí o Bohu?
+
+### Aslan a Ježiš
+
+★ Aké podobnosti vidíte medzi Aslanom a dobrým pastierom?
+★ Akú obetu priniesli obaja?
+★ Musel sa Aslan obetovať? Musel Ježiš zomrieť? Čo nám ich slobodné rozhodnutie hovorí o láske?
+`
   },
 
   {
