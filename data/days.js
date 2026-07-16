@@ -148,10 +148,9 @@ export const days = [
     thoughtAuthor: null,
     vedúciDna: 'Ajka',
     schedule: [
-      { time: '07:15', label: 'Modlitby animátorov',   type: 'system'   },
-      { time: '07:30', label: 'Budenie',               type: 'system'   },
-      { time: '07:45', label: 'Rozcvička',             type: 'system'   },
-      { time: '08:00', label: 'Raňajky',               type: 'jedlo'    },
+      { time: '07:45', label: 'Modlitby animátorov',   type: 'system'   },
+      { time: '08:00', label: 'Budenie',               type: 'system'   },
+      { time: '08:15', label: 'Raňajky',               type: 'jedlo'    },
       { time: '08:30', label: 'Modlitby',              type: 'system',   prayerRef: 'pr-ranna-pia' },
       { time: '09:00', label: 'Scénka – Pred bojom',                     type: 'scenka',   sceneRef: 'sc-pia-1'      },
       { time: '09:00', label: 'Príprava na vojnu',     type: 'activity', activityRef: 'pia-priprava' },
