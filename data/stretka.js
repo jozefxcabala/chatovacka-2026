@@ -162,7 +162,72 @@ _No silnou stránkou to vie byť vtedy, keď sa prihovorím, pripojím k inému 
     id: 'str-stvrtok',
     dayRef: 'stvrtok',
     title: 'Stretko',
-    text: `Text doplníš neskôr.`
+    text: `## MOJE ROZHODNUTIA
+**(video: __:__)**
+
+---
+
+## CIEĽ
+
+Objasniť, že za každým rozhodnutím stojí prvotná inšpirácia – od Ježiša alebo od zlého (Aslan vs. Čarodejnica). Moje rozhodnutia sú odpoveďou na tieto inšpirácie.
+
+---
+
+## UVEDENIE IBA PRE ANIMÁTORA
+
+Každým mojím rozhodnutím sa mi jedna cesta otvorí a iná uzavrie (napríklad: idem na chatovačku, potom nie som doma alebo inde a podobne).
+
+Vedieť sa rozhodnúť robí postupne z dieťaťa dospelú osobu. Vedieť sa rozhodnúť pre dobro robí z človeka svätca/sväticu.
+
+Naše rozhodnutia sú odpoveďou na vnútorné vnuknutia, ktoré voláme inšpirácia (ako je napríklad socha odpoveďou na inšpiráciu, ktorá prišla sochárovi a vytvoril svoje dielo).
+
+Narnia – podobne ako náš svet – nám denne dáva priestor na tieto rozhodnutia sa pre dobro. Je v nej Aslan, ktorý nás denne inšpiruje rozhodnúť sa pre dobro. Avšak je v nej aj Biela čarodejnica, ktorá – ako sme videli v prípade Edmunda – prináša svoje inšpirácie k zlému…
+
+_(Toto môžete cez stretko použiť na postupné vysvetlenie.)_
+
+---
+
+## AKTIVITA: 20 minút max
+### INKOGNITO
+
+4 porotcovia
+1 moderátor
+2 osobnosti
+
+(Osobnosti môžu byť zo sveta Narnie, animátori/ky na tábore alebo samotní účastníci stretka)
+
+### Priebeh aktivity
+
+Animátor/ka ide s 2 deckami za dvere a vyberú si 2 osobnosti.
+
+Za ten čas druhý animátor/ka vyberie 4 porotcov a vysvetlí im pravidlá. V skratke majú 7 otázok (čas tlačí), na ktoré sa dá odpovedať iba ÁNO/NIE, na to, aby zistili totožnosť osobnosti. Nie je nutné im zaviazať oči, ale pre srandu to môže pomôcť.
+
+Vstúpi prvá osobnosť a moderátor moderuje diskusiu. Diváci by mohli vedieť, o koho ide (je to potom celkom sranda, ale aj nemusia, ako chcete).
+
+Ak sa nepodarí porotcom do 7 otázok odhaliť totožnosť osobnosti, tak vyhráva osobnosť. Nasleduje druhá osobnosť a oni prehrávajú.
+
+V druhom kole môžete porotcov vymeniť.
+
+---
+
+## POKEC
+
+Pomenuj nejaké tvoje vedomé rozhodnutie, ktoré si dnes spravil (napríklad: výber trička, nejesť raňajky, modliť sa za niečo, ponúknuť sa do súťaže, pomôcť niekomu, robiť si svoje veci…).
+
+Čo si myslíš, teraz, keď sa na svoje rozhodnutie spätne pozeráš, koho inšpiráciu si pri tomto rozhodnutí uskutočnil – inšpiráciu od Ježiša alebo skôr inšpiráciu od zlého?
+(Napríklad: prepustil som miesto pri stole kamarátovi a teraz som rád, lebo som videl, že bol z toho happy a mne tiež chutilo dobré jedlo…)
+
+Vidíš nejaké prepojenie medzi porotcami v hre a nami v reálnom živote?
+
+Je pre teba ťažšie rozlíšiť dobrú od zlej inšpirácie, alebo skôr je pre teba ťažšie sa rozhodnúť pre dobrú inšpiráciu a zanechať zlú?
+
+---
+
+## ÚLOHA
+
+Postaviť sa do kruhu, pochytať sa za ruky/okolo pliec a pomodliť sa 10x zvolanie zo žalmu 119:
+
+_"Ježiš, tvoje slovo je svetlo pre moje nohy a pochodeň na mojich chodníkoch."_`
   },
   {
     id: 'str-piatok',
