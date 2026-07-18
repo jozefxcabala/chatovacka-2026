@@ -233,6 +233,64 @@ _"Ježiš, tvoje slovo je svetlo pre moje nohy a pochodeň na mojich chodníkoch
     id: 'str-piatok',
     dayRef: 'piatok',
     title: 'Stretko',
-    text: `Text doplníš neskôr.`
+    text: `## ODVAHA OBETOVAŤ SA... PRE SKUPINU
+
+---
+
+## CIEĽ
+
+Odvaha obetovať sa pre skupinu.
+
+---
+
+## UVEDENIE IBA PRE ANIMÁTORA
+
+V dobrom svete, kde sa vyskytuje aj zlo, je niekedy nutné obetovať niečo zo seba, aby sa mohlo dobro uskutočniť.
+Častokrát je to spojené s negatívnymi pocitmi ako:
+- nechce sa mi,
+- bude má to stáť veľa,
+- chcel som niečo iné,
+- vôbec má to neláka
+
+Uveriť tomu, že urobiť dobro stojí za to, že má k tomu volá Ježiš, chce niekedy odvahu alebo silu prekonať prekážky.
+
+Odvaha je darom Ducha Svätého, nie je to z nás, ale môže konať skrze nás!
+
+Niektorí ľudia — mnohí svätci boli pozvaní priniesť pre dobro obrovské obety, niekedy aj obetu vlastného života.
+Ako hovoril jeden z nich: _"Ak by som to mal zažiť druhý krát, tak to nedám. Ale teraz spätne neľutujem, že som si tým prešiel a verím, že to Boh využije na dobré."_
+
+_(Toto môžete cez stretko použiť na postupné vysvetlenie.)_
+
+---
+
+## AKTIVITA + POKEC
+
+### HAMBURGER
+
+Jeden človek si ľahne na matrac _(nie na posteľ, lebo ju zlomíte! 😭)_ a ďalší si poľahajú na neho. Nech to netrvá dlho a tí slabší nech radšej idú na vrch pyramídy.
+Môžete sa aj skúsiť vymeniť.
+
+**Nech ide v prvom kole na spodok animátor** — príkladom dodá odvahy deckám: odvážte sa obetovať... 😃
+
+Potom sa môžeme opýtať toho, čo bol na spodku:
+- Ako sa pri tom cítil?
+- Či by to urobil znova?
+- Kedy v živote má takéto pocity — že musel odporovať veľkému tlaku, ťažkostiam, ale predsa chcel priniesť takúto obetu: doma, v škole, medzi kamarátmi, na tábore?
+
+Skúste viesť diskusiu spoločne — aké situácie mi prídu v živote ako najťažšie na obetovanie sa:
+- **Doma?**
+- **V škole?**
+- **Medzi kamarátmi?**
+- **Na tábore?**
+
+_(Príklady: umývanie riadu, sústrediť sa, dlho počúvať, robiť čo mi povedia, učiť sa, či čokoľvek iné...)_
+
+---
+
+## ÚLOHA
+
+Odvážne sa obetovať dnešný posledný večer pre skupinu — darovať sa, nevytvárať si paralelný program, byť spolu, zapojiť sa do aktivít, neskrývať sa na chatke, aby tento večer patril nám.
+
+Ako symbol svojho rozhodnutia stráviť takto dnešný večer, príďte sa po stretku **podpísať do KRONIKY v hlavnej budove** 😉`
   },
 ];
