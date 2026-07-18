@@ -177,8 +177,8 @@ export const days = [
     thoughtAuthor: null,
     vedúciDna: null,
     schedule: [
-      { time: '07:15', label: 'Modlitby animátorov',               type: 'system'   },
-      { time: '07:30', label: 'Budíček',                           type: 'system'   },
+      { time: '07:30', label: 'Modlitby animátorov',               type: 'system'   },
+      { time: '07:45', label: 'Budíček',                           type: 'system'   },
       { time: '07:45', label: 'Rozcvička',                        type: 'system'   },
       { time: '08:00', label: 'Raňajky',                          type: 'jedlo'    },
       { time: '08:30', label: 'Modlitby',                         type: 'system',   prayerRef: 'pr-ranna-sob' },

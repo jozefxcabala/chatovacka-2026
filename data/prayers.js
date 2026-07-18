@@ -206,7 +206,33 @@ _(Jn 10, 1 – 18)_
     title: 'Ranná modlitba — Narnia a svet doma',
     character: 'Narnia a svet doma',
     quote: 'Veci sa nikdy nedejú rovnakým spôsobom dvakrát!',
-    text: `Podobenstvo o — (doplní sa)`
+    text: `Animátor dá v skupinke kolovať nejaký predmet a každý povie svoj highlight chatovačky alebo niečo, čo si z tohto tábora odnáša – to svoje ovocie.
+
+## Podobenstvo o neúrodnom figovníku
+
+> A povedal toto podobenstvo: „Ktosi mal vo vinici zasadený figovník a prišiel hľadať na ňom ovocie, ale nenašiel. Preto povedal vinohradníkovi: ‚Pozri, už tri roky chodím hľadať ovocie na tomto figovníku, a nič nenachádzam. Vytni ho! Načo ešte aj zem vyčerpáva?‘ On mu odvetil: ‚Pane, nechaj ho ešte tento rok. Okopem ho a pohnojím. Možno nabudúce prinesie ovocie. Ak nie, potom ho vytneš.‘“
+
+## Čo nám chce Ježiš povedať?
+
+★ Ježiš hovorí v podobenstvách – sú do istej miery pochopiteľné, no zároveň ukrývajú niečo na prvé počutie nepostrehnuteľné.
+★ Majiteľ vinice by strom hneď vyťal, no vinohradník (Ježiš) mu ešte dáva šancu.
+★ Každý deň máme nové príležitosti priniesť dobré ovocie.
+★ Ježiš od nás chce premenu – chce nás okopať a pohnojiť.
+★ Zároveň má s nami trpezlivosť, nechce od nás hneď dokonalosť.
+
+## Narnia a svet doma
+
+★ Aj nás na tomto tábore Ježiš „okopával a hnojil" – dal nám šancu premeniť sa cez modlitby, hry, animátorov, spoločenstvo, dej tábora…
+★ Tábor končí a vieme, že sa už nezopakuje – aj Aslan povedal: „Veci sa nikdy nedejú rovnakým spôsobom dvakrát.“
+★ Súrodenci v Narnii vyrástli a museli čeliť novým výzvam.
+★ Aj my sa teraz vraciame domov premenení, plní pekných zážitkov a momentov.
+★ Sme pozvaní preniesť si Narniu a všetko dobré, čo sme na tomto tábore zažili, aj do nášho každodenného života po návrate domov.
+★ Môže to nejaký čas trvať, no vieme, že Ježiš bude mať s nami trpezlivosť rovnako ako s neúrodným figovníkom.
+
+## Výzva
+
+Skúsme si premyslieť 1 konkrétnu vec, ktorú by sme po návrate domov chceli robiť inak (napr. viac pomáhať doma, nájsť si čas na pravidelnú modlitbu…).
+`
   },
 
   // ── VEČERNÉ MODLITBY ──────────────────────────────────────────────────────
